@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An interactive data story about food access in the United States.">
+  <title>Who gets to eat well?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="masthead">
+    <a class="wordmark" href="#top">FIELD NOTES <span>/ 01</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#story">The story</a>
+      <a href="#explore">Explore data</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="kicker">A data story about food access</p>
+        <h1 id="hero-title">Who gets<br><em>to eat well?</em></h1>
+        <p class="dek">A grocery store can be close on a map and still be out of reach. Explore how distance, income, and place shape the everyday trip to fresh food.</p>
+        <a class="scroll-cue" href="#story"><span>Scroll to explore</span><span aria-hidden="true">&#8595;</span></a>
+      </div>
+      <div class="hero-visual" aria-label="Abstract map-like graphic showing food access patterns" role="img">
+        <div class="map-grid"></div>
+        <div class="route route-one"></div>
+        <div class="route route-two"></div>
+        <div class="store store-one"><span></span></div>
+        <div class="store store-two"><span></span></div>
+        <div class="store store-three"><span></span></div>
+        <p class="map-label label-a">NORTH SIDE</p>
+        <p class="map-label label-b">7.4 MI</p>
+        <p class="map-label label-c">GROCERY</p>
+      </div>
+    </section>
+
+    <section class="story-section" id="story" aria-labelledby="story-title">
+      <div class="section-index">01 <span>Context</span></div>
+      <div class="story-grid">
+        <div>
+          <h2 id="story-title">Food access is<br><em>not evenly mapped.</em></h2>
+        </div>
+        <div class="story-text">
+          <p>Across the country, more than <strong>19 million people</strong> live in low-income areas far from a supermarket. The average distance is not just a number. It is time, transit, weather, and the weight of a week of groceries.</p>
+          <p>This project uses a sample of counties to make that unevenness visible. The chart below is designed as a starting point for your own investigation.</p>
+        </div>
+      </div>
+      <div class="stat-row" aria-label="Key statistics">
+        <div class="stat"><strong>19.4M</strong><span>people in low-access areas</span></div>
+        <div class="stat"><strong>6.2 mi</strong><span>average distance to a store</span></div>
+        <div class="stat"><strong>1 in 5</strong><span>households without a car</span></div>
+      </div>
+    </section>
+
+    <section class="explore-section" id="explore" aria-labelledby="explore-title">
+      <div class="section-index">02 <span>Compare</span></div>
+      <div class="explore-heading">
+        <div>
+          <p class="kicker">County snapshots</p>
+          <h2 id="explore-title">Distance changes<br><em>the whole picture.</em></h2>
+        </div>
+        <p class="explore-note">Select a county to see how its food access profile compares with the national sample.</p>
+      </div>
+      <div class="chart-shell">
+        <div class="chart-toolbar">
+          <label for="county-select">Show county</label>
+          <select id="county-select"></select>
+        </div>
+        <div class="chart-layout">
+          <div class="chart" id="chart" aria-live="polite"></div>
+          <aside class="chart-detail" id="chart-detail">
+            <p class="detail-label">Selected county</p>
+            <h3>Loading data...</h3>
+            <p class="detail-copy"></p>
+          </aside>
+        </div>
+        <p class="source-note">Source: sample county dataset for classroom exploration. Replace <code>data/food-access.csv</code> with your own source.</p>
+      </div>
+    </section>
+
+    <section class="about-section" id="about" aria-labelledby="about-title">
+      <div class="section-index">03 <span>Continue</span></div>
+      <div class="about-grid">
+        <h2 id="about-title">Make the map<br><em>answer a question.</em></h2>
+        <div>
+          <p>Good visualization starts with a specific question. Who is missing from the average? What changes when distance is measured by transit instead of miles? Which places become visible when you look at race, age, or income?</p>
+          <a class="text-link" href="https://github.com/" target="_blank" rel="noreferrer">View the project on GitHub <span aria-hidden="true">&#8599;</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>FIELD NOTES / DATA VISUALIZATION</span>
+    <span>BUILT FOR THE CLASSROOM</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
