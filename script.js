@@ -1,6 +1,6 @@
-const chartElement = document.querySelector('#chart');
-const countySelect = document.querySelector('#county-select');
-const detailElement = document.querySelector('#chart-detail');
+let chartElement;
+let countySelect;
+let detailElement;
 
 const fallbackData = [
   { county: 'Cook County, IL', distance: 3.1, lowAccess: 8.4, noCar: 21.2 },
@@ -47,13 +47,37 @@ function drawChart(data, selectedCounty) {
 }
 
 function setup(data) {
+  chartElement = document.querySelector('#chart');
+  countySelect = document.querySelector('#county-select');
+  detailElement = document.querySelector('#chart-detail');
   countySelect.innerHTML = data.map((item) => `<option value="${item.county}">${item.county}</option>`).join('');
   countySelect.addEventListener('change', () => drawChart(data, countySelect.value));
   drawChart(data, data[0].county);
 }
 
-fetch('data/food-access.csv')
+const sections = [
+  ['top', 'sections/01-hero.html'],
+  ['top', 'sections/02-story.html'],
+  ['top', 'sections/03-explore.html'],
+  ['top', 'sections/04-about.html'],
+  ['site-footer', 'sections/05-footer.html']
+];
+
+function loadSection([targetId, file]) {
+  return fetch(file)
+    .then((response) => response.ok ? response.text() : Promise.reject(new Error(`${file} unavailable`)))
+    .then((markup) => document.querySelector(`#${targetId}`).insertAdjacentHTML('beforeend', markup));
+}
+
+Promise.all(sections.map(loadSection))
+  .then(() => fetch('data/food-access.csv'))
   .then((response) => response.ok ? response.text() : Promise.reject(new Error('CSV unavailable')))
   .then(parseCsv)
   .then(setup)
-  .catch(() => setup(fallbackData));
+  .catch(() => {
+    if (!document.querySelector('#chart')) {
+      document.querySelector('#top').innerHTML = '<p class="load-error">The page sections could not be loaded. Use a local server such as VS Code Live Server to run this project.</p>';
+      return;
+    }
+    setup(fallbackData);
+  });
