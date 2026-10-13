@@ -24,5 +24,5 @@ The main page is split into five independently editable files:
 The shell and loading order live in `index.html` and `script.js`. Do not open `index.html` directly with a `file://` URL when testing, because browsers block the section and CSV fetches. Use VS Code Live Server or another local static server.
 
 ## Publish with GitHub Pages
-
+https://brandon-lp.github.io/food-access-vis/
 Create a repository named `food-access-vis`, push these files to the `main` branch, then open **Settings > Pages**. Choose **Deploy from a branch**, select `main` and `/ (root)`, and save.
