@@ -12,4 +12,83 @@
     <div class="stat"><strong>6.2 mi</strong><span>average distance to a store</span></div>
     <div class="stat"><strong>1 in 5</strong><span>households without a car</span></div>
   </div>
+  <div class="access-maps" aria-labelledby="access-maps-title">
+    <h3 id="access-maps-title">How food access changed</h3>
+    <p class="map-intro">Change between the first and last years in the 2025 Food Environment Atlas. Desert indicates declining access; grassland is little change; forest indicates improvement.</p>
+    <div class="map-grid">
+      <figure><figcaption>By state</figcaption><svg id="state-access-map" role="img" aria-label="United States map of food access change by state"></svg></figure>
+      <figure><figcaption>By county</figcaption><svg id="county-access-map" role="img" aria-label="United States map of food access change by county"></svg></figure>
+    </div>
+    <div class="access-legend"><span>decreased</span><i></i><span>no change</span><i></i><span>improved</span></div>
+  </div>
 </section>
+
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; background: #09291d; color: #e9f6dc; font-family: system-ui, sans-serif; }
+  .story-section { min-height: 100vh; padding: clamp(4rem, 9vw, 8rem) clamp(1.25rem, 5vw, 5rem); background: radial-gradient(circle at 15% 0%, #1d6040 0, #0d3b2a 38%, #09291d 100%); box-sizing: border-box; }
+  .story-grid { gap: clamp(2rem, 7vw, 8rem); align-items: start; }
+  .story-text { max-width: 42rem; line-height: 1.7; }
+  .stat-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: clamp(3rem, 8vw, 7rem); }
+  .stat { padding: 1.25rem; background: rgba(4, 29, 20, .38); border: 1px solid rgba(174,226,137,.25); border-radius: .75rem; }
+  .stat strong, .stat span { display: block; }
+  .stat span { margin-top: .35rem; color: #c6dab8; }
+  .access-maps { margin-top: clamp(3rem, 8vw, 7rem); }
+  .map-intro { max-width: 42rem; }
+  .map-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+  .map-grid figure { margin: 0; padding: 1rem; background: linear-gradient(145deg, #0d3b2a, #1d6040); border: 1px solid rgba(174,226,137,.3); border-radius: 1rem; box-shadow: 0 1rem 3rem rgba(7,45,29,.25); overflow: hidden; }
+  .map-grid figcaption { margin-bottom: .5rem; font-weight: 700; }
+  .map-grid svg { display: block; width: 100%; height: auto; background: radial-gradient(circle at 50% 35%, #2e7950, #10452f 72%); border-radius: .6rem; cursor: grab; }
+  .map-grid svg:active { cursor: grabbing; }
+  .map-grid path { transition: fill .25s ease, opacity .25s ease, filter .25s ease; }
+  .map-grid path:hover { opacity: 1; filter: brightness(1.3) drop-shadow(0 0 5px #d9f99d); }
+  .map-grid path.is-selected { filter: brightness(1.35) drop-shadow(0 0 7px #f5ffb0); }
+  .map-tip { position: fixed; z-index: 10; pointer-events: none; padding: .6rem .75rem; color: #f5ffe9; background: #09291d; border: 1px solid #a9d879; border-radius: .45rem; box-shadow: 0 .5rem 1.5rem #06201699; font: .78rem/1.35 system-ui, sans-serif; opacity: 0; transform: translateY(5px); transition: opacity .15s, transform .15s; }
+  .map-tip.visible { opacity: 1; transform: translateY(0); }
+  .access-legend { display: flex; align-items: center; justify-content: center; gap: .5rem; margin-top: 1rem; font-size: .75rem; }
+  .access-legend i { width: 6rem; height: .7rem; background: linear-gradient(90deg,#c78350,#d8c782,#6d9555,#214b35); }
+  @media (max-width: 700px) { .map-grid, .stat-row { grid-template-columns: 1fr; } }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
+<script>
+(() => {
+  const dataDir = '2025-food-environment-atlas-data/';
+  const files = ['county.csv','counties.csv','state.csv','states.csv','FoodEnvironmentAtlas.csv','food_environment_atlas.csv','data.csv'];
+  const clean = s => String(s || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+  const field = (r, names) => { const k = Object.keys(r).find(x => names.includes(clean(x))); return k ? r[k] : ''; };
+  const color = d3.scaleLinear().domain([-1, 0, 1]).range(['#b96b4b','#b9d477','#54b66d']).clamp(true);
+  const load = async () => { for (const file of files) { try { const response = await fetch(dataDir + file); if (response.ok) return d3.csvParse(await response.text()); } catch (e) {} } return []; };
+  const change = r => { const a = +(field(r,['start','firstyear','baseline','beginning','year1']) || field(r,['value_start'])); const b = +(field(r,['end','lastyear','final','ending','year2']) || field(r,['value_end'])); return isFinite(a) && isFinite(b) ? b - a : null; };
+  const tip = d3.select('body').append('div').attr('class','map-tip');
+  const draw = (id, features, rows, county) => {
+    const svg = d3.select('#' + id), width = svg.node().parentNode.clientWidth - 32, height = width * .62;
+    const projection = d3.geoAlbersUsa().fitSize([width, height], {type:'FeatureCollection', features}), path = d3.geoPath(projection), values = new Map();
+    rows.forEach(r => { const raw = field(r, county ? ['fips','geoid','countyfips','countycode'] : ['statefips','statecode','fips','state']); const v = change(r); if (raw && v !== null) values.set(String(raw).replace(/\.0$/, '').padStart(county ? 5 : 2), v); });
+    const key = d => String(d.id).replace(/\.0$/, '').padStart(county ? 5 : 2);
+    const name = d => d.properties?.name || d.properties?.NAME || (county ? `County ${d.id}` : `State ${d.id}`);
+    svg.attr('viewBox', `0 0 ${width} ${height}`).attr('preserveAspectRatio','xMidYMid meet');
+    svg.selectAll('path').data(features).join('path').attr('d', path).attr('fill', d => color(values.get(key(d)) ?? 0)).attr('stroke', '#c8efad').attr('stroke-width', county ? .18 : .8)
+      .on('pointerenter', function(event, d) { const v = values.get(key(d)); d3.select(this).classed('is-selected', true); tip.html(`<strong>${name(d)}</strong><br>${v == null ? 'No data available' : `Change: ${v > 0 ? '+' : ''}${v.toFixed(2)}`}`).classed('visible', true).style('left', `${event.clientX + 14}px`).style('top', `${event.clientY + 14}px`); })
+      .on('pointermove', event => tip.style('left', `${event.clientX + 14}px`).style('top', `${event.clientY + 14}px`))
+      .on('pointerleave', function() { d3.select(this).classed('is-selected', false); tip.classed('visible', false); })
+      .on('click', function() { d3.select(this).classed('is-selected', !d3.select(this).classed('is-selected')); });
+  };
+  // Render the geography independently of the optional local CSV files. This
+  // keeps the maps visible when this page is opened directly as file://.
+  fetch('https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json')
+    .then(response => { if (!response.ok) throw new Error('Map data unavailable'); return response.json(); })
+    .then(atlas => load().then(rows => {
+      const states = topojson.feature(atlas, atlas.objects.states).features;
+      const counties = topojson.feature(atlas, atlas.objects.counties).features;
+      draw('state-access-map', states, rows, false);
+      draw('county-access-map', counties, rows, true);
+    }))
+    .catch(error => {
+      document.querySelectorAll('.map-grid figure').forEach(figure => {
+        figure.insertAdjacentHTML('beforeend', '<p role="status">Maps could not load. Open this page through a local web server to enable map data.</p>');
+      });
+      console.warn(error);
+    });
+})();
+</script>
