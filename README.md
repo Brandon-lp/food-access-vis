@@ -12,16 +12,16 @@ The main page is split into five independently editable files:
 
 - `sections/01-hero.html`: opening screen and visual introduction
 - `sections/02-story.html`: context and key statistics
-- `sections/03-explore.html`: interactive chart screen
-- `sections/04-about.html`: closing argument and project link
+- `sections/03-explore.html`: interactive county comparison chart
+- `sections/04-about.html`: interactive U.S. food access map and project link
 - `sections/05-footer.html`: footer content
 
-1. Replace the sample values in `data/food-access.csv` with your source data.
-2. Keep the CSV columns as `county,distance,lowAccess,noCar`, or update the parser in `script.js`.
+1. The interactive county map reads `data/food_atlas_cleaned.csv`. Its bubble size uses the `Low Income & Low Access Population 2019` column; the selected-county detail also shows `Pct Low Income & Low Access Population 2019`.
+2. County boundaries are loaded from the US Atlas TopoJSON dataset, and the map uses D3 and TopoJSON Client from jsDelivr. A connection is needed to load those libraries and boundaries.
 3. Edit each screen in its own file under `sections/`; use `styles.css` for shared layout and styling.
 4. Replace the placeholder GitHub link in `sections/04-about.html` with your repository URL.
 
-The shell and loading order live in `index.html` and `script.js`. Do not open `index.html` directly with a `file://` URL when testing, because browsers block the section and CSV fetches. Use VS Code Live Server or another local static server.
+The page sections and comparison chart are loaded by `script.js`; the standalone county map is in `map.js`. Both initialize after the page sections have loaded. Do not open `index.html` directly with a `file://` URL when testing, because browsers block the section and CSV fetches. Use VS Code Live Server or another local static server.
 
 ## Publish with GitHub Pages
 https://brandon-lp.github.io/food-access-vis/

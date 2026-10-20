@@ -1,10 +1,30 @@
 <section class="about-section" id="about" aria-labelledby="about-title">
-  <div class="section-index">03 <span>Continue</span></div>
+  <div class="section-index">03 <span>Explore</span></div>
   <div class="about-grid">
-    <h2 id="about-title">Make the map<br><em>answer a question.</em></h2>
+    <h2 id="about-title">Where access<br><em>falls short.</em></h2>
     <div>
-      <p>Good visualization starts with a specific question. Who is missing from the average? What changes when distance is measured by transit instead of miles? Which places become visible when you look at race, age, or income?</p>
+      <p>Explore the food access landscape county by county. Larger circles represent more people living in low-income, low-access areas. Choose a state, then hover over or select a circle for county details. Drag to pan and scroll to zoom.</p>
       <a class="text-link" href="https://github.com/" target="_blank" rel="noreferrer">View the project on GitHub <span aria-hidden="true">&#8599;</span></a>
     </div>
+  </div>
+  <div class="map-shell">
+    <div class="map-toolbar">
+      <label for="state-filter">Focus on state</label>
+      <select id="state-filter">
+        <option value="all">All states</option>
+      </select>
+      <span class="map-status" id="map-status" role="status" aria-live="polite">Loading county data and map...</span>
+    </div>
+    <div class="map-layout">
+      <div class="map-frame" id="map-frame" aria-label="Interactive map of low-income, low-access populations by U.S. county"></div>
+      <aside class="map-detail" id="map-detail" aria-live="polite">
+        <p class="detail-label">County details</p>
+        <h3 id="county-name">Select a circle</h3>
+        <p class="map-impact" id="county-impact">County information will appear here.</p>
+        <p class="detail-copy" id="county-share"></p>
+        <div class="map-legend" id="map-legend" aria-label="Circle size legend"></div>
+      </aside>
+    </div>
+    <p class="source-note">Source: USDA Food Access Research Atlas, cleaned county-level data. Bubble size represents the estimated population in low-income, low-access areas (2019); percentages are the corresponding share of county residents. County outlines: US Atlas.</p>
   </div>
 </section>
