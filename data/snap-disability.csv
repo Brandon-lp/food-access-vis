@@ -1,0 +1,5 @@
+Year,Section,Segment,Characteristic,Population Group,Estimate Unit,Estimate,Estimate Margin of Error,Percent Estimate,Percent Margin of Error,Source Table
+2024,Disability Status,All Households,With one or more people with a disability,Households receiving SNAP,Households,"7,728,593","53,697",49.4%,0.3%,"ACS 1-Year Estimates, Table S2201"
+2024,Disability Status,All Households,With one or more people with a disability,Households not receiving SNAP,Households,"28,363,807","75,779",24.2%,0.1%,"ACS 1-Year Estimates, Table S2201"
+2024,Disability Status,All Households,With no persons with a disability,Households receiving SNAP,Households,"7,904,082","58,690",50.6%,0.3%,"ACS 1-Year Estimates, Table S2201"
+2024,Disability Status,All Households,With no persons with a disability,Households not receiving SNAP,Households,"88,740,664","188,279",75.8%,0.1%,"ACS 1-Year Estimates, Table S2201"

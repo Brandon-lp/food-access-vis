@@ -1,0 +1,1480 @@
+Year,State,State FIPS,Per Capita Personal Income,Dollar Basis,Unit
+1997,Alabama,01000,21487,Nominal dollars,U.S. dollars per person
+1997,Alaska,02000,28219,Nominal dollars,U.S. dollars per person
+1997,Arizona,04000,22757,Nominal dollars,U.S. dollars per person
+1997,Arkansas,05000,20176,Nominal dollars,U.S. dollars per person
+1997,California,06000,26979,Nominal dollars,U.S. dollars per person
+1997,Colorado,08000,27554,Nominal dollars,U.S. dollars per person
+1997,Connecticut,09000,35017,Nominal dollars,U.S. dollars per person
+1997,Delaware,10000,27022,Nominal dollars,U.S. dollars per person
+1997,District of Columbia,11000,35657,Nominal dollars,U.S. dollars per person
+1997,Florida,12000,25397,Nominal dollars,U.S. dollars per person
+1997,Georgia,13000,24356,Nominal dollars,U.S. dollars per person
+1997,Hawaii,15000,26192,Nominal dollars,U.S. dollars per person
+1997,Idaho,16000,21465,Nominal dollars,U.S. dollars per person
+1997,Illinois,17000,28360,Nominal dollars,U.S. dollars per person
+1997,Indiana,18000,24066,Nominal dollars,U.S. dollars per person
+1997,Iowa,19000,24180,Nominal dollars,U.S. dollars per person
+1997,Kansas,20000,24932,Nominal dollars,U.S. dollars per person
+1997,Kentucky,21000,21369,Nominal dollars,U.S. dollars per person
+1997,Louisiana,22000,21307,Nominal dollars,U.S. dollars per person
+1997,Maine,23000,23260,Nominal dollars,U.S. dollars per person
+1997,Maryland,24000,29363,Nominal dollars,U.S. dollars per person
+1997,Massachusetts,25000,31026,Nominal dollars,U.S. dollars per person
+1997,Michigan,26000,25800,Nominal dollars,U.S. dollars per person
+1997,Minnesota,27000,27067,Nominal dollars,U.S. dollars per person
+1997,Mississippi,28000,19219,Nominal dollars,U.S. dollars per person
+1997,Missouri,29000,24469,Nominal dollars,U.S. dollars per person
+1997,Montana,30000,20127,Nominal dollars,U.S. dollars per person
+1997,Nebraska,31000,24880,Nominal dollars,U.S. dollars per person
+1997,Nevada,32000,27464,Nominal dollars,U.S. dollars per person
+1997,New Hampshire,33000,27985,Nominal dollars,U.S. dollars per person
+1997,New Jersey,34000,32705,Nominal dollars,U.S. dollars per person
+1997,New Mexico,35000,20509,Nominal dollars,U.S. dollars per person
+1997,New York,36000,30398,Nominal dollars,U.S. dollars per person
+1997,North Carolina,37000,24189,Nominal dollars,U.S. dollars per person
+1997,North Dakota,38000,21194,Nominal dollars,U.S. dollars per person
+1997,Ohio,39000,25024,Nominal dollars,U.S. dollars per person
+1997,Oklahoma,40000,21071,Nominal dollars,U.S. dollars per person
+1997,Oregon,41000,24900,Nominal dollars,U.S. dollars per person
+1997,Pennsylvania,42000,25935,Nominal dollars,U.S. dollars per person
+1997,Rhode Island,44000,25898,Nominal dollars,U.S. dollars per person
+1997,South Carolina,45000,21685,Nominal dollars,U.S. dollars per person
+1997,South Dakota,46000,22571,Nominal dollars,U.S. dollars per person
+1997,Tennessee,47000,23237,Nominal dollars,U.S. dollars per person
+1997,Texas,48000,23924,Nominal dollars,U.S. dollars per person
+1997,Utah,49000,21229,Nominal dollars,U.S. dollars per person
+1997,Vermont,50000,24042,Nominal dollars,U.S. dollars per person
+1997,Virginia,51000,27328,Nominal dollars,U.S. dollars per person
+1997,Washington,53000,27245,Nominal dollars,U.S. dollars per person
+1997,West Virginia,54000,19585,Nominal dollars,U.S. dollars per person
+1997,Wisconsin,55000,25409,Nominal dollars,U.S. dollars per person
+1997,Wyoming,56000,24241,Nominal dollars,U.S. dollars per person
+1998,Alabama,01000,22651,Nominal dollars,U.S. dollars per person
+1998,Alaska,02000,29287,Nominal dollars,U.S. dollars per person
+1998,Arizona,04000,24130,Nominal dollars,U.S. dollars per person
+1998,Arkansas,05000,21203,Nominal dollars,U.S. dollars per person
+1998,California,06000,28901,Nominal dollars,U.S. dollars per person
+1998,Colorado,08000,29776,Nominal dollars,U.S. dollars per person
+1998,Connecticut,09000,37638,Nominal dollars,U.S. dollars per person
+1998,Delaware,10000,29444,Nominal dollars,U.S. dollars per person
+1998,District of Columbia,11000,38064,Nominal dollars,U.S. dollars per person
+1998,Florida,12000,26909,Nominal dollars,U.S. dollars per person
+1998,Georgia,13000,26107,Nominal dollars,U.S. dollars per person
+1998,Hawaii,15000,26625,Nominal dollars,U.S. dollars per person
+1998,Idaho,16000,22756,Nominal dollars,U.S. dollars per person
+1998,Illinois,17000,29873,Nominal dollars,U.S. dollars per person
+1998,Indiana,18000,25758,Nominal dollars,U.S. dollars per person
+1998,Iowa,19000,25198,Nominal dollars,U.S. dollars per person
+1998,Kansas,20000,26201,Nominal dollars,U.S. dollars per person
+1998,Kentucky,21000,22433,Nominal dollars,U.S. dollars per person
+1998,Louisiana,22000,22265,Nominal dollars,U.S. dollars per person
+1998,Maine,23000,24830,Nominal dollars,U.S. dollars per person
+1998,Maryland,24000,31417,Nominal dollars,U.S. dollars per person
+1998,Massachusetts,25000,32767,Nominal dollars,U.S. dollars per person
+1998,Michigan,26000,27286,Nominal dollars,U.S. dollars per person
+1998,Minnesota,27000,29141,Nominal dollars,U.S. dollars per person
+1998,Mississippi,28000,20173,Nominal dollars,U.S. dollars per person
+1998,Missouri,29000,25506,Nominal dollars,U.S. dollars per person
+1998,Montana,30000,21431,Nominal dollars,U.S. dollars per person
+1998,Nebraska,31000,26387,Nominal dollars,U.S. dollars per person
+1998,Nevada,32000,29256,Nominal dollars,U.S. dollars per person
+1998,New Hampshire,33000,30348,Nominal dollars,U.S. dollars per person
+1998,New Jersey,34000,34580,Nominal dollars,U.S. dollars per person
+1998,New Mexico,35000,21318,Nominal dollars,U.S. dollars per person
+1998,New York,36000,31995,Nominal dollars,U.S. dollars per person
+1998,North Carolina,37000,25385,Nominal dollars,U.S. dollars per person
+1998,North Dakota,38000,23286,Nominal dollars,U.S. dollars per person
+1998,Ohio,39000,26388,Nominal dollars,U.S. dollars per person
+1998,Oklahoma,40000,22009,Nominal dollars,U.S. dollars per person
+1998,Oregon,41000,25915,Nominal dollars,U.S. dollars per person
+1998,Pennsylvania,42000,27309,Nominal dollars,U.S. dollars per person
+1998,Rhode Island,44000,27493,Nominal dollars,U.S. dollars per person
+1998,South Carolina,45000,22900,Nominal dollars,U.S. dollars per person
+1998,South Dakota,46000,24265,Nominal dollars,U.S. dollars per person
+1998,Tennessee,47000,25091,Nominal dollars,U.S. dollars per person
+1998,Texas,48000,25543,Nominal dollars,U.S. dollars per person
+1998,Utah,49000,22207,Nominal dollars,U.S. dollars per person
+1998,Vermont,50000,25747,Nominal dollars,U.S. dollars per person
+1998,Virginia,51000,28965,Nominal dollars,U.S. dollars per person
+1998,Washington,53000,29355,Nominal dollars,U.S. dollars per person
+1998,West Virginia,54000,20451,Nominal dollars,U.S. dollars per person
+1998,Wisconsin,55000,27018,Nominal dollars,U.S. dollars per person
+1998,Wyoming,56000,25704,Nominal dollars,U.S. dollars per person
+1999,Alabama,01000,23296,Nominal dollars,U.S. dollars per person
+1999,Alaska,02000,29941,Nominal dollars,U.S. dollars per person
+1999,Arizona,04000,24866,Nominal dollars,U.S. dollars per person
+1999,Arkansas,05000,21842,Nominal dollars,U.S. dollars per person
+1999,California,06000,30529,Nominal dollars,U.S. dollars per person
+1999,Colorado,08000,31167,Nominal dollars,U.S. dollars per person
+1999,Connecticut,09000,39479,Nominal dollars,U.S. dollars per person
+1999,Delaware,10000,31119,Nominal dollars,U.S. dollars per person
+1999,District of Columbia,11000,39679,Nominal dollars,U.S. dollars per person
+1999,Florida,12000,27662,Nominal dollars,U.S. dollars per person
+1999,Georgia,13000,27184,Nominal dollars,U.S. dollars per person
+1999,Hawaii,15000,27618,Nominal dollars,U.S. dollars per person
+1999,Idaho,16000,23658,Nominal dollars,U.S. dollars per person
+1999,Illinois,17000,30958,Nominal dollars,U.S. dollars per person
+1999,Indiana,18000,26545,Nominal dollars,U.S. dollars per person
+1999,Iowa,19000,25705,Nominal dollars,U.S. dollars per person
+1999,Kansas,20000,26871,Nominal dollars,U.S. dollars per person
+1999,Kentucky,21000,23189,Nominal dollars,U.S. dollars per person
+1999,Louisiana,22000,22677,Nominal dollars,U.S. dollars per person
+1999,Maine,23000,25793,Nominal dollars,U.S. dollars per person
+1999,Maryland,24000,32948,Nominal dollars,U.S. dollars per person
+1999,Massachusetts,25000,34767,Nominal dollars,U.S. dollars per person
+1999,Michigan,26000,28506,Nominal dollars,U.S. dollars per person
+1999,Minnesota,27000,30240,Nominal dollars,U.S. dollars per person
+1999,Mississippi,28000,20681,Nominal dollars,U.S. dollars per person
+1999,Missouri,29000,26281,Nominal dollars,U.S. dollars per person
+1999,Montana,30000,21723,Nominal dollars,U.S. dollars per person
+1999,Nebraska,31000,27467,Nominal dollars,U.S. dollars per person
+1999,Nevada,32000,30301,Nominal dollars,U.S. dollars per person
+1999,New Hampshire,33000,31857,Nominal dollars,U.S. dollars per person
+1999,New Jersey,34000,35854,Nominal dollars,U.S. dollars per person
+1999,New Mexico,35000,21523,Nominal dollars,U.S. dollars per person
+1999,New York,36000,33641,Nominal dollars,U.S. dollars per person
+1999,North Carolina,37000,26158,Nominal dollars,U.S. dollars per person
+1999,North Dakota,38000,23683,Nominal dollars,U.S. dollars per person
+1999,Ohio,39000,27119,Nominal dollars,U.S. dollars per person
+1999,Oklahoma,40000,22390,Nominal dollars,U.S. dollars per person
+1999,Oregon,41000,26498,Nominal dollars,U.S. dollars per person
+1999,Pennsylvania,42000,28416,Nominal dollars,U.S. dollars per person
+1999,Rhode Island,44000,28432,Nominal dollars,U.S. dollars per person
+1999,South Carolina,45000,23687,Nominal dollars,U.S. dollars per person
+1999,South Dakota,46000,25251,Nominal dollars,U.S. dollars per person
+1999,Tennessee,47000,25756,Nominal dollars,U.S. dollars per person
+1999,Texas,48000,26452,Nominal dollars,U.S. dollars per person
+1999,Utah,49000,22995,Nominal dollars,U.S. dollars per person
+1999,Vermont,50000,27000,Nominal dollars,U.S. dollars per person
+1999,Virginia,51000,30574,Nominal dollars,U.S. dollars per person
+1999,Washington,53000,30786,Nominal dollars,U.S. dollars per person
+1999,West Virginia,54000,21017,Nominal dollars,U.S. dollars per person
+1999,Wisconsin,55000,27892,Nominal dollars,U.S. dollars per person
+1999,Wyoming,56000,27404,Nominal dollars,U.S. dollars per person
+2000,Alabama,01000,24258,Nominal dollars,U.S. dollars per person
+2000,Alaska,02000,31996,Nominal dollars,U.S. dollars per person
+2000,Arizona,04000,26271,Nominal dollars,U.S. dollars per person
+2000,Arkansas,05000,22731,Nominal dollars,U.S. dollars per person
+2000,California,06000,33175,Nominal dollars,U.S. dollars per person
+2000,Colorado,08000,33872,Nominal dollars,U.S. dollars per person
+2000,Connecticut,09000,42857,Nominal dollars,U.S. dollars per person
+2000,Delaware,10000,33810,Nominal dollars,U.S. dollars per person
+2000,District of Columbia,11000,43401,Nominal dollars,U.S. dollars per person
+2000,Florida,12000,29387,Nominal dollars,U.S. dollars per person
+2000,Georgia,13000,28760,Nominal dollars,U.S. dollars per person
+2000,Hawaii,15000,29174,Nominal dollars,U.S. dollars per person
+2000,Idaho,16000,25139,Nominal dollars,U.S. dollars per person
+2000,Illinois,17000,33072,Nominal dollars,U.S. dollars per person
+2000,Indiana,18000,28075,Nominal dollars,U.S. dollars per person
+2000,Iowa,19000,27341,Nominal dollars,U.S. dollars per person
+2000,Kansas,20000,28166,Nominal dollars,U.S. dollars per person
+2000,Kentucky,21000,24815,Nominal dollars,U.S. dollars per person
+2000,Louisiana,22000,23907,Nominal dollars,U.S. dollars per person
+2000,Maine,23000,27478,Nominal dollars,U.S. dollars per person
+2000,Maryland,24000,35480,Nominal dollars,U.S. dollars per person
+2000,Massachusetts,25000,38381,Nominal dollars,U.S. dollars per person
+2000,Michigan,26000,30250,Nominal dollars,U.S. dollars per person
+2000,Minnesota,27000,32348,Nominal dollars,U.S. dollars per person
+2000,Mississippi,28000,21628,Nominal dollars,U.S. dollars per person
+2000,Missouri,29000,27857,Nominal dollars,U.S. dollars per person
+2000,Montana,30000,22982,Nominal dollars,U.S. dollars per person
+2000,Nebraska,31000,28924,Nominal dollars,U.S. dollars per person
+2000,Nevada,32000,31858,Nominal dollars,U.S. dollars per person
+2000,New Hampshire,33000,35323,Nominal dollars,U.S. dollars per person
+2000,New Jersey,34000,39095,Nominal dollars,U.S. dollars per person
+2000,New Mexico,35000,23019,Nominal dollars,U.S. dollars per person
+2000,New York,36000,35955,Nominal dollars,U.S. dollars per person
+2000,North Carolina,37000,27410,Nominal dollars,U.S. dollars per person
+2000,North Dakota,38000,25842,Nominal dollars,U.S. dollars per person
+2000,Ohio,39000,28496,Nominal dollars,U.S. dollars per person
+2000,Oklahoma,40000,24124,Nominal dollars,U.S. dollars per person
+2000,Oregon,41000,28257,Nominal dollars,U.S. dollars per person
+2000,Pennsylvania,42000,30339,Nominal dollars,U.S. dollars per person
+2000,Rhode Island,44000,30350,Nominal dollars,U.S. dollars per person
+2000,South Carolina,45000,25025,Nominal dollars,U.S. dollars per person
+2000,South Dakota,46000,26727,Nominal dollars,U.S. dollars per person
+2000,Tennessee,47000,26998,Nominal dollars,U.S. dollars per person
+2000,Texas,48000,28253,Nominal dollars,U.S. dollars per person
+2000,Utah,49000,24162,Nominal dollars,U.S. dollars per person
+2000,Vermont,50000,29002,Nominal dollars,U.S. dollars per person
+2000,Virginia,51000,32631,Nominal dollars,U.S. dollars per person
+2000,Washington,53000,32538,Nominal dollars,U.S. dollars per person
+2000,West Virginia,54000,22275,Nominal dollars,U.S. dollars per person
+2000,Wisconsin,55000,29493,Nominal dollars,U.S. dollars per person
+2000,Wyoming,56000,29426,Nominal dollars,U.S. dollars per person
+2001,Alabama,01000,25046,Nominal dollars,U.S. dollars per person
+2001,Alaska,02000,33591,Nominal dollars,U.S. dollars per person
+2001,Arizona,04000,26946,Nominal dollars,U.S. dollars per person
+2001,Arkansas,05000,23841,Nominal dollars,U.S. dollars per person
+2001,California,06000,33915,Nominal dollars,U.S. dollars per person
+2001,Colorado,08000,34812,Nominal dollars,U.S. dollars per person
+2001,Connecticut,09000,45032,Nominal dollars,U.S. dollars per person
+2001,Delaware,10000,36917,Nominal dollars,U.S. dollars per person
+2001,District of Columbia,11000,44809,Nominal dollars,U.S. dollars per person
+2001,Florida,12000,30405,Nominal dollars,U.S. dollars per person
+2001,Georgia,13000,29693,Nominal dollars,U.S. dollars per person
+2001,Hawaii,15000,30178,Nominal dollars,U.S. dollars per person
+2001,Idaho,16000,25803,Nominal dollars,U.S. dollars per person
+2001,Illinois,17000,34206,Nominal dollars,U.S. dollars per person
+2001,Indiana,18000,28596,Nominal dollars,U.S. dollars per person
+2001,Iowa,19000,28145,Nominal dollars,U.S. dollars per person
+2001,Kansas,20000,29047,Nominal dollars,U.S. dollars per person
+2001,Kentucky,21000,25564,Nominal dollars,U.S. dollars per person
+2001,Louisiana,22000,25630,Nominal dollars,U.S. dollars per person
+2001,Maine,23000,28821,Nominal dollars,U.S. dollars per person
+2001,Maryland,24000,37012,Nominal dollars,U.S. dollars per person
+2001,Massachusetts,25000,39711,Nominal dollars,U.S. dollars per person
+2001,Michigan,26000,30694,Nominal dollars,U.S. dollars per person
+2001,Minnesota,27000,33417,Nominal dollars,U.S. dollars per person
+2001,Mississippi,28000,22806,Nominal dollars,U.S. dollars per person
+2001,Missouri,29000,28634,Nominal dollars,U.S. dollars per person
+2001,Montana,30000,23910,Nominal dollars,U.S. dollars per person
+2001,Nebraska,31000,30184,Nominal dollars,U.S. dollars per person
+2001,Nevada,32000,32418,Nominal dollars,U.S. dollars per person
+2001,New Hampshire,33000,36782,Nominal dollars,U.S. dollars per person
+2001,New Jersey,34000,40189,Nominal dollars,U.S. dollars per person
+2001,New Mexico,35000,24545,Nominal dollars,U.S. dollars per person
+2001,New York,36000,37176,Nominal dollars,U.S. dollars per person
+2001,North Carolina,37000,27782,Nominal dollars,U.S. dollars per person
+2001,North Dakota,38000,26493,Nominal dollars,U.S. dollars per person
+2001,Ohio,39000,29261,Nominal dollars,U.S. dollars per person
+2001,Oklahoma,40000,25557,Nominal dollars,U.S. dollars per person
+2001,Oregon,41000,28774,Nominal dollars,U.S. dollars per person
+2001,Pennsylvania,42000,31563,Nominal dollars,U.S. dollars per person
+2001,Rhode Island,44000,31795,Nominal dollars,U.S. dollars per person
+2001,South Carolina,45000,25644,Nominal dollars,U.S. dollars per person
+2001,South Dakota,46000,27563,Nominal dollars,U.S. dollars per person
+2001,Tennessee,47000,27496,Nominal dollars,U.S. dollars per person
+2001,Texas,48000,29601,Nominal dollars,U.S. dollars per person
+2001,Utah,49000,24867,Nominal dollars,U.S. dollars per person
+2001,Vermont,50000,30704,Nominal dollars,U.S. dollars per person
+2001,Virginia,51000,33940,Nominal dollars,U.S. dollars per person
+2001,Washington,53000,32986,Nominal dollars,U.S. dollars per person
+2001,West Virginia,54000,23731,Nominal dollars,U.S. dollars per person
+2001,Wisconsin,55000,30812,Nominal dollars,U.S. dollars per person
+2001,Wyoming,56000,31215,Nominal dollars,U.S. dollars per person
+2002,Alabama,01000,25671,Nominal dollars,U.S. dollars per person
+2002,Alaska,02000,34766,Nominal dollars,U.S. dollars per person
+2002,Arizona,04000,27325,Nominal dollars,U.S. dollars per person
+2002,Arkansas,05000,24280,Nominal dollars,U.S. dollars per person
+2002,California,06000,34047,Nominal dollars,U.S. dollars per person
+2002,Colorado,08000,34405,Nominal dollars,U.S. dollars per person
+2002,Connecticut,09000,44656,Nominal dollars,U.S. dollars per person
+2002,Delaware,10000,37660,Nominal dollars,U.S. dollars per person
+2002,District of Columbia,11000,45124,Nominal dollars,U.S. dollars per person
+2002,Florida,12000,30815,Nominal dollars,U.S. dollars per person
+2002,Georgia,13000,30086,Nominal dollars,U.S. dollars per person
+2002,Hawaii,15000,31353,Nominal dollars,U.S. dollars per person
+2002,Idaho,16000,26272,Nominal dollars,U.S. dollars per person
+2002,Illinois,17000,34520,Nominal dollars,U.S. dollars per person
+2002,Indiana,18000,28902,Nominal dollars,U.S. dollars per person
+2002,Iowa,19000,28804,Nominal dollars,U.S. dollars per person
+2002,Kansas,20000,29218,Nominal dollars,U.S. dollars per person
+2002,Kentucky,21000,26053,Nominal dollars,U.S. dollars per person
+2002,Louisiana,22000,26281,Nominal dollars,U.S. dollars per person
+2002,Maine,23000,29546,Nominal dollars,U.S. dollars per person
+2002,Maryland,24000,37995,Nominal dollars,U.S. dollars per person
+2002,Massachusetts,25000,39419,Nominal dollars,U.S. dollars per person
+2002,Michigan,26000,30595,Nominal dollars,U.S. dollars per person
+2002,Minnesota,27000,33889,Nominal dollars,U.S. dollars per person
+2002,Mississippi,28000,23202,Nominal dollars,U.S. dollars per person
+2002,Missouri,29000,29144,Nominal dollars,U.S. dollars per person
+2002,Montana,30000,24516,Nominal dollars,U.S. dollars per person
+2002,Nebraska,31000,30553,Nominal dollars,U.S. dollars per person
+2002,Nevada,32000,32180,Nominal dollars,U.S. dollars per person
+2002,New Hampshire,33000,37013,Nominal dollars,U.S. dollars per person
+2002,New Jersey,34000,40454,Nominal dollars,U.S. dollars per person
+2002,New Mexico,35000,25237,Nominal dollars,U.S. dollars per person
+2002,New York,36000,36972,Nominal dollars,U.S. dollars per person
+2002,North Carolina,37000,27856,Nominal dollars,U.S. dollars per person
+2002,North Dakota,38000,27197,Nominal dollars,U.S. dollars per person
+2002,Ohio,39000,29669,Nominal dollars,U.S. dollars per person
+2002,Oklahoma,40000,25999,Nominal dollars,U.S. dollars per person
+2002,Oregon,41000,28759,Nominal dollars,U.S. dollars per person
+2002,Pennsylvania,42000,32084,Nominal dollars,U.S. dollars per person
+2002,Rhode Island,44000,32801,Nominal dollars,U.S. dollars per person
+2002,South Carolina,45000,26122,Nominal dollars,U.S. dollars per person
+2002,South Dakota,46000,27497,Nominal dollars,U.S. dollars per person
+2002,Tennessee,47000,28102,Nominal dollars,U.S. dollars per person
+2002,Texas,48000,29481,Nominal dollars,U.S. dollars per person
+2002,Utah,49000,25167,Nominal dollars,U.S. dollars per person
+2002,Vermont,50000,31194,Nominal dollars,U.S. dollars per person
+2002,Virginia,51000,34495,Nominal dollars,U.S. dollars per person
+2002,Washington,53000,33222,Nominal dollars,U.S. dollars per person
+2002,West Virginia,54000,24506,Nominal dollars,U.S. dollars per person
+2002,Wisconsin,55000,31406,Nominal dollars,U.S. dollars per person
+2002,Wyoming,56000,31810,Nominal dollars,U.S. dollars per person
+2003,Alabama,01000,26700,Nominal dollars,U.S. dollars per person
+2003,Alaska,02000,36045,Nominal dollars,U.S. dollars per person
+2003,Arizona,04000,28384,Nominal dollars,U.S. dollars per person
+2003,Arkansas,05000,25564,Nominal dollars,U.S. dollars per person
+2003,California,06000,35191,Nominal dollars,U.S. dollars per person
+2003,Colorado,08000,34757,Nominal dollars,U.S. dollars per person
+2003,Connecticut,09000,44898,Nominal dollars,U.S. dollars per person
+2003,Delaware,10000,37985,Nominal dollars,U.S. dollars per person
+2003,District of Columbia,11000,45978,Nominal dollars,U.S. dollars per person
+2003,Florida,12000,31779,Nominal dollars,U.S. dollars per person
+2003,Georgia,13000,30805,Nominal dollars,U.S. dollars per person
+2003,Hawaii,15000,32557,Nominal dollars,U.S. dollars per person
+2003,Idaho,16000,26739,Nominal dollars,U.S. dollars per person
+2003,Illinois,17000,35081,Nominal dollars,U.S. dollars per person
+2003,Indiana,18000,29445,Nominal dollars,U.S. dollars per person
+2003,Iowa,19000,29344,Nominal dollars,U.S. dollars per person
+2003,Kansas,20000,30029,Nominal dollars,U.S. dollars per person
+2003,Kentucky,21000,26661,Nominal dollars,U.S. dollars per person
+2003,Louisiana,22000,26987,Nominal dollars,U.S. dollars per person
+2003,Maine,23000,30740,Nominal dollars,U.S. dollars per person
+2003,Maryland,24000,39295,Nominal dollars,U.S. dollars per person
+2003,Massachusetts,25000,40158,Nominal dollars,U.S. dollars per person
+2003,Michigan,26000,31267,Nominal dollars,U.S. dollars per person
+2003,Minnesota,27000,35195,Nominal dollars,U.S. dollars per person
+2003,Mississippi,28000,24060,Nominal dollars,U.S. dollars per person
+2003,Missouri,29000,30054,Nominal dollars,U.S. dollars per person
+2003,Montana,30000,26114,Nominal dollars,U.S. dollars per person
+2003,Nebraska,31000,32268,Nominal dollars,U.S. dollars per person
+2003,Nevada,32000,33136,Nominal dollars,U.S. dollars per person
+2003,New Hampshire,33000,37374,Nominal dollars,U.S. dollars per person
+2003,New Jersey,34000,41167,Nominal dollars,U.S. dollars per person
+2003,New Mexico,35000,26108,Nominal dollars,U.S. dollars per person
+2003,New York,36000,37420,Nominal dollars,U.S. dollars per person
+2003,North Carolina,37000,28709,Nominal dollars,U.S. dollars per person
+2003,North Dakota,38000,29663,Nominal dollars,U.S. dollars per person
+2003,Ohio,39000,30471,Nominal dollars,U.S. dollars per person
+2003,Oklahoma,40000,27184,Nominal dollars,U.S. dollars per person
+2003,Oregon,41000,29523,Nominal dollars,U.S. dollars per person
+2003,Pennsylvania,42000,33066,Nominal dollars,U.S. dollars per person
+2003,Rhode Island,44000,34256,Nominal dollars,U.S. dollars per person
+2003,South Carolina,45000,26792,Nominal dollars,U.S. dollars per person
+2003,South Dakota,46000,29883,Nominal dollars,U.S. dollars per person
+2003,Tennessee,47000,29059,Nominal dollars,U.S. dollars per person
+2003,Texas,48000,30176,Nominal dollars,U.S. dollars per person
+2003,Utah,49000,25749,Nominal dollars,U.S. dollars per person
+2003,Vermont,50000,32282,Nominal dollars,U.S. dollars per person
+2003,Virginia,51000,36151,Nominal dollars,U.S. dollars per person
+2003,Washington,53000,34267,Nominal dollars,U.S. dollars per person
+2003,West Virginia,54000,24804,Nominal dollars,U.S. dollars per person
+2003,Wisconsin,55000,32084,Nominal dollars,U.S. dollars per person
+2003,Wyoming,56000,33642,Nominal dollars,U.S. dollars per person
+2004,Alabama,01000,28385,Nominal dollars,U.S. dollars per person
+2004,Alaska,02000,37054,Nominal dollars,U.S. dollars per person
+2004,Arizona,04000,30154,Nominal dollars,U.S. dollars per person
+2004,Arkansas,05000,27024,Nominal dollars,U.S. dollars per person
+2004,California,06000,36969,Nominal dollars,U.S. dollars per person
+2004,Colorado,08000,35753,Nominal dollars,U.S. dollars per person
+2004,Connecticut,09000,47098,Nominal dollars,U.S. dollars per person
+2004,Delaware,10000,38843,Nominal dollars,U.S. dollars per person
+2004,District of Columbia,11000,49986,Nominal dollars,U.S. dollars per person
+2004,Florida,12000,33706,Nominal dollars,U.S. dollars per person
+2004,Georgia,13000,31982,Nominal dollars,U.S. dollars per person
+2004,Hawaii,15000,34336,Nominal dollars,U.S. dollars per person
+2004,Idaho,16000,28299,Nominal dollars,U.S. dollars per person
+2004,Illinois,17000,36366,Nominal dollars,U.S. dollars per person
+2004,Indiana,18000,30657,Nominal dollars,U.S. dollars per person
+2004,Iowa,19000,31615,Nominal dollars,U.S. dollars per person
+2004,Kansas,20000,30748,Nominal dollars,U.S. dollars per person
+2004,Kentucky,21000,28030,Nominal dollars,U.S. dollars per person
+2004,Louisiana,22000,27983,Nominal dollars,U.S. dollars per person
+2004,Maine,23000,32096,Nominal dollars,U.S. dollars per person
+2004,Maryland,24000,41515,Nominal dollars,U.S. dollars per person
+2004,Massachusetts,25000,42242,Nominal dollars,U.S. dollars per person
+2004,Michigan,26000,32092,Nominal dollars,U.S. dollars per person
+2004,Minnesota,27000,37084,Nominal dollars,U.S. dollars per person
+2004,Mississippi,28000,25287,Nominal dollars,U.S. dollars per person
+2004,Missouri,29000,31396,Nominal dollars,U.S. dollars per person
+2004,Montana,30000,28034,Nominal dollars,U.S. dollars per person
+2004,Nebraska,31000,33496,Nominal dollars,U.S. dollars per person
+2004,Nevada,32000,35173,Nominal dollars,U.S. dollars per person
+2004,New Hampshire,33000,39324,Nominal dollars,U.S. dollars per person
+2004,New Jersey,34000,42825,Nominal dollars,U.S. dollars per person
+2004,New Mexico,35000,27366,Nominal dollars,U.S. dollars per person
+2004,New York,36000,39093,Nominal dollars,U.S. dollars per person
+2004,North Carolina,37000,30586,Nominal dollars,U.S. dollars per person
+2004,North Dakota,38000,29984,Nominal dollars,U.S. dollars per person
+2004,Ohio,39000,31588,Nominal dollars,U.S. dollars per person
+2004,Oklahoma,40000,29194,Nominal dollars,U.S. dollars per person
+2004,Oregon,41000,30980,Nominal dollars,U.S. dollars per person
+2004,Pennsylvania,42000,34860,Nominal dollars,U.S. dollars per person
+2004,Rhode Island,44000,35867,Nominal dollars,U.S. dollars per person
+2004,South Carolina,45000,27892,Nominal dollars,U.S. dollars per person
+2004,South Dakota,46000,31871,Nominal dollars,U.S. dollars per person
+2004,Tennessee,47000,30435,Nominal dollars,U.S. dollars per person
+2004,Texas,48000,31097,Nominal dollars,U.S. dollars per person
+2004,Utah,49000,26980,Nominal dollars,U.S. dollars per person
+2004,Vermont,50000,33955,Nominal dollars,U.S. dollars per person
+2004,Virginia,51000,38082,Nominal dollars,U.S. dollars per person
+2004,Washington,53000,36309,Nominal dollars,U.S. dollars per person
+2004,West Virginia,54000,25628,Nominal dollars,U.S. dollars per person
+2004,Wisconsin,55000,33319,Nominal dollars,U.S. dollars per person
+2004,Wyoming,56000,35921,Nominal dollars,U.S. dollars per person
+2005,Alabama,01000,29780,Nominal dollars,U.S. dollars per person
+2005,Alaska,02000,39013,Nominal dollars,U.S. dollars per person
+2005,Arizona,04000,32150,Nominal dollars,U.S. dollars per person
+2005,Arkansas,05000,28043,Nominal dollars,U.S. dollars per person
+2005,California,06000,38737,Nominal dollars,U.S. dollars per person
+2005,Colorado,08000,37619,Nominal dollars,U.S. dollars per person
+2005,Connecticut,09000,49424,Nominal dollars,U.S. dollars per person
+2005,Delaware,10000,39133,Nominal dollars,U.S. dollars per person
+2005,District of Columbia,11000,52686,Nominal dollars,U.S. dollars per person
+2005,Florida,12000,35736,Nominal dollars,U.S. dollars per person
+2005,Georgia,13000,33283,Nominal dollars,U.S. dollars per person
+2005,Hawaii,15000,36278,Nominal dollars,U.S. dollars per person
+2005,Idaho,16000,29214,Nominal dollars,U.S. dollars per person
+2005,Illinois,17000,37720,Nominal dollars,U.S. dollars per person
+2005,Indiana,18000,31376,Nominal dollars,U.S. dollars per person
+2005,Iowa,19000,32411,Nominal dollars,U.S. dollars per person
+2005,Kansas,20000,32340,Nominal dollars,U.S. dollars per person
+2005,Kentucky,21000,29104,Nominal dollars,U.S. dollars per person
+2005,Louisiana,22000,29970,Nominal dollars,U.S. dollars per person
+2005,Maine,23000,32684,Nominal dollars,U.S. dollars per person
+2005,Maryland,24000,43311,Nominal dollars,U.S. dollars per person
+2005,Massachusetts,25000,44061,Nominal dollars,U.S. dollars per person
+2005,Michigan,26000,32756,Nominal dollars,U.S. dollars per person
+2005,Minnesota,27000,37812,Nominal dollars,U.S. dollars per person
+2005,Mississippi,28000,26716,Nominal dollars,U.S. dollars per person
+2005,Missouri,29000,32256,Nominal dollars,U.S. dollars per person
+2005,Montana,30000,29839,Nominal dollars,U.S. dollars per person
+2005,Nebraska,31000,34401,Nominal dollars,U.S. dollars per person
+2005,Nevada,32000,37907,Nominal dollars,U.S. dollars per person
+2005,New Hampshire,33000,40404,Nominal dollars,U.S. dollars per person
+2005,New Jersey,34000,44238,Nominal dollars,U.S. dollars per person
+2005,New Mexico,35000,28744,Nominal dollars,U.S. dollars per person
+2005,New York,36000,40645,Nominal dollars,U.S. dollars per person
+2005,North Carolina,37000,32209,Nominal dollars,U.S. dollars per person
+2005,North Dakota,38000,31731,Nominal dollars,U.S. dollars per person
+2005,Ohio,39000,32419,Nominal dollars,U.S. dollars per person
+2005,Oklahoma,40000,31699,Nominal dollars,U.S. dollars per person
+2005,Oregon,41000,32125,Nominal dollars,U.S. dollars per person
+2005,Pennsylvania,42000,36173,Nominal dollars,U.S. dollars per person
+2005,Rhode Island,44000,36746,Nominal dollars,U.S. dollars per person
+2005,South Carolina,45000,29136,Nominal dollars,U.S. dollars per person
+2005,South Dakota,46000,33534,Nominal dollars,U.S. dollars per person
+2005,Tennessee,47000,31410,Nominal dollars,U.S. dollars per person
+2005,Texas,48000,33136,Nominal dollars,U.S. dollars per person
+2005,Utah,49000,28751,Nominal dollars,U.S. dollars per person
+2005,Vermont,50000,34573,Nominal dollars,U.S. dollars per person
+2005,Virginia,51000,40027,Nominal dollars,U.S. dollars per person
+2005,Washington,53000,37202,Nominal dollars,U.S. dollars per person
+2005,West Virginia,54000,26836,Nominal dollars,U.S. dollars per person
+2005,Wisconsin,55000,34218,Nominal dollars,U.S. dollars per person
+2005,Wyoming,56000,38907,Nominal dollars,U.S. dollars per person
+2006,Alabama,01000,31264,Nominal dollars,U.S. dollars per person
+2006,Alaska,02000,41013,Nominal dollars,U.S. dollars per person
+2006,Arizona,04000,34460,Nominal dollars,U.S. dollars per person
+2006,Arkansas,05000,29376,Nominal dollars,U.S. dollars per person
+2006,California,06000,41454,Nominal dollars,U.S. dollars per person
+2006,Colorado,08000,39869,Nominal dollars,U.S. dollars per person
+2006,Connecticut,09000,53224,Nominal dollars,U.S. dollars per person
+2006,Delaware,10000,40736,Nominal dollars,U.S. dollars per person
+2006,District of Columbia,11000,55384,Nominal dollars,U.S. dollars per person
+2006,Florida,12000,38009,Nominal dollars,U.S. dollars per person
+2006,Georgia,13000,34574,Nominal dollars,U.S. dollars per person
+2006,Hawaii,15000,38315,Nominal dollars,U.S. dollars per person
+2006,Idaho,16000,31244,Nominal dollars,U.S. dollars per person
+2006,Illinois,17000,40021,Nominal dollars,U.S. dollars per person
+2006,Indiana,18000,32905,Nominal dollars,U.S. dollars per person
+2006,Iowa,19000,34197,Nominal dollars,U.S. dollars per person
+2006,Kansas,20000,35411,Nominal dollars,U.S. dollars per person
+2006,Kentucky,21000,30476,Nominal dollars,U.S. dollars per person
+2006,Louisiana,22000,33627,Nominal dollars,U.S. dollars per person
+2006,Maine,23000,34168,Nominal dollars,U.S. dollars per person
+2006,Maryland,24000,45293,Nominal dollars,U.S. dollars per person
+2006,Massachusetts,25000,47311,Nominal dollars,U.S. dollars per person
+2006,Michigan,26000,33563,Nominal dollars,U.S. dollars per person
+2006,Minnesota,27000,39362,Nominal dollars,U.S. dollars per person
+2006,Mississippi,28000,27827,Nominal dollars,U.S. dollars per person
+2006,Missouri,29000,33860,Nominal dollars,U.S. dollars per person
+2006,Montana,30000,31870,Nominal dollars,U.S. dollars per person
+2006,Nebraska,31000,35718,Nominal dollars,U.S. dollars per person
+2006,Nevada,32000,39437,Nominal dollars,U.S. dollars per person
+2006,New Hampshire,33000,42866,Nominal dollars,U.S. dollars per person
+2006,New Jersey,34000,47366,Nominal dollars,U.S. dollars per person
+2006,New Mexico,35000,30433,Nominal dollars,U.S. dollars per person
+2006,New York,36000,43760,Nominal dollars,U.S. dollars per person
+2006,North Carolina,37000,34189,Nominal dollars,U.S. dollars per person
+2006,North Dakota,38000,33120,Nominal dollars,U.S. dollars per person
+2006,Ohio,39000,33976,Nominal dollars,U.S. dollars per person
+2006,Oklahoma,40000,34650,Nominal dollars,U.S. dollars per person
+2006,Oregon,41000,34488,Nominal dollars,U.S. dollars per person
+2006,Pennsylvania,42000,37803,Nominal dollars,U.S. dollars per person
+2006,Rhode Island,44000,38719,Nominal dollars,U.S. dollars per person
+2006,South Carolina,45000,30789,Nominal dollars,U.S. dollars per person
+2006,South Dakota,46000,34983,Nominal dollars,U.S. dollars per person
+2006,Tennessee,47000,32878,Nominal dollars,U.S. dollars per person
+2006,Texas,48000,35422,Nominal dollars,U.S. dollars per person
+2006,Utah,49000,31107,Nominal dollars,U.S. dollars per person
+2006,Vermont,50000,36609,Nominal dollars,U.S. dollars per person
+2006,Virginia,51000,42164,Nominal dollars,U.S. dollars per person
+2006,Washington,53000,39744,Nominal dollars,U.S. dollars per person
+2006,West Virginia,54000,28528,Nominal dollars,U.S. dollars per person
+2006,Wisconsin,55000,36047,Nominal dollars,U.S. dollars per person
+2006,Wyoming,56000,43805,Nominal dollars,U.S. dollars per person
+2007,Alabama,01000,32516,Nominal dollars,U.S. dollars per person
+2007,Alaska,02000,43747,Nominal dollars,U.S. dollars per person
+2007,Arizona,04000,35602,Nominal dollars,U.S. dollars per person
+2007,Arkansas,05000,31036,Nominal dollars,U.S. dollars per person
+2007,California,06000,43070,Nominal dollars,U.S. dollars per person
+2007,Colorado,08000,41760,Nominal dollars,U.S. dollars per person
+2007,Connecticut,09000,57112,Nominal dollars,U.S. dollars per person
+2007,Delaware,10000,41539,Nominal dollars,U.S. dollars per person
+2007,District of Columbia,11000,59358,Nominal dollars,U.S. dollars per person
+2007,Florida,12000,39184,Nominal dollars,U.S. dollars per person
+2007,Georgia,13000,35440,Nominal dollars,U.S. dollars per person
+2007,Hawaii,15000,40301,Nominal dollars,U.S. dollars per person
+2007,Idaho,16000,32459,Nominal dollars,U.S. dollars per person
+2007,Illinois,17000,42148,Nominal dollars,U.S. dollars per person
+2007,Indiana,18000,33845,Nominal dollars,U.S. dollars per person
+2007,Iowa,19000,36366,Nominal dollars,U.S. dollars per person
+2007,Kansas,20000,37748,Nominal dollars,U.S. dollars per person
+2007,Kentucky,21000,31529,Nominal dollars,U.S. dollars per person
+2007,Louisiana,22000,36208,Nominal dollars,U.S. dollars per person
+2007,Maine,23000,35402,Nominal dollars,U.S. dollars per person
+2007,Maryland,24000,47033,Nominal dollars,U.S. dollars per person
+2007,Massachusetts,25000,49662,Nominal dollars,U.S. dollars per person
+2007,Michigan,26000,34669,Nominal dollars,U.S. dollars per person
+2007,Minnesota,27000,41325,Nominal dollars,U.S. dollars per person
+2007,Mississippi,28000,29432,Nominal dollars,U.S. dollars per person
+2007,Missouri,29000,35228,Nominal dollars,U.S. dollars per person
+2007,Montana,30000,33841,Nominal dollars,U.S. dollars per person
+2007,Nebraska,31000,38184,Nominal dollars,U.S. dollars per person
+2007,Nevada,32000,39870,Nominal dollars,U.S. dollars per person
+2007,New Hampshire,33000,44422,Nominal dollars,U.S. dollars per person
+2007,New Jersey,34000,50133,Nominal dollars,U.S. dollars per person
+2007,New Mexico,35000,31780,Nominal dollars,U.S. dollars per person
+2007,New York,36000,47020,Nominal dollars,U.S. dollars per person
+2007,North Carolina,37000,35960,Nominal dollars,U.S. dollars per person
+2007,North Dakota,38000,36501,Nominal dollars,U.S. dollars per person
+2007,Ohio,39000,35371,Nominal dollars,U.S. dollars per person
+2007,Oklahoma,40000,35493,Nominal dollars,U.S. dollars per person
+2007,Oregon,41000,35624,Nominal dollars,U.S. dollars per person
+2007,Pennsylvania,42000,40008,Nominal dollars,U.S. dollars per person
+2007,Rhode Island,44000,40608,Nominal dollars,U.S. dollars per person
+2007,South Carolina,45000,32190,Nominal dollars,U.S. dollars per person
+2007,South Dakota,46000,38330,Nominal dollars,U.S. dollars per person
+2007,Tennessee,47000,33963,Nominal dollars,U.S. dollars per person
+2007,Texas,48000,36879,Nominal dollars,U.S. dollars per person
+2007,Utah,49000,32924,Nominal dollars,U.S. dollars per person
+2007,Vermont,50000,38595,Nominal dollars,U.S. dollars per person
+2007,Virginia,51000,44020,Nominal dollars,U.S. dollars per person
+2007,Washington,53000,42524,Nominal dollars,U.S. dollars per person
+2007,West Virginia,54000,29544,Nominal dollars,U.S. dollars per person
+2007,Wisconsin,55000,37522,Nominal dollars,U.S. dollars per person
+2007,Wyoming,56000,45634,Nominal dollars,U.S. dollars per person
+2008,Alabama,01000,33441,Nominal dollars,U.S. dollars per person
+2008,Alaska,02000,47800,Nominal dollars,U.S. dollars per person
+2008,Arizona,04000,35586,Nominal dollars,U.S. dollars per person
+2008,Arkansas,05000,32157,Nominal dollars,U.S. dollars per person
+2008,California,06000,43391,Nominal dollars,U.S. dollars per person
+2008,Colorado,08000,42961,Nominal dollars,U.S. dollars per person
+2008,Connecticut,09000,60543,Nominal dollars,U.S. dollars per person
+2008,Delaware,10000,41254,Nominal dollars,U.S. dollars per person
+2008,District of Columbia,11000,60609,Nominal dollars,U.S. dollars per person
+2008,Florida,12000,39185,Nominal dollars,U.S. dollars per person
+2008,Georgia,13000,35272,Nominal dollars,U.S. dollars per person
+2008,Hawaii,15000,41887,Nominal dollars,U.S. dollars per person
+2008,Idaho,16000,32690,Nominal dollars,U.S. dollars per person
+2008,Illinois,17000,43238,Nominal dollars,U.S. dollars per person
+2008,Indiana,18000,35270,Nominal dollars,U.S. dollars per person
+2008,Iowa,19000,38490,Nominal dollars,U.S. dollars per person
+2008,Kansas,20000,41060,Nominal dollars,U.S. dollars per person
+2008,Kentucky,21000,32830,Nominal dollars,U.S. dollars per person
+2008,Louisiana,22000,38328,Nominal dollars,U.S. dollars per person
+2008,Maine,23000,36960,Nominal dollars,U.S. dollars per person
+2008,Maryland,24000,49026,Nominal dollars,U.S. dollars per person
+2008,Massachusetts,25000,51546,Nominal dollars,U.S. dollars per person
+2008,Michigan,26000,35826,Nominal dollars,U.S. dollars per person
+2008,Minnesota,27000,42983,Nominal dollars,U.S. dollars per person
+2008,Mississippi,28000,30736,Nominal dollars,U.S. dollars per person
+2008,Missouri,29000,37124,Nominal dollars,U.S. dollars per person
+2008,Montana,30000,35569,Nominal dollars,U.S. dollars per person
+2008,Nebraska,31000,40291,Nominal dollars,U.S. dollars per person
+2008,Nevada,32000,38640,Nominal dollars,U.S. dollars per person
+2008,New Hampshire,33000,45713,Nominal dollars,U.S. dollars per person
+2008,New Jersey,34000,51606,Nominal dollars,U.S. dollars per person
+2008,New Mexico,35000,33552,Nominal dollars,U.S. dollars per person
+2008,New York,36000,47909,Nominal dollars,U.S. dollars per person
+2008,North Carolina,37000,37772,Nominal dollars,U.S. dollars per person
+2008,North Dakota,38000,40973,Nominal dollars,U.S. dollars per person
+2008,Ohio,39000,36654,Nominal dollars,U.S. dollars per person
+2008,Oklahoma,40000,39154,Nominal dollars,U.S. dollars per person
+2008,Oregon,41000,36856,Nominal dollars,U.S. dollars per person
+2008,Pennsylvania,42000,41467,Nominal dollars,U.S. dollars per person
+2008,Rhode Island,44000,41487,Nominal dollars,U.S. dollars per person
+2008,South Carolina,45000,33110,Nominal dollars,U.S. dollars per person
+2008,South Dakota,46000,40891,Nominal dollars,U.S. dollars per person
+2008,Tennessee,47000,34954,Nominal dollars,U.S. dollars per person
+2008,Texas,48000,39841,Nominal dollars,U.S. dollars per person
+2008,Utah,49000,33784,Nominal dollars,U.S. dollars per person
+2008,Vermont,50000,40774,Nominal dollars,U.S. dollars per person
+2008,Virginia,51000,45383,Nominal dollars,U.S. dollars per person
+2008,Washington,53000,44098,Nominal dollars,U.S. dollars per person
+2008,West Virginia,54000,31494,Nominal dollars,U.S. dollars per person
+2008,Wisconsin,55000,38857,Nominal dollars,U.S. dollars per person
+2008,Wyoming,56000,49451,Nominal dollars,U.S. dollars per person
+2009,Alabama,01000,32705,Nominal dollars,U.S. dollars per person
+2009,Alaska,02000,47221,Nominal dollars,U.S. dollars per person
+2009,Arizona,04000,33295,Nominal dollars,U.S. dollars per person
+2009,Arkansas,05000,31419,Nominal dollars,U.S. dollars per person
+2009,California,06000,41664,Nominal dollars,U.S. dollars per person
+2009,Colorado,08000,40244,Nominal dollars,U.S. dollars per person
+2009,Connecticut,09000,59588,Nominal dollars,U.S. dollars per person
+2009,Delaware,10000,41062,Nominal dollars,U.S. dollars per person
+2009,District of Columbia,11000,59881,Nominal dollars,U.S. dollars per person
+2009,Florida,12000,36784,Nominal dollars,U.S. dollars per person
+2009,Georgia,13000,34230,Nominal dollars,U.S. dollars per person
+2009,Hawaii,15000,41154,Nominal dollars,U.S. dollars per person
+2009,Idaho,16000,31205,Nominal dollars,U.S. dollars per person
+2009,Illinois,17000,41080,Nominal dollars,U.S. dollars per person
+2009,Indiana,18000,34200,Nominal dollars,U.S. dollars per person
+2009,Iowa,19000,37196,Nominal dollars,U.S. dollars per person
+2009,Kansas,20000,39383,Nominal dollars,U.S. dollars per person
+2009,Kentucky,21000,32203,Nominal dollars,U.S. dollars per person
+2009,Louisiana,22000,36807,Nominal dollars,U.S. dollars per person
+2009,Maine,23000,37115,Nominal dollars,U.S. dollars per person
+2009,Maryland,24000,48457,Nominal dollars,U.S. dollars per person
+2009,Massachusetts,25000,50750,Nominal dollars,U.S. dollars per person
+2009,Michigan,26000,34258,Nominal dollars,U.S. dollars per person
+2009,Minnesota,27000,40962,Nominal dollars,U.S. dollars per person
+2009,Mississippi,28000,30238,Nominal dollars,U.S. dollars per person
+2009,Missouri,29000,36309,Nominal dollars,U.S. dollars per person
+2009,Montana,30000,34489,Nominal dollars,U.S. dollars per person
+2009,Nebraska,31000,39432,Nominal dollars,U.S. dollars per person
+2009,Nevada,32000,36141,Nominal dollars,U.S. dollars per person
+2009,New Hampshire,33000,45123,Nominal dollars,U.S. dollars per person
+2009,New Jersey,34000,49838,Nominal dollars,U.S. dollars per person
+2009,New Mexico,35000,32910,Nominal dollars,U.S. dollars per person
+2009,New York,36000,46936,Nominal dollars,U.S. dollars per person
+2009,North Carolina,37000,35933,Nominal dollars,U.S. dollars per person
+2009,North Dakota,38000,40177,Nominal dollars,U.S. dollars per person
+2009,Ohio,39000,35604,Nominal dollars,U.S. dollars per person
+2009,Oklahoma,40000,35840,Nominal dollars,U.S. dollars per person
+2009,Oregon,41000,35287,Nominal dollars,U.S. dollars per person
+2009,Pennsylvania,42000,40446,Nominal dollars,U.S. dollars per person
+2009,Rhode Island,44000,40554,Nominal dollars,U.S. dollars per person
+2009,South Carolina,45000,31989,Nominal dollars,U.S. dollars per person
+2009,South Dakota,46000,39423,Nominal dollars,U.S. dollars per person
+2009,Tennessee,47000,34432,Nominal dollars,U.S. dollars per person
+2009,Texas,48000,37244,Nominal dollars,U.S. dollars per person
+2009,Utah,49000,31779,Nominal dollars,U.S. dollars per person
+2009,Vermont,50000,40355,Nominal dollars,U.S. dollars per person
+2009,Virginia,51000,44092,Nominal dollars,U.S. dollars per person
+2009,Washington,53000,41685,Nominal dollars,U.S. dollars per person
+2009,West Virginia,54000,31638,Nominal dollars,U.S. dollars per person
+2009,Wisconsin,55000,38149,Nominal dollars,U.S. dollars per person
+2009,Wyoming,56000,44488,Nominal dollars,U.S. dollars per person
+2010,Alabama,01000,33830,Nominal dollars,U.S. dollars per person
+2010,Alaska,02000,49555,Nominal dollars,U.S. dollars per person
+2010,Arizona,04000,33536,Nominal dollars,U.S. dollars per person
+2010,Arkansas,05000,32231,Nominal dollars,U.S. dollars per person
+2010,California,06000,43145,Nominal dollars,U.S. dollars per person
+2010,Colorado,08000,40809,Nominal dollars,U.S. dollars per person
+2010,Connecticut,09000,61395,Nominal dollars,U.S. dollars per person
+2010,Delaware,10000,41109,Nominal dollars,U.S. dollars per person
+2010,District of Columbia,11000,62977,Nominal dollars,U.S. dollars per person
+2010,Florida,12000,38785,Nominal dollars,U.S. dollars per person
+2010,Georgia,13000,34764,Nominal dollars,U.S. dollars per person
+2010,Hawaii,15000,41512,Nominal dollars,U.S. dollars per person
+2010,Idaho,16000,31958,Nominal dollars,U.S. dollars per person
+2010,Illinois,17000,42093,Nominal dollars,U.S. dollars per person
+2010,Indiana,18000,35586,Nominal dollars,U.S. dollars per person
+2010,Iowa,19000,38106,Nominal dollars,U.S. dollars per person
+2010,Kansas,20000,39823,Nominal dollars,U.S. dollars per person
+2010,Kentucky,21000,33199,Nominal dollars,U.S. dollars per person
+2010,Louisiana,22000,38077,Nominal dollars,U.S. dollars per person
+2010,Maine,23000,38030,Nominal dollars,U.S. dollars per person
+2010,Maryland,24000,49629,Nominal dollars,U.S. dollars per person
+2010,Massachusetts,25000,52706,Nominal dollars,U.S. dollars per person
+2010,Michigan,26000,35648,Nominal dollars,U.S. dollars per person
+2010,Minnesota,27000,42530,Nominal dollars,U.S. dollars per person
+2010,Mississippi,28000,31238,Nominal dollars,U.S. dollars per person
+2010,Missouri,29000,36988,Nominal dollars,U.S. dollars per person
+2010,Montana,30000,36015,Nominal dollars,U.S. dollars per person
+2010,Nebraska,31000,41097,Nominal dollars,U.S. dollars per person
+2010,Nevada,32000,37312,Nominal dollars,U.S. dollars per person
+2010,New Hampshire,33000,46988,Nominal dollars,U.S. dollars per person
+2010,New Jersey,34000,50975,Nominal dollars,U.S. dollars per person
+2010,New Mexico,35000,33674,Nominal dollars,U.S. dollars per person
+2010,New York,36000,48580,Nominal dollars,U.S. dollars per person
+2010,North Carolina,37000,35867,Nominal dollars,U.S. dollars per person
+2010,North Dakota,38000,44072,Nominal dollars,U.S. dollars per person
+2010,Ohio,39000,36596,Nominal dollars,U.S. dollars per person
+2010,Oklahoma,40000,37167,Nominal dollars,U.S. dollars per person
+2010,Oregon,41000,35941,Nominal dollars,U.S. dollars per person
+2010,Pennsylvania,42000,42099,Nominal dollars,U.S. dollars per person
+2010,Rhode Island,44000,42591,Nominal dollars,U.S. dollars per person
+2010,South Carolina,45000,32773,Nominal dollars,U.S. dollars per person
+2010,South Dakota,46000,41255,Nominal dollars,U.S. dollars per person
+2010,Tennessee,47000,35818,Nominal dollars,U.S. dollars per person
+2010,Texas,48000,38925,Nominal dollars,U.S. dollars per person
+2010,Utah,49000,32007,Nominal dollars,U.S. dollars per person
+2010,Vermont,50000,41488,Nominal dollars,U.S. dollars per person
+2010,Virginia,51000,45442,Nominal dollars,U.S. dollars per person
+2010,Washington,53000,42337,Nominal dollars,U.S. dollars per person
+2010,West Virginia,54000,32619,Nominal dollars,U.S. dollars per person
+2010,Wisconsin,55000,39065,Nominal dollars,U.S. dollars per person
+2010,Wyoming,56000,46378,Nominal dollars,U.S. dollars per person
+2011,Alabama,01000,34868,Nominal dollars,U.S. dollars per person
+2011,Alaska,02000,52420,Nominal dollars,U.S. dollars per person
+2011,Arizona,04000,35032,Nominal dollars,U.S. dollars per person
+2011,Arkansas,05000,34194,Nominal dollars,U.S. dollars per person
+2011,California,06000,45517,Nominal dollars,U.S. dollars per person
+2011,Colorado,08000,43714,Nominal dollars,U.S. dollars per person
+2011,Connecticut,09000,62967,Nominal dollars,U.S. dollars per person
+2011,Delaware,10000,43789,Nominal dollars,U.S. dollars per person
+2011,District of Columbia,11000,66793,Nominal dollars,U.S. dollars per person
+2011,Florida,12000,40439,Nominal dollars,U.S. dollars per person
+2011,Georgia,13000,36783,Nominal dollars,U.S. dollars per person
+2011,Hawaii,15000,42770,Nominal dollars,U.S. dollars per person
+2011,Idaho,16000,33453,Nominal dollars,U.S. dollars per person
+2011,Illinois,17000,44059,Nominal dollars,U.S. dollars per person
+2011,Indiana,18000,37675,Nominal dollars,U.S. dollars per person
+2011,Iowa,19000,40805,Nominal dollars,U.S. dollars per person
+2011,Kansas,20000,42891,Nominal dollars,U.S. dollars per person
+2011,Kentucky,21000,34616,Nominal dollars,U.S. dollars per person
+2011,Louisiana,22000,38980,Nominal dollars,U.S. dollars per person
+2011,Maine,23000,39516,Nominal dollars,U.S. dollars per person
+2011,Maryland,24000,51811,Nominal dollars,U.S. dollars per person
+2011,Massachusetts,25000,54758,Nominal dollars,U.S. dollars per person
+2011,Michigan,26000,37702,Nominal dollars,U.S. dollars per person
+2011,Minnesota,27000,45118,Nominal dollars,U.S. dollars per person
+2011,Mississippi,28000,32482,Nominal dollars,U.S. dollars per person
+2011,Missouri,29000,38406,Nominal dollars,U.S. dollars per person
+2011,Montana,30000,38165,Nominal dollars,U.S. dollars per person
+2011,Nebraska,31000,45615,Nominal dollars,U.S. dollars per person
+2011,Nevada,32000,38621,Nominal dollars,U.S. dollars per person
+2011,New Hampshire,33000,49092,Nominal dollars,U.S. dollars per person
+2011,New Jersey,34000,52871,Nominal dollars,U.S. dollars per person
+2011,New Mexico,35000,35084,Nominal dollars,U.S. dollars per person
+2011,New York,36000,50775,Nominal dollars,U.S. dollars per person
+2011,North Carolina,37000,36842,Nominal dollars,U.S. dollars per person
+2011,North Dakota,38000,48866,Nominal dollars,U.S. dollars per person
+2011,Ohio,39000,38940,Nominal dollars,U.S. dollars per person
+2011,Oklahoma,40000,39703,Nominal dollars,U.S. dollars per person
+2011,Oregon,41000,37531,Nominal dollars,U.S. dollars per person
+2011,Pennsylvania,42000,44120,Nominal dollars,U.S. dollars per person
+2011,Rhode Island,44000,44056,Nominal dollars,U.S. dollars per person
+2011,South Carolina,45000,34435,Nominal dollars,U.S. dollars per person
+2011,South Dakota,46000,44503,Nominal dollars,U.S. dollars per person
+2011,Tennessee,47000,37706,Nominal dollars,U.S. dollars per person
+2011,Texas,48000,41954,Nominal dollars,U.S. dollars per person
+2011,Utah,49000,33976,Nominal dollars,U.S. dollars per person
+2011,Vermont,50000,43751,Nominal dollars,U.S. dollars per person
+2011,Virginia,51000,47561,Nominal dollars,U.S. dollars per person
+2011,Washington,53000,44291,Nominal dollars,U.S. dollars per person
+2011,West Virginia,54000,34457,Nominal dollars,U.S. dollars per person
+2011,Wisconsin,55000,41083,Nominal dollars,U.S. dollars per person
+2011,Wyoming,56000,50610,Nominal dollars,U.S. dollars per person
+2012,Alabama,01000,35544,Nominal dollars,U.S. dollars per person
+2012,Alaska,02000,53343,Nominal dollars,U.S. dollars per person
+2012,Arizona,04000,36171,Nominal dollars,U.S. dollars per person
+2012,Arkansas,05000,36299,Nominal dollars,U.S. dollars per person
+2012,California,06000,47800,Nominal dollars,U.S. dollars per person
+2012,Colorado,08000,45480,Nominal dollars,U.S. dollars per person
+2012,Connecticut,09000,63557,Nominal dollars,U.S. dollars per person
+2012,Delaware,10000,43779,Nominal dollars,U.S. dollars per person
+2012,District of Columbia,11000,67356,Nominal dollars,U.S. dollars per person
+2012,Florida,12000,41209,Nominal dollars,U.S. dollars per person
+2012,Georgia,13000,37272,Nominal dollars,U.S. dollars per person
+2012,Hawaii,15000,43534,Nominal dollars,U.S. dollars per person
+2012,Idaho,16000,34815,Nominal dollars,U.S. dollars per person
+2012,Illinois,17000,45923,Nominal dollars,U.S. dollars per person
+2012,Indiana,18000,39145,Nominal dollars,U.S. dollars per person
+2012,Iowa,19000,42499,Nominal dollars,U.S. dollars per person
+2012,Kansas,20000,44911,Nominal dollars,U.S. dollars per person
+2012,Kentucky,21000,35636,Nominal dollars,U.S. dollars per person
+2012,Louisiana,22000,40674,Nominal dollars,U.S. dollars per person
+2012,Maine,23000,40006,Nominal dollars,U.S. dollars per person
+2012,Maryland,24000,52492,Nominal dollars,U.S. dollars per person
+2012,Massachusetts,25000,56259,Nominal dollars,U.S. dollars per person
+2012,Michigan,26000,39052,Nominal dollars,U.S. dollars per person
+2012,Minnesota,27000,47385,Nominal dollars,U.S. dollars per person
+2012,Mississippi,28000,33465,Nominal dollars,U.S. dollars per person
+2012,Missouri,29000,39984,Nominal dollars,U.S. dollars per person
+2012,Montana,30000,40228,Nominal dollars,U.S. dollars per person
+2012,Nebraska,31000,46390,Nominal dollars,U.S. dollars per person
+2012,Nevada,32000,39706,Nominal dollars,U.S. dollars per person
+2012,New Hampshire,33000,50718,Nominal dollars,U.S. dollars per person
+2012,New Jersey,34000,54249,Nominal dollars,U.S. dollars per person
+2012,New Mexico,35000,35705,Nominal dollars,U.S. dollars per person
+2012,New York,36000,52628,Nominal dollars,U.S. dollars per person
+2012,North Carolina,37000,38895,Nominal dollars,U.S. dollars per person
+2012,North Dakota,38000,56047,Nominal dollars,U.S. dollars per person
+2012,Ohio,39000,40293,Nominal dollars,U.S. dollars per person
+2012,Oklahoma,40000,41910,Nominal dollars,U.S. dollars per person
+2012,Oregon,41000,39127,Nominal dollars,U.S. dollars per person
+2012,Pennsylvania,42000,45638,Nominal dollars,U.S. dollars per person
+2012,Rhode Island,44000,45263,Nominal dollars,U.S. dollars per person
+2012,South Carolina,45000,35833,Nominal dollars,U.S. dollars per person
+2012,South Dakota,46000,44961,Nominal dollars,U.S. dollars per person
+2012,Tennessee,47000,39089,Nominal dollars,U.S. dollars per person
+2012,Texas,48000,43880,Nominal dollars,U.S. dollars per person
+2012,Utah,49000,35581,Nominal dollars,U.S. dollars per person
+2012,Vermont,50000,44854,Nominal dollars,U.S. dollars per person
+2012,Virginia,51000,49047,Nominal dollars,U.S. dollars per person
+2012,Washington,53000,47064,Nominal dollars,U.S. dollars per person
+2012,West Virginia,54000,35191,Nominal dollars,U.S. dollars per person
+2012,Wisconsin,55000,42651,Nominal dollars,U.S. dollars per person
+2012,Wyoming,56000,53581,Nominal dollars,U.S. dollars per person
+2013,Alabama,01000,35693,Nominal dollars,U.S. dollars per person
+2013,Alaska,02000,52257,Nominal dollars,U.S. dollars per person
+2013,Arizona,04000,36752,Nominal dollars,U.S. dollars per person
+2013,Arkansas,05000,36296,Nominal dollars,U.S. dollars per person
+2013,California,06000,48079,Nominal dollars,U.S. dollars per person
+2013,Colorado,08000,47076,Nominal dollars,U.S. dollars per person
+2013,Connecticut,09000,61999,Nominal dollars,U.S. dollars per person
+2013,Delaware,10000,43950,Nominal dollars,U.S. dollars per person
+2013,District of Columbia,11000,66930,Nominal dollars,U.S. dollars per person
+2013,Florida,12000,40742,Nominal dollars,U.S. dollars per person
+2013,Georgia,13000,37510,Nominal dollars,U.S. dollars per person
+2013,Hawaii,15000,43561,Nominal dollars,U.S. dollars per person
+2013,Idaho,16000,35697,Nominal dollars,U.S. dollars per person
+2013,Illinois,17000,46725,Nominal dollars,U.S. dollars per person
+2013,Indiana,18000,39424,Nominal dollars,U.S. dollars per person
+2013,Iowa,19000,42953,Nominal dollars,U.S. dollars per person
+2013,Kansas,20000,45666,Nominal dollars,U.S. dollars per person
+2013,Kentucky,21000,35762,Nominal dollars,U.S. dollars per person
+2013,Louisiana,22000,41009,Nominal dollars,U.S. dollars per person
+2013,Maine,23000,39962,Nominal dollars,U.S. dollars per person
+2013,Maryland,24000,51882,Nominal dollars,U.S. dollars per person
+2013,Massachusetts,25000,56118,Nominal dollars,U.S. dollars per person
+2013,Michigan,26000,39300,Nominal dollars,U.S. dollars per person
+2013,Minnesota,27000,47399,Nominal dollars,U.S. dollars per person
+2013,Mississippi,28000,34000,Nominal dollars,U.S. dollars per person
+2013,Missouri,29000,40119,Nominal dollars,U.S. dollars per person
+2013,Montana,30000,40151,Nominal dollars,U.S. dollars per person
+2013,Nebraska,31000,45915,Nominal dollars,U.S. dollars per person
+2013,Nevada,32000,39356,Nominal dollars,U.S. dollars per person
+2013,New Hampshire,33000,50418,Nominal dollars,U.S. dollars per person
+2013,New Jersey,34000,54381,Nominal dollars,U.S. dollars per person
+2013,New Mexico,35000,34868,Nominal dollars,U.S. dollars per person
+2013,New York,36000,52877,Nominal dollars,U.S. dollars per person
+2013,North Carolina,37000,38092,Nominal dollars,U.S. dollars per person
+2013,North Dakota,38000,54328,Nominal dollars,U.S. dollars per person
+2013,Ohio,39000,40767,Nominal dollars,U.S. dollars per person
+2013,Oklahoma,40000,43611,Nominal dollars,U.S. dollars per person
+2013,Oregon,41000,39460,Nominal dollars,U.S. dollars per person
+2013,Pennsylvania,42000,45904,Nominal dollars,U.S. dollars per person
+2013,Rhode Island,44000,45071,Nominal dollars,U.S. dollars per person
+2013,South Carolina,45000,35948,Nominal dollars,U.S. dollars per person
+2013,South Dakota,46000,44949,Nominal dollars,U.S. dollars per person
+2013,Tennessee,47000,39108,Nominal dollars,U.S. dollars per person
+2013,Texas,48000,44415,Nominal dollars,U.S. dollars per person
+2013,Utah,49000,36058,Nominal dollars,U.S. dollars per person
+2013,Vermont,50000,45291,Nominal dollars,U.S. dollars per person
+2013,Virginia,51000,48193,Nominal dollars,U.S. dollars per person
+2013,Washington,53000,47460,Nominal dollars,U.S. dollars per person
+2013,West Virginia,54000,35051,Nominal dollars,U.S. dollars per person
+2013,Wisconsin,55000,42695,Nominal dollars,U.S. dollars per person
+2013,Wyoming,56000,52824,Nominal dollars,U.S. dollars per person
+2014,Alabama,01000,36710,Nominal dollars,U.S. dollars per person
+2014,Alaska,02000,55077,Nominal dollars,U.S. dollars per person
+2014,Arizona,04000,38127,Nominal dollars,U.S. dollars per person
+2014,Arkansas,05000,38229,Nominal dollars,U.S. dollars per person
+2014,California,06000,50631,Nominal dollars,U.S. dollars per person
+2014,Colorado,08000,50221,Nominal dollars,U.S. dollars per person
+2014,Connecticut,09000,64464,Nominal dollars,U.S. dollars per person
+2014,Delaware,10000,45364,Nominal dollars,U.S. dollars per person
+2014,District of Columbia,11000,70395,Nominal dollars,U.S. dollars per person
+2014,Florida,12000,42877,Nominal dollars,U.S. dollars per person
+2014,Georgia,13000,39575,Nominal dollars,U.S. dollars per person
+2014,Hawaii,15000,45458,Nominal dollars,U.S. dollars per person
+2014,Idaho,16000,37101,Nominal dollars,U.S. dollars per person
+2014,Illinois,17000,48526,Nominal dollars,U.S. dollars per person
+2014,Indiana,18000,40686,Nominal dollars,U.S. dollars per person
+2014,Iowa,19000,44061,Nominal dollars,U.S. dollars per person
+2014,Kansas,20000,46285,Nominal dollars,U.S. dollars per person
+2014,Kentucky,21000,37226,Nominal dollars,U.S. dollars per person
+2014,Louisiana,22000,42547,Nominal dollars,U.S. dollars per person
+2014,Maine,23000,41131,Nominal dollars,U.S. dollars per person
+2014,Maryland,24000,53085,Nominal dollars,U.S. dollars per person
+2014,Massachusetts,25000,58132,Nominal dollars,U.S. dollars per person
+2014,Michigan,26000,40832,Nominal dollars,U.S. dollars per person
+2014,Minnesota,27000,49330,Nominal dollars,U.S. dollars per person
+2014,Mississippi,28000,34646,Nominal dollars,U.S. dollars per person
+2014,Missouri,29000,41373,Nominal dollars,U.S. dollars per person
+2014,Montana,30000,41858,Nominal dollars,U.S. dollars per person
+2014,Nebraska,31000,48189,Nominal dollars,U.S. dollars per person
+2014,Nevada,32000,41150,Nominal dollars,U.S. dollars per person
+2014,New Hampshire,33000,51961,Nominal dollars,U.S. dollars per person
+2014,New Jersey,34000,56384,Nominal dollars,U.S. dollars per person
+2014,New Mexico,35000,36889,Nominal dollars,U.S. dollars per person
+2014,New York,36000,54508,Nominal dollars,U.S. dollars per person
+2014,North Carolina,37000,39888,Nominal dollars,U.S. dollars per person
+2014,North Dakota,38000,56632,Nominal dollars,U.S. dollars per person
+2014,Ohio,39000,42290,Nominal dollars,U.S. dollars per person
+2014,Oklahoma,40000,45883,Nominal dollars,U.S. dollars per person
+2014,Oregon,41000,41645,Nominal dollars,U.S. dollars per person
+2014,Pennsylvania,42000,47470,Nominal dollars,U.S. dollars per person
+2014,Rhode Island,44000,46608,Nominal dollars,U.S. dollars per person
+2014,South Carolina,45000,37777,Nominal dollars,U.S. dollars per person
+2014,South Dakota,46000,46687,Nominal dollars,U.S. dollars per person
+2014,Tennessee,47000,40235,Nominal dollars,U.S. dollars per person
+2014,Texas,48000,46758,Nominal dollars,U.S. dollars per person
+2014,Utah,49000,37578,Nominal dollars,U.S. dollars per person
+2014,Vermont,50000,46889,Nominal dollars,U.S. dollars per person
+2014,Virginia,51000,49755,Nominal dollars,U.S. dollars per person
+2014,Washington,53000,50275,Nominal dollars,U.S. dollars per person
+2014,West Virginia,54000,36201,Nominal dollars,U.S. dollars per person
+2014,Wisconsin,55000,44164,Nominal dollars,U.S. dollars per person
+2014,Wyoming,56000,56247,Nominal dollars,U.S. dollars per person
+2015,Alabama,01000,38177,Nominal dollars,U.S. dollars per person
+2015,Alaska,02000,56690,Nominal dollars,U.S. dollars per person
+2015,Arizona,04000,39773,Nominal dollars,U.S. dollars per person
+2015,Arkansas,05000,39275,Nominal dollars,U.S. dollars per person
+2015,California,06000,53828,Nominal dollars,U.S. dollars per person
+2015,Colorado,08000,51371,Nominal dollars,U.S. dollars per person
+2015,Connecticut,09000,66213,Nominal dollars,U.S. dollars per person
+2015,Delaware,10000,47242,Nominal dollars,U.S. dollars per person
+2015,District of Columbia,11000,74650,Nominal dollars,U.S. dollars per person
+2015,Florida,12000,44959,Nominal dollars,U.S. dollars per person
+2015,Georgia,13000,41552,Nominal dollars,U.S. dollars per person
+2015,Hawaii,15000,47161,Nominal dollars,U.S. dollars per person
+2015,Idaho,16000,38805,Nominal dollars,U.S. dollars per person
+2015,Illinois,17000,50681,Nominal dollars,U.S. dollars per person
+2015,Indiana,18000,42115,Nominal dollars,U.S. dollars per person
+2015,Iowa,19000,45389,Nominal dollars,U.S. dollars per person
+2015,Kansas,20000,46591,Nominal dollars,U.S. dollars per person
+2015,Kentucky,21000,38768,Nominal dollars,U.S. dollars per person
+2015,Louisiana,22000,42498,Nominal dollars,U.S. dollars per person
+2015,Maine,23000,42939,Nominal dollars,U.S. dollars per person
+2015,Maryland,24000,55042,Nominal dollars,U.S. dollars per person
+2015,Massachusetts,25000,61549,Nominal dollars,U.S. dollars per person
+2015,Michigan,26000,42988,Nominal dollars,U.S. dollars per person
+2015,Minnesota,27000,51336,Nominal dollars,U.S. dollars per person
+2015,Mississippi,28000,35118,Nominal dollars,U.S. dollars per person
+2015,Missouri,29000,42671,Nominal dollars,U.S. dollars per person
+2015,Montana,30000,43102,Nominal dollars,U.S. dollars per person
+2015,Nebraska,31000,49709,Nominal dollars,U.S. dollars per person
+2015,Nevada,32000,43821,Nominal dollars,U.S. dollars per person
+2015,New Hampshire,33000,54119,Nominal dollars,U.S. dollars per person
+2015,New Jersey,34000,58424,Nominal dollars,U.S. dollars per person
+2015,New Mexico,35000,37763,Nominal dollars,U.S. dollars per person
+2015,New York,36000,56604,Nominal dollars,U.S. dollars per person
+2015,North Carolina,37000,41645,Nominal dollars,U.S. dollars per person
+2015,North Dakota,38000,52955,Nominal dollars,U.S. dollars per person
+2015,Ohio,39000,43812,Nominal dollars,U.S. dollars per person
+2015,Oklahoma,40000,44276,Nominal dollars,U.S. dollars per person
+2015,Oregon,41000,44156,Nominal dollars,U.S. dollars per person
+2015,Pennsylvania,42000,49294,Nominal dollars,U.S. dollars per person
+2015,Rhode Island,44000,48037,Nominal dollars,U.S. dollars per person
+2015,South Carolina,45000,39618,Nominal dollars,U.S. dollars per person
+2015,South Dakota,46000,48273,Nominal dollars,U.S. dollars per person
+2015,Tennessee,47000,41945,Nominal dollars,U.S. dollars per person
+2015,Texas,48000,46778,Nominal dollars,U.S. dollars per person
+2015,Utah,49000,39833,Nominal dollars,U.S. dollars per person
+2015,Vermont,50000,48110,Nominal dollars,U.S. dollars per person
+2015,Virginia,51000,51611,Nominal dollars,U.S. dollars per person
+2015,Washington,53000,52423,Nominal dollars,U.S. dollars per person
+2015,West Virginia,54000,37031,Nominal dollars,U.S. dollars per person
+2015,Wisconsin,55000,45933,Nominal dollars,U.S. dollars per person
+2015,Wyoming,56000,56122,Nominal dollars,U.S. dollars per person
+2016,Alabama,01000,38692,Nominal dollars,U.S. dollars per person
+2016,Alaska,02000,55513,Nominal dollars,U.S. dollars per person
+2016,Arizona,04000,41085,Nominal dollars,U.S. dollars per person
+2016,Arkansas,05000,40188,Nominal dollars,U.S. dollars per person
+2016,California,06000,55873,Nominal dollars,U.S. dollars per person
+2016,Colorado,08000,51282,Nominal dollars,U.S. dollars per person
+2016,Connecticut,09000,67543,Nominal dollars,U.S. dollars per person
+2016,Delaware,10000,48188,Nominal dollars,U.S. dollars per person
+2016,District of Columbia,11000,77354,Nominal dollars,U.S. dollars per person
+2016,Florida,12000,45732,Nominal dollars,U.S. dollars per person
+2016,Georgia,13000,42765,Nominal dollars,U.S. dollars per person
+2016,Hawaii,15000,48570,Nominal dollars,U.S. dollars per person
+2016,Idaho,16000,39640,Nominal dollars,U.S. dollars per person
+2016,Illinois,17000,51341,Nominal dollars,U.S. dollars per person
+2016,Indiana,18000,43121,Nominal dollars,U.S. dollars per person
+2016,Iowa,19000,45624,Nominal dollars,U.S. dollars per person
+2016,Kansas,20000,46711,Nominal dollars,U.S. dollars per person
+2016,Kentucky,21000,39319,Nominal dollars,U.S. dollars per person
+2016,Louisiana,22000,42145,Nominal dollars,U.S. dollars per person
+2016,Maine,23000,44233,Nominal dollars,U.S. dollars per person
+2016,Maryland,24000,56615,Nominal dollars,U.S. dollars per person
+2016,Massachusetts,25000,63487,Nominal dollars,U.S. dollars per person
+2016,Michigan,26000,44085,Nominal dollars,U.S. dollars per person
+2016,Minnesota,27000,51966,Nominal dollars,U.S. dollars per person
+2016,Mississippi,28000,35653,Nominal dollars,U.S. dollars per person
+2016,Missouri,29000,43819,Nominal dollars,U.S. dollars per person
+2016,Montana,30000,43308,Nominal dollars,U.S. dollars per person
+2016,Nebraska,31000,48687,Nominal dollars,U.S. dollars per person
+2016,Nevada,32000,44734,Nominal dollars,U.S. dollars per person
+2016,New Hampshire,33000,55622,Nominal dollars,U.S. dollars per person
+2016,New Jersey,34000,59791,Nominal dollars,U.S. dollars per person
+2016,New Mexico,35000,38485,Nominal dollars,U.S. dollars per person
+2016,New York,36000,58396,Nominal dollars,U.S. dollars per person
+2016,North Carolina,37000,42607,Nominal dollars,U.S. dollars per person
+2016,North Dakota,38000,51280,Nominal dollars,U.S. dollars per person
+2016,Ohio,39000,44583,Nominal dollars,U.S. dollars per person
+2016,Oklahoma,40000,42047,Nominal dollars,U.S. dollars per person
+2016,Oregon,41000,45458,Nominal dollars,U.S. dollars per person
+2016,Pennsylvania,42000,50575,Nominal dollars,U.S. dollars per person
+2016,Rhode Island,44000,48503,Nominal dollars,U.S. dollars per person
+2016,South Carolina,45000,40769,Nominal dollars,U.S. dollars per person
+2016,South Dakota,46000,48255,Nominal dollars,U.S. dollars per person
+2016,Tennessee,47000,42944,Nominal dollars,U.S. dollars per person
+2016,Texas,48000,45880,Nominal dollars,U.S. dollars per person
+2016,Utah,49000,41242,Nominal dollars,U.S. dollars per person
+2016,Vermont,50000,48819,Nominal dollars,U.S. dollars per person
+2016,Virginia,51000,52650,Nominal dollars,U.S. dollars per person
+2016,Washington,53000,54310,Nominal dollars,U.S. dollars per person
+2016,West Virginia,54000,37040,Nominal dollars,U.S. dollars per person
+2016,Wisconsin,55000,46598,Nominal dollars,U.S. dollars per person
+2016,Wyoming,56000,53424,Nominal dollars,U.S. dollars per person
+2017,Alabama,01000,39955,Nominal dollars,U.S. dollars per person
+2017,Alaska,02000,56476,Nominal dollars,U.S. dollars per person
+2017,Arizona,04000,43182,Nominal dollars,U.S. dollars per person
+2017,Arkansas,05000,41408,Nominal dollars,U.S. dollars per person
+2017,California,06000,58225,Nominal dollars,U.S. dollars per person
+2017,Colorado,08000,54145,Nominal dollars,U.S. dollars per person
+2017,Connecticut,09000,69139,Nominal dollars,U.S. dollars per person
+2017,Delaware,10000,49998,Nominal dollars,U.S. dollars per person
+2017,District of Columbia,11000,79409,Nominal dollars,U.S. dollars per person
+2017,Florida,12000,48450,Nominal dollars,U.S. dollars per person
+2017,Georgia,13000,44860,Nominal dollars,U.S. dollars per person
+2017,Hawaii,15000,50515,Nominal dollars,U.S. dollars per person
+2017,Idaho,16000,41187,Nominal dollars,U.S. dollars per person
+2017,Illinois,17000,53051,Nominal dollars,U.S. dollars per person
+2017,Indiana,18000,44564,Nominal dollars,U.S. dollars per person
+2017,Iowa,19000,46725,Nominal dollars,U.S. dollars per person
+2017,Kansas,20000,48265,Nominal dollars,U.S. dollars per person
+2017,Kentucky,21000,40400,Nominal dollars,U.S. dollars per person
+2017,Louisiana,22000,43500,Nominal dollars,U.S. dollars per person
+2017,Maine,23000,45901,Nominal dollars,U.S. dollars per person
+2017,Maryland,24000,58252,Nominal dollars,U.S. dollars per person
+2017,Massachusetts,25000,66079,Nominal dollars,U.S. dollars per person
+2017,Michigan,26000,45267,Nominal dollars,U.S. dollars per person
+2017,Minnesota,27000,53812,Nominal dollars,U.S. dollars per person
+2017,Mississippi,28000,36590,Nominal dollars,U.S. dollars per person
+2017,Missouri,29000,44772,Nominal dollars,U.S. dollars per person
+2017,Montana,30000,45374,Nominal dollars,U.S. dollars per person
+2017,Nebraska,31000,49530,Nominal dollars,U.S. dollars per person
+2017,Nevada,32000,47008,Nominal dollars,U.S. dollars per person
+2017,New Hampshire,33000,57826,Nominal dollars,U.S. dollars per person
+2017,New Jersey,34000,61717,Nominal dollars,U.S. dollars per person
+2017,New Mexico,35000,39203,Nominal dollars,U.S. dollars per person
+2017,New York,36000,62201,Nominal dollars,U.S. dollars per person
+2017,North Carolina,37000,44228,Nominal dollars,U.S. dollars per person
+2017,North Dakota,38000,51811,Nominal dollars,U.S. dollars per person
+2017,Ohio,39000,46120,Nominal dollars,U.S. dollars per person
+2017,Oklahoma,40000,43864,Nominal dollars,U.S. dollars per person
+2017,Oregon,41000,47556,Nominal dollars,U.S. dollars per person
+2017,Pennsylvania,42000,51887,Nominal dollars,U.S. dollars per person
+2017,Rhode Island,44000,50400,Nominal dollars,U.S. dollars per person
+2017,South Carolina,45000,42399,Nominal dollars,U.S. dollars per person
+2017,South Dakota,46000,49380,Nominal dollars,U.S. dollars per person
+2017,Tennessee,47000,44410,Nominal dollars,U.S. dollars per person
+2017,Texas,48000,48535,Nominal dollars,U.S. dollars per person
+2017,Utah,49000,42976,Nominal dollars,U.S. dollars per person
+2017,Vermont,50000,50000,Nominal dollars,U.S. dollars per person
+2017,Virginia,51000,54371,Nominal dollars,U.S. dollars per person
+2017,Washington,53000,56814,Nominal dollars,U.S. dollars per person
+2017,West Virginia,54000,38807,Nominal dollars,U.S. dollars per person
+2017,Wisconsin,55000,48311,Nominal dollars,U.S. dollars per person
+2017,Wyoming,56000,56383,Nominal dollars,U.S. dollars per person
+2018,Alabama,01000,41314,Nominal dollars,U.S. dollars per person
+2018,Alaska,02000,58975,Nominal dollars,U.S. dollars per person
+2018,Arizona,04000,45223,Nominal dollars,U.S. dollars per person
+2018,Arkansas,05000,43035,Nominal dollars,U.S. dollars per person
+2018,California,06000,60994,Nominal dollars,U.S. dollars per person
+2018,Colorado,08000,57765,Nominal dollars,U.S. dollars per person
+2018,Connecticut,09000,72152,Nominal dollars,U.S. dollars per person
+2018,Delaware,10000,52669,Nominal dollars,U.S. dollars per person
+2018,District of Columbia,11000,82090,Nominal dollars,U.S. dollars per person
+2018,Florida,12000,51019,Nominal dollars,U.S. dollars per person
+2018,Georgia,13000,46650,Nominal dollars,U.S. dollars per person
+2018,Hawaii,15000,51561,Nominal dollars,U.S. dollars per person
+2018,Idaho,16000,43243,Nominal dollars,U.S. dollars per person
+2018,Illinois,17000,56073,Nominal dollars,U.S. dollars per person
+2018,Indiana,18000,46547,Nominal dollars,U.S. dollars per person
+2018,Iowa,19000,48745,Nominal dollars,U.S. dollars per person
+2018,Kansas,20000,50273,Nominal dollars,U.S. dollars per person
+2018,Kentucky,21000,41654,Nominal dollars,U.S. dollars per person
+2018,Louisiana,22000,45480,Nominal dollars,U.S. dollars per person
+2018,Maine,23000,47724,Nominal dollars,U.S. dollars per person
+2018,Maryland,24000,59922,Nominal dollars,U.S. dollars per person
+2018,Massachusetts,25000,69202,Nominal dollars,U.S. dollars per person
+2018,Michigan,26000,47091,Nominal dollars,U.S. dollars per person
+2018,Minnesota,27000,56186,Nominal dollars,U.S. dollars per person
+2018,Mississippi,28000,37637,Nominal dollars,U.S. dollars per person
+2018,Missouri,29000,46672,Nominal dollars,U.S. dollars per person
+2018,Montana,30000,47211,Nominal dollars,U.S. dollars per person
+2018,Nebraska,31000,51438,Nominal dollars,U.S. dollars per person
+2018,Nevada,32000,49307,Nominal dollars,U.S. dollars per person
+2018,New Hampshire,33000,60267,Nominal dollars,U.S. dollars per person
+2018,New Jersey,34000,64213,Nominal dollars,U.S. dollars per person
+2018,New Mexico,35000,40982,Nominal dollars,U.S. dollars per person
+2018,New York,36000,64224,Nominal dollars,U.S. dollars per person
+2018,North Carolina,37000,46057,Nominal dollars,U.S. dollars per person
+2018,North Dakota,38000,55157,Nominal dollars,U.S. dollars per person
+2018,Ohio,39000,47825,Nominal dollars,U.S. dollars per person
+2018,Oklahoma,40000,46020,Nominal dollars,U.S. dollars per person
+2018,Oregon,41000,50198,Nominal dollars,U.S. dollars per person
+2018,Pennsylvania,42000,54468,Nominal dollars,U.S. dollars per person
+2018,Rhode Island,44000,52118,Nominal dollars,U.S. dollars per person
+2018,South Carolina,45000,43831,Nominal dollars,U.S. dollars per person
+2018,South Dakota,46000,51541,Nominal dollars,U.S. dollars per person
+2018,Tennessee,47000,46452,Nominal dollars,U.S. dollars per person
+2018,Texas,48000,51359,Nominal dollars,U.S. dollars per person
+2018,Utah,49000,45403,Nominal dollars,U.S. dollars per person
+2018,Vermont,50000,51680,Nominal dollars,U.S. dollars per person
+2018,Virginia,51000,56124,Nominal dollars,U.S. dollars per person
+2018,Washington,53000,59838,Nominal dollars,U.S. dollars per person
+2018,West Virginia,54000,40964,Nominal dollars,U.S. dollars per person
+2018,Wisconsin,55000,50519,Nominal dollars,U.S. dollars per person
+2018,Wyoming,56000,59204,Nominal dollars,U.S. dollars per person
+2019,Alabama,01000,42996,Nominal dollars,U.S. dollars per person
+2019,Alaska,02000,60483,Nominal dollars,U.S. dollars per person
+2019,Arizona,04000,47646,Nominal dollars,U.S. dollars per person
+2019,Arkansas,05000,43745,Nominal dollars,U.S. dollars per person
+2019,California,06000,64230,Nominal dollars,U.S. dollars per person
+2019,Colorado,08000,61242,Nominal dollars,U.S. dollars per person
+2019,Connecticut,09000,74167,Nominal dollars,U.S. dollars per person
+2019,Delaware,10000,53776,Nominal dollars,U.S. dollars per person
+2019,District of Columbia,11000,83429,Nominal dollars,U.S. dollars per person
+2019,Florida,12000,53666,Nominal dollars,U.S. dollars per person
+2019,Georgia,13000,48553,Nominal dollars,U.S. dollars per person
+2019,Hawaii,15000,53949,Nominal dollars,U.S. dollars per person
+2019,Idaho,16000,45866,Nominal dollars,U.S. dollars per person
+2019,Illinois,17000,57740,Nominal dollars,U.S. dollars per person
+2019,Indiana,18000,48256,Nominal dollars,U.S. dollars per person
+2019,Iowa,19000,49670,Nominal dollars,U.S. dollars per person
+2019,Kansas,20000,52142,Nominal dollars,U.S. dollars per person
+2019,Kentucky,21000,43464,Nominal dollars,U.S. dollars per person
+2019,Louisiana,22000,47029,Nominal dollars,U.S. dollars per person
+2019,Maine,23000,49978,Nominal dollars,U.S. dollars per person
+2019,Maryland,24000,61730,Nominal dollars,U.S. dollars per person
+2019,Massachusetts,25000,72392,Nominal dollars,U.S. dollars per person
+2019,Michigan,26000,48582,Nominal dollars,U.S. dollars per person
+2019,Minnesota,27000,57889,Nominal dollars,U.S. dollars per person
+2019,Mississippi,28000,39157,Nominal dollars,U.S. dollars per person
+2019,Missouri,29000,48422,Nominal dollars,U.S. dollars per person
+2019,Montana,30000,49657,Nominal dollars,U.S. dollars per person
+2019,Nebraska,31000,53519,Nominal dollars,U.S. dollars per person
+2019,Nevada,32000,51962,Nominal dollars,U.S. dollars per person
+2019,New Hampshire,33000,63840,Nominal dollars,U.S. dollars per person
+2019,New Jersey,34000,67532,Nominal dollars,U.S. dollars per person
+2019,New Mexico,35000,43234,Nominal dollars,U.S. dollars per person
+2019,New York,36000,66455,Nominal dollars,U.S. dollars per person
+2019,North Carolina,37000,48384,Nominal dollars,U.S. dollars per person
+2019,North Dakota,38000,56640,Nominal dollars,U.S. dollars per person
+2019,Ohio,39000,49399,Nominal dollars,U.S. dollars per person
+2019,Oklahoma,40000,48163,Nominal dollars,U.S. dollars per person
+2019,Oregon,41000,52182,Nominal dollars,U.S. dollars per person
+2019,Pennsylvania,42000,56142,Nominal dollars,U.S. dollars per person
+2019,Rhode Island,44000,55110,Nominal dollars,U.S. dollars per person
+2019,South Carolina,45000,46165,Nominal dollars,U.S. dollars per person
+2019,South Dakota,46000,54378,Nominal dollars,U.S. dollars per person
+2019,Tennessee,47000,48908,Nominal dollars,U.S. dollars per person
+2019,Texas,48000,53283,Nominal dollars,U.S. dollars per person
+2019,Utah,49000,48077,Nominal dollars,U.S. dollars per person
+2019,Vermont,50000,54269,Nominal dollars,U.S. dollars per person
+2019,Virginia,51000,58356,Nominal dollars,U.S. dollars per person
+2019,Washington,53000,63445,Nominal dollars,U.S. dollars per person
+2019,West Virginia,54000,42581,Nominal dollars,U.S. dollars per person
+2019,Wisconsin,55000,52369,Nominal dollars,U.S. dollars per person
+2019,Wyoming,56000,61865,Nominal dollars,U.S. dollars per person
+2020,Alabama,01000,45874,Nominal dollars,U.S. dollars per person
+2020,Alaska,02000,61892,Nominal dollars,U.S. dollars per person
+2020,Arizona,04000,51996,Nominal dollars,U.S. dollars per person
+2020,Arkansas,05000,47140,Nominal dollars,U.S. dollars per person
+2020,California,06000,70098,Nominal dollars,U.S. dollars per person
+2020,Colorado,08000,64669,Nominal dollars,U.S. dollars per person
+2020,Connecticut,09000,76820,Nominal dollars,U.S. dollars per person
+2020,Delaware,10000,55519,Nominal dollars,U.S. dollars per person
+2020,District of Columbia,11000,90449,Nominal dollars,U.S. dollars per person
+2020,Florida,12000,56600,Nominal dollars,U.S. dollars per person
+2020,Georgia,13000,51522,Nominal dollars,U.S. dollars per person
+2020,Hawaii,15000,57040,Nominal dollars,U.S. dollars per person
+2020,Idaho,16000,49715,Nominal dollars,U.S. dollars per person
+2020,Illinois,17000,61602,Nominal dollars,U.S. dollars per person
+2020,Indiana,18000,51764,Nominal dollars,U.S. dollars per person
+2020,Iowa,19000,52677,Nominal dollars,U.S. dollars per person
+2020,Kansas,20000,55221,Nominal dollars,U.S. dollars per person
+2020,Kentucky,21000,47084,Nominal dollars,U.S. dollars per person
+2020,Louisiana,22000,50194,Nominal dollars,U.S. dollars per person
+2020,Maine,23000,54326,Nominal dollars,U.S. dollars per person
+2020,Maryland,24000,64871,Nominal dollars,U.S. dollars per person
+2020,Massachusetts,25000,77608,Nominal dollars,U.S. dollars per person
+2020,Michigan,26000,52826,Nominal dollars,U.S. dollars per person
+2020,Minnesota,27000,61358,Nominal dollars,U.S. dollars per person
+2020,Mississippi,28000,42478,Nominal dollars,U.S. dollars per person
+2020,Missouri,29000,52203,Nominal dollars,U.S. dollars per person
+2020,Montana,30000,53575,Nominal dollars,U.S. dollars per person
+2020,Nebraska,31000,56928,Nominal dollars,U.S. dollars per person
+2020,Nevada,32000,54708,Nominal dollars,U.S. dollars per person
+2020,New Hampshire,33000,67448,Nominal dollars,U.S. dollars per person
+2020,New Jersey,34000,70476,Nominal dollars,U.S. dollars per person
+2020,New Mexico,35000,46574,Nominal dollars,U.S. dollars per person
+2020,New York,36000,70349,Nominal dollars,U.S. dollars per person
+2020,North Carolina,37000,51824,Nominal dollars,U.S. dollars per person
+2020,North Dakota,38000,60434,Nominal dollars,U.S. dollars per person
+2020,Ohio,39000,52855,Nominal dollars,U.S. dollars per person
+2020,Oklahoma,40000,49993,Nominal dollars,U.S. dollars per person
+2020,Oregon,41000,56655,Nominal dollars,U.S. dollars per person
+2020,Pennsylvania,42000,60285,Nominal dollars,U.S. dollars per person
+2020,Rhode Island,44000,59267,Nominal dollars,U.S. dollars per person
+2020,South Carolina,45000,48779,Nominal dollars,U.S. dollars per person
+2020,South Dakota,46000,59554,Nominal dollars,U.S. dollars per person
+2020,Tennessee,47000,51977,Nominal dollars,U.S. dollars per person
+2020,Texas,48000,54838,Nominal dollars,U.S. dollars per person
+2020,Utah,49000,51679,Nominal dollars,U.S. dollars per person
+2020,Vermont,50000,58151,Nominal dollars,U.S. dollars per person
+2020,Virginia,51000,61446,Nominal dollars,U.S. dollars per person
+2020,Washington,53000,67684,Nominal dollars,U.S. dollars per person
+2020,West Virginia,54000,44864,Nominal dollars,U.S. dollars per person
+2020,Wisconsin,55000,55496,Nominal dollars,U.S. dollars per person
+2020,Wyoming,56000,65107,Nominal dollars,U.S. dollars per person
+2021,Alabama,01000,50651,Nominal dollars,U.S. dollars per person
+2021,Alaska,02000,65773,Nominal dollars,U.S. dollars per person
+2021,Arizona,04000,57116,Nominal dollars,U.S. dollars per person
+2021,Arkansas,05000,53374,Nominal dollars,U.S. dollars per person
+2021,California,06000,77140,Nominal dollars,U.S. dollars per person
+2021,Colorado,08000,71934,Nominal dollars,U.S. dollars per person
+2021,Connecticut,09000,82159,Nominal dollars,U.S. dollars per person
+2021,Delaware,10000,59893,Nominal dollars,U.S. dollars per person
+2021,District of Columbia,11000,97855,Nominal dollars,U.S. dollars per person
+2021,Florida,12000,62627,Nominal dollars,U.S. dollars per person
+2021,Georgia,13000,56293,Nominal dollars,U.S. dollars per person
+2021,Hawaii,15000,61275,Nominal dollars,U.S. dollars per person
+2021,Idaho,16000,55618,Nominal dollars,U.S. dollars per person
+2021,Illinois,17000,66894,Nominal dollars,U.S. dollars per person
+2021,Indiana,18000,57387,Nominal dollars,U.S. dollars per person
+2021,Iowa,19000,58306,Nominal dollars,U.S. dollars per person
+2021,Kansas,20000,59210,Nominal dollars,U.S. dollars per person
+2021,Kentucky,21000,51941,Nominal dollars,U.S. dollars per person
+2021,Louisiana,22000,55141,Nominal dollars,U.S. dollars per person
+2021,Maine,23000,59400,Nominal dollars,U.S. dollars per person
+2021,Maryland,24000,69296,Nominal dollars,U.S. dollars per person
+2021,Massachusetts,25000,84192,Nominal dollars,U.S. dollars per person
+2021,Michigan,26000,57106,Nominal dollars,U.S. dollars per person
+2021,Minnesota,27000,67743,Nominal dollars,U.S. dollars per person
+2021,Mississippi,28000,47072,Nominal dollars,U.S. dollars per person
+2021,Missouri,29000,56916,Nominal dollars,U.S. dollars per person
+2021,Montana,30000,59263,Nominal dollars,U.S. dollars per person
+2021,Nebraska,31000,63744,Nominal dollars,U.S. dollars per person
+2021,Nevada,32000,61082,Nominal dollars,U.S. dollars per person
+2021,New Hampshire,33000,73868,Nominal dollars,U.S. dollars per person
+2021,New Jersey,34000,76391,Nominal dollars,U.S. dollars per person
+2021,New Mexico,35000,50885,Nominal dollars,U.S. dollars per person
+2021,New York,36000,76446,Nominal dollars,U.S. dollars per person
+2021,North Carolina,37000,57247,Nominal dollars,U.S. dollars per person
+2021,North Dakota,38000,66165,Nominal dollars,U.S. dollars per person
+2021,Ohio,39000,57558,Nominal dollars,U.S. dollars per person
+2021,Oklahoma,40000,54630,Nominal dollars,U.S. dollars per person
+2021,Oregon,41000,62668,Nominal dollars,U.S. dollars per person
+2021,Pennsylvania,42000,64033,Nominal dollars,U.S. dollars per person
+2021,Rhode Island,44000,63115,Nominal dollars,U.S. dollars per person
+2021,South Carolina,45000,53415,Nominal dollars,U.S. dollars per person
+2021,South Dakota,46000,67095,Nominal dollars,U.S. dollars per person
+2021,Tennessee,47000,57725,Nominal dollars,U.S. dollars per person
+2021,Texas,48000,60451,Nominal dollars,U.S. dollars per person
+2021,Utah,49000,58272,Nominal dollars,U.S. dollars per person
+2021,Vermont,50000,61130,Nominal dollars,U.S. dollars per person
+2021,Virginia,51000,67220,Nominal dollars,U.S. dollars per person
+2021,Washington,53000,73985,Nominal dollars,U.S. dollars per person
+2021,West Virginia,54000,48875,Nominal dollars,U.S. dollars per person
+2021,Wisconsin,55000,60714,Nominal dollars,U.S. dollars per person
+2021,Wyoming,56000,71512,Nominal dollars,U.S. dollars per person
+2022,Alabama,01000,51706,Nominal dollars,U.S. dollars per person
+2022,Alaska,02000,69151,Nominal dollars,U.S. dollars per person
+2022,Arizona,04000,59055,Nominal dollars,U.S. dollars per person
+2022,Arkansas,05000,53718,Nominal dollars,U.S. dollars per person
+2022,California,06000,77221,Nominal dollars,U.S. dollars per person
+2022,Colorado,08000,76616,Nominal dollars,U.S. dollars per person
+2022,Connecticut,09000,85378,Nominal dollars,U.S. dollars per person
+2022,Delaware,10000,64077,Nominal dollars,U.S. dollars per person
+2022,District of Columbia,11000,100947,Nominal dollars,U.S. dollars per person
+2022,Florida,12000,65326,Nominal dollars,U.S. dollars per person
+2022,Georgia,13000,57422,Nominal dollars,U.S. dollars per person
+2022,Hawaii,15000,63312,Nominal dollars,U.S. dollars per person
+2022,Idaho,16000,57050,Nominal dollars,U.S. dollars per person
+2022,Illinois,17000,68136,Nominal dollars,U.S. dollars per person
+2022,Indiana,18000,58697,Nominal dollars,U.S. dollars per person
+2022,Iowa,19000,61343,Nominal dollars,U.S. dollars per person
+2022,Kansas,20000,61915,Nominal dollars,U.S. dollars per person
+2022,Kentucky,21000,52599,Nominal dollars,U.S. dollars per person
+2022,Louisiana,22000,55328,Nominal dollars,U.S. dollars per person
+2022,Maine,23000,61595,Nominal dollars,U.S. dollars per person
+2022,Maryland,24000,70900,Nominal dollars,U.S. dollars per person
+2022,Massachusetts,25000,85458,Nominal dollars,U.S. dollars per person
+2022,Michigan,26000,58083,Nominal dollars,U.S. dollars per person
+2022,Minnesota,27000,69471,Nominal dollars,U.S. dollars per person
+2022,Mississippi,28000,47071,Nominal dollars,U.S. dollars per person
+2022,Missouri,29000,58528,Nominal dollars,U.S. dollars per person
+2022,Montana,30000,62101,Nominal dollars,U.S. dollars per person
+2022,Nebraska,31000,66452,Nominal dollars,U.S. dollars per person
+2022,Nevada,32000,62732,Nominal dollars,U.S. dollars per person
+2022,New Hampshire,33000,75187,Nominal dollars,U.S. dollars per person
+2022,New Jersey,34000,77470,Nominal dollars,U.S. dollars per person
+2022,New Mexico,35000,53170,Nominal dollars,U.S. dollars per person
+2022,New York,36000,77434,Nominal dollars,U.S. dollars per person
+2022,North Carolina,37000,59123,Nominal dollars,U.S. dollars per person
+2022,North Dakota,38000,71081,Nominal dollars,U.S. dollars per person
+2022,Ohio,39000,58387,Nominal dollars,U.S. dollars per person
+2022,Oklahoma,40000,57944,Nominal dollars,U.S. dollars per person
+2022,Oregon,41000,63702,Nominal dollars,U.S. dollars per person
+2022,Pennsylvania,42000,65239,Nominal dollars,U.S. dollars per person
+2022,Rhode Island,44000,64547,Nominal dollars,U.S. dollars per person
+2022,South Carolina,45000,54558,Nominal dollars,U.S. dollars per person
+2022,South Dakota,46000,69215,Nominal dollars,U.S. dollars per person
+2022,Tennessee,47000,59044,Nominal dollars,U.S. dollars per person
+2022,Texas,48000,63783,Nominal dollars,U.S. dollars per person
+2022,Utah,49000,60636,Nominal dollars,U.S. dollars per person
+2022,Vermont,50000,63816,Nominal dollars,U.S. dollars per person
+2022,Virginia,51000,69571,Nominal dollars,U.S. dollars per person
+2022,Washington,53000,76124,Nominal dollars,U.S. dollars per person
+2022,West Virginia,54000,50112,Nominal dollars,U.S. dollars per person
+2022,Wisconsin,55000,61832,Nominal dollars,U.S. dollars per person
+2022,Wyoming,56000,77800,Nominal dollars,U.S. dollars per person
+2023,Alabama,01000,54760,Nominal dollars,U.S. dollars per person
+2023,Alaska,02000,72563,Nominal dollars,U.S. dollars per person
+2023,Arizona,04000,63159,Nominal dollars,U.S. dollars per person
+2023,Arkansas,05000,56569,Nominal dollars,U.S. dollars per person
+2023,California,06000,81318,Nominal dollars,U.S. dollars per person
+2023,Colorado,08000,79761,Nominal dollars,U.S. dollars per person
+2023,Connecticut,09000,91847,Nominal dollars,U.S. dollars per person
+2023,Delaware,10000,63773,Nominal dollars,U.S. dollars per person
+2023,District of Columbia,11000,107332,Nominal dollars,U.S. dollars per person
+2023,Florida,12000,71123,Nominal dollars,U.S. dollars per person
+2023,Georgia,13000,60060,Nominal dollars,U.S. dollars per person
+2023,Hawaii,15000,67420,Nominal dollars,U.S. dollars per person
+2023,Idaho,16000,58454,Nominal dollars,U.S. dollars per person
+2023,Illinois,17000,72309,Nominal dollars,U.S. dollars per person
+2023,Indiana,18000,60940,Nominal dollars,U.S. dollars per person
+2023,Iowa,19000,62669,Nominal dollars,U.S. dollars per person
+2023,Kansas,20000,63304,Nominal dollars,U.S. dollars per person
+2023,Kentucky,21000,55618,Nominal dollars,U.S. dollars per person
+2023,Louisiana,22000,58671,Nominal dollars,U.S. dollars per person
+2023,Maine,23000,65138,Nominal dollars,U.S. dollars per person
+2023,Maryland,24000,75673,Nominal dollars,U.S. dollars per person
+2023,Massachusetts,25000,90713,Nominal dollars,U.S. dollars per person
+2023,Michigan,26000,61175,Nominal dollars,U.S. dollars per person
+2023,Minnesota,27000,72565,Nominal dollars,U.S. dollars per person
+2023,Mississippi,28000,49698,Nominal dollars,U.S. dollars per person
+2023,Missouri,29000,63466,Nominal dollars,U.S. dollars per person
+2023,Montana,30000,65336,Nominal dollars,U.S. dollars per person
+2023,Nebraska,31000,71114,Nominal dollars,U.S. dollars per person
+2023,Nevada,32000,67120,Nominal dollars,U.S. dollars per person
+2023,New Hampshire,33000,79646,Nominal dollars,U.S. dollars per person
+2023,New Jersey,34000,81654,Nominal dollars,U.S. dollars per person
+2023,New Mexico,35000,55338,Nominal dollars,U.S. dollars per person
+2023,New York,36000,82530,Nominal dollars,U.S. dollars per person
+2023,North Carolina,37000,61953,Nominal dollars,U.S. dollars per person
+2023,North Dakota,38000,72066,Nominal dollars,U.S. dollars per person
+2023,Ohio,39000,61623,Nominal dollars,U.S. dollars per person
+2023,Oklahoma,40000,60437,Nominal dollars,U.S. dollars per person
+2023,Oregon,41000,66911,Nominal dollars,U.S. dollars per person
+2023,Pennsylvania,42000,68474,Nominal dollars,U.S. dollars per person
+2023,Rhode Island,44000,68463,Nominal dollars,U.S. dollars per person
+2023,South Carolina,45000,57815,Nominal dollars,U.S. dollars per person
+2023,South Dakota,46000,72735,Nominal dollars,U.S. dollars per person
+2023,Tennessee,47000,62975,Nominal dollars,U.S. dollars per person
+2023,Texas,48000,67836,Nominal dollars,U.S. dollars per person
+2023,Utah,49000,63838,Nominal dollars,U.S. dollars per person
+2023,Vermont,50000,68374,Nominal dollars,U.S. dollars per person
+2023,Virginia,51000,74000,Nominal dollars,U.S. dollars per person
+2023,Washington,53000,81234,Nominal dollars,U.S. dollars per person
+2023,West Virginia,54000,52526,Nominal dollars,U.S. dollars per person
+2023,Wisconsin,55000,64945,Nominal dollars,U.S. dollars per person
+2023,Wyoming,56000,83470,Nominal dollars,U.S. dollars per person
+2024,Alabama,01000,57167,Nominal dollars,U.S. dollars per person
+2024,Alaska,02000,76842,Nominal dollars,U.S. dollars per person
+2024,Arizona,04000,65563,Nominal dollars,U.S. dollars per person
+2024,Arkansas,05000,59403,Nominal dollars,U.S. dollars per person
+2024,California,06000,86761,Nominal dollars,U.S. dollars per person
+2024,Colorado,08000,82498,Nominal dollars,U.S. dollars per person
+2024,Connecticut,09000,97810,Nominal dollars,U.S. dollars per person
+2024,Delaware,10000,65328,Nominal dollars,U.S. dollars per person
+2024,District of Columbia,11000,115442,Nominal dollars,U.S. dollars per person
+2024,Florida,12000,74880,Nominal dollars,U.S. dollars per person
+2024,Georgia,13000,62672,Nominal dollars,U.S. dollars per person
+2024,Hawaii,15000,71733,Nominal dollars,U.S. dollars per person
+2024,Idaho,16000,61345,Nominal dollars,U.S. dollars per person
+2024,Illinois,17000,75507,Nominal dollars,U.S. dollars per person
+2024,Indiana,18000,63777,Nominal dollars,U.S. dollars per person
+2024,Iowa,19000,64920,Nominal dollars,U.S. dollars per person
+2024,Kansas,20000,65693,Nominal dollars,U.S. dollars per person
+2024,Kentucky,21000,58270,Nominal dollars,U.S. dollars per person
+2024,Louisiana,22000,61201,Nominal dollars,U.S. dollars per person
+2024,Maine,23000,68600,Nominal dollars,U.S. dollars per person
+2024,Maryland,24000,79558,Nominal dollars,U.S. dollars per person
+2024,Massachusetts,25000,94747,Nominal dollars,U.S. dollars per person
+2024,Michigan,26000,64255,Nominal dollars,U.S. dollars per person
+2024,Minnesota,27000,75040,Nominal dollars,U.S. dollars per person
+2024,Mississippi,28000,51611,Nominal dollars,U.S. dollars per person
+2024,Missouri,29000,66746,Nominal dollars,U.S. dollars per person
+2024,Montana,30000,68809,Nominal dollars,U.S. dollars per person
+2024,Nebraska,31000,72368,Nominal dollars,U.S. dollars per person
+2024,Nevada,32000,70490,Nominal dollars,U.S. dollars per person
+2024,New Hampshire,33000,84302,Nominal dollars,U.S. dollars per person
+2024,New Jersey,34000,85526,Nominal dollars,U.S. dollars per person
+2024,New Mexico,35000,58447,Nominal dollars,U.S. dollars per person
+2024,New York,36000,86835,Nominal dollars,U.S. dollars per person
+2024,North Carolina,37000,65247,Nominal dollars,U.S. dollars per person
+2024,North Dakota,38000,73125,Nominal dollars,U.S. dollars per person
+2024,Ohio,39000,64569,Nominal dollars,U.S. dollars per person
+2024,Oklahoma,40000,63133,Nominal dollars,U.S. dollars per person
+2024,Oregon,41000,70225,Nominal dollars,U.S. dollars per person
+2024,Pennsylvania,42000,71486,Nominal dollars,U.S. dollars per person
+2024,Rhode Island,44000,72004,Nominal dollars,U.S. dollars per person
+2024,South Carolina,45000,60724,Nominal dollars,U.S. dollars per person
+2024,South Dakota,46000,74490,Nominal dollars,U.S. dollars per person
+2024,Tennessee,47000,66188,Nominal dollars,U.S. dollars per person
+2024,Texas,48000,70185,Nominal dollars,U.S. dollars per person
+2024,Utah,49000,67447,Nominal dollars,U.S. dollars per person
+2024,Vermont,50000,72292,Nominal dollars,U.S. dollars per person
+2024,Virginia,51000,77492,Nominal dollars,U.S. dollars per person
+2024,Washington,53000,85192,Nominal dollars,U.S. dollars per person
+2024,West Virginia,54000,54970,Nominal dollars,U.S. dollars per person
+2024,Wisconsin,55000,68240,Nominal dollars,U.S. dollars per person
+2024,Wyoming,56000,88089,Nominal dollars,U.S. dollars per person
+2025,Alabama,01000,59754,Nominal dollars,U.S. dollars per person
+2025,Alaska,02000,80510,Nominal dollars,U.S. dollars per person
+2025,Arizona,04000,68373,Nominal dollars,U.S. dollars per person
+2025,Arkansas,05000,61697,Nominal dollars,U.S. dollars per person
+2025,California,06000,90957,Nominal dollars,U.S. dollars per person
+2025,Colorado,08000,86342,Nominal dollars,U.S. dollars per person
+2025,Connecticut,09000,102307,Nominal dollars,U.S. dollars per person
+2025,Delaware,10000,68630,Nominal dollars,U.S. dollars per person
+2025,District of Columbia,11000,119772,Nominal dollars,U.S. dollars per person
+2025,Florida,12000,78345,Nominal dollars,U.S. dollars per person
+2025,Georgia,13000,65111,Nominal dollars,U.S. dollars per person
+2025,Hawaii,15000,76966,Nominal dollars,U.S. dollars per person
+2025,Idaho,16000,64200,Nominal dollars,U.S. dollars per person
+2025,Illinois,17000,78987,Nominal dollars,U.S. dollars per person
+2025,Indiana,18000,66455,Nominal dollars,U.S. dollars per person
+2025,Iowa,19000,67321,Nominal dollars,U.S. dollars per person
+2025,Kansas,20000,69149,Nominal dollars,U.S. dollars per person
+2025,Kentucky,21000,60835,Nominal dollars,U.S. dollars per person
+2025,Louisiana,22000,64103,Nominal dollars,U.S. dollars per person
+2025,Maine,23000,71742,Nominal dollars,U.S. dollars per person
+2025,Maryland,24000,82387,Nominal dollars,U.S. dollars per person
+2025,Massachusetts,25000,98700,Nominal dollars,U.S. dollars per person
+2025,Michigan,26000,67245,Nominal dollars,U.S. dollars per person
+2025,Minnesota,27000,78197,Nominal dollars,U.S. dollars per person
+2025,Mississippi,28000,54433,Nominal dollars,U.S. dollars per person
+2025,Missouri,29000,69836,Nominal dollars,U.S. dollars per person
+2025,Montana,30000,72066,Nominal dollars,U.S. dollars per person
+2025,Nebraska,31000,76055,Nominal dollars,U.S. dollars per person
+2025,Nevada,32000,73767,Nominal dollars,U.S. dollars per person
+2025,New Hampshire,33000,88145,Nominal dollars,U.S. dollars per person
+2025,New Jersey,34000,89720,Nominal dollars,U.S. dollars per person
+2025,New Mexico,35000,62089,Nominal dollars,U.S. dollars per person
+2025,New York,36000,91504,Nominal dollars,U.S. dollars per person
+2025,North Carolina,37000,68274,Nominal dollars,U.S. dollars per person
+2025,North Dakota,38000,77438,Nominal dollars,U.S. dollars per person
+2025,Ohio,39000,67584,Nominal dollars,U.S. dollars per person
+2025,Oklahoma,40000,66055,Nominal dollars,U.S. dollars per person
+2025,Oregon,41000,73283,Nominal dollars,U.S. dollars per person
+2025,Pennsylvania,42000,75370,Nominal dollars,U.S. dollars per person
+2025,Rhode Island,44000,75233,Nominal dollars,U.S. dollars per person
+2025,South Carolina,45000,63435,Nominal dollars,U.S. dollars per person
+2025,South Dakota,46000,78999,Nominal dollars,U.S. dollars per person
+2025,Tennessee,47000,69274,Nominal dollars,U.S. dollars per person
+2025,Texas,48000,73156,Nominal dollars,U.S. dollars per person
+2025,Utah,49000,70323,Nominal dollars,U.S. dollars per person
+2025,Vermont,50000,75723,Nominal dollars,U.S. dollars per person
+2025,Virginia,51000,80903,Nominal dollars,U.S. dollars per person
+2025,Washington,53000,88944,Nominal dollars,U.S. dollars per person
+2025,West Virginia,54000,58217,Nominal dollars,U.S. dollars per person
+2025,Wisconsin,55000,71219,Nominal dollars,U.S. dollars per person
+2025,Wyoming,56000,91109,Nominal dollars,U.S. dollars per person
