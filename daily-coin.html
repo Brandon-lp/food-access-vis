@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="One day of food spending per participant, shown as a coin, next to the everyday items it buys.">
+  <title>What the daily coin buys</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="daily-coin/daily-coin.css">
+</head>
+<body class="dc">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="ic-bananas" viewBox="0 0 64 64">
+        <path d="M13 12 C8 36 22 55 50 52 C57 51 58 46 52 46 C35 46 25 35 25 16 C25 11 14 8 13 12 Z" fill="#F6C945" stroke="#B5851B" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M17 18 C18 34 28 46 46 49" fill="none" stroke="#FBE48F" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M11 8 h11 l-1 7 h-10 z" fill="#7A5A1C"/>
+        <circle cx="53.5" cy="48.5" r="3.2" fill="#6A4A14"/>
+      </symbol>
+      <symbol id="ic-coffee" viewBox="0 0 64 64">
+        <path d="M15 17 L49 17 L51 56 Q51 59 48 59 L16 59 Q13 59 13 56 Z" fill="#7A5236"/>
+        <path d="M15 17 L15 9 L49 9 L49 17 Z" fill="#4E3320"/>
+        <path d="M15 13 l3-3 3 3 3-3 3 3 3-3 3 3 3-3 3 3 3-3 3 3 3-3" fill="none" stroke="#7A5236" stroke-width="1.6"/>
+        <ellipse cx="32" cy="38" rx="12" ry="15" fill="#F4E7D0"/>
+        <ellipse cx="32" cy="38" rx="6.5" ry="9.5" fill="#7A5236" transform="rotate(25 32 38)"/>
+        <path d="M28 46 C31 40 33 36 36 30" fill="none" stroke="#F4E7D0" stroke-width="1.8" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="ic-transit" viewBox="0 0 64 64">
+        <rect x="8" y="10" width="48" height="38" rx="8" fill="#3F7DD8"/>
+        <rect x="13" y="16" width="11" height="13" rx="2.5" fill="#DCEBFB"/>
+        <rect x="26.5" y="16" width="11" height="13" rx="2.5" fill="#DCEBFB"/>
+        <rect x="40" y="16" width="11" height="13" rx="2.5" fill="#DCEBFB"/>
+        <rect x="8" y="35" width="48" height="5" fill="#F6C945"/>
+        <circle cx="14" cy="43" r="2.2" fill="#FFF4C2"/><circle cx="50" cy="43" r="2.2" fill="#FFF4C2"/>
+        <circle cx="19" cy="51" r="6.5" fill="#1F2A2F"/><circle cx="19" cy="51" r="2.6" fill="#CFD6DA"/>
+        <circle cx="45" cy="51" r="6.5" fill="#1F2A2F"/><circle cx="45" cy="51" r="2.6" fill="#CFD6DA"/>
+      </symbol>
+      <symbol id="ic-eggs" viewBox="0 0 64 64">
+        <ellipse cx="17" cy="30" rx="8" ry="11" fill="#FBF6EA" stroke="#D8CBB0" stroke-width="1.5"/>
+        <ellipse cx="32" cy="27" rx="8" ry="11" fill="#FBF6EA" stroke="#D8CBB0" stroke-width="1.5"/>
+        <ellipse cx="47" cy="30" rx="8" ry="11" fill="#FBF6EA" stroke="#D8CBB0" stroke-width="1.5"/>
+        <path d="M5 36 L59 36 L56 54 Q55.5 57 52 57 L12 57 Q8.5 57 8 54 Z" fill="#CDB896"/>
+        <path d="M5 36 L59 36" stroke="#B49E7B" stroke-width="2"/>
+        <path d="M20 40 v13 M32 40 v13 M44 40 v13" stroke="#B49E7B" stroke-width="1.6" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="ic-milk" viewBox="0 0 64 64">
+        <path d="M46 28 Q57 28 57 38 Q57 47 46 47" fill="none" stroke="#9DBCDA" stroke-width="3.2" stroke-linecap="round"/>
+        <path d="M18 23 L18 56 Q18 59 21 59 L43 59 Q46 59 46 56 L46 25 Q46 20 40 18 L40 12 L24 12 L24 18 Q18 20 18 23 Z" fill="#F6FAFD" stroke="#9DBCDA" stroke-width="2"/>
+        <rect x="23" y="6" width="18" height="7" rx="2.5" fill="#3F7DD8"/>
+        <rect x="18" y="30" width="28" height="17" fill="#3F7DD8"/>
+        <path d="M32 33.5 C29 37.5 28 39 28 41 a4 4 0 0 0 8 0 C36 39 35 37.5 32 33.5 Z" fill="#fff"/>
+      </symbol>
+      <symbol id="ic-bread" viewBox="0 0 64 64">
+        <path d="M9 36 Q6 17 24 17 L40 17 Q58 17 55 36 L55 53 Q55 57 51 57 L13 57 Q9 57 9 53 Z" fill="#DDA55E" stroke="#A96D28" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M22 24 l6 9 M32 22 l6 10 M42 24 l6 9" stroke="#F4CF92" stroke-width="3" stroke-linecap="round" fill="none"/>
+      </symbol>
+      <symbol id="ic-apples" viewBox="0 0 64 64">
+        <path d="M32 20 C20 13 7 23 11 40 C14 52 24 59 32 55 C40 59 50 52 53 40 C57 23 44 13 32 20 Z" fill="#D94B4B" stroke="#A92F2F" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M32 20 C32 14 34 10 39 7" fill="none" stroke="#6B4A1E" stroke-width="3" stroke-linecap="round"/>
+        <path d="M37 14 C43 7 51 9 53 13 C47 18 41 18 37 14 Z" fill="#5FA94A"/>
+        <ellipse cx="22" cy="32" rx="3" ry="6" fill="#fff" opacity=".35" transform="rotate(20 22 32)"/>
+      </symbol>
+      <symbol id="ic-oranges" viewBox="0 0 64 64">
+        <circle cx="32" cy="36" r="22" fill="#F08A24" stroke="#C26512" stroke-width="2"/>
+        <path d="M32 15 C34 7 42 5 47 7 C45 14 39 18 32 15 Z" fill="#4F9B3F"/>
+        <circle cx="32" cy="15" r="2" fill="#7A4B16"/>
+        <ellipse cx="22" cy="30" rx="3.2" ry="6.5" fill="#fff" opacity=".3" transform="rotate(25 22 30)"/>
+        <circle cx="38" cy="44" r=".9" fill="#C26512"/><circle cx="26" cy="48" r=".9" fill="#C26512"/><circle cx="43" cy="34" r=".9" fill="#C26512"/>
+      </symbol>
+      <symbol id="ic-potatoes" viewBox="0 0 64 64">
+        <path d="M10 36 C8 21 23 12 38 15 C53 18 60 31 55 43 C50 56 30 59 19 53 C13 49 10 43 10 36 Z" fill="#CFA56F" stroke="#8D6A38" stroke-width="2" stroke-linejoin="round"/>
+        <ellipse cx="25" cy="28" rx="2.4" ry="1.4" fill="#9A7443"/><ellipse cx="40" cy="38" rx="2.4" ry="1.4" fill="#9A7443"/>
+        <ellipse cx="29" cy="44" rx="2.4" ry="1.4" fill="#9A7443"/><ellipse cx="46" cy="25" rx="2" ry="1.2" fill="#9A7443"/>
+      </symbol>
+      <symbol id="ic-rice" viewBox="0 0 64 64">
+        <path d="M20 14 L44 14 L48 20 Q57 35 52 52 Q51 59 44 59 L20 59 Q13 59 12 52 Q7 35 16 20 Z" fill="#F4EFE3" stroke="#BDB39B" stroke-width="2" stroke-linejoin="round"/>
+        <rect x="23" y="8" width="18" height="8" rx="2.5" fill="#B58B4B"/>
+        <ellipse cx="25" cy="34" rx="6" ry="2.6" fill="#fff" stroke="#CFC6B0" transform="rotate(-30 25 34)"/>
+        <ellipse cx="38" cy="32" rx="6" ry="2.6" fill="#fff" stroke="#CFC6B0" transform="rotate(25 38 32)"/>
+        <ellipse cx="32" cy="44" rx="6" ry="2.6" fill="#fff" stroke="#CFC6B0" transform="rotate(-8 32 44)"/>
+        <ellipse cx="22" cy="46" rx="5" ry="2.3" fill="#fff" stroke="#CFC6B0" transform="rotate(35 22 46)"/>
+        <ellipse cx="42" cy="46" rx="5" ry="2.3" fill="#fff" stroke="#CFC6B0" transform="rotate(-35 42 46)"/>
+      </symbol>
+      <symbol id="ic-chicken" viewBox="0 0 64 64">
+        <path d="M32 37 L15 53" stroke="#F4EBD8" stroke-width="7" stroke-linecap="round"/>
+        <circle cx="11" cy="53" r="4.4" fill="#F4EBD8"/><circle cx="16" cy="58" r="4.4" fill="#F4EBD8"/>
+        <path d="M44 7 C59 9 61 28 49 37 C42 42 33 41 28 36 C22 29 26 13 44 7 Z" fill="#D98B3A" stroke="#A85F1D" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M36 14 C46 12 53 18 54 27" fill="none" stroke="#F2BE80" stroke-width="2.6" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="ic-generic" viewBox="0 0 64 64">
+        <circle cx="32" cy="32" r="22" fill="#D9D3C4" stroke="#A59E8C" stroke-width="2"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <header class="dc-top">
+    <a class="dc-brand" href="index.html">VISUALIZATION <span>/ The daily coin</span></a>
+  </header>
+
+  <main class="dc-stage">
+    <p class="dc-kicker">One day of food spending, per participant</p>
+    <h1 class="dc-h1"><span id="dc-h1-num">$1.41</span> a day. <em>What does that buy?</em></h1>
+
+    <div class="dc-toolbar">
+      <button class="dc-btn" id="dc-prev" aria-label="Previous place">&larr;</button>
+      <label class="dc-sr" for="dc-place">Choose a place</label>
+      <select id="dc-place" class="dc-select"></select>
+      <button class="dc-btn" id="dc-next" aria-label="Next place">&rarr;</button>
+      <button class="dc-btn dc-btn-text" id="dc-random">Surprise me</button>
+      <label class="dc-ctl"><span>Prices for</span>
+        <select id="dc-period" class="dc-select dc-select-sm"></select></label>
+    </div>
+
+    <div class="dc-grid">
+      <aside class="dc-coin-panel">
+        <div class="dc-coin-wrap" id="dc-coin-wrap"></div>
+        <p class="dc-place-name" id="dc-place-name"></p>
+        <p class="dc-place-sub" id="dc-place-sub"></p>
+        <p class="dc-hook" id="dc-hook" aria-live="polite"></p>
+      </aside>
+
+      <section class="dc-shelf" aria-label="What the coin buys">
+        <div class="dc-cards" id="dc-cards"></div>
+        <p class="dc-readout" id="dc-readout" aria-live="polite"></p>
+        <ul class="dc-key" aria-label="How to read the pictures">
+          <li><span class="dc-key-ico"></span>One full picture = the coin buys that much</li>
+          <li><span class="dc-key-ico is-part"></span>A part-filled picture = the coin covers only part of one</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="dc-footer">
+    <span>VISUALIZATION / The daily coin</span>
+    <a href="index.html">Back to the main story</a>
+  </footer>
+
+  <div class="dc-error" id="dc-error" hidden>
+    The data could not be loaded. Open this page through a local server (VS Code Live Server, or <code>python3 -m http.server</code>) and check that <code>data/precious/daily-dollar.json</code> and <code>data/precious/item-prices.json</code> exist.
+  </div>
+
+  <script src="daily-coin/daily-coin.js" defer></script>
+</body>
+</html>
