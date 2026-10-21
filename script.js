@@ -21,5 +21,9 @@ Promise.all(sections.map(loadSection))
     dispatchSectionsLoaded();
   })
   .catch(() => {
-    document.querySelector('#top').innerHTML = '<p class="load-error">The page sections could not be loaded. Use a local server such as VS Code Live Server to run this project.</p>';
+    const exploreSectionExists = document.querySelector('#explore');
+
+    if (!exploreSectionExists) {
+      document.querySelector('#top').innerHTML = '<p class="load-error">The page sections could not be loaded. Use a local server such as VS Code Live Server to run this project.</p>';
+    }
   });
