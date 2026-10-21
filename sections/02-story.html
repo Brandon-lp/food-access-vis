@@ -14,7 +14,7 @@
   </div>
   <div class="access-maps" aria-labelledby="access-maps-title">
     <h3 id="access-maps-title">How food access changed</h3>
-    <p class="map-intro">Change between the first and last years in the 2025 Food Environment Atlas. Desert indicates declining access; grassland is little change; forest indicates improvement.</p>
+    <p class="map-intro">Percent change in the population with low access to a store, 2015–2019, from the 2025 Food Environment Atlas. Desert indicates declining access; grassland is little change; forest indicates improvement.</p>
     <div class="map-grid">
       <figure><figcaption>By state</figcaption><svg id="state-access-map" role="img" aria-label="United States map of food access change by state"></svg></figure>
       <figure><figcaption>By county</figcaption><svg id="county-access-map" role="img" aria-label="United States map of food access change by county"></svg></figure>
@@ -51,35 +51,53 @@
 </style>
 <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
+<script src="../data/access-change.js"></script>
 <script>
 (() => {
-  const dataDir = '2025-food-environment-atlas-data/';
-  const files = ['county.csv','counties.csv','state.csv','states.csv','FoodEnvironmentAtlas.csv','food_environment_atlas.csv','data.csv'];
-  const clean = s => String(s || '').toLowerCase().replace(/[^a-z0-9]/g, '');
-  const field = (r, names) => { const k = Object.keys(r).find(x => names.includes(clean(x))); return k ? r[k] : ''; };
-  const color = d3.scaleLinear().domain([-1, 0, 1]).range(['#b96b4b','#b9d477','#54b66d']).clamp(true);
-  const load = async () => { for (const file of files) { try { const response = await fetch(dataDir + file); if (response.ok) return d3.csvParse(await response.text()); } catch (e) {} } return []; };
-  const change = r => { const a = +(field(r,['start','firstyear','baseline','beginning','year1']) || field(r,['value_start'])); const b = +(field(r,['end','lastyear','final','ending','year2']) || field(r,['value_end'])); return isFinite(a) && isFinite(b) ? b - a : null; };
+  // Extract of StateAndCountyData.csv (2025 Food Environment Atlas):
+  // population with low access to a store, 2015 vs 2019, by county FIPS.
+  const dataFiles = ['../data/access-change.csv', 'data/access-change.csv'];
+  // Values are % change in the low-access population; a rise means access got worse.
+  const color = d3.scaleLinear().domain([25, 0, -25]).range(['#b96b4b','#b9d477','#54b66d']).clamp(true);
+  const load = async () => {
+    // Prefer the script-loaded copy; fetch() of local files is blocked under file://.
+    if (window.ACCESS_CHANGE_CSV) return d3.csvParse(window.ACCESS_CHANGE_CSV);
+    for (const file of dataFiles) {
+      try { const response = await fetch(file); if (response.ok) return d3.csvParse(await response.text()); } catch (e) {}
+    }
+    return [];
+  };
+  const pctChange = (a, b) => a > 0 && isFinite(b) ? (b - a) / a * 100 : null;
+  const countyValues = rows => new Map(rows.map(r => [r.FIPS, pctChange(+r.LACCESS_POP15, +r.LACCESS_POP19)]).filter(([, v]) => v !== null));
+  const stateValues = rows => {
+    const sums = d3.rollup(rows.filter(r => r.LACCESS_POP15 !== '' && r.LACCESS_POP19 !== ''), g => [d3.sum(g, r => +r.LACCESS_POP15), d3.sum(g, r => +r.LACCESS_POP19)], r => r.FIPS.slice(0, 2));
+    return new Map([...sums].map(([k, [a, b]]) => [k, pctChange(a, b)]).filter(([, v]) => v !== null));
+  };
   const tip = d3.select('body').append('div').attr('class','map-tip');
-  const draw = (id, features, rows, county) => {
+  const draw = (id, features, values, county, stateBorders, stateNames) => {
     const svg = d3.select('#' + id), figure = svg.node().parentNode;
     const width = Math.max(280, figure.clientWidth - 32), height = width * .62;
-    const projection = d3.geoAlbersUsa().fitSize([width, height], {type:'FeatureCollection', features}), path = d3.geoPath(projection), values = new Map();
-    rows.forEach(r => { const raw = field(r, county ? ['fips','geoid','countyfips','countycode'] : ['statefips','statecode','fips','state']); const v = change(r); if (raw && v !== null) values.set(String(raw).replace(/\.0$/, '').padStart(county ? 5 : 2), v); });
-    const key = d => String(d.id).replace(/\.0$/, '').padStart(county ? 5 : 2);
-    const name = d => d.properties?.name || d.properties?.NAME || (county ? `County ${d.id}` : `State ${d.id}`);
+    const projection = d3.geoAlbersUsa().fitSize([width, height], {type:'FeatureCollection', features}), path = d3.geoPath(projection);
+    const key = d => String(d.id).padStart(county ? 5 : 2, '0');
+    const name = d => {
+      const base = d.properties?.name || d.properties?.NAME || (county ? `County ${d.id}` : `State ${d.id}`);
+      const state = county && stateNames?.get(key(d).slice(0, 2));
+      return state ? `${base}, ${state}` : base;
+    };
     svg.attr('viewBox', `0 0 ${width} ${height}`).attr('preserveAspectRatio','xMidYMid meet');
-    svg.selectAll('path').data(features).join('path').attr('d', path).attr('fill', d => color(values.get(key(d)) ?? 0)).attr('stroke', '#c8efad').attr('stroke-width', county ? .18 : .8)
-      .on('pointerenter', function(event, d) { const v = values.get(key(d)); d3.select(this).classed('is-selected', true); tip.html(`<strong>${name(d)}</strong><br>${v == null ? 'No data available' : `Change: ${v > 0 ? '+' : ''}${v.toFixed(2)}`}`).classed('visible', true).style('left', `${event.clientX + 14}px`).style('top', `${event.clientY + 14}px`); })
+    svg.selectAll('path.area').data(features).join('path').attr('class', 'area').attr('d', path).attr('fill', d => color(values.get(key(d)) ?? 0)).attr('stroke', county ? '#0d3b2a' : '#c8efad').attr('stroke-width', county ? .35 : .8)
+      .on('pointerenter', function(event, d) { const v = values.get(key(d)); d3.select(this).classed('is-selected', true); tip.html(`<strong>${name(d)}</strong><br>${v == null ? 'No data available' : `Low-access population, 2015–19: ${v > 0 ? '+' : ''}${v.toFixed(1)}%`}`).classed('visible', true).style('left', `${event.clientX + 14}px`).style('top', `${event.clientY + 14}px`); })
       .on('pointermove', event => tip.style('left', `${event.clientX + 14}px`).style('top', `${event.clientY + 14}px`))
       .on('pointerleave', function() { d3.select(this).classed('is-selected', false); tip.classed('visible', false); })
       .on('click', function() { d3.select(this).classed('is-selected', !d3.select(this).classed('is-selected')); });
+    // State outlines drawn over the counties; they don't block hovering.
+    if (stateBorders) svg.selectAll('path.state-borders').data([stateBorders]).join('path').attr('class', 'state-borders').attr('d', path).attr('fill', 'none').attr('stroke', '#e9f6dc').attr('stroke-width', .9).attr('pointer-events', 'none');
   };
   // Render the geography independently of the optional local CSV files. This
   // keeps the maps visible when this page is opened directly as file://.
   const atlasUrls = [
-    'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json',
-    'https://unpkg.com/us-atlas@3/states-10m.json'
+    'https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json',
+    'https://unpkg.com/us-atlas@3/counties-10m.json'
   ];
   const loadAtlas = async () => {
     for (const url of atlasUrls) {
@@ -97,8 +115,10 @@
       const counties = atlas.objects.counties
         ? topojson.feature(atlas, atlas.objects.counties).features
         : states;
-      draw('state-access-map', states, rows, false);
-      draw('county-access-map', counties, rows, Boolean(atlas.objects.counties));
+      draw('state-access-map', states, stateValues(rows), false);
+      const stateNames = new Map(states.map(d => [String(d.id).padStart(2, '0'), d.properties.name]));
+      const stateBorders = topojson.mesh(atlas, atlas.objects.states, (a, b) => a !== b);
+      draw('county-access-map', counties, countyValues(rows), Boolean(atlas.objects.counties), stateBorders, stateNames);
     }))
     .catch(error => {
       document.querySelectorAll('.map-grid figure').forEach(figure => {
