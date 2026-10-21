@@ -84,7 +84,8 @@ function insertSections(loadedSections) {
     const template = document.createElement('template');
     template.innerHTML = markup;
     template.content.querySelectorAll('script').forEach((script) => {
-      sectionScripts.push([script, new URL(file, location.href)]);
+      // Libraries a section loads for standalone viewing are already on the site; don't load them twice.
+      if (!script.hasAttribute('data-standalone-only')) sectionScripts.push([script, new URL(file, location.href)]);
       script.remove();
     });
     document.querySelector(`#${targetId}`).append(template.content);

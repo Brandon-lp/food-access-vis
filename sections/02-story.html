@@ -24,15 +24,14 @@
 </section>
 
 <style>
-  :root { color-scheme: dark; }
-  body { margin: 0; background: #09291d; color: #e9f6dc; font-family: system-ui, sans-serif; }
-  .story-section { min-height: 100vh; padding: clamp(4rem, 9vw, 8rem) clamp(1.25rem, 5vw, 5rem); background: radial-gradient(circle at 15% 0%, #1d6040 0, #0d3b2a 38%, #09291d 100%); box-sizing: border-box; }
-  .story-grid { gap: clamp(2rem, 7vw, 8rem); align-items: start; }
-  .story-text { max-width: 42rem; line-height: 1.7; }
-  .stat-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: clamp(3rem, 8vw, 7rem); }
-  .stat { padding: 1.25rem; background: rgba(4, 29, 20, .38); border: 1px solid rgba(174,226,137,.25); border-radius: .75rem; }
-  .stat strong, .stat span { display: block; }
-  .stat span { margin-top: .35rem; color: #c6dab8; }
+  /* Every rule is scoped to #story so this section's styles don't leak into other pages. */
+  #story { color-scheme: dark; min-height: 100vh; padding: clamp(4rem, 9vw, 8rem) clamp(1.25rem, 5vw, 5rem); color: #e9f6dc; background: radial-gradient(circle at 15% 0%, #1d6040 0, #0d3b2a 38%, #09291d 100%); box-sizing: border-box; }
+  #story .story-grid { gap: clamp(2rem, 7vw, 8rem); align-items: start; }
+  #story .story-text { max-width: 42rem; line-height: 1.7; }
+  #story .stat-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: clamp(3rem, 8vw, 7rem); }
+  #story .stat { padding: 1.25rem; background: rgba(4, 29, 20, .38); border: 1px solid rgba(174,226,137,.25); border-radius: .75rem; }
+  #story .stat strong, #story .stat span { display: block; }
+  #story .stat span { margin-top: .35rem; color: #c6dab8; }
   .access-maps { margin-top: clamp(3rem, 8vw, 7rem); }
   .map-intro { max-width: 42rem; }
   .access-map-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
@@ -47,10 +46,11 @@
   .map-tip.visible { opacity: 1; transform: translateY(0); }
   .access-legend { display: flex; align-items: center; justify-content: center; gap: .5rem; margin-top: 1rem; font-size: .75rem; }
   .access-legend i { width: 6rem; height: .7rem; background: linear-gradient(90deg,#c78350,#d8c782,#6d9555,#214b35); }
-  @media (max-width: 700px) { .access-map-grid, .stat-row { grid-template-columns: 1fr; } }
+  @media (max-width: 700px) { .access-map-grid, #story .stat-row { grid-template-columns: 1fr; } }
 </style>
-<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
-<script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
+<!-- Needed only when this file is opened on its own; index.html already loads these. -->
+<script data-standalone-only src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script data-standalone-only src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
 <script src="../data/access-change.js"></script>
 <script>
 (() => {
