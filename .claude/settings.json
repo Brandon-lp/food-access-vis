@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh run *)",
+      "Bash(curl -s https://brandon-lp.github.io/food-access-vis/script.js)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" https://brandon-lp.github.io/food-access-vis/data/access-change.js)"
+    ]
+  }
+}
