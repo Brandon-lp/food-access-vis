@@ -1,0 +1,38 @@
+<section class="story-section demographics-section" id="demographics" aria-labelledby="demographics-title">
+  <div class="section-index">06 <span>Who receives SNAP</span></div>
+  <div class="story-grid">
+    <div><h2 id="demographics-title">Who receives<br><em>SNAP?</em></h2></div>
+    <div class="story-text">
+      <p>In 2024, about <strong>1 in 8 U.S. households</strong> (11.8%) received SNAP benefits. That share is not the same for every group.</p>
+      <p>Pick a way to group households. The pies compare who makes up the country with who receives SNAP; the bars show how likely each group is to receive it.</p>
+    </div>
+  </div>
+  <div class="stat-row snap-stats" aria-label="Key SNAP statistics">
+    <div class="stat"><strong id="snap-stat-rate">&hellip;</strong><span>of U.S. households receive SNAP</span></div>
+    <div class="stat"><strong id="snap-stat-income-snap">&hellip;</strong><span>median income, SNAP households</span></div>
+    <div class="stat"><strong id="snap-stat-income-other">&hellip;</strong><span>median income, other households</span></div>
+  </div>
+  <!-- SNAP charts. snap.js finds each element below by its id and fills it in. -->
+  <div class="snap-shell">
+    <div class="snap-toolbar">
+      <div class="snap-control"><span class="snap-control-label" id="snap-views-label">Group by</span><div class="snap-buttons" id="snap-views" role="group" aria-labelledby="snap-views-label"></div></div>
+      <div class="snap-control" id="snap-segment-control" hidden><span class="snap-control-label" id="snap-segments-label">Households</span><div class="snap-buttons" id="snap-segments" role="group" aria-labelledby="snap-segments-label"></div></div>
+    </div>
+    <div class="snap-legend" id="snap-legend" aria-label="Legend"></div>
+    <div class="snap-pies">
+      <figure class="snap-figure"><figcaption id="snap-pie-all-title">All U.S. households</figcaption><div class="snap-pie"><canvas id="snap-pie-all" role="img"></canvas></div></figure>
+      <figure class="snap-figure"><figcaption id="snap-pie-snap-title">Households receiving SNAP</figcaption><div class="snap-pie"><canvas id="snap-pie-snap" role="img"></canvas></div></figure>
+      <aside class="snap-detail" id="snap-detail" aria-live="polite"><p class="detail-label">Selected group</p><h3>Hover over a group</h3><p class="detail-copy">Point at a slice, bar or legend item to compare that group across all three charts.</p></aside>
+    </div>
+    <figure class="snap-figure snap-rates">
+      <figcaption id="snap-rates-title">Share of each group receiving SNAP</figcaption>
+      <div class="snap-bars" id="snap-bars"><canvas id="snap-rates" role="img"></canvas></div>
+    </figure>
+    <p class="snap-note" id="snap-note" hidden></p>
+    <details class="snap-table">
+      <summary>Show the numbers as a table</summary>
+      <div id="snap-table"></div>
+    </details>
+    <p class="source-note">Source: U.S. Census Bureau, American Community Survey 2024 1-Year Estimates, Table S2201. Counts are households, grouped by the householder. "Not Hispanic or Latino" is calculated as all households minus Hispanic or Latino households.</p>
+  </div>
+</section>
