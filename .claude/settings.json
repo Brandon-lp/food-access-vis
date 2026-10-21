@@ -10,7 +10,8 @@
       "Bash(sed -i 's|<div class=\"section-index\">06 <span>Who receives SNAP</span></div>|<div class=\"section-index\">06 <span>Main message</span></div>|' sections/07-main-message.html)",
       "Bash(sed -i 's|href=\"#story\"|href=\"#definition\"|' sections/01-hook-overview.html)",
       "Bash(py --version)",
-      "Bash(python -m http.server 8000)"
+      "Bash(python -m http.server 8000)",
+      "Bash(python -I -c ' *)"
     ]
   }
 }
