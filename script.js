@@ -61,13 +61,15 @@ function setup(data) {
 }
 
 const sections = [
-  ['top', 'sections/01-hero.html'],
-  ['top', 'sections/02-story.html'],
-  ['top', 'sections/03-explore.html'],
-  ['top', 'sections/04-about.html'],
-  ['site-footer', 'sections/05-footer.html'],
-  ['top', 'sections/06-demographics.html'],
-  ['top', 'sections/07-income_sales.html']
+  ['top', 'sections/01-hook-overview.html'],
+  ['top', 'sections/02-hook-definition.html'],
+  ['top', 'sections/03-hook-dimensions.html'],
+  ['top', 'sections/04-physical-access.html'],
+  ['top', 'sections/05-race.html'],
+  ['top', 'sections/06-economic-access.html'],
+  ['top', 'sections/07-main-message.html'],
+  ['top', 'sections/08-solution.html'],
+  ['site-footer', 'sections/09-footer.html']
 ];
 
 function loadSection([targetId, file]) {

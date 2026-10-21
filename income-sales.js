@@ -1,4 +1,4 @@
-// Food sales & income section (sections/07-income_sales.html).
+// Food sales & income section (sections/06-economic-access.html).
 // Reads the two state CSVs and a U.S. map with D3, then draws a clickable map and an animated line chart.
 
 const IS_MAP_URL = 'https://cdn.jsdelivr.net/npm/us-atlas@3.0.1/states-albers-10m.json';

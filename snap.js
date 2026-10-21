@@ -1,4 +1,4 @@
-// SNAP demographics section (sections/06-demographics.html).
+// SNAP demographics section (sections/07-main-message.html).
 // Reads the Census CSVs in data/ with Papa Parse and draws two pies and a bar chart with Chart.js.
 
 // Each "view" is one way of grouping households, shown as a button above the charts.
