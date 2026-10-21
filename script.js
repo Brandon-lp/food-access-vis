@@ -50,6 +50,11 @@ function setup(data) {
   chartElement = document.querySelector('#chart');
   countySelect = document.querySelector('#county-select');
   detailElement = document.querySelector('#chart-detail');
+
+  if (!chartElement || !countySelect || !detailElement) {
+    return;
+  }
+
   countySelect.innerHTML = data.map((item) => `<option value="${item.county}">${item.county}</option>`).join('');
   countySelect.addEventListener('change', () => drawChart(data, countySelect.value));
   drawChart(data, data[0].county);
@@ -69,15 +74,28 @@ function loadSection([targetId, file]) {
     .then((markup) => document.querySelector(`#${targetId}`).insertAdjacentHTML('beforeend', markup));
 }
 
+function dispatchSectionsLoaded() {
+  document.dispatchEvent(new CustomEvent('sections:loaded', { bubbles: true }));
+}
+
 Promise.all(sections.map(loadSection))
-  .then(() => fetch('data/food-access.csv'))
+  .then(() => {
+    dispatchSectionsLoaded();
+    return fetch('data/food-access.csv');
+  })
   .then((response) => response.ok ? response.text() : Promise.reject(new Error('CSV unavailable')))
   .then(parseCsv)
   .then(setup)
   .catch(() => {
-    if (!document.querySelector('#chart')) {
+    const legacyChartExists = document.querySelector('#chart');
+    const exploreSectionExists = document.querySelector('#explore');
+
+    if (!legacyChartExists && !exploreSectionExists) {
       document.querySelector('#top').innerHTML = '<p class="load-error">The page sections could not be loaded. Use a local server such as VS Code Live Server to run this project.</p>';
       return;
     }
-    setup(fallbackData);
+
+    if (legacyChartExists) {
+      setup(fallbackData);
+    }
   });
