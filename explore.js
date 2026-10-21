@@ -1,4 +1,5 @@
 (function () {
+  let initializationStarted = false;
   const sectionSelector = '#explore';
   const mapSelector = '[data-explore-map]';
   const radarSelector = '[data-explore-radar]';
@@ -419,6 +420,10 @@
   }
 
   document.addEventListener('sections:loaded', () => {
+    if (initializationStarted || !document.querySelector(sectionSelector)) {
+      return;
+    }
+    initializationStarted = true;
     updateLegendGradient();
     init();
   });
