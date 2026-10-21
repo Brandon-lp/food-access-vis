@@ -334,5 +334,5 @@ function isInit() {
     });
 }
 
-// script.js announces "sections-loaded" once every section is on the page.
-document.addEventListener('sections-loaded', isInit);
+// script.js announces "sections:loaded" once every section is on the page.
+document.addEventListener('sections:loaded', isInit);

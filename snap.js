@@ -374,5 +374,5 @@ function snapInit() {
     .catch(() => snapShowError('The SNAP data could not be loaded. Use a local server such as VS Code Live Server to run this project.'));
 }
 
-// script.js announces "sections-loaded" once every section is on the page.
-document.addEventListener('sections-loaded', snapInit);
+// script.js announces "sections:loaded" once every section is on the page.
+document.addEventListener('sections:loaded', snapInit);

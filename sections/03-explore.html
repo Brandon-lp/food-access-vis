@@ -1,15 +1,51 @@
 <section class="explore-section" id="explore" aria-labelledby="explore-title">
   <div class="section-index">02 <span>Compare</span></div>
   <div class="explore-heading">
-    <div><p class="kicker">County snapshots</p><h2 id="explore-title">Distance changes<br><em>the whole picture.</em></h2></div>
-    <p class="explore-note">Select a county to see how its food access profile compares with the national sample.</p>
-  </div>
-  <div class="chart-shell">
-    <div class="chart-toolbar"><label for="county-select">Show county</label><select id="county-select"></select></div>
-    <div class="chart-layout">
-      <div class="chart" id="chart" aria-live="polite"></div>
-      <aside class="chart-detail" id="chart-detail"><p class="detail-label">Selected county</p><h3>Loading data...</h3><p class="detail-copy"></p></aside>
+    <div>
+      <p class="kicker">State snapshots</p>
+      <h2 id="explore-title">Where access shifts<br><em>across the map.</em></h2>
     </div>
-    <p class="source-note">Source: sample county dataset for classroom exploration. Replace <code>data/food-access.csv</code> with your own source.</p>
+    <p class="explore-note">Click a state to compare how the share of residents facing limited supermarket access changes across key demographics.</p>
+  </div>
+
+  <div class="explore-visual-shell">
+    <div class="explore-visual-grid">
+      <div class="state-map-panel">
+        <div class="panel-header">
+          <span class="detail-label">U.S. state map</span>
+        </div>
+        <div class="map-legend" aria-label="Map legend">
+          <div class="map-legend-title">Residents with low supermarket access (%)</div>
+          <div class="map-legend-scale" aria-hidden="true">
+            <div class="legend-gradient"></div>
+          </div>
+          <div class="map-legend-ticks" aria-hidden="true">
+            <span>0</span>
+            <span>5</span>
+            <span>10</span>
+            <span>20</span>
+            <span>30</span>
+            <span>40</span>
+          </div>
+          <div class="map-legend-key-row">
+            <span class="legend-key legend-key-neutral"><span class="legend-key-swatch neutral"></span>Data unavailable</span>
+          </div>
+        </div>
+        <div class="state-map" data-explore-map aria-live="polite"></div>
+      </div>
+
+      <div class="radar-panel">
+        <div class="detail-label">Selected state</div>
+        <h3 data-explore-state-name>Loading…</h3>
+        <p class="explore-state-summary" data-explore-state-summary>All percentages below are measured against the state’s total population.</p>
+
+        <div class="radar-wrap">
+          <svg data-explore-radar role="img" aria-label="Radar chart of limited supermarket access percentages"></svg>
+        </div>
+
+        <div class="metric-list" data-explore-metrics></div>
+        <p class="coverage-note" data-explore-coverage></p>
+      </div>
+    </div>
   </div>
 </section>

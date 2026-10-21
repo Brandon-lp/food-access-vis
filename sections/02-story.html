@@ -12,4 +12,119 @@
     <div class="stat"><strong>6.2 mi</strong><span>average distance to a store</span></div>
     <div class="stat"><strong>1 in 5</strong><span>households without a car</span></div>
   </div>
+  <div class="access-maps" aria-labelledby="access-maps-title">
+    <h3 id="access-maps-title">How food access changed</h3>
+    <p class="map-intro">Percent change in the population with low access to a store, 2015–2019, from the 2025 Food Environment Atlas. Desert indicates declining access; grassland is little change; forest indicates improvement.</p>
+    <div class="map-grid">
+      <figure><figcaption>By state</figcaption><svg id="state-access-map" role="img" aria-label="United States map of food access change by state"></svg></figure>
+      <figure><figcaption>By county</figcaption><svg id="county-access-map" role="img" aria-label="United States map of food access change by county"></svg></figure>
+    </div>
+    <div class="access-legend"><span>decreased</span><i></i><span>no change</span><i></i><span>improved</span></div>
+  </div>
 </section>
+
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; background: #09291d; color: #e9f6dc; font-family: system-ui, sans-serif; }
+  .story-section { min-height: 100vh; padding: clamp(4rem, 9vw, 8rem) clamp(1.25rem, 5vw, 5rem); background: radial-gradient(circle at 15% 0%, #1d6040 0, #0d3b2a 38%, #09291d 100%); box-sizing: border-box; }
+  .story-grid { gap: clamp(2rem, 7vw, 8rem); align-items: start; }
+  .story-text { max-width: 42rem; line-height: 1.7; }
+  .stat-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: clamp(3rem, 8vw, 7rem); }
+  .stat { padding: 1.25rem; background: rgba(4, 29, 20, .38); border: 1px solid rgba(174,226,137,.25); border-radius: .75rem; }
+  .stat strong, .stat span { display: block; }
+  .stat span { margin-top: .35rem; color: #c6dab8; }
+  .access-maps { margin-top: clamp(3rem, 8vw, 7rem); }
+  .map-intro { max-width: 42rem; }
+  .map-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+  .map-grid figure { margin: 0; padding: 1rem; background: linear-gradient(145deg, #0d3b2a, #1d6040); border: 1px solid rgba(174,226,137,.3); border-radius: 1rem; box-shadow: 0 1rem 3rem rgba(7,45,29,.25); overflow: hidden; }
+  .map-grid figcaption { margin-bottom: .5rem; font-weight: 700; }
+  .map-grid svg { display: block; width: 100%; height: auto; background: radial-gradient(circle at 50% 35%, #2e7950, #10452f 72%); border-radius: .6rem; cursor: grab; }
+  .map-grid svg:active { cursor: grabbing; }
+  .map-grid path { transition: fill .25s ease, opacity .25s ease, filter .25s ease; }
+  .map-grid path:hover { opacity: 1; filter: brightness(1.3) drop-shadow(0 0 5px #d9f99d); }
+  .map-grid path.is-selected { filter: brightness(1.35) drop-shadow(0 0 7px #f5ffb0); }
+  .map-tip { position: fixed; z-index: 10; pointer-events: none; padding: .6rem .75rem; color: #f5ffe9; background: #09291d; border: 1px solid #a9d879; border-radius: .45rem; box-shadow: 0 .5rem 1.5rem #06201699; font: .78rem/1.35 system-ui, sans-serif; opacity: 0; transform: translateY(5px); transition: opacity .15s, transform .15s; }
+  .map-tip.visible { opacity: 1; transform: translateY(0); }
+  .access-legend { display: flex; align-items: center; justify-content: center; gap: .5rem; margin-top: 1rem; font-size: .75rem; }
+  .access-legend i { width: 6rem; height: .7rem; background: linear-gradient(90deg,#c78350,#d8c782,#6d9555,#214b35); }
+  @media (max-width: 700px) { .map-grid, .stat-row { grid-template-columns: 1fr; } }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
+<script src="../data/access-change.js"></script>
+<script>
+(() => {
+  // Extract of StateAndCountyData.csv (2025 Food Environment Atlas):
+  // population with low access to a store, 2015 vs 2019, by county FIPS.
+  const dataFiles = ['../data/access-change.csv', 'data/access-change.csv'];
+  // Values are % change in the low-access population; a rise means access got worse.
+  const color = d3.scaleLinear().domain([25, 0, -25]).range(['#b96b4b','#b9d477','#54b66d']).clamp(true);
+  const load = async () => {
+    // Prefer the script-loaded copy; fetch() of local files is blocked under file://.
+    if (window.ACCESS_CHANGE_CSV) return d3.csvParse(window.ACCESS_CHANGE_CSV);
+    for (const file of dataFiles) {
+      try { const response = await fetch(file); if (response.ok) return d3.csvParse(await response.text()); } catch (e) {}
+    }
+    return [];
+  };
+  const pctChange = (a, b) => a > 0 && isFinite(b) ? (b - a) / a * 100 : null;
+  const countyValues = rows => new Map(rows.map(r => [r.FIPS, pctChange(+r.LACCESS_POP15, +r.LACCESS_POP19)]).filter(([, v]) => v !== null));
+  const stateValues = rows => {
+    const sums = d3.rollup(rows.filter(r => r.LACCESS_POP15 !== '' && r.LACCESS_POP19 !== ''), g => [d3.sum(g, r => +r.LACCESS_POP15), d3.sum(g, r => +r.LACCESS_POP19)], r => r.FIPS.slice(0, 2));
+    return new Map([...sums].map(([k, [a, b]]) => [k, pctChange(a, b)]).filter(([, v]) => v !== null));
+  };
+  const tip = d3.select('body').append('div').attr('class','map-tip');
+  const draw = (id, features, values, county, stateBorders, stateNames) => {
+    const svg = d3.select('#' + id), figure = svg.node().parentNode;
+    const width = Math.max(280, figure.clientWidth - 32), height = width * .62;
+    const projection = d3.geoAlbersUsa().fitSize([width, height], {type:'FeatureCollection', features}), path = d3.geoPath(projection);
+    const key = d => String(d.id).padStart(county ? 5 : 2, '0');
+    const name = d => {
+      const base = d.properties?.name || d.properties?.NAME || (county ? `County ${d.id}` : `State ${d.id}`);
+      const state = county && stateNames?.get(key(d).slice(0, 2));
+      return state ? `${base}, ${state}` : base;
+    };
+    svg.attr('viewBox', `0 0 ${width} ${height}`).attr('preserveAspectRatio','xMidYMid meet');
+    svg.selectAll('path.area').data(features).join('path').attr('class', 'area').attr('d', path).attr('fill', d => color(values.get(key(d)) ?? 0)).attr('stroke', county ? '#0d3b2a' : '#c8efad').attr('stroke-width', county ? .35 : .8)
+      .on('pointerenter', function(event, d) { const v = values.get(key(d)); d3.select(this).classed('is-selected', true); tip.html(`<strong>${name(d)}</strong><br>${v == null ? 'No data available' : `Low-access population, 2015–19: ${v > 0 ? '+' : ''}${v.toFixed(1)}%`}`).classed('visible', true).style('left', `${event.clientX + 14}px`).style('top', `${event.clientY + 14}px`); })
+      .on('pointermove', event => tip.style('left', `${event.clientX + 14}px`).style('top', `${event.clientY + 14}px`))
+      .on('pointerleave', function() { d3.select(this).classed('is-selected', false); tip.classed('visible', false); })
+      .on('click', function() { d3.select(this).classed('is-selected', !d3.select(this).classed('is-selected')); });
+    // State outlines drawn over the counties; they don't block hovering.
+    if (stateBorders) svg.selectAll('path.state-borders').data([stateBorders]).join('path').attr('class', 'state-borders').attr('d', path).attr('fill', 'none').attr('stroke', '#e9f6dc').attr('stroke-width', .9).attr('pointer-events', 'none');
+  };
+  // Render the geography independently of the optional local CSV files. This
+  // keeps the maps visible when this page is opened directly as file://.
+  const atlasUrls = [
+    'https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json',
+    'https://unpkg.com/us-atlas@3/counties-10m.json'
+  ];
+  const loadAtlas = async () => {
+    for (const url of atlasUrls) {
+      try {
+        const response = await fetch(url);
+        if (response.ok) return response.json();
+      } catch (e) {}
+    }
+    throw new Error('Map data unavailable');
+  };
+  loadAtlas()
+    .then(atlas => load().then(rows => {
+      if (!atlas.objects || !atlas.objects.states) throw new Error('State geography unavailable');
+      const states = topojson.feature(atlas, atlas.objects.states).features;
+      const counties = atlas.objects.counties
+        ? topojson.feature(atlas, atlas.objects.counties).features
+        : states;
+      draw('state-access-map', states, stateValues(rows), false);
+      const stateNames = new Map(states.map(d => [String(d.id).padStart(2, '0'), d.properties.name]));
+      const stateBorders = topojson.mesh(atlas, atlas.objects.states, (a, b) => a !== b);
+      draw('county-access-map', counties, countyValues(rows), Boolean(atlas.objects.counties), stateBorders, stateNames);
+    }))
+    .catch(error => {
+      document.querySelectorAll('.map-grid figure').forEach(figure => {
+        figure.insertAdjacentHTML('beforeend', '<p role="status">Maps could not load. Open this page through a local web server to enable map data.</p>');
+      });
+      console.warn(error);
+    });
+})();
+</script>
