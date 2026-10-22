@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh run *)",
+      "Bash(curl -s https://brandon-lp.github.io/food-access-vis/script.js)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" https://brandon-lp.github.io/food-access-vis/data/access-change.js)",
+      "Bash(sed -i 's|<div class=\"section-index\">01 <span>Context</span></div>|<div class=\"section-index\">03 <span>Physical access</span></div>|' sections/04-physical-access.html)",
+      "Bash(sed -i 's|<div class=\"section-index\">02 <span>Compare</span></div>|<div class=\"section-index\">04 <span>Race</span></div>|' sections/05-race.html)",
+      "Bash(sed -i 's|<div class=\"section-index\">07 <span>Food sales &amp; income</span></div>|<div class=\"section-index\">05 <span>Economic access</span></div>|' sections/06-economic-access.html)",
+      "Bash(sed -i 's|<div class=\"section-index\">06 <span>Who receives SNAP</span></div>|<div class=\"section-index\">06 <span>Main message</span></div>|' sections/07-main-message.html)",
+      "Bash(sed -i 's|href=\"#story\"|href=\"#definition\"|' sections/01-hook-overview.html)",
+      "Bash(py --version)",
+      "Bash(python -m http.server 8000)",
+      "Bash(python -I -c ' *)"
+    ]
+  }
+}
