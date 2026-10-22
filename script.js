@@ -67,6 +67,7 @@ const sections = [
   ['top', 'sections/04-physical-access.html'],
   ['top', 'sections/05-race.html'],
   ['top', 'sections/06-economic-access.html'],
+  ['top', 'sections/06b-daily-budget.html'],
   ['top', 'sections/07-main-message.html'],
   ['top', 'sections/08-solution.html'],
   ['site-footer', 'sections/09-footer.html']
