@@ -1,0 +1,288 @@
+<section class="story-section daily-budget-section" id="daily-budget" aria-labelledby="daily-budget-title">
+  <div class="section-index">05b <span>Daily budget</span></div>
+  <div class="story-grid">
+    <div><h2 id="daily-budget-title"><span class="db-num" id="db-h2-num">$1.41</span> a day,<br><em>what does it buy?</em></h2></div>
+    <div class="story-text">
+      <p>Divide what an agency spends per participant each month by the days in the month and you get one daily coin. Across <strong id="db-agencies">90</strong> state, territory and tribal agencies, the average is <strong id="db-national">$1.41</strong> per participant per day.</p>
+      <p>Pick a place, then set its coin next to the price of everyday items. A part-filled picture means the coin covers only part of one.</p>
+    </div>
+  </div>
+
+  <!-- daily-budget script (bottom of this file) finds each element below by its id and fills it in. -->
+  <div class="db-shell">
+    <div class="db-toolbar">
+      <button type="button" class="db-btn" id="db-prev" aria-label="Previous place">&larr;</button>
+      <label class="db-sr" for="db-place">Choose a place</label>
+      <select id="db-place"></select>
+      <button type="button" class="db-btn" id="db-next" aria-label="Next place">&rarr;</button>
+      <button type="button" class="db-btn" id="db-random">Surprise me</button>
+      <label class="db-ctl"><span>Prices for</span><select id="db-period"></select></label>
+    </div>
+
+    <div class="db-layout">
+      <aside class="db-coin-panel">
+        <div class="db-coin-wrap" id="db-coin-wrap"></div>
+        <p class="db-place-name" id="db-place-name"></p>
+        <p class="db-place-sub" id="db-place-sub"></p>
+        <p class="db-hook" id="db-hook" aria-live="polite"></p>
+      </aside>
+      <div class="db-shelf">
+        <div class="db-cards" id="db-cards"></div>
+        <p class="db-readout" id="db-readout" aria-live="polite"></p>
+        <ul class="db-key" aria-label="How to read the pictures">
+          <li><span class="db-key-ico"></span>One full picture = the coin buys that much</li>
+          <li><span class="db-key-ico is-part"></span>A part-filled picture = the coin covers only part of one</li>
+        </ul>
+      </div>
+    </div>
+    <p class="db-error source-note" id="db-error" hidden>The daily budget data could not be loaded. Use a local server such as VS Code Live Server to run this project.</p>
+    <p class="source-note">Sources: program spending and participants by agency, October 2015 to September 2016, from the project's three data files; per day = per month divided by 30.4. Item prices are national averages from the U.S. Bureau of Labor Statistics (Average Retail Food Prices, same 12 months). The transit ride is the 2014 national average from the Bureau of Transportation Statistics, so it is not from the same period. Prices are not what any program pays, and the comparison shows scale, not what is enough.</p>
+  </div>
+</section>
+
+<style>
+  /* Every rule is scoped to #daily-budget (or a db- class) so this section's styles don't leak into other sections. */
+  #daily-budget { border-top: 1px solid var(--line); --db-card: #fffdf8; --db-tile: #efe8d8; --db-gold-hi: #fbe28a; --db-gold: #e8b931; --db-gold-lo: #b8860b; --db-gold-ink: #5e4200; }
+  #daily-budget .db-num { background: var(--acid); padding: 0 .1em; }
+  #daily-budget .db-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  #daily-budget .db-shell { margin-top: 70px; border-top: 1px solid var(--line); }
+  #daily-budget .db-toolbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-end; padding: 25px 0 30px; }
+  #daily-budget .db-btn { border: 1px solid var(--ink); border-radius: 0; min-height: 38px; min-width: 38px; padding: 8px 12px; color: var(--ink); background: transparent; font-family: var(--mono); font-size: 12px; cursor: pointer; }
+  #daily-budget .db-btn:hover { background: rgba(23, 35, 31, .08); }
+  #daily-budget #db-place, #daily-budget #db-period { min-height: 38px; min-width: 180px; max-width: 100%; border: 1px solid var(--ink); border-radius: 0; padding: 8px 12px; color: var(--ink); background: transparent; font-family: var(--mono); font-size: 12px; }
+  #daily-budget #db-place { min-width: 260px; }
+  #daily-budget .db-ctl { display: grid; gap: 4px; margin-left: auto; }
+  #daily-budget .db-ctl span { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .1em; }
+  #daily-budget .db-btn:focus-visible, #daily-budget select:focus-visible, #daily-budget .db-card:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+
+  #daily-budget .db-layout { display: grid; grid-template-columns: minmax(250px, 340px) 1fr; gap: clamp(24px, 4vw, 56px); align-items: start; }
+  #daily-budget .db-coin-panel { position: sticky; top: 20px; text-align: center; background: var(--db-card); border: 1px solid var(--line); padding: 30px 22px 26px; }
+  #daily-budget .db-coin-wrap { display: grid; place-items: center; min-height: 250px; }
+  #daily-budget .db-coin { --d: 230px; width: var(--d); height: var(--d); border-radius: 50%; position: relative; display: grid; place-items: center; color: var(--db-gold-ink);
+    background: radial-gradient(circle at 32% 28%, var(--db-gold-hi), var(--db-gold) 55%, var(--db-gold-lo));
+    box-shadow: inset 0 0 0 calc(var(--d) * .035) var(--db-gold-lo), inset 0 0 0 calc(var(--d) * .05) var(--db-gold-hi), 0 18px 30px rgba(94, 66, 0, .28); }
+  #daily-budget .db-coin::before { content: ""; position: absolute; inset: 9%; border-radius: 50%; border: 2px dashed rgba(94, 66, 0, .45); }
+  #daily-budget .db-coin-face { position: relative; text-align: center; line-height: 1; }
+  #daily-budget .db-coin-top { display: block; margin-bottom: calc(var(--d) * .035); font-family: var(--mono); font-size: max(10px, calc(var(--d) * .06)); letter-spacing: .12em; text-transform: uppercase; }
+  #daily-budget .db-coin-num { display: block; font-size: calc(var(--d) * .27); font-weight: 700; letter-spacing: -.05em; font-variant-numeric: tabular-nums; }
+  #daily-budget .db-coin.is-flipping { animation: db-flip .7s ease; }
+  @keyframes db-flip { from { transform: rotateY(0); } to { transform: rotateY(360deg); } }
+  #daily-budget .db-place-name { margin: 22px 0 4px; font-size: 26px; font-weight: 600; letter-spacing: -.04em; }
+  #daily-budget .db-place-sub { margin: 0 0 18px; font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; opacity: .65; line-height: 1.6; }
+  #daily-budget .db-hook { margin: 0; padding-top: 18px; border-top: 1px solid var(--line); font-size: 16px; line-height: 1.5; text-align: left; }
+  #daily-budget .db-hook b { background: var(--acid); padding: 0 5px; font-weight: 600; }
+
+  #daily-budget .db-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(235px, 1fr)); gap: 16px; }
+  #daily-budget .db-card { display: flex; flex-direction: column; justify-content: space-between; gap: 14px; min-height: 200px; padding: 14px; background: var(--db-card); border: 1px solid var(--line); transition: transform .18s, box-shadow .18s, border-color .18s; outline: none; }
+  #daily-budget .db-card:hover, #daily-budget .db-card:focus-visible { transform: translateY(-3px); box-shadow: 0 10px 22px rgba(23, 35, 31, .1); border-color: rgba(23, 35, 31, .4); }
+  #daily-budget .db-card.is-covered { border-color: rgba(23, 35, 31, .35); }
+  #daily-budget .db-icons { display: flex; flex-wrap: wrap; gap: 6px; align-content: flex-start; min-height: 80px; padding: 12px; background: var(--db-tile); }
+  #daily-budget .db-ico { position: relative; display: block; width: 50px; height: 50px; flex: none; }
+  #daily-budget .db-ico svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  #daily-budget .db-ico .ghost { filter: grayscale(1) contrast(.8); opacity: .22; }
+  #daily-budget .db-ico.is-new { animation: db-pop .4s cubic-bezier(.2, .9, .3, 1.3) both; animation-delay: calc(var(--i, 0) * 45ms); }
+  @keyframes db-pop { from { transform: scale(.3); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+  #daily-budget .db-more { align-self: center; font-family: var(--mono); font-size: 13px; opacity: .6; }
+  #daily-budget .db-meta { display: grid; gap: 2px; }
+  #daily-budget .db-big { display: block; font-size: 30px; font-weight: 600; letter-spacing: -.05em; line-height: 1; font-variant-numeric: tabular-nums; }
+  #daily-budget .db-big small { font-size: 13px; font-weight: 500; letter-spacing: 0; margin-left: 6px; opacity: .6; }
+  #daily-budget .db-card.is-covered .db-big { background: linear-gradient(transparent 58%, var(--acid) 58%); width: fit-content; }
+  #daily-budget .db-what { font-size: 14px; font-weight: 500; margin-top: 4px; }
+  #daily-budget .db-price { font-family: var(--mono); font-size: 11px; letter-spacing: .05em; text-transform: uppercase; opacity: .62; }
+  #daily-budget .db-readout { min-height: 1.7em; margin: 16px 0 6px; font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; opacity: .75; }
+  #daily-budget .db-key { display: flex; flex-wrap: wrap; gap: 8px 24px; margin: 0; padding: 0; list-style: none; font-size: 13px; opacity: .75; }
+  #daily-budget .db-key li { display: flex; align-items: center; gap: 8px; }
+  #daily-budget .db-key-ico { width: 14px; height: 14px; border-radius: 50%; background: var(--db-gold); }
+  #daily-budget .db-key-ico.is-part { background: linear-gradient(90deg, var(--db-gold) 45%, rgba(23, 35, 31, .15) 45%); }
+  #daily-budget .db-msg { grid-column: 1 / -1; padding: 28px; background: var(--db-card); border: 1px dashed var(--line); font-size: 15px; line-height: 1.5; }
+  #daily-budget .db-error[hidden] { display: none; }
+  @media (max-width: 900px) {
+    #daily-budget .db-layout { grid-template-columns: 1fr; }
+    #daily-budget .db-coin-panel { position: static; }
+    #daily-budget .db-ctl { margin-left: 0; }
+    #daily-budget .db-cards { grid-template-columns: repeat(auto-fill, minmax(165px, 1fr)); }
+    #daily-budget .db-ico { width: 42px; height: 42px; }
+    #daily-budget #db-place { min-width: 0; flex: 1 1 180px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #daily-budget .db-coin.is-flipping, #daily-budget .db-ico.is-new { animation: none; }
+    #daily-budget .db-card { transition: none; }
+  }
+</style>
+<script>
+(() => {
+  'use strict';
+  const root = document.getElementById('daily-budget');
+  if (!root) return;
+
+  // Paths are relative to index.html (the page that loads this section).
+  const CONFIG = { dataUrl: 'data/precious/daily-dollar.json', pricesUrl: 'data/precious/item-prices.json', maxIcons: 9 };
+
+  // Small drawn pictures, one per item. Added to the page by this script (no SVG tags are written in the HTML above).
+  const ICONS = {
+    bananas: '<path d="M13 12 C8 36 22 55 50 52 C57 51 58 46 52 46 C35 46 25 35 25 16 C25 11 14 8 13 12 Z" fill="#F6C945" stroke="#B5851B" stroke-width="2" stroke-linejoin="round"/> <path d="M17 18 C18 34 28 46 46 49" fill="none" stroke="#FBE48F" stroke-width="2.5" stroke-linecap="round"/> <path d="M11 8 h11 l-1 7 h-10 z" fill="#7A5A1C"/> <circle cx="53.5" cy="48.5" r="3.2" fill="#6A4A14"/>',
+    coffee: '<path d="M15 17 L49 17 L51 56 Q51 59 48 59 L16 59 Q13 59 13 56 Z" fill="#7A5236"/> <path d="M15 17 L15 9 L49 9 L49 17 Z" fill="#4E3320"/> <path d="M15 13 l3-3 3 3 3-3 3 3 3-3 3 3 3-3 3 3 3-3 3 3 3-3" fill="none" stroke="#7A5236" stroke-width="1.6"/> <ellipse cx="32" cy="38" rx="12" ry="15" fill="#F4E7D0"/> <ellipse cx="32" cy="38" rx="6.5" ry="9.5" fill="#7A5236" transform="rotate(25 32 38)"/> <path d="M28 46 C31 40 33 36 36 30" fill="none" stroke="#F4E7D0" stroke-width="1.8" stroke-linecap="round"/>',
+    transit: '<rect x="8" y="10" width="48" height="38" rx="8" fill="#3F7DD8"/> <rect x="13" y="16" width="11" height="13" rx="2.5" fill="#DCEBFB"/> <rect x="26.5" y="16" width="11" height="13" rx="2.5" fill="#DCEBFB"/> <rect x="40" y="16" width="11" height="13" rx="2.5" fill="#DCEBFB"/> <rect x="8" y="35" width="48" height="5" fill="#F6C945"/> <circle cx="14" cy="43" r="2.2" fill="#FFF4C2"/><circle cx="50" cy="43" r="2.2" fill="#FFF4C2"/> <circle cx="19" cy="51" r="6.5" fill="#1F2A2F"/><circle cx="19" cy="51" r="2.6" fill="#CFD6DA"/> <circle cx="45" cy="51" r="6.5" fill="#1F2A2F"/><circle cx="45" cy="51" r="2.6" fill="#CFD6DA"/>',
+    eggs: '<ellipse cx="17" cy="30" rx="8" ry="11" fill="#FBF6EA" stroke="#D8CBB0" stroke-width="1.5"/> <ellipse cx="32" cy="27" rx="8" ry="11" fill="#FBF6EA" stroke="#D8CBB0" stroke-width="1.5"/> <ellipse cx="47" cy="30" rx="8" ry="11" fill="#FBF6EA" stroke="#D8CBB0" stroke-width="1.5"/> <path d="M5 36 L59 36 L56 54 Q55.5 57 52 57 L12 57 Q8.5 57 8 54 Z" fill="#CDB896"/> <path d="M5 36 L59 36" stroke="#B49E7B" stroke-width="2"/> <path d="M20 40 v13 M32 40 v13 M44 40 v13" stroke="#B49E7B" stroke-width="1.6" stroke-linecap="round"/>',
+    milk: '<path d="M46 28 Q57 28 57 38 Q57 47 46 47" fill="none" stroke="#9DBCDA" stroke-width="3.2" stroke-linecap="round"/> <path d="M18 23 L18 56 Q18 59 21 59 L43 59 Q46 59 46 56 L46 25 Q46 20 40 18 L40 12 L24 12 L24 18 Q18 20 18 23 Z" fill="#F6FAFD" stroke="#9DBCDA" stroke-width="2"/> <rect x="23" y="6" width="18" height="7" rx="2.5" fill="#3F7DD8"/> <rect x="18" y="30" width="28" height="17" fill="#3F7DD8"/> <path d="M32 33.5 C29 37.5 28 39 28 41 a4 4 0 0 0 8 0 C36 39 35 37.5 32 33.5 Z" fill="#fff"/>',
+    bread: '<path d="M9 36 Q6 17 24 17 L40 17 Q58 17 55 36 L55 53 Q55 57 51 57 L13 57 Q9 57 9 53 Z" fill="#DDA55E" stroke="#A96D28" stroke-width="2" stroke-linejoin="round"/> <path d="M22 24 l6 9 M32 22 l6 10 M42 24 l6 9" stroke="#F4CF92" stroke-width="3" stroke-linecap="round" fill="none"/>',
+    apples: '<path d="M32 20 C20 13 7 23 11 40 C14 52 24 59 32 55 C40 59 50 52 53 40 C57 23 44 13 32 20 Z" fill="#D94B4B" stroke="#A92F2F" stroke-width="2" stroke-linejoin="round"/> <path d="M32 20 C32 14 34 10 39 7" fill="none" stroke="#6B4A1E" stroke-width="3" stroke-linecap="round"/> <path d="M37 14 C43 7 51 9 53 13 C47 18 41 18 37 14 Z" fill="#5FA94A"/> <ellipse cx="22" cy="32" rx="3" ry="6" fill="#fff" opacity=".35" transform="rotate(20 22 32)"/>',
+    oranges: '<circle cx="32" cy="36" r="22" fill="#F08A24" stroke="#C26512" stroke-width="2"/> <path d="M32 15 C34 7 42 5 47 7 C45 14 39 18 32 15 Z" fill="#4F9B3F"/> <circle cx="32" cy="15" r="2" fill="#7A4B16"/> <ellipse cx="22" cy="30" rx="3.2" ry="6.5" fill="#fff" opacity=".3" transform="rotate(25 22 30)"/> <circle cx="38" cy="44" r=".9" fill="#C26512"/><circle cx="26" cy="48" r=".9" fill="#C26512"/><circle cx="43" cy="34" r=".9" fill="#C26512"/>',
+    potatoes: '<path d="M10 36 C8 21 23 12 38 15 C53 18 60 31 55 43 C50 56 30 59 19 53 C13 49 10 43 10 36 Z" fill="#CFA56F" stroke="#8D6A38" stroke-width="2" stroke-linejoin="round"/> <ellipse cx="25" cy="28" rx="2.4" ry="1.4" fill="#9A7443"/><ellipse cx="40" cy="38" rx="2.4" ry="1.4" fill="#9A7443"/> <ellipse cx="29" cy="44" rx="2.4" ry="1.4" fill="#9A7443"/><ellipse cx="46" cy="25" rx="2" ry="1.2" fill="#9A7443"/>',
+    rice: '<path d="M20 14 L44 14 L48 20 Q57 35 52 52 Q51 59 44 59 L20 59 Q13 59 12 52 Q7 35 16 20 Z" fill="#F4EFE3" stroke="#BDB39B" stroke-width="2" stroke-linejoin="round"/> <rect x="23" y="8" width="18" height="8" rx="2.5" fill="#B58B4B"/> <ellipse cx="25" cy="34" rx="6" ry="2.6" fill="#fff" stroke="#CFC6B0" transform="rotate(-30 25 34)"/> <ellipse cx="38" cy="32" rx="6" ry="2.6" fill="#fff" stroke="#CFC6B0" transform="rotate(25 38 32)"/> <ellipse cx="32" cy="44" rx="6" ry="2.6" fill="#fff" stroke="#CFC6B0" transform="rotate(-8 32 44)"/> <ellipse cx="22" cy="46" rx="5" ry="2.3" fill="#fff" stroke="#CFC6B0" transform="rotate(35 22 46)"/> <ellipse cx="42" cy="46" rx="5" ry="2.3" fill="#fff" stroke="#CFC6B0" transform="rotate(-35 42 46)"/>',
+    chicken: '<path d="M32 37 L15 53" stroke="#F4EBD8" stroke-width="7" stroke-linecap="round"/> <circle cx="11" cy="53" r="4.4" fill="#F4EBD8"/><circle cx="16" cy="58" r="4.4" fill="#F4EBD8"/> <path d="M44 7 C59 9 61 28 49 37 C42 42 33 41 28 36 C22 29 26 13 44 7 Z" fill="#D98B3A" stroke="#A85F1D" stroke-width="2" stroke-linejoin="round"/> <path d="M36 14 C46 12 53 18 54 27" fill="none" stroke="#F2BE80" stroke-width="2.6" stroke-linecap="round"/>',
+    generic: '<circle cx="32" cy="32" r="22" fill="#D9D3C4" stroke="#A59E8C" stroke-width="2"/>'
+  };
+
+  const $ = (s) => root.querySelector(s);
+  const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const money = (v, d = 2) => (v < 0 ? '-' : '') + '$' + Math.abs(v).toFixed(d);
+  const int = (n) => Math.round(n).toLocaleString('en-US');
+  const reduceMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  const S = { data: null, items: [], place: 'ALL', period: 'year', order: [] };
+  let defaultReadout = '';
+
+  const sprite = '<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>' +
+    Object.keys(ICONS).map((k) => '<symbol id="db-ic-' + k + '" viewBox="0 0 64 64">' + ICONS[k] + '</symbol>').join('') + '</defs></svg>';
+  root.insertAdjacentHTML('afterbegin', sprite);
+
+  const getJson = (u) => fetch(u).then((r) => (r.ok ? r.json() : Promise.reject(new Error(u + ' HTTP ' + r.status))));
+  Promise.all([getJson(CONFIG.dataUrl), getJson(CONFIG.pricesUrl)])
+    .then(([data, prices]) => start(data, prices))
+    .catch((err) => { console.warn(err); $('#db-error').hidden = false; });
+
+  function start(data, prices) {
+    S.data = data;
+    S.items = prices.items.slice().sort((a, b) => a.yearAvg - b.yearAvg);
+    S.byName = new Map(data.agencies.map((a) => [a.name, a]));
+    $('#db-agencies').textContent = data.meta.agencyCount;
+    $('#db-national').textContent = money(data.national.perDay);
+    populatePlaces(); populatePeriods(); wire(); render(false);
+  }
+
+  function coinFor(place, period) {
+    const days = S.data.meta.daysPerMonth;
+    if (place === 'ALL') return period === 'year' ? S.data.national.perDay : S.data.national.monthly[period] / days;
+    const a = S.byName.get(place);
+    if (period === 'year') return a.perDay;
+    const v = a.monthly[period];
+    return v == null ? null : v / days;
+  }
+  const priceFor = (item, period) => (period === 'year' || !item.monthly ? item.yearAvg : item.monthly[period]);
+  const periodWord = (period) => (period === 'year' ? 'year average' : S.data.meta.months[period]);
+  const placeLabel = (place) => (place === 'ALL' ? 'All agencies (national average)' : place);
+
+  function populatePlaces() {
+    const groups = [['State', 'States and DC'], ['Territory', 'Territories'], ['Tribal', 'Tribal organizations']];
+    S.order = ['ALL'];
+    let html = '<option value="ALL">National average (all agencies)</option>';
+    groups.forEach(([t, label]) => {
+      const list = S.data.agencies.filter((a) => a.type === t).sort((x, y) => x.name.localeCompare(y.name));
+      list.forEach((a) => S.order.push(a.name));
+      html += '<optgroup label="' + label + '">' + list.map((a) => '<option value="' + esc(a.name) + '">' + esc(a.name) + '</option>').join('') + '</optgroup>';
+    });
+    $('#db-place').innerHTML = html;
+  }
+  function populatePeriods() {
+    $('#db-period').innerHTML = '<option value="year">Year average</option>' +
+      S.data.meta.months.map((m, i) => '<option value="' + i + '">' + esc(m) + '</option>').join('');
+  }
+  function wire() {
+    $('#db-place').addEventListener('change', (e) => { S.place = e.target.value; render(true); });
+    $('#db-period').addEventListener('change', (e) => { S.period = e.target.value === 'year' ? 'year' : Number(e.target.value); render(false); });
+    const step = (d) => { const i = S.order.indexOf(S.place); S.place = S.order[(i + d + S.order.length) % S.order.length]; render(true); };
+    $('#db-prev').addEventListener('click', () => step(-1));
+    $('#db-next').addEventListener('click', () => step(1));
+    $('#db-random').addEventListener('click', () => {
+      const pool = S.order.filter((p) => p !== S.place && p !== 'ALL');
+      S.place = pool[Math.floor(Math.random() * pool.length)];
+      render(true);
+    });
+    const cards = $('#db-cards');
+    const show = (e) => { const c = e.target.closest('.db-card'); if (c) $('#db-readout').textContent = c.dataset.detail; };
+    cards.addEventListener('mouseover', show);
+    cards.addEventListener('focusin', show);
+    cards.addEventListener('mouseleave', () => { $('#db-readout').textContent = defaultReadout; });
+  }
+
+  function coinHTML(value) {
+    return '<div class="db-coin" style="--d:230px" role="img" aria-label="' + esc(money(value) + ' per participant per day') + '">' +
+      '<div class="db-coin-face"><span class="db-coin-top">per day</span><span class="db-coin-num">' + money(value) + '</span></div></div>';
+  }
+  function icon(id, partial, idx) {
+    const sym = '<use href="#db-ic-' + id + '"/>';
+    const anim = reduceMotion ? '' : ' is-new" style="--i:' + idx;
+    if (partial == null) return '<span class="db-ico' + anim + '"><svg viewBox="0 0 64 64" aria-hidden="true">' + sym + '</svg></span>';
+    const cut = Math.max(0, Math.min(100, 100 - partial * 100));
+    return '<span class="db-ico' + anim + '"><svg class="ghost" viewBox="0 0 64 64" aria-hidden="true">' + sym + '</svg>' +
+      '<svg viewBox="0 0 64 64" aria-hidden="true" style="clip-path:inset(0 ' + cut.toFixed(1) + '% 0 0)">' + sym + '</svg></span>';
+  }
+  function iconsFor(id, k) {
+    if (!ICONS[id]) id = 'generic';
+    if (k < 1) return icon(id, k, 0);
+    const whole = Math.floor(k), shown = Math.min(whole, CONFIG.maxIcons);
+    let h = '';
+    for (let i = 0; i < shown; i++) h += icon(id, null, i);
+    if (whole > CONFIG.maxIcons) return h + '<span class="db-more">+' + (whole - CONFIG.maxIcons) + ' more</span>';
+    const rem = k - whole;
+    if (rem >= 0.05) h += icon(id, rem, shown);
+    return h;
+  }
+
+  function render(doFlip) {
+    const coin = coinFor(S.place, S.period);
+    $('#db-place').value = S.place;
+    $('#db-period').value = String(S.period);
+    $('#db-place-name').textContent = placeLabel(S.place);
+    const wrap = $('#db-coin-wrap'), cards = $('#db-cards'), readout = $('#db-readout');
+
+    if (!(coin > 0)) {
+      wrap.innerHTML = '';
+      $('#db-h2-num').textContent = 'n/a';
+      $('#db-place-sub').textContent = periodWord(S.period);
+      $('#db-hook').textContent = '';
+      cards.innerHTML = '<p class="db-msg">There is no usable program value for ' + esc(placeLabel(S.place)) + ' in ' + esc(periodWord(S.period)) + ' (the source cell is negative or empty), so nothing can be compared. Choose another month or the year average.</p>';
+      readout.textContent = ''; defaultReadout = '';
+      return;
+    }
+
+    $('#db-h2-num').textContent = money(coin);
+    wrap.innerHTML = coinHTML(coin);
+    if (doFlip && !reduceMotion) { const c = wrap.querySelector('.db-coin'); if (c) c.classList.add('is-flipping'); }
+
+    let sub = periodWord(S.period);
+    if (S.place === 'ALL') {
+      sub += ' · ' + S.data.meta.agencyCount + ' agencies · ' + int(S.data.national.avgParticipants) + ' participants a month';
+    } else {
+      const nat = coinFor('ALL', S.period), vsNat = (coin / nat - 1) * 100;
+      sub += ' · ' + money(coin * S.data.meta.daysPerMonth) + ' a month · ' + Math.abs(vsNat).toFixed(0) + '% ' + (vsNat >= 0 ? 'above' : 'below') + ' national';
+    }
+    $('#db-place-sub').textContent = sub;
+
+    const rows = S.items.map((it) => ({ it, price: priceFor(it, S.period) })).filter((r) => r.price > 0).sort((x, y) => x.price - y.price);
+    cards.innerHTML = rows.map((r) => {
+      const k = coin / r.price, covered = k >= 1;
+      const big = covered ? k.toFixed(1) + '×' : Math.round(k * 100) + '%';
+      const note = r.it.samePeriod ? '' : ' (' + r.it.periodLabel + ')';
+      const detail = r.it.name + ' (' + r.it.unit + '): ' + money(r.price) + ', ' +
+        (r.it.samePeriod ? periodWord(S.period) : r.it.periodLabel + ' national average') + '. ' +
+        (covered ? 'The coin buys ' + k.toFixed(1) + ' times that amount.' : 'The coin covers ' + Math.round(k * 100) + '% of one.');
+      return '<article class="db-card' + (covered ? ' is-covered' : '') + '" tabindex="0" data-detail="' + esc(detail) + '" aria-label="' + esc(detail) + '">' +
+        '<div class="db-icons">' + iconsFor(r.it.id, k) + '</div>' +
+        '<div class="db-meta"><span class="db-big">' + big + (covered ? '' : '<small>of one</small>') + '</span>' +
+        '<span class="db-what">' + esc(r.it.name) + '</span>' +
+        '<span class="db-price">' + esc(r.it.unit) + ' · ' + money(r.price) + esc(note) + '</span></div></article>';
+    }).join('');
+
+    const cheap = rows[0], dear = rows[rows.length - 1];
+    const kc = coin / cheap.price, kd = coin / dear.price;
+    const unit = (it) => esc(it.unit.replace(/^1 /, ''));
+    const cheapTxt = (kc >= 1 ? '<b>' + kc.toFixed(1) + '</b> ' : '<b>' + Math.round(kc * 100) + '%</b> of ') + unit(cheap.it) + ' of ' + esc(cheap.it.name.toLowerCase());
+    const dearTxt = (kd >= 1 ? '<b>' + kd.toFixed(1) + '</b> ' : '<b>' + Math.round(kd * 100) + '%</b> of a ') + unit(dear.it) + ' of ' + esc(dear.it.name.toLowerCase());
+    $('#db-hook').innerHTML = 'This coin buys ' + cheapTxt + ', or ' + dearTxt + '.';
+
+    defaultReadout = 'Hover or focus a card for its price and source.';
+    readout.textContent = defaultReadout;
+  }
+})();
+</script>
