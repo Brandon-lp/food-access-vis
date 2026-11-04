@@ -11,11 +11,13 @@
   <!-- daily-budget script (bottom of this file) finds each element below by its id and fills it in. -->
   <div class="db-shell">
     <div class="db-toolbar">
-      <button type="button" class="db-btn" id="db-prev" aria-label="Previous place">&larr;</button>
-      <label class="db-sr" for="db-place">Choose a place</label>
-      <select id="db-place"></select>
-      <button type="button" class="db-btn" id="db-next" aria-label="Next place">&rarr;</button>
-      <button type="button" class="db-btn" id="db-random">Surprise me</button>
+      <div class="db-pick">
+        <button type="button" class="db-btn" id="db-prev" aria-label="Previous place">&larr;</button>
+        <label class="db-sr" for="db-place">Choose a place</label>
+        <select id="db-place"></select>
+        <button type="button" class="db-btn" id="db-next" aria-label="Next place">&rarr;</button>
+      </div>
+      <button type="button" class="db-btn db-btn-text" id="db-random">Surprise me</button>
       <label class="db-ctl"><span>Prices for</span><select id="db-period"></select></label>
     </div>
 
@@ -41,68 +43,103 @@
 </section>
 
 <style>
-  /* Every rule is scoped to #daily-budget (or a db- class) so this section's styles don't leak into other sections. */
+  /* Every rule is scoped to #daily-budget (or a db- class) so this section's styles don't leak into other sections.
+     Sizing: .db-shell is a "container". The layout, the coin and the item pictures all size themselves from the width of
+     that container (cqw units and @container rules), so they adapt to any phone, tablet or window width. */
   #daily-budget { border-top: 1px solid var(--line); --db-card: #fffdf8; --db-tile: #efe8d8; --db-gold-hi: #fbe28a; --db-gold: #e8b931; --db-gold-lo: #b8860b; --db-gold-ink: #5e4200; }
   #daily-budget .db-num { background: var(--acid); padding: 0 .1em; }
   #daily-budget .db-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-  #daily-budget .db-shell { margin-top: 70px; border-top: 1px solid var(--line); }
-  #daily-budget .db-toolbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-end; padding: 25px 0 30px; }
-  #daily-budget .db-btn { border: 1px solid var(--ink); border-radius: 0; min-height: 38px; min-width: 38px; padding: 8px 12px; color: var(--ink); background: transparent; font-family: var(--mono); font-size: 12px; cursor: pointer; }
+  #daily-budget .db-shell { container: db / inline-size; margin-top: clamp(40px, 6vw, 70px); border-top: 1px solid var(--line); }
+
+  /* toolbar */
+  #daily-budget .db-toolbar { display: flex; flex-wrap: wrap; gap: 10px 12px; align-items: flex-end; padding: 22px 0 28px; }
+  #daily-budget .db-pick { display: flex; flex: 1 1 320px; gap: 6px; min-width: 0; max-width: 560px; }
+  #daily-budget .db-btn { border: 1px solid var(--ink); border-radius: 0; min-height: 40px; min-width: 40px; padding: 8px 12px; color: var(--ink); background: transparent; font-family: var(--mono); font-size: 12px; cursor: pointer; }
   #daily-budget .db-btn:hover { background: rgba(28, 33, 71, .08); }
-  #daily-budget #db-place, #daily-budget #db-period { min-height: 38px; min-width: 180px; max-width: 100%; border: 1px solid var(--ink); border-radius: 0; padding: 8px 12px; color: var(--ink); background: transparent; font-family: var(--mono); font-size: 12px; }
-  #daily-budget #db-place { min-width: 260px; }
+  #daily-budget select { min-height: 40px; min-width: 0; max-width: 100%; border: 1px solid var(--ink); border-radius: 0; padding: 8px 12px; color: var(--ink); background: transparent; font-family: var(--mono); font-size: 12px; }
+  #daily-budget #db-place { flex: 1 1 auto; width: 100%; }
+  #daily-budget #db-period { min-width: 170px; }
   #daily-budget .db-ctl { display: grid; gap: 4px; margin-left: auto; }
   #daily-budget .db-ctl span { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .1em; }
   #daily-budget .db-btn:focus-visible, #daily-budget select:focus-visible, #daily-budget .db-card:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
 
-  #daily-budget .db-layout { display: grid; grid-template-columns: minmax(250px, 340px) 1fr; gap: clamp(24px, 4vw, 56px); align-items: start; }
-  #daily-budget .db-coin-panel { position: sticky; top: 20px; text-align: center; background: var(--db-card); border: 1px solid var(--line); padding: 30px 22px 26px; }
-  #daily-budget .db-coin-wrap { display: grid; place-items: center; min-height: 250px; }
-  #daily-budget .db-coin { --d: 230px; width: var(--d); height: var(--d); border-radius: 50%; position: relative; display: grid; place-items: center; color: var(--db-gold-ink);
+  /* layout: one column by default (phones); the container rules below widen it */
+  #daily-budget .db-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; align-items: start; }
+  #daily-budget .db-layout > * { min-width: 0; }
+
+  /* coin panel */
+  #daily-budget .db-coin-panel { --db-d: 200px; text-align: center; background: var(--db-card); border: 1px solid var(--line); padding: 24px 18px 22px; }
+  #daily-budget .db-coin-wrap { display: grid; place-items: center; min-height: var(--db-d); padding: 8px 0; }
+  #daily-budget .db-coin { --d: var(--db-d); width: var(--d); height: var(--d); border-radius: 50%; position: relative; display: grid; place-items: center; color: var(--db-gold-ink);
     background: radial-gradient(circle at 32% 28%, var(--db-gold-hi), var(--db-gold) 55%, var(--db-gold-lo));
-    box-shadow: inset 0 0 0 calc(var(--d) * .035) var(--db-gold-lo), inset 0 0 0 calc(var(--d) * .05) var(--db-gold-hi), 0 18px 30px rgba(94, 66, 0, .28); }
+    box-shadow: inset 0 0 0 calc(var(--d) * .035) var(--db-gold-lo), inset 0 0 0 calc(var(--d) * .05) var(--db-gold-hi), 0 calc(var(--d) * .08) calc(var(--d) * .13) rgba(94, 66, 0, .28); }
   #daily-budget .db-coin::before { content: ""; position: absolute; inset: 9%; border-radius: 50%; border: 2px dashed rgba(94, 66, 0, .45); }
   #daily-budget .db-coin-face { position: relative; text-align: center; line-height: 1; }
-  #daily-budget .db-coin-top { display: block; margin-bottom: calc(var(--d) * .035); font-family: var(--mono); font-size: max(10px, calc(var(--d) * .06)); letter-spacing: .12em; text-transform: uppercase; }
+  #daily-budget .db-coin-top { display: block; margin-bottom: calc(var(--d) * .035); font-family: var(--mono); font-size: max(9px, calc(var(--d) * .06)); letter-spacing: .12em; text-transform: uppercase; }
   #daily-budget .db-coin-num { display: block; font-size: calc(var(--d) * .27); font-weight: 700; letter-spacing: -.05em; font-variant-numeric: tabular-nums; }
   #daily-budget .db-coin.is-flipping { animation: db-flip .7s ease; }
   @keyframes db-flip { from { transform: rotateY(0); } to { transform: rotateY(360deg); } }
-  #daily-budget .db-place-name { margin: 22px 0 4px; font-size: 26px; font-weight: 600; letter-spacing: -.04em; }
-  #daily-budget .db-place-sub { margin: 0 0 18px; font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; opacity: .65; line-height: 1.6; }
-  #daily-budget .db-hook { margin: 0; padding-top: 18px; border-top: 1px solid var(--line); font-size: 16px; line-height: 1.5; text-align: left; }
+  #daily-budget .db-place-name { margin: 16px 0 4px; font-size: 24px; font-weight: 600; letter-spacing: -.04em; overflow-wrap: anywhere; }
+  #daily-budget .db-place-sub { margin: 0 0 16px; font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; opacity: .65; line-height: 1.6; }
+  #daily-budget .db-hook { margin: 0; padding-top: 16px; border-top: 1px solid var(--line); font-size: 16px; line-height: 1.5; text-align: left; }
   #daily-budget .db-hook b { background: var(--acid); padding: 0 5px; font-weight: 600; }
 
-  #daily-budget .db-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(235px, 1fr)); gap: 16px; }
-  #daily-budget .db-card { display: flex; flex-direction: column; justify-content: space-between; gap: 14px; min-height: 200px; padding: 14px; background: var(--db-card); border: 1px solid var(--line); transition: transform .18s, box-shadow .18s, border-color .18s; outline: none; }
+  /* item cards: as many columns as fit; each card is also a container, so its pictures scale with the card */
+  #daily-budget .db-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 160px), 1fr)); gap: 12px; }
+  #daily-budget .db-card { container: dbcard / inline-size; display: flex; flex-direction: column; justify-content: space-between; gap: 12px; min-height: 180px; padding: 12px; background: var(--db-card); border: 1px solid var(--line); transition: transform .18s, box-shadow .18s, border-color .18s; outline: none; }
   #daily-budget .db-card:hover, #daily-budget .db-card:focus-visible { transform: translateY(-3px); box-shadow: 0 10px 22px rgba(28, 33, 71, .1); border-color: rgba(28, 33, 71, .4); }
   #daily-budget .db-card.is-covered { border-color: rgba(28, 33, 71, .35); }
-  #daily-budget .db-icons { display: flex; flex-wrap: wrap; gap: 6px; align-content: flex-start; min-height: 80px; padding: 12px; background: var(--db-tile); }
-  #daily-budget .db-ico { position: relative; display: block; width: 50px; height: 50px; flex: none; }
+  #daily-budget .db-icons { --ico: 38px; display: flex; flex-wrap: wrap; gap: 4px; align-content: flex-start; min-height: calc(var(--ico) + 20px); padding: 10px; background: var(--db-tile); }
+  #daily-budget .db-ico { position: relative; display: block; width: var(--ico); height: var(--ico); flex: none; }
   #daily-budget .db-ico svg { position: absolute; inset: 0; width: 100%; height: 100%; }
   #daily-budget .db-ico .ghost { filter: grayscale(1) contrast(.8); opacity: .22; }
   #daily-budget .db-ico.is-new { animation: db-pop .4s cubic-bezier(.2, .9, .3, 1.3) both; animation-delay: calc(var(--i, 0) * 45ms); }
   @keyframes db-pop { from { transform: scale(.3); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-  #daily-budget .db-more { align-self: center; font-family: var(--mono); font-size: 13px; opacity: .6; }
-  #daily-budget .db-meta { display: grid; gap: 2px; }
-  #daily-budget .db-big { display: block; font-size: 30px; font-weight: 600; letter-spacing: -.05em; line-height: 1; font-variant-numeric: tabular-nums; }
-  #daily-budget .db-big small { font-size: 13px; font-weight: 500; letter-spacing: 0; margin-left: 6px; opacity: .6; }
+  #daily-budget .db-more { align-self: center; font-family: var(--mono); font-size: 12px; opacity: .6; }
+  #daily-budget .db-meta { display: grid; gap: 2px; min-width: 0; }
+  #daily-budget .db-big { display: block; font-size: 28px; font-weight: 600; letter-spacing: -.05em; line-height: 1; font-variant-numeric: tabular-nums; }
+  #daily-budget .db-big small { font-size: 12px; font-weight: 500; letter-spacing: 0; margin-left: 6px; opacity: .6; }
   #daily-budget .db-card.is-covered .db-big { background: linear-gradient(transparent 58%, var(--acid) 58%); width: fit-content; }
-  #daily-budget .db-what { font-size: 14px; font-weight: 500; margin-top: 4px; }
-  #daily-budget .db-price { font-family: var(--mono); font-size: 11px; letter-spacing: .05em; text-transform: uppercase; opacity: .62; }
+  #daily-budget .db-what { font-size: 14px; font-weight: 500; margin-top: 4px; overflow-wrap: anywhere; }
+  #daily-budget .db-price { font-family: var(--mono); font-size: 11px; letter-spacing: .05em; text-transform: uppercase; opacity: .62; overflow-wrap: anywhere; }
   #daily-budget .db-readout { min-height: 1.7em; margin: 16px 0 6px; font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; opacity: .75; }
   #daily-budget .db-key { display: flex; flex-wrap: wrap; gap: 8px 24px; margin: 0; padding: 0; list-style: none; font-size: 13px; opacity: .75; }
   #daily-budget .db-key li { display: flex; align-items: center; gap: 8px; }
-  #daily-budget .db-key-ico { width: 14px; height: 14px; border-radius: 50%; background: var(--db-gold); }
+  #daily-budget .db-key-ico { width: 14px; height: 14px; flex: none; border-radius: 50%; background: var(--db-gold); }
   #daily-budget .db-key-ico.is-part { background: linear-gradient(90deg, var(--db-gold) 45%, rgba(28, 33, 71, .15) 45%); }
-  #daily-budget .db-msg { grid-column: 1 / -1; padding: 28px; background: var(--db-card); border: 1px dashed var(--line); font-size: 15px; line-height: 1.5; }
+  #daily-budget .db-msg { grid-column: 1 / -1; padding: 24px; background: var(--db-card); border: 1px dashed var(--line); font-size: 15px; line-height: 1.5; }
   #daily-budget .db-error[hidden] { display: none; }
-  @media (max-width: 900px) {
-    #daily-budget .db-layout { grid-template-columns: 1fr; }
-    #daily-budget .db-coin-panel { position: static; }
-    #daily-budget .db-ctl { margin-left: 0; }
-    #daily-budget .db-cards { grid-template-columns: repeat(auto-fill, minmax(165px, 1fr)); }
-    #daily-budget .db-ico { width: 42px; height: 42px; }
-    #daily-budget #db-place { min-width: 0; flex: 1 1 180px; }
+
+  /* Fluid sizing from container width. Wrapped in @supports so very old browsers keep the fixed sizes above. */
+  @supports (width: 1cqw) {
+    #daily-budget .db-coin-panel { --db-d: clamp(150px, 56cqw, 230px); }
+    #daily-budget .db-place-name { font-size: clamp(20px, 6cqw, 26px); }
+    #daily-budget .db-icons { --ico: clamp(30px, 25cqw, 54px); gap: clamp(3px, 2.4cqw, 6px); padding: clamp(8px, 6cqw, 12px); }
+    #daily-budget .db-big { font-size: clamp(24px, 14cqw, 32px); }
+    #daily-budget .db-layout { gap: clamp(20px, 4cqw, 56px); }
+  }
+  /* The rules below follow the width of the section, not the screen. */
+  @container db (max-width: 520px) {
+    #daily-budget select { font-size: 16px; } /* 16px stops iPhones zooming in when a menu opens */
+    #daily-budget .db-ctl { margin-left: 0; width: 100%; }
+    #daily-budget #db-period { width: 100%; }
+    #daily-budget .db-btn-text { flex: 1 1 auto; }
+  }
+  @container db (min-width: 560px) and (max-width: 879px) {
+    /* tablet: coin on the left, its text on the right */
+    #daily-budget .db-coin-panel { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 28px; align-items: center; text-align: left; }
+    #daily-budget .db-coin-wrap { grid-row: 1 / span 3; }
+    #daily-budget .db-place-name { margin-top: 0; }
+    #daily-budget .db-hook { grid-column: 2; }
+    #daily-budget .db-coin-panel { --db-d: clamp(150px, 26cqw, 210px); }
+    #daily-budget .db-cards { grid-template-columns: repeat(auto-fill, minmax(min(100%, 190px), 1fr)); gap: 14px; }
+  }
+  @container db (min-width: 880px) {
+    /* desktop: coin on the left (it stays in view while you scroll the cards), cards on the right */
+    #daily-budget .db-layout { grid-template-columns: minmax(230px, 22cqw) minmax(0, 1fr); }
+    #daily-budget .db-coin-panel { position: sticky; top: 20px; --db-d: clamp(170px, 17cqw, 240px); padding: 30px 22px 26px; }
+    #daily-budget .db-cards { grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); gap: 16px; }
+    #daily-budget .db-card { padding: 14px; gap: 14px; }
   }
   @media (prefers-reduced-motion: reduce) {
     #daily-budget .db-coin.is-flipping, #daily-budget .db-ico.is-new { animation: none; }
@@ -206,7 +243,7 @@
   }
 
   function coinHTML(value) {
-    return '<div class="db-coin" style="--d:230px" role="img" aria-label="' + esc(money(value) + ' per participant per day') + '">' +
+        return '<div class="db-coin" role="img" aria-label="' + esc(money(value) + ' per participant per day') + '">' +
       '<div class="db-coin-face"><span class="db-coin-top">per day</span><span class="db-coin-num">' + money(value) + '</span></div></div>';
   }
   function icon(id, partial, idx) {
