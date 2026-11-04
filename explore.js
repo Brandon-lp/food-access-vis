@@ -191,7 +191,7 @@
             }
             return colorScale(d.value);
           })
-          .attr('stroke', 'rgba(23, 35, 31, 0.9)')
+          .attr('stroke', 'rgba(28, 33, 71, 0.9)')
           .attr('stroke-width', 0.75)
           .attr('tabindex', 0)
           .attr('role', 'button')
@@ -394,14 +394,14 @@
 
     polygonGroup.append('polygon')
       .attr('points', polygonPoints)
-      .attr('fill', 'rgba(215, 243, 107, 0.28)')
-      .attr('stroke', '#d7f36b')
+      .attr('fill', 'rgba(166, 175, 50, 0.28)')
+      .attr('stroke', '#a6af32')
       .attr('stroke-width', 2.5);
   }
 
   const stateColorScale = d3.scaleThreshold()
     .domain([5, 10, 20, 30, 40])
-    .range(['#e7e4dc', '#d3d9b9', '#b7d68c', '#9bc961', '#d7f36b', '#ff765c']);
+    .range(['#e7e4dc', '#f0d9a0', '#e5a300', '#ee7302', '#d44a10', '#b81817']);
 
   function colorScale(value) {
     if (value === null || value === undefined || !Number.isFinite(Number(value))) {

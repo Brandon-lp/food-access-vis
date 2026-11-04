@@ -1,0 +1,478 @@
+Fiscal Year,Geography,Geography Type,FNS Region,Average Monthly Household Participation,Average Monthly Persons Participation,Average Monthly Benefit per Household (USD),Average Monthly Benefit per Person (USD),Total Annual SNAP Cost (USD),Source File
+2011,Alabama,State,Southeast,"404,793","920,365",$307.35,$135.18,"$1,492,961,298",FY11-cleaned.xls
+2011,Alaska,State,Western,"35,072","86,044",$419.10,$170.83,"$176,385,311",FY11-cleaned.xls
+2011,Arizona,State,Western,"465,375","1,067,617",$295.25,$128.70,"$1,648,821,864",FY11-cleaned.xls
+2011,Arkansas,State,Southwest,"210,670","486,451",$285.67,$123.72,"$722,195,399",FY11-cleaned.xls
+2011,California,State,Western,"1,612,825","3,672,980",$334.92,$147.06,"$6,481,947,277",FY11-cleaned.xls
+2011,Colorado,State,Mountain Plains,"200,064","453,103",$317.73,$140.29,"$762,800,608",FY11-cleaned.xls
+2011,Connecticut,State,Northeast,"205,772","378,677",$262.18,$142.47,"$647,390,087",FY11-cleaned.xls
+2011,Delaware,State,Mid-Atlantic,"61,877","134,927",$276.50,$126.80,"$205,304,944",FY11-cleaned.xls
+2011,District of Columbia,District,Mid-Atlantic,"76,075","134,845",$251.12,$141.68,"$229,250,674",FY11-cleaned.xls
+2011,Florida,State,Southeast,"1,659,063","3,074,671",$258.62,$139.55,"$5,148,715,738",FY11-cleaned.xls
+2011,Georgia,State,Southeast,"789,785","1,780,039",$305.11,$135.37,"$2,891,615,163",FY11-cleaned.xls
+2011,Guam,Territory,Western,"12,945","40,631",$678.77,$216.25,"$105,440,192",FY11-cleaned.xls
+2011,Hawaii,State,Western,"79,624","159,644",$431.82,$215.38,"$412,604,147",FY11-cleaned.xls
+2011,Idaho,State,Western,"96,372","228,629",$313.02,$131.95,"$361,999,149",FY11-cleaned.xls
+2011,Illinois,State,Midwest,"859,785","1,793,886",$290.33,$139.15,"$2,995,469,012",FY11-cleaned.xls
+2011,Indiana,State,Midwest,"381,217","877,560",$303.08,$131.66,"$1,386,478,333",FY11-cleaned.xls
+2011,Iowa,State,Mountain Plains,"173,186","373,856",$272.70,$126.33,"$566,732,507",FY11-cleaned.xls
+2011,Kansas,State,Mountain Plains,"138,910","298,642",$271.62,$126.34,"$452,767,878",FY11-cleaned.xls
+2011,Kentucky,State,Southeast,"381,740","823,472",$275.25,$127.60,"$1,260,888,769",FY11-cleaned.xls
+2011,Louisiana,State,Southwest,"388,516","884,519",$297.31,$130.59,"$1,386,115,227",FY11-cleaned.xls
+2011,Maine,State,Northeast,"126,184","247,943",$252.36,$128.43,"$382,131,426",FY11-cleaned.xls
+2011,Maryland,State,Mid-Atlantic,"328,328","667,738",$262.74,$129.19,"$1,035,175,750",FY11-cleaned.xls
+2011,Massachusetts,State,Northeast,"447,066","813,631",$240.76,$132.29,"$1,291,609,491",FY11-cleaned.xls
+2011,Michigan,State,Midwest,"967,566","1,928,478",$271.43,$136.18,"$3,151,479,174",FY11-cleaned.xls
+2011,Minnesota,State,Midwest,"245,585","505,919",$236.99,$115.04,"$698,408,893",FY11-cleaned.xls
+2011,Mississippi,State,Southeast,"273,029","622,596",$281.14,$123.29,"$921,109,139",FY11-cleaned.xls
+2011,Missouri,State,Mountain Plains,"433,899","943,088",$276.16,$127.05,"$1,437,886,768",FY11-cleaned.xls
+2011,Montana,State,Mountain Plains,"57,133","124,243",$281.96,$129.66,"$193,310,950",FY11-cleaned.xls
+2011,Nebraska,State,Mountain Plains,"76,183","174,204",$280.55,$122.69,"$256,477,504",FY11-cleaned.xls
+2011,Nevada,State,Western,"156,319","332,959",$264.88,$124.36,"$496,867,234",FY11-cleaned.xls
+2011,New Hampshire,State,Northeast,"54,134","113,407",$250.43,$119.54,"$162,679,478",FY11-cleaned.xls
+2011,New Jersey,State,Mid-Atlantic,"370,887","759,136",$272.77,$133.26,"$1,213,993,288",FY11-cleaned.xls
+2011,New Mexico,State,Southwest,"179,007","414,275",$294.07,$127.07,"$631,681,353",FY11-cleaned.xls
+2011,New York,State,Northeast,"1,600,690","2,999,991",$278.56,$148.63,"$5,350,660,541",FY11-cleaned.xls
+2011,North Carolina,State,Southeast,"734,482","1,590,069",$269.70,$124.58,"$2,377,093,020",FY11-cleaned.xls
+2011,North Dakota,State,Mountain Plains,"27,893","60,902",$286.57,$131.25,"$95,918,344",FY11-cleaned.xls
+2011,Ohio,State,Midwest,"847,377","1,779,237",$293.68,$139.87,"$2,986,317,777",FY11-cleaned.xls
+2011,Oklahoma,State,Southwest,"272,189","614,704",$290.04,$128.43,"$947,338,484",FY11-cleaned.xls
+2011,Oregon,State,Western,"419,693","772,756",$236.13,$128.24,"$1,189,202,056",FY11-cleaned.xls
+2011,Pennsylvania,State,Mid-Atlantic,"815,765","1,718,211",$270.45,$128.40,"$2,647,473,519",FY11-cleaned.xls
+2011,Rhode Island,State,Northeast,"86,368","160,201",$265.08,$142.91,"$274,736,117",FY11-cleaned.xls
+2011,South Carolina,State,Southeast,"390,936","844,405",$285.56,$132.21,"$1,339,644,859",FY11-cleaned.xls
+2011,South Dakota,State,Mountain Plains,"43,585","101,817",$310.00,$132.70,"$162,135,500",FY11-cleaned.xls
+2011,Tennessee,State,Southeast,"611,502","1,275,790",$279.18,$133.82,"$2,048,637,590",FY11-cleaned.xls
+2011,Texas,State,Southwest,"1,608,476","3,977,273",$310.50,$125.57,"$5,993,125,493",FY11-cleaned.xls
+2011,Utah,State,Mountain Plains,"111,799","283,971",$299.09,$117.75,"$401,261,439",FY11-cleaned.xls
+2011,Vermont,State,Northeast,"46,239","92,038",$243.04,$122.10,"$134,856,526",FY11-cleaned.xls
+2011,Virgin Islands,Territory,Mid-Atlantic,"9,359","22,655",$426.30,$176.11,"$47,877,095",FY11-cleaned.xls
+2011,Virginia,State,Mid-Atlantic,"406,811","858,782",$273.48,$129.55,"$1,335,038,906",FY11-cleaned.xls
+2011,Washington,State,Western,"543,533","1,054,693",$245.70,$126.62,"$1,602,557,358",FY11-cleaned.xls
+2011,West Virginia,State,Mid-Atlantic,"160,721","345,955",$257.90,$119.81,"$497,390,191",FY11-cleaned.xls
+2011,Wisconsin,State,Midwest,"370,372","801,073",$251.50,$116.28,"$1,117,802,969",FY11-cleaned.xls
+2011,Wyoming,State,Mountain Plains,"15,341","36,031",$288.77,$122.96,"$53,162,213",FY11-cleaned.xls
+2012,Alabama,State,Southeast,"411,745","910,244",$281.33,$127.26,"$1,390,011,732",FY12-cleaned.xls
+2012,Alaska,State,Western,"37,952","91,298",$409.13,$170.07,"$186,325,119",FY12-cleaned.xls
+2012,Arizona,State,Western,"484,906","1,123,974",$293.29,$126.53,"$1,706,601,437",FY12-cleaned.xls
+2012,Arkansas,State,Southwest,"220,095","502,125",$277.68,$121.72,"$733,396,874",FY12-cleaned.xls
+2012,California,State,Western,"1,779,241","3,964,221",$332.08,$149.05,"$7,090,221,357",FY12-cleaned.xls
+2012,Colorado,State,Mountain Plains,"220,707","491,630",$305.27,$137.05,"$808,505,391",FY12-cleaned.xls
+2012,Connecticut,State,Northeast,"219,817","403,466",$264.11,$143.89,"$696,670,564",FY12-cleaned.xls
+2012,Delaware,State,Mid-Atlantic,"69,564","148,257",$271.42,$127.36,"$226,577,031",FY12-cleaned.xls
+2012,District of Columbia,District,Mid-Atlantic,"79,729","141,147",$243.85,$137.74,"$233,302,973",FY12-cleaned.xls
+2012,Florida,State,Southeast,"1,825,813","3,353,064",$255.24,$138.98,"$5,592,221,094",FY12-cleaned.xls
+2012,Georgia,State,Southeast,"879,493","1,912,839",$295.57,$135.90,"$3,119,435,907",FY12-cleaned.xls
+2012,Guam,Territory,Western,"14,275","43,727",$661.43,$215.93,"$113,301,546",FY12-cleaned.xls
+2012,Hawaii,State,Western,"88,455","176,823",$427.08,$213.65,"$453,331,174",FY12-cleaned.xls
+2012,Idaho,State,Western,"100,495","233,034",$299.54,$129.18,"$361,230,209",FY12-cleaned.xls
+2012,Illinois,State,Midwest,"914,287","1,869,713",$285.17,$139.45,"$3,128,689,275",FY12-cleaned.xls
+2012,Indiana,State,Midwest,"401,415","908,705",$299.86,$132.46,"$1,444,409,807",FY12-cleaned.xls
+2012,Iowa,State,Mountain Plains,"190,721","408,050",$259.30,$121.20,"$593,443,715",FY12-cleaned.xls
+2012,Kansas,State,Mountain Plains,"143,242","304,719",$266.15,$125.11,"$457,478,972",FY12-cleaned.xls
+2012,Kentucky,State,Southeast,"402,734","849,248",$268.71,$127.43,"$1,298,611,475",FY12-cleaned.xls
+2012,Louisiana,State,Southwest,"422,680","948,758",$305.50,$136.10,"$1,549,558,693",FY12-cleaned.xls
+2012,Maine,State,Northeast,"131,153","252,860",$239.38,$124.16,"$376,750,999",FY12-cleaned.xls
+2012,Maryland,State,Mid-Atlantic,"360,523","716,379",$255.26,$128.46,"$1,104,337,614",FY12-cleaned.xls
+2012,Massachusetts,State,Northeast,"479,830","861,568",$237.93,$132.51,"$1,369,997,551",FY12-cleaned.xls
+2012,Michigan,State,Midwest,"924,643","1,828,384",$268.60,$135.84,"$2,980,301,907",FY12-cleaned.xls
+2012,Minnesota,State,Midwest,"264,739","538,869",$235.94,$115.91,"$749,536,081",FY12-cleaned.xls
+2012,Mississippi,State,Southeast,"296,508","659,872",$275.44,$123.76,"$980,027,716",FY12-cleaned.xls
+2012,Missouri,State,Mountain Plains,"441,626","947,889",$275.89,$128.54,"$1,462,076,136",FY12-cleaned.xls
+2012,Montana,State,Mountain Plains,"58,988","125,874",$272.67,$127.78,"$193,011,254",FY12-cleaned.xls
+2012,Nebraska,State,Mountain Plains,"77,066","176,073",$279.71,$122.43,"$258,674,634",FY12-cleaned.xls
+2012,Nevada,State,Western,"169,147","354,900",$258.81,$123.35,"$525,318,612",FY12-cleaned.xls
+2012,New Hampshire,State,Northeast,"56,354","116,895",$246.17,$118.68,"$166,472,605",FY12-cleaned.xls
+2012,New Jersey,State,Mid-Atlantic,"406,143","826,134",$271.07,$133.26,"$1,321,101,694",FY12-cleaned.xls
+2012,New Mexico,State,Southwest,"193,522","438,252",$290.26,$128.17,"$674,066,965",FY12-cleaned.xls
+2012,New York,State,Northeast,"1,650,099","3,076,911",$274.94,$147.45,"$5,444,101,662",FY12-cleaned.xls
+2012,North Carolina,State,Southeast,"785,072","1,668,588",$257.95,$121.37,"$2,430,133,033",FY12-cleaned.xls
+2012,North Dakota,State,Mountain Plains,"27,269","58,796",$277.11,$128.52,"$90,677,717",FY12-cleaned.xls
+2012,Ohio,State,Midwest,"873,828","1,807,913",$286.76,$138.60,"$3,006,931,315",FY12-cleaned.xls
+2012,Oklahoma,State,Southwest,"279,649","614,947",$282.26,$128.36,"$947,199,555",FY12-cleaned.xls
+2012,Oregon,State,Western,"447,338","815,221",$233.54,$128.15,"$1,253,656,139",FY12-cleaned.xls
+2012,Pennsylvania,State,Mid-Atlantic,"869,157","1,799,209",$265.86,$128.43,"$2,772,898,224",FY12-cleaned.xls
+2012,Rhode Island,State,Northeast,"95,282","172,846",$252.97,$139.45,"$289,245,852",FY12-cleaned.xls
+2012,South Carolina,State,Southeast,"410,491","869,801",$278.39,$131.38,"$1,371,335,000",FY12-cleaned.xls
+2012,South Dakota,State,Mountain Plains,"45,111","103,846",$305.71,$132.80,"$165,488,630",FY12-cleaned.xls
+2012,Tennessee,State,Southeast,"641,211","1,316,810",$271.50,$132.20,"$2,089,053,032",FY12-cleaned.xls
+2012,Texas,State,Southwest,"1,666,362","4,038,440",$300.39,$123.95,"$6,006,734,649",FY12-cleaned.xls
+2012,Utah,State,Mountain Plains,"113,254","276,890",$297.67,$121.75,"$404,542,100",FY12-cleaned.xls
+2012,Vermont,State,Northeast,"49,350","96,579",$238.53,$121.88,"$141,255,732",FY12-cleaned.xls
+2012,Virgin Islands,Territory,Mid-Atlantic,"10,559","24,827",$416.58,$177.18,"$52,785,665",FY12-cleaned.xls
+2012,Virginia,State,Mid-Atlantic,"439,924","913,878",$265.90,$128.00,"$1,403,720,773",FY12-cleaned.xls
+2012,Washington,State,Western,"580,211","1,108,090",$241.96,$126.69,"$1,684,648,246",FY12-cleaned.xls
+2012,West Virginia,State,Mid-Atlantic,"164,034","346,833",$254.22,$120.23,"$500,402,535",FY12-cleaned.xls
+2012,Wisconsin,State,Midwest,"398,966","835,312",$243.92,$116.50,"$1,167,767,096",FY12-cleaned.xls
+2012,Wyoming,State,Mountain Plains,"14,947","34,347",$288.64,$125.60,"$51,769,558",FY12-cleaned.xls
+2013,Alabama,State,Southeast,"421,302","915,322",$279.88,$128.82,"$1,414,951,864",FY13-cleaned.xls
+2013,Alaska,State,Western,"38,279","91,364",$412.68,$172.90,"$189,565,646",FY13-cleaned.xls
+2013,Arizona,State,Western,"476,689","1,111,105",$288.14,$123.62,"$1,648,236,258",FY13-cleaned.xls
+2013,Arkansas,State,Southwest,"224,454","504,621",$271.71,$120.86,"$731,845,896",FY13-cleaned.xls
+2013,California,State,Western,"1,905,869","4,159,031",$330.49,$151.44,"$7,558,348,393",FY13-cleaned.xls
+2013,Colorado,State,Mountain Plains,"231,488","507,934",$296.46,$135.11,"$823,529,607",FY13-cleaned.xls
+2013,Connecticut,State,Northeast,"233,171","425,320",$252.91,$138.65,"$707,654,612",FY13-cleaned.xls
+2013,Delaware,State,Mid-Atlantic,"72,244","153,137",$271.11,$127.90,"$235,028,481",FY13-cleaned.xls
+2013,District of Columbia,District,Mid-Atlantic,"81,904","144,889",$239.12,$135.17,"$235,020,570",FY13-cleaned.xls
+2013,Florida,State,Southeast,"1,943,902","3,556,473",$253.19,$138.39,"$5,906,158,957",FY13-cleaned.xls
+2013,Georgia,State,Southeast,"907,896","1,948,189",$292.69,$136.40,"$3,188,743,586",FY13-cleaned.xls
+2013,Guam,Territory,Western,"15,097","45,554",$652.23,$216.15,"$118,159,044",FY13-cleaned.xls
+2013,Hawaii,State,Western,"96,022","189,350",$428.88,$217.49,"$494,182,027",FY13-cleaned.xls
+2013,Idaho,State,Western,"97,927","227,006",$295.10,$127.30,"$346,782,947",FY13-cleaned.xls
+2013,Illinois,State,Midwest,"1,017,190","2,040,053",$276.75,$137.99,"$3,378,095,657",FY13-cleaned.xls
+2013,Indiana,State,Midwest,"415,518","926,011",$293.04,$131.49,"$1,461,136,176",FY13-cleaned.xls
+2013,Iowa,State,Mountain Plains,"198,500","420,344",$246.24,$116.28,"$586,542,123",FY13-cleaned.xls
+2013,Kansas,State,Mountain Plains,"149,233","316,983",$264.83,$124.68,"$474,255,829",FY13-cleaned.xls
+2013,Kentucky,State,Southeast,"420,211","872,439",$264.35,$127.33,"$1,332,998,664",FY13-cleaned.xls
+2013,Louisiana,State,Southwest,"425,648","940,100",$289.72,$131.18,"$1,479,828,133",FY13-cleaned.xls
+2013,Maine,State,Northeast,"130,374","249,119",$234.63,$122.79,"$367,069,888",FY13-cleaned.xls
+2013,Maryland,State,Mid-Atlantic,"392,184","771,021",$250.45,$127.39,"$1,178,661,931",FY13-cleaned.xls
+2013,Massachusetts,State,Northeast,"498,580","887,619",$233.08,$130.92,"$1,394,535,579",FY13-cleaned.xls
+2013,Michigan,State,Midwest,"909,764","1,775,646",$266.70,$136.65,"$2,911,624,110",FY13-cleaned.xls
+2013,Minnesota,State,Midwest,"274,236","552,928",$234.40,$116.25,"$771,362,512",FY13-cleaned.xls
+2013,Mississippi,State,Southeast,"305,005","668,624",$271.33,$123.77,"$993,077,956",FY13-cleaned.xls
+2013,Missouri,State,Mountain Plains,"437,443","929,943",$272.20,$128.04,"$1,428,882,352",FY13-cleaned.xls
+2013,Montana,State,Mountain Plains,"59,398","128,531",$269.73,$124.65,"$192,259,685",FY13-cleaned.xls
+2013,Nebraska,State,Mountain Plains,"79,379","179,711",$277.82,$122.71,"$264,636,314",FY13-cleaned.xls
+2013,Nevada,State,Western,"174,638","360,953",$255.40,$123.57,"$535,230,693",FY13-cleaned.xls
+2013,New Hampshire,State,Northeast,"56,201","117,315",$241.65,$115.76,"$162,970,800",FY13-cleaned.xls
+2013,New Jersey,State,Mid-Atlantic,"432,270","876,266",$273.60,$134.97,"$1,419,226,622",FY13-cleaned.xls
+2013,New Mexico,State,Southwest,"197,359","440,362",$286.91,$128.58,"$679,481,811",FY13-cleaned.xls
+2013,New York,State,Northeast,"1,710,501","3,170,465",$273.87,$147.75,"$5,621,405,245",FY13-cleaned.xls
+2013,North Carolina,State,Southeast,"786,064","1,703,700",$264.10,$121.85,"$2,491,197,794",FY13-cleaned.xls
+2013,North Dakota,State,Mountain Plains,"26,270","56,523",$271.32,$126.10,"$85,530,266",FY13-cleaned.xls
+2013,Ohio,State,Midwest,"889,427","1,824,675",$273.88,$133.50,"$2,923,160,707",FY13-cleaned.xls
+2013,Oklahoma,State,Southwest,"287,398","621,831",$277.98,$128.48,"$958,684,325",FY13-cleaned.xls
+2013,Oregon,State,Western,"451,420","817,575",$230.79,$127.43,"$1,250,176,428",FY13-cleaned.xls
+2013,Pennsylvania,State,Mid-Atlantic,"869,836","1,784,790",$263.30,$128.32,"$2,748,346,529",FY13-cleaned.xls
+2013,Rhode Island,State,Northeast,"100,543","179,925",$251.05,$140.29,"$302,890,523",FY13-cleaned.xls
+2013,South Carolina,State,Southeast,"416,724","875,866",$276.32,$131.47,"$1,381,782,118",FY13-cleaned.xls
+2013,South Dakota,State,Mountain Plains,"45,312","104,052",$303.53,$132.18,"$165,040,184",FY13-cleaned.xls
+2013,Tennessee,State,Southeast,"662,204","1,342,089",$267.75,$132.11,"$2,127,681,953",FY13-cleaned.xls
+2013,Texas,State,Southwest,"1,674,350","4,041,891",$295.36,$122.35,"$5,934,441,831",FY13-cleaned.xls
+2013,Utah,State,Mountain Plains,"101,027","251,626",$311.72,$125.15,"$377,903,214",FY13-cleaned.xls
+2013,Vermont,State,Northeast,"52,337","100,541",$238.92,$124.37,"$150,054,164",FY13-cleaned.xls
+2013,Virgin Islands,Territory,Mid-Atlantic,"11,957","27,436",$397.18,$173.10,"$56,990,837",FY13-cleaned.xls
+2013,Virginia,State,Mid-Atlantic,"456,489","940,932",$263.32,$127.75,"$1,442,442,319",FY13-cleaned.xls
+2013,Washington,State,Western,"591,113","1,113,441",$236.66,$125.64,"$1,678,737,077",FY13-cleaned.xls
+2013,West Virginia,State,Mid-Atlantic,"167,014","350,695",$251.72,$119.88,"$504,485,785",FY13-cleaned.xls
+2013,Wisconsin,State,Midwest,"416,826","856,730",$239.57,$116.56,"$1,198,302,422",FY13-cleaned.xls
+2013,Wyoming,State,Mountain Plains,"16,211","38,046",$292.91,$124.80,"$56,980,056",FY13-cleaned.xls
+2014,Alabama,State,Southeast,"419,552","902,073",$261.81,$121.77,"$1,318,133,562",FY14-cleaned.xls
+2014,Alaska,State,Western,"36,997","87,486",$392.47,$165.97,"$174,241,813",FY14-cleaned.xls
+2014,Arizona,State,Western,"449,640","1,044,310",$273.69,$117.84,"$1,476,761,898",FY14-cleaned.xls
+2014,Arkansas,State,Southwest,"221,446","491,965",$249.77,$112.43,"$663,719,268",FY14-cleaned.xls
+2014,California,State,Western,"2,019,272","4,349,634",$305.86,$141.99,"$7,411,483,685",FY14-cleaned.xls
+2014,Colorado,State,Mountain Plains,"234,098","505,169",$272.58,$126.32,"$765,737,085",FY14-cleaned.xls
+2014,Connecticut,State,Northeast,"242,982","438,559",$239.19,$132.52,"$697,435,672",FY14-cleaned.xls
+2014,Delaware,State,Mid-Atlantic,"71,408","150,232",$257.15,$122.23,"$220,352,805",FY14-cleaned.xls
+2014,District of Columbia,District,Mid-Atlantic,"80,360","142,707",$230.84,$129.99,"$222,604,041",FY14-cleaned.xls
+2014,Florida,State,Southeast,"1,920,697","3,526,311",$237.45,$129.33,"$5,472,834,001",FY14-cleaned.xls
+2014,Georgia,State,Southeast,"882,115","1,942,689",$267.15,$121.30,"$2,827,853,876",FY14-cleaned.xls
+2014,Guam,Territory,Western,"15,480","47,289",$583.75,$191.08,"$108,433,869",FY14-cleaned.xls
+2014,Hawaii,State,Western,"98,830","194,264",$443.02,$225.38,"$525,397,960",FY14-cleaned.xls
+2014,Idaho,State,Western,"90,161","211,781",$273.27,$116.34,"$295,662,973",FY14-cleaned.xls
+2014,Illinois,State,Midwest,"1,021,150","2,015,303",$261.35,$132.42,"$3,202,509,863",FY14-cleaned.xls
+2014,Indiana,State,Midwest,"404,575","892,699",$270.13,$122.43,"$1,311,468,403",FY14-cleaned.xls
+2014,Iowa,State,Mountain Plains,"193,372","408,070",$229.30,$108.66,"$532,085,213",FY14-cleaned.xls
+2014,Kansas,State,Mountain Plains,"132,825","293,456",$247.95,$112.23,"$395,209,994",FY14-cleaned.xls
+2014,Kentucky,State,Southeast,"399,207","828,076",$244.44,$117.84,"$1,170,989,948",FY14-cleaned.xls
+2014,Louisiana,State,Southwest,"396,428","877,340",$270.82,$122.37,"$1,288,316,273",FY14-cleaned.xls
+2014,Maine,State,Northeast,"122,690","230,536",$218.40,$116.23,"$321,550,513",FY14-cleaned.xls
+2014,Maryland,State,Mid-Atlantic,"403,781","787,597",$233.86,$119.89,"$1,133,135,874",FY14-cleaned.xls
+2014,Massachusetts,State,Northeast,"489,039","863,412",$216.92,$122.86,"$1,272,977,488",FY14-cleaned.xls
+2014,Michigan,State,Midwest,"872,538","1,679,421",$246.04,$127.83,"$2,576,165,148",FY14-cleaned.xls
+2014,Minnesota,State,Midwest,"260,437","533,743",$214.45,$104.64,"$670,202,668",FY14-cleaned.xls
+2014,Mississippi,State,Southeast,"302,202","656,871",$251.76,$115.83,"$912,985,504",FY14-cleaned.xls
+2014,Missouri,State,Mountain Plains,"403,913","858,416",$255.10,$120.03,"$1,236,444,630",FY14-cleaned.xls
+2014,Montana,State,Mountain Plains,"59,097","124,906",$248.42,$117.53,"$176,169,543",FY14-cleaned.xls
+2014,Nebraska,State,Mountain Plains,"76,919","173,530",$258.83,$114.73,"$238,904,358",FY14-cleaned.xls
+2014,Nevada,State,Western,"188,739","383,622",$236.97,$116.59,"$536,711,313",FY14-cleaned.xls
+2014,New Hampshire,State,Northeast,"53,559","111,701",$218.95,$104.98,"$140,718,624",FY14-cleaned.xls
+2014,New Jersey,State,Mid-Atlantic,"439,695","883,434",$244.62,$121.75,"$1,290,688,313",FY14-cleaned.xls
+2014,New Mexico,State,Southwest,"195,258","431,494",$268.52,$121.51,"$629,160,453",FY14-cleaned.xls
+2014,New York,State,Northeast,"1,698,559","3,122,879",$255.16,$138.78,"$5,200,758,093",FY14-cleaned.xls
+2014,North Carolina,State,Southeast,"761,105","1,575,676",$260.98,$126.06,"$2,383,571,501",FY14-cleaned.xls
+2014,North Dakota,State,Mountain Plains,"25,011","53,753",$252.44,$117.46,"$75,765,024",FY14-cleaned.xls
+2014,Ohio,State,Midwest,"851,972","1,752,135",$252.63,$122.84,"$2,582,757,967",FY14-cleaned.xls
+2014,Oklahoma,State,Southwest,"279,606","608,492",$257.82,$118.47,"$865,049,765",FY14-cleaned.xls
+2014,Oregon,State,Western,"448,855","802,190",$215.71,$120.70,"$1,161,871,005",FY14-cleaned.xls
+2014,Pennsylvania,State,Mid-Atlantic,"889,725","1,796,154",$241.05,$119.41,"$2,573,657,445",FY14-cleaned.xls
+2014,Rhode Island,State,Northeast,"101,002","178,518",$230.89,$130.63,"$279,843,287",FY14-cleaned.xls
+2014,South Carolina,State,Southeast,"395,209","834,511",$260.56,$123.40,"$1,235,696,260",FY14-cleaned.xls
+2014,South Dakota,State,Mountain Plains,"44,039","100,938",$281.83,$122.96,"$148,938,276",FY14-cleaned.xls
+2014,Tennessee,State,Southeast,"650,251","1,312,505",$250.15,$123.93,"$1,951,918,832",FY14-cleaned.xls
+2014,Texas,State,Southwest,"1,607,669","3,852,675",$276.31,$115.30,"$5,330,650,619",FY14-cleaned.xls
+2014,Utah,State,Mountain Plains,"90,570","229,911",$291.37,$114.78,"$316,671,764",FY14-cleaned.xls
+2014,Vermont,State,Northeast,"48,575","93,000",$223.58,$116.78,"$130,324,476",FY14-cleaned.xls
+2014,Virgin Islands,Territory,Mid-Atlantic,"12,478","27,824",$367.98,$165.02,"$55,099,458",FY14-cleaned.xls
+2014,Virginia,State,Mid-Atlantic,"443,607","918,902",$244.83,$118.19,"$1,303,281,631",FY14-cleaned.xls
+2014,Washington,State,Western,"585,105","1,095,551",$220.41,$117.71,"$1,547,545,882",FY14-cleaned.xls
+2014,West Virginia,State,Mid-Atlantic,"176,029","362,501",$225.41,$109.46,"$476,134,200",FY14-cleaned.xls
+2014,Wisconsin,State,Midwest,"420,833","841,533",$220.39,$110.21,"$1,112,980,884",FY14-cleaned.xls
+2014,Wyoming,State,Mountain Plains,"15,249","35,871",$269.26,$114.47,"$49,272,569",FY14-cleaned.xls
+2015,Alabama,State,Southeast,"417,943","889,380",$267.56,$125.73,"$1,341,906,577",FY15-cleaned.xls
+2015,Alaska,State,Western,"34,187","81,121",$409.64,$172.64,"$168,054,411",FY15-cleaned.xls
+2015,Arizona,State,Western,"439,330","999,401",$276.86,$121.70,"$1,459,584,642",FY15-cleaned.xls
+2015,Arkansas,State,Southwest,"214,056","468,904",$252.57,$115.30,"$648,769,562",FY15-cleaned.xls
+2015,California,State,Western,"2,096,960","4,417,772",$299.16,$142.00,"$7,528,039,778",FY15-cleaned.xls
+2015,Colorado,State,Mountain Plains,"233,113","495,134",$275.96,$129.92,"$771,959,823",FY15-cleaned.xls
+2015,Connecticut,State,Northeast,"248,204","442,161",$240.17,$134.82,"$715,334,947",FY15-cleaned.xls
+2015,Delaware,State,Mid-Atlantic,"71,821","149,981",$265.63,$127.20,"$228,935,464",FY15-cleaned.xls
+2015,District of Columbia,District,Mid-Atlantic,"80,007","141,845",$233.42,$131.66,"$224,104,447",FY15-cleaned.xls
+2015,Florida,State,Southeast,"2,009,594","3,656,169",$235.90,$129.66,"$5,688,711,691",FY15-cleaned.xls
+2015,Georgia,State,Southeast,"839,207","1,800,531",$278.40,$129.76,"$2,803,606,880",FY15-cleaned.xls
+2015,Guam,Territory,Western,"15,556","47,166",$584.72,$192.85,"$109,148,665",FY15-cleaned.xls
+2015,Hawaii,State,Western,"95,545","188,895",$440.86,$222.99,"$505,466,329",FY15-cleaned.xls
+2015,Idaho,State,Western,"83,869","196,872",$272.01,$115.88,"$273,758,132",FY15-cleaned.xls
+2015,Illinois,State,Midwest,"1,060,589","2,042,306",$259.53,$134.78,"$3,303,102,831",FY15-cleaned.xls
+2015,Indiana,State,Midwest,"379,929","831,740",$272.90,$124.66,"$1,244,188,231",FY15-cleaned.xls
+2015,Iowa,State,Mountain Plains,"184,850","391,224",$232.90,$110.04,"$516,608,025",FY15-cleaned.xls
+2015,Kansas,State,Mountain Plains,"121,991","273,974",$255.78,$113.89,"$374,432,741",FY15-cleaned.xls
+2015,Kentucky,State,Southeast,"368,596","768,882",$251.49,$120.56,"$1,112,381,122",FY15-cleaned.xls
+2015,Louisiana,State,Southwest,"389,519","859,738",$277.79,$125.86,"$1,298,445,656",FY15-cleaned.xls
+2015,Maine,State,Northeast,"105,075","202,579",$223.66,$116.01,"$282,015,650",FY15-cleaned.xls
+2015,Maryland,State,Mid-Atlantic,"404,708","781,035",$236.73,$122.66,"$1,149,657,589",FY15-cleaned.xls
+2015,Massachusetts,State,Northeast,"449,468","785,778",$222.91,$127.51,"$1,202,312,621",FY15-cleaned.xls
+2015,Michigan,State,Midwest,"824,971","1,571,344",$239.32,$125.65,"$2,369,233,695",FY15-cleaned.xls
+2015,Minnesota,State,Midwest,"240,410","496,023",$217.53,$105.43,"$627,557,916",FY15-cleaned.xls
+2015,Mississippi,State,Southeast,"296,094","636,322",$257.96,$120.03,"$916,551,543",FY15-cleaned.xls
+2015,Missouri,State,Mountain Plains,"398,662","844,597",$263.07,$124.18,"$1,258,535,557",FY15-cleaned.xls
+2015,Montana,State,Mountain Plains,"56,112","119,082",$254.57,$119.96,"$171,413,823",FY15-cleaned.xls
+2015,Nebraska,State,Mountain Plains,"77,755","174,092",$259.46,$115.88,"$242,092,503",FY15-cleaned.xls
+2015,Nevada,State,Western,"209,787","420,413",$240.56,$120.04,"$605,592,527",FY15-cleaned.xls
+2015,New Hampshire,State,Northeast,"51,478","106,296",$214.49,$103.87,"$132,497,777",FY15-cleaned.xls
+2015,New Jersey,State,Mid-Atlantic,"453,338","905,728",$237.39,$118.82,"$1,291,435,885",FY15-cleaned.xls
+2015,New Mexico,State,Southwest,"205,540","453,146",$277.81,$126.01,"$685,206,629",FY15-cleaned.xls
+2015,New York,State,Northeast,"1,665,683","3,039,108",$251.96,$138.09,"$5,036,156,208",FY15-cleaned.xls
+2015,North Carolina,State,Southeast,"803,495","1,646,202",$248.45,$121.27,"$2,395,550,386",FY15-cleaned.xls
+2015,North Dakota,State,Mountain Plains,"24,771","53,148",$262.11,$122.16,"$77,912,538",FY15-cleaned.xls
+2015,Ohio,State,Midwest,"818,704","1,676,263",$257.40,$125.72,"$2,528,834,777",FY15-cleaned.xls
+2015,Oklahoma,State,Southwest,"271,065","598,257",$265.91,$120.48,"$864,950,565",FY15-cleaned.xls
+2015,Oregon,State,Western,"442,090","779,749",$217.33,$123.22,"$1,152,976,715",FY15-cleaned.xls
+2015,Pennsylvania,State,Mid-Atlantic,"918,761","1,826,667",$244.86,$123.16,"$2,699,655,059",FY15-cleaned.xls
+2015,Rhode Island,State,Northeast,"100,949","175,025",$233.43,$134.64,"$282,777,163",FY15-cleaned.xls
+2015,South Carolina,State,Southeast,"379,992","804,572",$265.05,$125.18,"$1,208,604,782",FY15-cleaned.xls
+2015,South Dakota,State,Mountain Plains,"43,176","98,553",$287.32,$125.88,"$148,866,948",FY15-cleaned.xls
+2015,Tennessee,State,Southeast,"611,805","1,229,391",$256.71,$127.75,"$1,884,708,816",FY15-cleaned.xls
+2015,Texas,State,Southwest,"1,558,597","3,724,688",$281.53,$117.80,"$5,265,414,124",FY15-cleaned.xls
+2015,Utah,State,Mountain Plains,"88,160","225,603",$296.63,$115.92,"$313,810,557",FY15-cleaned.xls
+2015,Vermont,State,Northeast,"44,950","84,994",$230.64,$121.98,"$124,409,407",FY15-cleaned.xls
+2015,Virgin Islands,Territory,Mid-Atlantic,"12,610","27,461",$373.17,$171.35,"$56,465,978",FY15-cleaned.xls
+2015,Virginia,State,Mid-Atlantic,"404,348","860,375",$253.66,$119.21,"$1,230,788,073",FY15-cleaned.xls
+2015,Washington,State,Western,"572,261","1,070,933",$222.47,$118.88,"$1,527,741,099",FY15-cleaned.xls
+2015,West Virginia,State,Mid-Atlantic,"181,961","367,908",$227.74,$112.63,"$497,268,953",FY15-cleaned.xls
+2015,Wisconsin,State,Midwest,"406,754","805,540",$215.35,$108.74,"$1,051,153,941",FY15-cleaned.xls
+2015,Wyoming,State,Mountain Plains,"13,868","32,606",$279.12,$118.71,"$46,448,470",FY15-cleaned.xls
+2016,Alabama,State,Southeast,"399,728","850,804",$261.60,$122.91,"$1,254,835,320",FY16-cleaned.xls
+2016,Alaska,State,Western,"34,648","82,326",$422.07,$177.63,"$175,483,424",FY16-cleaned.xls
+2016,Arizona,State,Western,"427,061","960,105",$273.62,$121.71,"$1,402,230,493",FY16-cleaned.xls
+2016,Arkansas,State,Southwest,"191,636","426,069",$251.25,$113.01,"$577,775,082",FY16-cleaned.xls
+2016,California,State,Western,"2,093,562","4,340,042",$288.09,$138.97,"$7,237,700,086",FY16-cleaned.xls
+2016,Colorado,State,Mountain Plains,"225,334","475,690",$269.25,$127.54,"$728,042,703",FY16-cleaned.xls
+2016,Connecticut,State,Northeast,"244,927","431,597",$233.24,$132.36,"$685,510,011",FY16-cleaned.xls
+2016,Delaware,State,Mid-Atlantic,"71,099","147,559",$258.66,$124.63,"$220,683,314",FY16-cleaned.xls
+2016,District of Columbia,District,Mid-Atlantic,"75,819","134,625",$231.29,$130.26,"$210,436,410",FY16-cleaned.xls
+2016,Florida,State,Southeast,"1,870,739","3,454,530",$232.38,$125.84,"$5,216,754,147",FY16-cleaned.xls
+2016,Georgia,State,Southeast,"800,670","1,733,473",$277.17,$128.02,"$2,663,017,763",FY16-cleaned.xls
+2016,Guam,Territory,Western,"15,551","46,713",$569.82,$189.70,"$106,333,972",FY16-cleaned.xls
+2016,Hawaii,State,Western,"89,095","176,729",$452.91,$228.33,"$484,225,008",FY16-cleaned.xls
+2016,Idaho,State,Western,"79,531","185,303",$267.63,$114.87,"$255,423,930",FY16-cleaned.xls
+2016,Illinois,State,Midwest,"996,092","1,914,393",$254.41,$132.37,"$3,040,976,772",FY16-cleaned.xls
+2016,Indiana,State,Midwest,"328,688","741,610",$270.89,$120.06,"$1,068,458,926",FY16-cleaned.xls
+2016,Iowa,State,Mountain Plains,"178,874","380,705",$236.48,$111.11,"$507,597,206",FY16-cleaned.xls
+2016,Kansas,State,Mountain Plains,"114,392","253,833",$249.38,$112.39,"$342,324,968",FY16-cleaned.xls
+2016,Kentucky,State,Southeast,"313,476","666,264",$260.78,$122.70,"$980,976,984",FY16-cleaned.xls
+2016,Louisiana,State,Southwest,"422,090","927,168",$295.06,$134.32,"$1,494,495,292",FY16-cleaned.xls
+2016,Maine,State,Northeast,"98,549","189,245",$215.54,$112.24,"$254,898,802",FY16-cleaned.xls
+2016,Maryland,State,Mid-Atlantic,"388,957","744,343",$231.21,$120.82,"$1,079,151,904",FY16-cleaned.xls
+2016,Massachusetts,State,Northeast,"450,364","779,192",$220.14,$127.24,"$1,189,716,303",FY16-cleaned.xls
+2016,Michigan,State,Midwest,"777,906","1,473,614",$232.22,$122.58,"$2,167,714,845",FY16-cleaned.xls
+2016,Minnesota,State,Midwest,"231,228","478,783",$217.16,$104.88,"$602,563,639",FY16-cleaned.xls
+2016,Mississippi,State,Southeast,"269,082","582,658",$252.22,$116.48,"$814,420,697",FY16-cleaned.xls
+2016,Missouri,State,Mountain Plains,"378,373","810,690",$260.54,$121.60,"$1,182,957,874",FY16-cleaned.xls
+2016,Montana,State,Mountain Plains,"54,612","116,626",$253.86,$118.87,"$166,365,465",FY16-cleaned.xls
+2016,Nebraska,State,Mountain Plains,"78,482","175,851",$255.56,$114.05,"$240,677,417",FY16-cleaned.xls
+2016,Nevada,State,Western,"222,253","439,782",$236.04,$119.29,"$629,519,652",FY16-cleaned.xls
+2016,New Hampshire,State,Northeast,"48,037","98,464",$209.13,$102.03,"$120,552,019",FY16-cleaned.xls
+2016,New Jersey,State,Mid-Atlantic,"440,091","879,987",$231.59,$115.82,"$1,223,052,433",FY16-cleaned.xls
+2016,New Mexico,State,Southwest,"216,877","471,247",$266.44,$122.62,"$693,426,783",FY16-cleaned.xls
+2016,New York,State,Northeast,"1,635,764","2,968,227",$250.77,$138.20,"$4,922,406,430",FY16-cleaned.xls
+2016,North Carolina,State,Southeast,"761,999","1,568,387",$245.95,$119.49,"$2,248,946,897",FY16-cleaned.xls
+2016,North Dakota,State,Mountain Plains,"25,262","54,252",$259.62,$120.89,"$78,700,888",FY16-cleaned.xls
+2016,Ohio,State,Midwest,"793,923","1,608,633",$251.50,$124.12,"$2,396,032,919",FY16-cleaned.xls
+2016,Oklahoma,State,Southwest,"276,268","612,869",$267.15,$120.42,"$885,643,482",FY16-cleaned.xls
+2016,Oregon,State,Western,"419,778","734,864",$213.01,$121.68,"$1,072,982,185",FY16-cleaned.xls
+2016,Pennsylvania,State,Mid-Atlantic,"950,739","1,863,836",$239.20,$122.02,"$2,729,024,683",FY16-cleaned.xls
+2016,Rhode Island,State,Northeast,"100,433","171,055",$225.66,$132.49,"$271,959,596",FY16-cleaned.xls
+2016,South Carolina,State,Southeast,"378,328","805,012",$269.19,$126.51,"$1,222,104,228",FY16-cleaned.xls
+2016,South Dakota,State,Mountain Plains,"42,234","95,983",$285.30,$125.53,"$144,590,242",FY16-cleaned.xls
+2016,Tennessee,State,Southeast,"547,850","1,113,231",$254.37,$125.18,"$1,672,282,240",FY16-cleaned.xls
+2016,Texas,State,Southwest,"1,588,116","3,768,472",$278.56,$117.39,"$5,308,544,560",FY16-cleaned.xls
+2016,Utah,State,Mountain Plains,"86,244","219,820",$291.68,$114.44,"$301,869,697",FY16-cleaned.xls
+2016,Vermont,State,Northeast,"42,976","79,715",$225.85,$121.76,"$116,470,075",FY16-cleaned.xls
+2016,Virgin Islands,Territory,Mid-Atlantic,"13,068","27,760",$361.99,$170.41,"$56,766,573",FY16-cleaned.xls
+2016,Virginia,State,Mid-Atlantic,"387,633","826,354",$251.40,$117.93,"$1,169,412,644",FY16-cleaned.xls
+2016,Washington,State,Western,"546,931","1,011,412",$221.37,$119.71,"$1,452,893,518",FY16-cleaned.xls
+2016,West Virginia,State,Mid-Atlantic,"178,274","357,531",$233.28,$116.32,"$499,059,458",FY16-cleaned.xls
+2016,Wisconsin,State,Midwest,"359,933","728,077",$213.66,$105.63,"$922,851,050",FY16-cleaned.xls
+2016,Wyoming,State,Mountain Plains,"14,367","33,853",$281.37,$119.41,"$48,510,210",FY16-cleaned.xls
+2017,Alabama,State,Southeast,"375,919","804,336",$257.40,$120.30,"$1,161,155,532",FY17-cleaned.xls
+2017,Alaska,State,Western,"38,632","89,113",$412.97,$179.03,"$191,442,132",FY17-cleaned.xls
+2017,Arizona,State,Southwest,"412,989","918,728",$269.43,$121.11,"$1,335,235,066",FY17-cleaned.xls
+2017,Arkansas,State,Southwest,"170,644","388,362",$249.46,$109.61,"$510,832,029",FY17-cleaned.xls
+2017,California,State,Western,"1,987,758","4,112,066",$282.26,$136.44,"$6,732,719,405",FY17-cleaned.xls
+2017,Colorado,State,Mountain Plains,"221,885","459,247",$263.63,$127.37,"$701,946,211",FY17-cleaned.xls
+2017,Connecticut,State,Northeast,"235,306","410,344",$231.29,$132.63,"$653,086,669",FY17-cleaned.xls
+2017,Delaware,State,Mid-Atlantic,"71,465","146,805",$245.70,$119.61,"$210,706,049",FY17-cleaned.xls
+2017,District of Columbia,District,Mid-Atlantic,"71,743","119,104",$232.70,$140.17,"$200,333,265",FY17-cleaned.xls
+2017,Florida,State,Southeast,"1,690,926","3,186,537",$235.74,$125.09,"$4,783,367,429",FY17-cleaned.xls
+2017,Georgia,State,Southeast,"756,158","1,625,415",$279.95,$130.24,"$2,540,245,442",FY17-cleaned.xls
+2017,Guam,Territory,Western,"15,228","45,263",$563.74,$189.66,"$103,014,381",FY17-cleaned.xls
+2017,Hawaii,State,Western,"85,869","169,045",$465.55,$236.49,"$479,722,381",FY17-cleaned.xls
+2017,Idaho,State,Western,"74,534","171,251",$261.49,$113.81,"$233,881,652",FY17-cleaned.xls
+2017,Illinois,State,Midwest,"976,672","1,878,519",$250.03,$129.99,"$2,930,325,381",FY17-cleaned.xls
+2017,Indiana,State,Midwest,"297,486","671,986",$267.63,$118.48,"$955,393,220",FY17-cleaned.xls
+2017,Iowa,State,Midwest,"172,869","365,893",$232.58,$109.88,"$482,469,098",FY17-cleaned.xls
+2017,Kansas,State,Mountain Plains,"108,119","233,778",$245.48,$113.53,"$318,488,850",FY17-cleaned.xls
+2017,Kentucky,State,Southeast,"308,458","654,873",$254.95,$120.09,"$943,688,786",FY17-cleaned.xls
+2017,Louisiana,State,Southwest,"429,811","928,962",$279.21,$129.19,"$1,440,110,876",FY17-cleaned.xls
+2017,Maine,State,Northeast,"93,391","179,734",$209.16,$108.68,"$234,405,832",FY17-cleaned.xls
+2017,Maryland,State,Mid-Atlantic,"359,112","684,282",$229.07,$120.21,"$987,124,236",FY17-cleaned.xls
+2017,Massachusetts,State,Northeast,"445,840","766,116",$216.64,$126.07,"$1,159,027,643",FY17-cleaned.xls
+2017,Michigan,State,Midwest,"728,586","1,375,434",$236.67,$125.36,"$2,069,172,718",FY17-cleaned.xls
+2017,Minnesota,State,Midwest,"222,674","453,564",$225.23,$110.57,"$601,821,006",FY17-cleaned.xls
+2017,Mississippi,State,Southeast,"244,490","537,370",$253.23,$115.21,"$742,934,749",FY17-cleaned.xls
+2017,Missouri,State,Mountain Plains,"351,513","758,918",$264.62,$122.57,"$1,116,216,424",FY17-cleaned.xls
+2017,Montana,State,Mountain Plains,"57,589","120,889",$248.94,$118.59,"$172,035,838",FY17-cleaned.xls
+2017,Nebraska,State,Mountain Plains,"78,872","175,849",$255.45,$114.57,"$241,772,391",FY17-cleaned.xls
+2017,Nevada,State,Western,"225,337","440,614",$231.16,$118.22,"$625,062,614",FY17-cleaned.xls
+2017,New Hampshire,State,Northeast,"45,859","92,457",$204.64,$101.50,"$112,617,204",FY17-cleaned.xls
+2017,New Jersey,State,Mid-Atlantic,"407,230","817,979",$228.31,$113.66,"$1,115,682,640",FY17-cleaned.xls
+2017,New Mexico,State,Southwest,"217,356","460,534",$256.74,$121.17,"$669,640,046",FY17-cleaned.xls
+2017,New York,State,Northeast,"1,610,723","2,910,894",$245.10,$135.63,"$4,737,481,755",FY17-cleaned.xls
+2017,North Carolina,State,Southeast,"734,478","1,365,394",$242.85,$130.63,"$2,140,407,111",FY17-cleaned.xls
+2017,North Dakota,State,Mountain Plains,"25,240","53,748",$257.01,$120.69,"$77,842,534",FY17-cleaned.xls
+2017,Ohio,State,Midwest,"746,747","1,501,795",$248.43,$123.53,"$2,226,190,303",FY17-cleaned.xls
+2017,Oklahoma,State,Southwest,"273,898","603,896",$267.66,$121.40,"$879,725,084",FY17-cleaned.xls
+2017,Oregon,State,Western,"388,364","680,671",$216.55,$123.56,"$1,009,209,337",FY17-cleaned.xls
+2017,Pennsylvania,State,Mid-Atlantic,"951,411","1,842,945",$234.16,$120.88,"$2,673,354,132",FY17-cleaned.xls
+2017,Rhode Island,State,Northeast,"97,102","164,410",$231.67,$136.83,"$269,949,378",FY17-cleaned.xls
+2017,South Carolina,State,Southeast,"337,213","719,977",$263.47,$123.40,"$1,066,150,932",FY17-cleaned.xls
+2017,South Dakota,State,Mountain Plains,"41,316","93,259",$283.61,$125.65,"$140,613,366",FY17-cleaned.xls
+2017,Tennessee,State,Southeast,"512,909","1,047,058",$257.80,$126.28,"$1,586,711,088",FY17-cleaned.xls
+2017,Texas,State,Southwest,"1,646,209","3,921,278",$293.86,$123.37,"$5,805,152,020",FY17-cleaned.xls
+2017,Utah,State,Southwest,"82,772","206,299",$288.23,$115.64,"$286,288,642",FY17-cleaned.xls
+2017,Vermont,State,Northeast,"42,087","76,558",$223.67,$122.96,"$112,961,944",FY17-cleaned.xls
+2017,Virgin Islands,Territory,Northeast,"12,713","26,758",$383.88,$182.38,"$58,562,256",FY17-cleaned.xls
+2017,Virginia,State,Mid-Atlantic,"367,231","775,548",$253.14,$119.87,"$1,115,536,652",FY17-cleaned.xls
+2017,Washington,State,Western,"520,498","929,486",$218.34,$122.27,"$1,363,774,904",FY17-cleaned.xls
+2017,West Virginia,State,Mid-Atlantic,"171,913","340,308",$233.24,$117.83,"$481,164,574",FY17-cleaned.xls
+2017,Wisconsin,State,Midwest,"343,582","691,635",$212.83,$105.73,"$877,506,140",FY17-cleaned.xls
+2017,Wyoming,State,Mountain Plains,"14,102","32,839",$276.51,$118.74,"$46,791,729",FY17-cleaned.xls
+2018,Alabama,State,Southeast,"360,067","766,681",$251.01,$117.89,"$1,084,563,290",FY18-cleaned.xls
+2018,Alaska,State,Western,"40,516","91,995",$385.36,$169.72,"$187,357,117",FY18-cleaned.xls
+2018,Arizona,State,Southwest,"387,657","845,733",$260.20,$119.27,"$1,210,429,898",FY18-cleaned.xls
+2018,Arkansas,State,Southwest,"164,761","372,451",$243.01,$107.50,"$480,472,657",FY18-cleaned.xls
+2018,California,State,Western,"1,946,003","3,949,535",$271.18,$133.62,"$6,332,717,643",FY18-cleaned.xls
+2018,Colorado,State,Mountain Plains,"221,726","449,824",$251.29,$123.87,"$668,610,833",FY18-cleaned.xls
+2018,Connecticut,State,Northeast,"223,244","387,329",$229.56,$132.31,"$614,967,955",FY18-cleaned.xls
+2018,Delaware,State,Mid-Atlantic,"68,554","140,298",$239.35,$116.95,"$196,899,033",FY18-cleaned.xls
+2018,District of Columbia,District,Mid-Atlantic,"68,855","112,282",$228.06,$139.85,"$188,433,398",FY18-cleaned.xls
+2018,Florida,State,Southeast,"1,747,853","3,347,518",$274.80,$143.48,"$5,763,762,595",FY18-cleaned.xls
+2018,Georgia,State,Southeast,"721,491","1,556,452",$269.90,$125.11,"$2,336,788,286",FY18-cleaned.xls
+2018,Guam,Territory,Western,"15,362","44,974",$577.46,$197.24,"$106,449,158",FY18-cleaned.xls
+2018,Hawaii,State,Western,"83,819","163,618",$466.72,$239.09,"$469,433,045",FY18-cleaned.xls
+2018,Idaho,State,Western,"70,062","157,858",$237.31,$105.32,"$199,514,037",FY18-cleaned.xls
+2018,Illinois,State,Midwest,"920,271","1,826,011",$251.55,$126.78,"$2,777,948,512",FY18-cleaned.xls
+2018,Indiana,State,Midwest,"275,368","617,032",$262.54,$117.16,"$867,533,147",FY18-cleaned.xls
+2018,Iowa,State,Midwest,"165,116","345,406",$225.23,$107.67,"$446,259,982",FY18-cleaned.xls
+2018,Kansas,State,Mountain Plains,"101,446","217,420",$241.13,$112.51,"$293,539,988",FY18-cleaned.xls
+2018,Kentucky,State,Southeast,"285,763","615,305",$249.04,$115.66,"$853,986,982",FY18-cleaned.xls
+2018,Louisiana,State,Southwest,"403,388","867,342",$268.01,$124.65,"$1,297,321,641",FY18-cleaned.xls
+2018,Maine,State,Northeast,"89,089","167,858",$204.12,$108.33,"$218,217,647",FY18-cleaned.xls
+2018,Maryland,State,Mid-Atlantic,"343,933","646,483",$220.51,$117.31,"$910,098,604",FY18-cleaned.xls
+2018,Massachusetts,State,Northeast,"451,072","770,566",$214.14,$125.35,"$1,159,118,509",FY18-cleaned.xls
+2018,Michigan,State,Midwest,"684,001","1,281,862",$230.75,$123.13,"$1,894,038,446",FY18-cleaned.xls
+2018,Minnesota,State,Midwest,"212,453","428,986",$213.55,$105.76,"$544,420,005",FY18-cleaned.xls
+2018,Mississippi,State,Southeast,"231,847","505,308",$244.31,$112.10,"$679,722,657",FY18-cleaned.xls
+2018,Missouri,State,Mountain Plains,"342,323","736,590",$258.37,$120.07,"$1,061,334,229",FY18-cleaned.xls
+2018,Montana,State,Mountain Plains,"56,025","115,223",$235.60,$114.55,"$158,389,738",FY18-cleaned.xls
+2018,Nebraska,State,Mountain Plains,"76,451","169,811",$249.84,$112.48,"$229,206,174",FY18-cleaned.xls
+2018,Nevada,State,Western,"228,290","439,941",$224.22,$116.35,"$614,241,940",FY18-cleaned.xls
+2018,New Hampshire,State,Northeast,"43,489","86,502",$194.43,$97.75,"$101,469,828",FY18-cleaned.xls
+2018,New Jersey,State,Mid-Atlantic,"379,343","760,303",$222.46,$110.99,"$1,012,654,300",FY18-cleaned.xls
+2018,New Mexico,State,Southwest,"220,341","456,251",$241.45,$116.61,"$638,421,821",FY18-cleaned.xls
+2018,New York,State,Northeast,"1,565,541","2,796,620",$240.97,$134.89,"$4,526,970,965",FY18-cleaned.xls
+2018,North Carolina,State,Southeast,0,0,--,--,$0,FY18-cleaned.xls
+2018,North Dakota,State,Mountain Plains,"25,072","52,621",$250.59,$119.39,"$75,391,175",FY18-cleaned.xls
+2018,Ohio,State,Midwest,"710,024","1,421,366",$243.92,$121.85,"$2,078,237,006",FY18-cleaned.xls
+2018,Oklahoma,State,Southwest,"268,711","585,064",$258.23,$118.60,"$832,653,493",FY18-cleaned.xls
+2018,Oregon,State,Western,"365,382","633,970",$213.89,$123.27,"$937,798,988",FY18-cleaned.xls
+2018,Pennsylvania,State,Mid-Atlantic,"956,435","1,818,589",$225.85,$118.78,"$2,592,183,684",FY18-cleaned.xls
+2018,Rhode Island,State,Northeast,"94,205","158,986",$229.28,$135.86,"$259,191,919",FY18-cleaned.xls
+2018,South Carolina,State,Southeast,"307,859","658,119",$255.51,$119.52,"$943,922,431",FY18-cleaned.xls
+2018,South Dakota,State,Mountain Plains,"39,968","87,410",$273.37,$125.00,"$131,112,641",FY18-cleaned.xls
+2018,Tennessee,State,Southeast,"471,342","970,875",$251.92,$122.30,"$1,424,890,904",FY18-cleaned.xls
+2018,Texas,State,Southwest,"1,636,052","3,895,207",$281.43,$118.20,"$5,525,177,455",FY18-cleaned.xls
+2018,Utah,State,Southwest,"77,795","189,093",$276.94,$113.94,"$258,536,027",FY18-cleaned.xls
+2018,Vermont,State,Northeast,"40,934","73,058",$217.39,$121.80,"$106,782,062",FY18-cleaned.xls
+2018,Virgin Islands,Territory,Northeast,"15,064","32,833",$480.92,$220.65,"$86,935,571",FY18-cleaned.xls
+2018,Virginia,State,Mid-Atlantic,"352,313","736,221",$248.78,$119.05,"$1,051,800,978",FY18-cleaned.xls
+2018,Washington,State,Western,"501,868","877,244",$210.67,$120.52,"$1,268,734,555",FY18-cleaned.xls
+2018,West Virginia,State,Mid-Atlantic,"165,378","321,009",$221.86,$114.30,"$440,298,715",FY18-cleaned.xls
+2018,Wisconsin,State,Midwest,"329,203","652,885",$206.78,$104.27,"$816,882,114",FY18-cleaned.xls
+2018,Wyoming,State,Mountain Plains,"12,989","29,330",$260.97,$115.57,"$40,676,283",FY18-cleaned.xls
+2019,Alabama,State,Southeast,"315,551","667,043",$272.56,$128.94,"$1,032,064,886",FY19-cleaned.xls
+2019,Alaska,State,Western,"35,493","78,932",$401.70,$180.63,"$171,091,672",FY19-cleaned.xls
+2019,Arizona,State,Southwest,"345,106","736,883",$276.90,$129.68,"$1,146,712,214",FY19-cleaned.xls
+2019,Arkansas,State,Southwest,"159,231","354,917",$240.92,$108.08,"$460,333,605",FY19-cleaned.xls
+2019,California,State,Western,"1,803,403","3,529,471",$276.20,$141.13,"$5,977,281,299",FY19-cleaned.xls
+2019,Colorado,State,Mountain Plains,"207,748","415,289",$256.32,$128.22,"$638,999,751",FY19-cleaned.xls
+2019,Connecticut,State,Northeast,"197,761","340,447",$246.39,$143.13,"$584,718,600",FY19-cleaned.xls
+2019,Delaware,State,Mid-Atlantic,"58,622","119,787",$253.23,$123.93,"$178,138,585",FY19-cleaned.xls
+2019,District of Columbia,District,Mid-Atlantic,"60,156","101,230",$238.38,$141.66,"$172,078,913",FY19-cleaned.xls
+2019,Florida,State,Southeast,"1,429,884","2,649,741",$235.18,$126.91,"$4,035,386,245",FY19-cleaned.xls
+2019,Georgia,State,Southeast,"614,750","1,332,675",$286.72,$132.26,"$2,115,101,241",FY19-cleaned.xls
+2019,Guam,Territory,Western,"14,317","40,930",$582.93,$203.90,"$100,147,900",FY19-cleaned.xls
+2019,Hawaii,State,Western,"74,820","144,922",$499.46,$257.86,"$448,431,408",FY19-cleaned.xls
+2019,Idaho,State,Western,"61,390","135,922",$261.88,$118.28,"$192,918,233",FY19-cleaned.xls
+2019,Illinois,State,Midwest,"816,044","1,639,396",$270.21,$134.50,"$2,646,035,880",FY19-cleaned.xls
+2019,Indiana,State,Midwest,"238,303","530,384",$286.63,$128.78,"$819,644,875",FY19-cleaned.xls
+2019,Iowa,State,Midwest,"142,502","295,682",$251.06,$121.00,"$429,315,218",FY19-cleaned.xls
+2019,Kansas,State,Mountain Plains,"87,158","185,329",$253.68,$119.30,"$265,322,548",FY19-cleaned.xls
+2019,Kentucky,State,Southeast,"226,832","502,241",$271.60,$122.67,"$739,297,747",FY19-cleaned.xls
+2019,Louisiana,State,Southwest,"348,643","749,560",$290.33,$135.04,"$1,214,657,938",FY19-cleaned.xls
+2019,Maine,State,Northeast,"78,862","144,433",$215.18,$117.49,"$203,630,527",FY19-cleaned.xls
+2019,Maryland,State,Mid-Atlantic,"308,167","570,444",$237.60,$128.36,"$878,649,666",FY19-cleaned.xls
+2019,Massachusetts,State,Northeast,"416,128","703,516",$226.52,$133.99,"$1,131,148,466",FY19-cleaned.xls
+2019,Michigan,State,Midwest,"631,699","1,181,972",$224.45,$119.96,"$1,701,430,344",FY19-cleaned.xls
+2019,Minnesota,State,Midwest,"193,684","381,779",$219.20,$111.20,"$509,464,759",FY19-cleaned.xls
+2019,Mississippi,State,Southeast,"195,903","420,873",$257.69,$119.95,"$605,780,127",FY19-cleaned.xls
+2019,Missouri,State,Mountain Plains,"299,268","639,338",$277.40,$129.85,"$996,212,141",FY19-cleaned.xls
+2019,Montana,State,Mountain Plains,"48,974","99,368",$250.04,$123.23,"$146,944,184",FY19-cleaned.xls
+2019,Nebraska,State,Mountain Plains,"67,643","148,768",$273.45,$124.33,"$221,960,791",FY19-cleaned.xls
+2019,Nevada,State,Western,"206,100","391,569",$237.57,$125.04,"$587,551,886",FY19-cleaned.xls
+2019,New Hampshire,State,Northeast,"36,685","70,412",$211.01,$109.94,"$92,889,191",FY19-cleaned.xls
+2019,New Jersey,State,Mid-Atlantic,"325,992","649,128",$243.76,$122.42,"$953,558,696",FY19-cleaned.xls
+2019,New Mexico,State,Southwest,"204,245","415,161",$258.23,$127.04,"$632,907,856",FY19-cleaned.xls
+2019,New York,State,Northeast,"1,512,387","2,661,700",$239.12,$135.87,"$4,339,617,966",FY19-cleaned.xls
+2019,North Carolina,State,Southeast,0,0,--,--,$0,FY19-cleaned.xls
+2019,North Dakota,State,Mountain Plains,"21,864","45,312",$261.03,$125.95,"$68,485,818",FY19-cleaned.xls
+2019,Ohio,State,Midwest,"632,171","1,273,257",$266.34,$132.24,"$2,020,497,444",FY19-cleaned.xls
+2019,Oklahoma,State,Southwest,"247,673","531,728",$275.75,$128.44,"$819,546,294",FY19-cleaned.xls
+2019,Oregon,State,Western,"324,903","554,927",$226.78,$132.78,"$884,189,650",FY19-cleaned.xls
+2019,Pennsylvania,State,Mid-Atlantic,"872,822","1,627,640",$240.00,$128.70,"$2,513,696,584",FY19-cleaned.xls
+2019,Rhode Island,State,Northeast,"84,445","141,232",$241.01,$144.10,"$244,223,564",FY19-cleaned.xls
+2019,South Carolina,State,Southeast,"259,707","558,722",$274.24,$127.47,"$854,652,751",FY19-cleaned.xls
+2019,South Dakota,State,Mountain Plains,"35,168","75,020",$289.08,$135.51,"$121,995,672",FY19-cleaned.xls
+2019,Tennessee,State,Southeast,"398,958","832,130",$273.05,$130.91,"$1,307,248,122",FY19-cleaned.xls
+2019,Texas,State,Southwest,"1,364,935","3,187,238",$291.05,$124.64,"$4,767,112,796",FY19-cleaned.xls
+2019,Utah,State,Southwest,"67,803","160,829",$288.28,$121.53,"$234,552,832",FY19-cleaned.xls
+2019,Vermont,State,Northeast,"38,423","68,277",$217.42,$122.36,"$100,248,674",FY19-cleaned.xls
+2019,Virgin Islands,Territory,Northeast,"10,395","21,331",$361.08,$175.95,"$45,039,243",FY19-cleaned.xls
+2019,Virginia,State,Mid-Atlantic,"318,522","654,882",$262.25,$127.55,"$1,002,380,166",FY19-cleaned.xls
+2019,Washington,State,Western,"482,025","833,128",$206.14,$119.27,"$1,192,380,309",FY19-cleaned.xls
+2019,West Virginia,State,Mid-Atlantic,"148,108","282,662",$223.88,$117.31,"$397,899,950",FY19-cleaned.xls
+2019,Wisconsin,State,Midwest,"291,721","572,323",$222.35,$113.34,"$778,373,061",FY19-cleaned.xls
+2019,Wyoming,State,Mountain Plains,"10,912","24,309",$277.04,$124.36,"$36,277,115",FY19-cleaned.xls

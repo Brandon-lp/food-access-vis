@@ -6,11 +6,11 @@ const IS_FOOD_FILE = 'data/state-food-sales.csv';
 const IS_INCOME_FILE = 'data/state-income.csv';
 const IS_DEFAULT_STATE = 'Texas';
 
-// Line colors from the sketch (checked for colorblind safety on the cream background).
-const IS_FOOD_COLOR = '#eb6834';
-const IS_INCOME_COLOR = '#9b2c1f';
-const IS_INK = '#17231f';
-const IS_MAP_RAMP = ['#cde2fb', '#104281'];
+// Line colors from the produce-stand palette: Orange and Tomato Red (checked for colorblind safety on the cream background).
+const IS_FOOD_COLOR = '#ee7302';
+const IS_INCOME_COLOR = '#b81817';
+const IS_INK = '#1c2147';
+const IS_MAP_RAMP = ['#dde0f2', '#293379'];
 const IS_NO_DATA = '#dcd7cf';
 
 // Chart size in SVG units; the SVG stretches to fit the page. Phones get a narrower frame so the text stays readable.

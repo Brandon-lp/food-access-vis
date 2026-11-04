@@ -34,20 +34,20 @@
 
 <style>
   /* Every rule is scoped to #story so this section's styles don't leak into other pages. */
-  #story { color-scheme: dark; min-height: 100vh; padding: clamp(4rem, 9vw, 8rem) clamp(1.25rem, 5vw, 5rem); color: #e9f6dc; background: radial-gradient(circle at 15% 0%, #1d6040 0, #0d3b2a 38%, #09291d 100%); box-sizing: border-box; }
+  #story { color-scheme: dark; min-height: 100vh; padding: clamp(4rem, 9vw, 8rem) clamp(1.25rem, 5vw, 5rem); color: #e9f6dc; background: radial-gradient(circle at 15% 0%, #607829 0, #3d4d18 38%, #263110 100%); box-sizing: border-box; }
   #story .story-grid { gap: clamp(2rem, 7vw, 8rem); align-items: start; }
   #story .story-text { max-width: 42rem; line-height: 1.7; }
   #story .stat-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: clamp(3rem, 8vw, 7rem); }
-  #story .stat { padding: 1.25rem; background: rgba(4, 29, 20, .38); border: 1px solid rgba(174,226,137,.25); border-radius: .75rem; }
+  #story .stat { padding: 1.25rem; background: rgba(25, 32, 8, .38); border: 1px solid rgba(174,226,137,.25); border-radius: .75rem; }
   #story .stat strong, #story .stat span { display: block; }
   #story .stat span { margin-top: .35rem; color: #c6dab8; }
   .access-maps { margin-top: clamp(3rem, 8vw, 7rem); }
   .map-intro { max-width: 42rem; }
   .access-map-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
-  .access-map-grid figure { margin: 0; padding: 1rem; background: linear-gradient(145deg, #0d3b2a, #1d6040); border: 1px solid rgba(174,226,137,.3); border-radius: 1rem; box-shadow: 0 1rem 3rem rgba(7,45,29,.25); overflow: hidden; }
+  .access-map-grid figure { margin: 0; padding: 1rem; background: linear-gradient(145deg, #3d4d18, #607829); border: 1px solid rgba(174,226,137,.3); border-radius: 1rem; box-shadow: 0 1rem 3rem rgba(7,45,29,.25); overflow: hidden; }
   .access-map-grid figcaption { margin-bottom: .5rem; font-weight: 700; }
   .map-hint { float: right; color: #c6dab8; font: .68rem/1.2 system-ui, sans-serif; font-weight: 400; }
-  .access-map-grid svg { display: block; width: 100%; height: auto; background: radial-gradient(circle at 50% 35%, #2e7950, #10452f 72%); border-radius: .6rem; cursor: grab; }
+  .access-map-grid svg { display: block; width: 100%; height: auto; background: radial-gradient(circle at 50% 35%, #6e8a2f, #33420f 72%); border-radius: .6rem; cursor: grab; }
   .access-map-grid svg:active { cursor: grabbing; }
   #county-access-map { touch-action: none; }
   .access-map-grid path { transition: fill .25s ease, opacity .25s ease, filter .25s ease; }
@@ -62,9 +62,9 @@
   .access-summary-item.improving { color: #75a660; }
   .access-summary-item.stagnant { color: #d9b879; }
   .access-summary-item.worsening { color: #c78350; }
-  .map-tip { position: fixed; z-index: 10; pointer-events: none; padding: .6rem .75rem; color: #f5ffe9; background: #09291d; border: 1px solid #a9d879; border-radius: .45rem; box-shadow: 0 .5rem 1.5rem #06201699; font: .78rem/1.35 system-ui, sans-serif; opacity: 0; transform: translateY(5px); transition: opacity .15s, transform .15s; }
+  .map-tip { position: fixed; z-index: 10; pointer-events: none; padding: .6rem .75rem; color: #f5ffe9; background: #263110; border: 1px solid #a9d879; border-radius: .45rem; box-shadow: 0 .5rem 1.5rem #06201699; font: .78rem/1.35 system-ui, sans-serif; opacity: 0; transform: translateY(5px); transition: opacity .15s, transform .15s; }
   .map-tip.visible { opacity: 1; transform: translateY(0); }
-  .access-year-control { max-width: 42rem; margin: 1.5rem 0 1.25rem; padding: 1rem 1.1rem; background: rgba(4, 29, 20, .38); border: 1px solid rgba(174,226,137,.25); border-radius: .75rem; }
+  .access-year-control { max-width: 42rem; margin: 1.5rem 0 1.25rem; padding: 1rem 1.1rem; background: rgba(25, 32, 8, .38); border: 1px solid rgba(174,226,137,.25); border-radius: .75rem; }
   .access-year-control label { display: flex; justify-content: space-between; gap: 1rem; font-weight: 700; }
   .access-year-control label strong { color: #f5ffb0; font-variant-numeric: tabular-nums; }
   .access-year-control input { display: block; width: 100%; margin: .75rem 0 .25rem; accent-color: #b9d477; }
@@ -146,7 +146,7 @@
       return state ? `${base}, ${state}` : base;
     };
     svg.attr('viewBox', `0 0 ${width} ${height}`).attr('preserveAspectRatio','xMidYMid meet');
-    const areas = layer.selectAll('path.area').data(features).join('path').attr('class', 'area').attr('d', path).attr('stroke', county ? '#0d3b2a' : '#c8efad').attr('stroke-width', county ? .35 : .8);
+    const areas = layer.selectAll('path.area').data(features).join('path').attr('class', 'area').attr('d', path).attr('stroke', county ? '#3d4d18' : '#c8efad').attr('stroke-width', county ? .35 : .8);
     let activeRecords = records, activeYear = startYear;
     const update = (nextRecords, year) => {
       activeRecords = nextRecords;

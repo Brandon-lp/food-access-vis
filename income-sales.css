@@ -6,7 +6,7 @@
 .is-control-label { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .1em; }
 .is-buttons { display: flex; flex-wrap: wrap; gap: 6px; }
 .is-button { border: 1px solid var(--ink); border-radius: 0; padding: 8px 12px; color: var(--ink); background: transparent; font-family: var(--mono); font-size: 12px; cursor: pointer; }
-.is-button:hover { background: rgba(23, 35, 31, .08); }
+.is-button:hover { background: rgba(28, 33, 71, .08); }
 .is-button[aria-pressed="true"] { color: var(--paper); background: var(--ink); }
 #is-state-select { min-width: 180px; border: 1px solid var(--ink); border-radius: 0; padding: 8px 12px; color: var(--ink); background: transparent; font-family: var(--mono); font-size: 12px; }
 .is-button:focus-visible, #is-state-select:focus-visible, .is-table summary:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
@@ -31,10 +31,10 @@
 .is-legend-item { display: inline-flex; gap: 8px; align-items: center; }
 .is-swatch { width: 18px; height: 3px; border-radius: 2px; }
 .is-chart { position: relative; }
-.is-grid .tick line { stroke: rgba(23, 35, 31, .12); }
-.is-grid .tick line.is-zero { stroke: rgba(23, 35, 31, .5); }
+.is-grid .tick line { stroke: rgba(28, 33, 71, .12); }
+.is-grid .tick line.is-zero { stroke: rgba(28, 33, 71, .5); }
 .is-grid .tick text, .is-axis .tick text { fill: var(--ink); font-family: var(--mono); font-size: 11px; }
-.is-axis .domain, .is-axis .tick line { stroke: rgba(23, 35, 31, .4); }
+.is-axis .domain, .is-axis .tick line { stroke: rgba(28, 33, 71, .4); }
 .is-end-label { font-family: var(--mono); font-size: 11px; fill: var(--ink); }
 .is-end-value { font-family: var(--display); font-size: 15px; font-weight: 600; }
 .is-focus line { stroke: var(--ink); stroke-width: 1; opacity: .5; }
