@@ -14,19 +14,19 @@
   </div>
   <div class="county-bubble-map" aria-labelledby="county-bubble-map-title">
     <h3 id="county-bubble-map-title">Where low income and low access overlap</h3>
-    <p class="map-intro">Each circle marks a county; larger circles show more people living in low-income, low-access areas. Select a circle for county details, or choose a state to zoom in.</p>
+    <p class="map-intro">The national view colors states by the average county share of residents in low-income, low-access areas. Select a state on the map or in the menu to see county circles; larger circles represent more people affected.</p>
     <div class="county-map-controls">
-      <label for="state-filter">Focus on a state</label>
-      <select id="state-filter"><option value="all">All states</option></select>
+      <label for="state-filter">Map view</label>
+      <select id="state-filter"><option value="all">All states — average county share</option></select>
     </div>
     <div id="map-frame" class="county-map-frame" aria-label="Interactive county map"></div>
     <div class="county-map-footer">
       <div>
-        <h4 id="county-name">Select a circle</h4>
-        <p id="county-impact">County information will appear here.</p>
+        <h4 id="county-name">United States</h4>
+        <p id="county-impact">Select a state to explore its counties.</p>
         <p id="county-share"></p>
       </div>
-      <div id="map-legend" class="county-map-legend"></div>
+      <div id="map-legend" class="county-map-legend" aria-label="Average county share color scale"></div>
     </div>
     <p id="map-status" class="county-map-status" role="status" aria-live="polite">Loading county data and map boundaries…</p>
     <p class="source-note">Source: USDA Food Environment Atlas, 2019. Low income and low access is a USDA measure; it does not capture every dimension of food insecurity.</p>
@@ -68,11 +68,16 @@
   .county-map-frame { overflow: hidden; border-radius: .75rem; background: radial-gradient(circle at 50% 35%, #6e8a2f, #263110 72%); }
   .county-map-frame svg { display: block; width: 100%; height: auto; touch-action: none; }
   .county-map-frame .county-shape { fill: #40521e; stroke: #8ca65f; stroke-width: .45px; }
+  .county-map-frame .county-shape.is-hidden { display: none; }
+  .county-map-frame .state-average { stroke: #17231f; stroke-width: 1.2px; cursor: pointer; transition: filter .15s, stroke-width .15s; }
+  .county-map-frame .state-average:hover, .county-map-frame .state-average:focus-visible { filter: brightness(1.2); stroke: #d7f36b; stroke-width: 3px; outline: none; }
   .county-map-frame .state-boundaries { fill: none; stroke: #d7e7b0; stroke-width: 1.1px; pointer-events: none; }
   .county-map-frame .map-bubble { fill: #ff765c; fill-opacity: .75; stroke: #f5f0e8; stroke-width: .7px; cursor: pointer; }
   .county-map-frame .map-bubble:hover, .county-map-frame .map-bubble:focus, .county-map-frame .map-bubble.is-selected { fill: #ffd166; fill-opacity: .95; stroke: #fff; stroke-width: 2px; outline: none; }
   .county-map-footer { display: grid; grid-template-columns: minmax(0, 1fr) minmax(12rem, 1fr); align-items: center; gap: 1rem; margin-top: 1rem; }
   .county-map-footer h4, .county-map-footer p { margin: .25rem 0; }
+  .county-map-legend::before { content: "AVERAGE COUNTY SHARE"; color: #c6dab8; font: .65rem/1.2 system-ui, sans-serif; letter-spacing: .08em; }
+  .county-map-legend:not(.is-state-view)::before { content: "PEOPLE AFFECTED"; }
   .county-map-legend svg { display: block; max-width: 100%; overflow: visible; }
   .county-map-legend text { fill: #e9f6dc; font: 10px system-ui, sans-serif; }
   .county-map-status, .source-note { color: #c6dab8; font: .78rem/1.5 system-ui, sans-serif; }

@@ -33,16 +33,15 @@ function showCountyDetails(county) {
       : 'Population share is not available for this county.';
 }
 
-function addMapLegend(container, radius, maximum) {
-  const values = [5000, 25000, 100000].filter((value) => value < maximum);
-  values.push(maximum);
-  const circles = [...new Set(values)].map((value, index) => ({
+function addBubbleLegend(container, radius, maximum) {
+  const values = [...new Set([5000, 25000, 100000].filter((value) => value < maximum).concat(maximum))];
+  const circles = values.map((value, index) => ({
     value,
-    x: 17 + index * 90,
+    x: 20 + index * 88,
     y: 38 - radius(value)
   }));
   const svg = d3.select(container).append('svg')
-    .attr('viewBox', `0 0 ${Math.max(130, circles.length * 90)} 62`)
+    .attr('viewBox', `0 0 ${Math.max(130, circles.length * 88)} 62`)
     .attr('role', 'img')
     .attr('aria-label', 'Bubble sizes are proportional to the number of people affected');
   svg.selectAll('circle')
@@ -63,10 +62,42 @@ function addMapLegend(container, radius, maximum) {
     .text((item) => mapNumberFormat.format(item.value));
 }
 
+function addStateLegend(container, color, maximum) {
+  const svg = d3.select(container).append('svg')
+    .attr('viewBox', '0 0 240 42')
+    .attr('role', 'img')
+    .attr('aria-label', `State color scale from 0 to ${maximum.toFixed(1)} percent average county share`);
+  const defs = svg.append('defs');
+  const gradient = defs.append('linearGradient')
+    .attr('id', 'state-share-gradient')
+    .attr('x1', '0%')
+    .attr('x2', '100%');
+  d3.range(0, 1.01, 0.1).forEach((value) => {
+    gradient.append('stop')
+      .attr('offset', `${value * 100}%`)
+      .attr('stop-color', color(value * maximum));
+  });
+  svg.append('rect')
+    .attr('x', 0)
+    .attr('y', 2)
+    .attr('width', 240)
+    .attr('height', 10)
+    .attr('rx', 3)
+    .attr('fill', 'url(#state-share-gradient)');
+  svg.append('text').attr('x', 0).attr('y', 31).text('0%');
+  svg.append('text').attr('x', 240).attr('y', 31)
+    .attr('text-anchor', 'end')
+    .text(`${maximum.toFixed(1)}%`);
+}
+
 function drawCountyMap(rows, atlas) {
   const mapFrame = document.querySelector('#map-frame');
   const stateFilter = document.querySelector('#state-filter');
   const status = document.querySelector('#map-status');
+  const detailName = document.querySelector('#county-name');
+  const detailImpact = document.querySelector('#county-impact');
+  const detailShare = document.querySelector('#county-share');
+  const legend = d3.select('#map-legend');
   const geoPath = d3.geoPath();
   const countyFeatures = topojson.feature(atlas, atlas.objects.counties).features;
   const stateFeatures = topojson.feature(atlas, atlas.objects.states).features;
@@ -81,8 +112,7 @@ function drawCountyMap(rows, atlas) {
     String(feature.id).padStart(5, '0'),
     feature
   ]));
-  const validRows = rows.filter((row) => Number.isFinite(row.affected));
-  const counties = validRows.map((row) => {
+  const counties = rows.map((row) => {
     const feature = countyByFips.get(row.FIPS);
     if (!feature) return null;
     const [x, y] = geoPath.centroid(feature);
@@ -92,27 +122,65 @@ function drawCountyMap(rows, atlas) {
 
   if (!counties.length) throw new Error('No county data matched the map boundaries.');
 
+  const stateAverages = d3.rollup(
+    counties.filter((county) => Number.isFinite(county.share)),
+    (stateCounties) => ({
+      share: d3.mean(stateCounties, (county) => county.share),
+      countyCount: stateCounties.length
+    }),
+    (county) => county.FIPS.slice(0, 2)
+  );
+  const maximumShare = d3.max([...stateAverages.values()], (state) => state.share);
+  const stateColor = d3.scaleSequential()
+    .domain([0, maximumShare || 1])
+    .interpolator((value) => d3.interpolateRgb('#496259', '#ff765c')(value));
   const affectedMaximum = d3.max(counties, (county) => county.affected);
-  const radius = d3.scaleSqrt().domain([0, affectedMaximum]).range([2.5, 23]);
+  const radius = d3.scaleSqrt().domain([0, affectedMaximum || 1]).range([2.5, 23]);
+  const stateByFips = new Map(stateFeatures.map((feature) => [
+    String(feature.id).padStart(2, '0'),
+    feature
+  ]));
+  const fipsByState = new Map(counties.map((county) => [county.State, county.FIPS.slice(0, 2)]));
+
   const svg = d3.select(mapFrame).append('svg')
     .attr('viewBox', `0 0 ${mapWidth} ${mapHeight}`)
     .attr('role', 'group')
-    .attr('aria-label', 'Map of U.S. counties with circles sized by low-income, low-access population');
+    .attr('aria-label', 'Map of average county shares by state. Select a state to explore county data.');
   const zoomLayer = svg.append('g');
-  const geographyLayer = zoomLayer.append('g').attr('class', 'map-geography');
-  geographyLayer.selectAll('path')
+  const countyLayer = zoomLayer.append('g').attr('class', 'map-counties');
+  const countyShapes = countyLayer.selectAll('path')
     .data(countyFeatures)
     .join('path')
-    .attr('class', 'county-shape')
+    .attr('class', 'county-shape is-hidden')
     .attr('d', geoPath);
-  geographyLayer.append('path')
+  const stateLayer = zoomLayer.append('g').attr('class', 'map-states');
+  const stateShapes = stateLayer.selectAll('path')
+    .data(stateFeatures)
+    .join('path')
+    .attr('class', 'state-average')
+    .attr('d', geoPath)
+    .attr('fill', (feature) => {
+      const average = stateAverages.get(String(feature.id).padStart(2, '0'));
+      return average ? stateColor(average.share) : '#34413c';
+    })
+    .attr('tabindex', (feature) =>
+      stateAverages.has(String(feature.id).padStart(2, '0')) ? 0 : -1)
+    .attr('role', 'button')
+    .attr('aria-label', (feature) => {
+      const stateFips = String(feature.id).padStart(2, '0');
+      const average = stateAverages.get(stateFips);
+      const stateName = mapStateNames.get([...fipsByState].find(([, fips]) => fips === stateFips)?.[0]) || 'State';
+      return average
+        ? `${stateName}: ${average.share.toFixed(1)}% average county share. Select to view county bubbles.`
+        : `${stateName}: no county data available.`;
+    });
+  const stateBorders = zoomLayer.append('path')
     .datum(topojson.mesh(atlas, atlas.objects.states, (a, b) => a !== b))
     .attr('class', 'state-boundaries')
     .attr('d', geoPath);
-
   const bubbles = zoomLayer.append('g').attr('class', 'map-bubbles')
     .selectAll('circle')
-    .data(counties.filter((county) => county.affected > 0))
+    .data(counties.filter((county) => Number.isFinite(county.affected) && county.affected > 0))
     .join('circle')
     .attr('class', 'map-bubble')
     .attr('cx', (county) => county.x)
@@ -121,14 +189,15 @@ function drawCountyMap(rows, atlas) {
     .attr('aria-label', (county) => `${getCountyName(county)}: ${mapNumberFormat.format(county.affected)} people affected`)
     .attr('tabindex', 0)
     .attr('role', 'button')
+    .attr('display', 'none')
     .on('mouseenter focus', (event, county) => showCountyDetails(county))
     .on('mouseleave blur', () => {
       if (selectedMapCounty) {
         showCountyDetails(selectedMapCounty);
       } else {
-        document.querySelector('#county-name').textContent = 'Select a circle';
-        document.querySelector('#county-impact').textContent = 'County information will appear here.';
-        document.querySelector('#county-share').textContent = '';
+        detailName.textContent = mapStateNames.get(stateFilter.value) || 'Select a county';
+        detailImpact.textContent = 'Select a circle for county details.';
+        detailShare.textContent = '';
       }
     })
     .on('click', (event, county) => {
@@ -150,40 +219,105 @@ function drawCountyMap(rows, atlas) {
     .on('zoom', (event) => zoomLayer.attr('transform', event.transform));
   svg.call(zoom);
 
-  const stateCodes = [...new Set(rows.map((county) => county.State))].sort();
-  stateFilter.innerHTML = '<option value="all">All states</option>' +
-    stateCodes.map((code) => `<option value="${code}">${mapStateNames.get(code) || code}</option>`).join('');
-  stateFilter.addEventListener('change', () => {
-    const state = stateFilter.value;
+  const showState = (stateCode) => {
     selectedMapCounty = null;
     bubbles.classed('is-selected', false);
-    document.querySelector('#county-name').textContent = 'Select a circle';
-    document.querySelector('#county-impact').textContent = 'County information will appear here.';
-    document.querySelector('#county-share').textContent = '';
-    bubbles.attr('display', (county) => state === 'all' || county.State === state ? null : 'none');
-    if (state === 'all') {
+    if (stateCode === 'all') {
+      stateShapes.attr('display', null).classed('is-selected', false);
+      countyShapes.classed('is-hidden', true);
+      bubbles.attr('display', 'none');
+      stateBorders.attr('display', null);
+      legend.classed('is-state-view', true).selectAll('svg').remove();
+      legend.attr('aria-label', 'Average county share color scale');
+      addStateLegend(legend.node(), stateColor, maximumShare || 1);
+      detailName.textContent = 'United States';
+      detailImpact.textContent = 'Select a state to explore its counties.';
+      detailShare.textContent = 'State colors show the unweighted average of county population shares.';
+      status.textContent = `Showing average county shares for ${stateAverages.size} states. Select a state on the map or in the menu.`;
       svg.transition().duration(500).call(zoom.transform, d3.zoomIdentity);
       return;
     }
-    const stateFeature = stateFeatures.find((feature) => String(feature.id).padStart(2, '0') ===
-      rows.find((county) => county.State === state)?.FIPS.slice(0, 2));
-    if (!stateFeature) return;
+
+    const stateFips = fipsByState.get(stateCode);
+    const stateFeature = stateByFips.get(stateFips);
+    if (!stateFeature) {
+      throw new Error(`No map boundary found for ${mapStateNames.get(stateCode) || stateCode}.`);
+    }
+    const stateName = mapStateNames.get(stateCode) || stateCode;
+    const stateAverage = stateAverages.get(stateFips);
+    stateShapes.attr('display', 'none').classed('is-selected', false);
+    countyShapes.classed('is-hidden', (feature) =>
+      String(feature.id).padStart(5, '0').slice(0, 2) !== stateFips);
+    bubbles.attr('display', (county) => county.State === stateCode ? null : 'none');
+    stateBorders.attr('display', null);
+    legend.classed('is-state-view', false).selectAll('svg').remove();
+    legend.attr('aria-label', 'Bubble size legend');
+    addBubbleLegend(legend.node(), radius, affectedMaximum);
+    detailName.textContent = stateName;
+    detailImpact.textContent = stateAverage
+      ? `${stateAverage.share.toFixed(1)}% average county share across ${stateAverage.countyCount} counties.`
+      : 'Average county share is not available.';
+    detailShare.textContent = 'County bubbles are sized by the number of people in low-income, low-access areas.';
+    status.textContent = `Showing county bubbles for ${stateName}. Choose “All states” to return to the state averages.`;
     const [[x0, y0], [x1, y1]] = geoPath.bounds(stateFeature);
     const scale = Math.min(8, 0.88 / Math.max((x1 - x0) / mapWidth, (y1 - y0) / mapHeight));
     const transform = d3.zoomIdentity
       .translate(mapWidth / 2 - scale * (x0 + x1) / 2, mapHeight / 2 - scale * (y0 + y1) / 2)
       .scale(scale);
     svg.transition().duration(500).call(zoom.transform, transform);
-  });
+  };
 
-  addMapLegend(document.querySelector('#map-legend'), radius, affectedMaximum);
-  const missingValues = rows.length - validRows.length;
-  const missingBoundaries = validRows.length - counties.length;
+  const stateCodes = [...new Set(rows.map((county) => county.State))].sort();
+  stateFilter.innerHTML = '<option value="all">All states — average county share</option>' +
+    stateCodes.map((code) => `<option value="${code}">${mapStateNames.get(code) || code}</option>`).join('');
+  stateFilter.addEventListener('change', () => showState(stateFilter.value));
+  stateShapes
+    .on('mouseenter focus', (event, feature) => {
+      const stateFips = String(feature.id).padStart(2, '0');
+      const stateCode = [...fipsByState].find(([, fips]) => fips === stateFips)?.[0];
+      const average = stateAverages.get(stateFips);
+      if (!stateCode || !average) return;
+      detailName.textContent = mapStateNames.get(stateCode) || stateCode;
+      detailImpact.textContent = `${average.share.toFixed(1)}% average county share across ${average.countyCount} counties.`;
+      detailShare.textContent = 'Select this state to see county-level circles.';
+    })
+    .on('mouseleave blur', () => {
+      if (stateFilter.value === 'all') {
+        detailName.textContent = 'United States';
+        detailImpact.textContent = 'Select a state to explore its counties.';
+        detailShare.textContent = 'State colors show the unweighted average of county population shares.';
+      }
+    })
+    .on('click', (event, feature) => {
+      const stateFips = String(feature.id).padStart(2, '0');
+      const stateCode = [...fipsByState].find(([, fips]) => fips === stateFips)?.[0];
+      if (stateCode && stateAverages.has(stateFips)) {
+        stateFilter.value = stateCode;
+        showState(stateCode);
+      }
+    })
+    .on('keydown', (event, feature) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        const stateFips = String(feature.id).padStart(2, '0');
+        const stateCode = [...fipsByState].find(([, fips]) => fips === stateFips)?.[0];
+        if (stateCode && stateAverages.has(stateFips)) {
+          stateFilter.value = stateCode;
+          showState(stateCode);
+        }
+      }
+    });
+
+  addStateLegend(legend.node(), stateColor, maximumShare || 1);
+  legend.classed('is-state-view', true);
+  legend.attr('aria-label', 'Average county share color scale');
+  const missingValues = rows.length - rows.filter((row) => Number.isFinite(row.share)).length;
+  const missingBoundaries = rows.length - counties.length;
   const caveats = [
-    missingValues ? `${mapNumberFormat.format(missingValues)} rows have no affected-population value` : '',
+    missingValues ? `${mapNumberFormat.format(missingValues)} counties have no share value` : '',
     missingBoundaries ? `${mapNumberFormat.format(missingBoundaries)} counties have no matching map boundary` : ''
   ].filter(Boolean);
-  status.textContent = `Showing ${mapNumberFormat.format(counties.length)} counties with data.${caveats.length ? ` ${caveats.join('; ')}.` : ''} Circle area represents affected population.`;
+  status.textContent = `Showing average county shares for ${stateAverages.size} states.${caveats.length ? ` ${caveats.join('; ')}.` : ''} Select a state to explore county bubbles.`;
 }
 
 function showMapError(error) {

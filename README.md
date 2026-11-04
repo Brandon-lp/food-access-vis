@@ -20,7 +20,7 @@ The main page follows the storyboard and is split into independently editable fi
 - `sections/08-solution.html`: Solution, taking action and project link (placeholder copy)
 - `sections/09-footer.html`: footer content
 
-1. The interactive county map reads `data/food_atlas_cleaned.csv`. Its bubble size uses the `Low Income & Low Access Population 2019` column; the selected-county detail also shows `Pct Low Income & Low Access Population 2019`.
+1. The interactive map reads `data/food_atlas_cleaned.csv`. The national view colors states by the unweighted average of county percentages in `Pct Low Income & Low Access Population 2019`; selecting a state switches to county bubbles sized by `Low Income & Low Access Population 2019`.
 2. County boundaries are loaded from the US Atlas TopoJSON dataset, and the map uses D3 and TopoJSON Client from jsDelivr. A connection is needed to load those libraries and boundaries.
 3. Edit each screen in its own file under `sections/`; use `styles.css` for shared layout and styling.
 4. Replace the placeholder GitHub link in `sections/08-solution.html` with your repository URL.
