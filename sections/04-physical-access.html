@@ -12,6 +12,25 @@
     <div class="stat"><strong>&minus;1%</strong><span>national change since 2015</span></div>
     <div class="stat"><strong>1,398</strong><span>counties where low access grew</span></div>
   </div>
+  <div class="county-bubble-map" aria-labelledby="county-bubble-map-title">
+    <h3 id="county-bubble-map-title">Where low income and low access overlap</h3>
+    <p class="map-intro">Each circle marks a county; larger circles show more people living in low-income, low-access areas. Select a circle for county details, or choose a state to zoom in.</p>
+    <div class="county-map-controls">
+      <label for="state-filter">Focus on a state</label>
+      <select id="state-filter"><option value="all">All states</option></select>
+    </div>
+    <div id="map-frame" class="county-map-frame" aria-label="Interactive county map"></div>
+    <div class="county-map-footer">
+      <div>
+        <h4 id="county-name">Select a circle</h4>
+        <p id="county-impact">County information will appear here.</p>
+        <p id="county-share"></p>
+      </div>
+      <div id="map-legend" class="county-map-legend"></div>
+    </div>
+    <p id="map-status" class="county-map-status" role="status" aria-live="polite">Loading county data and map boundaries…</p>
+    <p class="source-note">Source: USDA Food Environment Atlas, 2019. Low income and low access is a USDA measure; it does not capture every dimension of food insecurity.</p>
+  </div>
   <div class="access-maps" aria-labelledby="access-maps-title">
     <h3 id="access-maps-title">How physical access changed, 2015–2019</h3>
     <p class="map-intro">Each area shows the percent change in its population with low access to a store. Desert means more people lost easy access; grassland means little change; forest means access improved. Compare the state map with the county map to see how a state's total can hide very different local stories. Hover over any area for its number.</p>
@@ -41,6 +60,23 @@
   #story .stat { padding: 1.25rem; background: rgba(25, 32, 8, .38); border: 1px solid rgba(174,226,137,.25); border-radius: .75rem; }
   #story .stat strong, #story .stat span { display: block; }
   #story .stat span { margin-top: .35rem; color: #c6dab8; }
+  .county-bubble-map { margin-top: clamp(3rem, 8vw, 7rem); padding: clamp(1rem, 3vw, 2rem); background: rgba(25, 32, 8, .38); border: 1px solid rgba(174,226,137,.25); border-radius: 1rem; }
+  .county-bubble-map h3 { margin-top: 0; }
+  .county-map-controls { display: flex; align-items: center; flex-wrap: wrap; gap: .75rem; margin: 1.25rem 0; }
+  .county-map-controls label { font-weight: 700; }
+  .county-map-controls select { max-width: 100%; padding: .55rem .75rem; color: #f5ffe9; background: #263110; border: 1px solid rgba(174,226,137,.5); border-radius: .45rem; font: inherit; }
+  .county-map-frame { overflow: hidden; border-radius: .75rem; background: radial-gradient(circle at 50% 35%, #6e8a2f, #263110 72%); }
+  .county-map-frame svg { display: block; width: 100%; height: auto; touch-action: none; }
+  .county-map-frame .county-shape { fill: #40521e; stroke: #8ca65f; stroke-width: .45px; }
+  .county-map-frame .state-boundaries { fill: none; stroke: #d7e7b0; stroke-width: 1.1px; pointer-events: none; }
+  .county-map-frame .map-bubble { fill: #ff765c; fill-opacity: .75; stroke: #f5f0e8; stroke-width: .7px; cursor: pointer; }
+  .county-map-frame .map-bubble:hover, .county-map-frame .map-bubble:focus, .county-map-frame .map-bubble.is-selected { fill: #ffd166; fill-opacity: .95; stroke: #fff; stroke-width: 2px; outline: none; }
+  .county-map-footer { display: grid; grid-template-columns: minmax(0, 1fr) minmax(12rem, 1fr); align-items: center; gap: 1rem; margin-top: 1rem; }
+  .county-map-footer h4, .county-map-footer p { margin: .25rem 0; }
+  .county-map-legend svg { display: block; max-width: 100%; overflow: visible; }
+  .county-map-legend text { fill: #e9f6dc; font: 10px system-ui, sans-serif; }
+  .county-map-status, .source-note { color: #c6dab8; font: .78rem/1.5 system-ui, sans-serif; }
+  .county-map-status.is-error { color: #ffd166; }
   .access-maps { margin-top: clamp(3rem, 8vw, 7rem); }
   .map-intro { max-width: 42rem; }
   .access-map-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
@@ -75,7 +111,7 @@
   .access-legend-labels span:nth-child(2) { text-align: center; }
   .access-legend-labels span:last-child { text-align: right; }
   .access-legend i { display: block; width: 100%; height: .8rem; background: linear-gradient(90deg,#c78350 0%,#d9b879 25%,#e0d39a 50%,#75a660 72%,#174b35 100%); border-radius: .25rem; box-shadow: inset 0 0 0 1px rgba(9,41,29,.35); }
-  @media (max-width: 700px) { .access-map-grid, #story .stat-row { grid-template-columns: 1fr; } }
+  @media (max-width: 700px) { .access-map-grid, #story .stat-row, .county-map-footer { grid-template-columns: 1fr; } }
 </style>
 <!-- Needed only when this file is opened on its own; index.html already loads these. -->
 <script data-standalone-only src="https://cdn.jsdelivr.net/npm/d3@7"></script>
