@@ -40,7 +40,7 @@ const SNAP_LABELS = {
 
 // Group colors, checked for colorblind safety on the site's cream background. A group keeps its color in every chart.
 const SNAP_COLORS = ['#2a78d6', '#eb6834', '#1baf7a', '#eda100', '#e87ba4', '#008300', '#6250d6'];
-const SNAP_INK = '#17231f';
+const SNAP_INK = '#1c2147';
 const SNAP_PAPER = '#f5f0e8';
 const SNAP_BAR = '#8c9590';
 const SNAP_FONT = { family: '"Space Grotesk", sans-serif', size: 13 };
@@ -204,11 +204,11 @@ function snapCreateCharts() {
       scales: {
         x: {
           beginAtZero: true,
-          grid: { color: 'rgba(23, 35, 31, 0.12)' },
+          grid: { color: 'rgba(28, 33, 71, 0.12)' },
           border: { display: false },
           ticks: { font: SNAP_MONO, color: SNAP_INK, callback: (value) => `${value}%` }
         },
-        y: { grid: { display: false }, border: { color: 'rgba(23, 35, 31, 0.4)' }, ticks: { font: SNAP_FONT, color: SNAP_INK, autoSkip: false } }
+        y: { grid: { display: false }, border: { color: 'rgba(28, 33, 71, 0.4)' }, ticks: { font: SNAP_FONT, color: SNAP_INK, autoSkip: false } }
       },
       plugins: {
         legend: { display: false },

@@ -35,13 +35,13 @@ function drawChart(data, selectedCounty) {
   const bars = data.map((item, index) => {
     const pointX = padding.left + (index / Math.max(data.length - 1, 1)) * chartWidth;
     const active = item.county === selected.county;
-    return `<line x1="${pointX}" y1="${y(item.lowAccess)}" x2="${pointX}" y2="${y(0)}" stroke="${active ? '#d7f36b' : '#5b8cff'}" stroke-width="${active ? 16 : 10}" opacity="${active ? 1 : .65}" />`;
+    return `<line x1="${pointX}" y1="${y(item.lowAccess)}" x2="${pointX}" y2="${y(0)}" stroke="${active ? '#e5a300' : '#293379'}" stroke-width="${active ? 16 : 10}" opacity="${active ? 1 : .65}" />`;
   }).join('');
   const labels = data.map((item, index) => {
     const pointX = padding.left + (index / Math.max(data.length - 1, 1)) * chartWidth;
     return `<text x="${pointX}" y="${height - 13}" text-anchor="middle" fill="#f5f0e8" font-family="DM Mono" font-size="10">${item.county.split(' ')[0]}</text>`;
   }).join('');
-  chartElement.innerHTML = `<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="Low access percentage by county"><line x1="${padding.left}" y1="${y(0)}" x2="${width - padding.right}" y2="${y(0)}" stroke="#f5f0e8" opacity=".4" /><line x1="${padding.left}" y1="${y(25)}" x2="${width - padding.right}" y2="${y(25)}" stroke="#f5f0e8" opacity=".15" /><polyline points="${points}" fill="none" stroke="#ff765c" stroke-width="2" />${bars}${labels}<text x="${padding.left}" y="${y(25) - 8}" fill="#f5f0e8" opacity=".5" font-family="DM Mono" font-size="10">25%</text><text x="${padding.left}" y="${y(0) - 8}" fill="#f5f0e8" opacity=".5" font-family="DM Mono" font-size="10">0%</text></svg>`;
+  chartElement.innerHTML = `<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="Low access percentage by county"><line x1="${padding.left}" y1="${y(0)}" x2="${width - padding.right}" y2="${y(0)}" stroke="#f5f0e8" opacity=".4" /><line x1="${padding.left}" y1="${y(25)}" x2="${width - padding.right}" y2="${y(25)}" stroke="#f5f0e8" opacity=".15" /><polyline points="${points}" fill="none" stroke="#ee7302" stroke-width="2" />${bars}${labels}<text x="${padding.left}" y="${y(25) - 8}" fill="#f5f0e8" opacity=".5" font-family="DM Mono" font-size="10">25%</text><text x="${padding.left}" y="${y(0) - 8}" fill="#f5f0e8" opacity=".5" font-family="DM Mono" font-size="10">0%</text></svg>`;
   detailElement.querySelector('h3').textContent = selected.county;
   detailElement.querySelector('.detail-copy').textContent = `${selected.distance} miles average distance. ${selected.lowAccess}% of residents live in a low-access area; ${selected.noCar}% of households have no car.`;
 }
