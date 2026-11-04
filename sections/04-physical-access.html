@@ -71,21 +71,50 @@
   </div>
   <div class="access-maps" aria-labelledby="access-maps-title">
     <h3 id="access-maps-title">How physical access changed, 2015–2019</h3>
-    <p class="map-intro">Each area shows the percent change in its population with low access to a store. Desert means more people lost easy access; grassland means little change; forest means access improved. Compare the state map with the county map to see how a state's total can hide very different local stories. Hover over any area for its number.</p>
-    <div class="access-year-control">
-      <label for="access-year"><span>Change since 2015</span><strong id="access-year-value">2015</strong></label>
-      <input id="access-year" type="range" min="2015" max="2019" step="1" value="2015" aria-valuemin="2015" aria-valuemax="2019" aria-valuenow="2015">
-      <div class="access-year-endpoints" aria-hidden="true"><span>2015</span><span>2019</span></div>
+    <div class="access-biome" aria-hidden="true">
+      <div class="biome biome-plains"><svg class="biome-scene" id="biome-plains" viewBox="0 0 1200 300" preserveAspectRatio="xMidYMax slice"></svg></div>
+      <div class="biome biome-desert"><svg class="biome-scene" id="biome-desert" viewBox="0 0 1200 300" preserveAspectRatio="xMidYMax slice"></svg></div>
+      <div class="biome biome-forest"><svg class="biome-scene" id="biome-forest" viewBox="0 0 1200 300" preserveAspectRatio="xMidYMax slice"></svg></div>
+    </div>
+    <p class="map-intro">Each area shows the percent change in its population with low access to a store: desert means more people lost easy access, grassland means little change, forest means access improved. The landscape behind the map follows whichever area you select. Click a state to see its counties, then click a county for its numbers.</p>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+      <symbol id="access-person-icon" viewBox="0 0 12 24"><circle cx="6" cy="3.6" r="3.3"></circle><path d="M2.2 8h7.6A2.2 2.2 0 0 1 12 10.2V16h-2v8H2v-8H0v-5.8A2.2 2.2 0 0 1 2.2 8z"></path></symbol>
+      <symbol id="biome-pine" viewBox="0 0 40 100"><polygon points="20,0 33,28 26,28 37,52 29,52 40,80 22,80 22,100 18,100 18,80 0,80 11,52 3,52 14,28 7,28"></polygon></symbol>
+      <symbol id="biome-cactus" viewBox="0 0 44 100"><path d="M16 100V18a6 6 0 0 1 12 0v82z M16 58H9a7 7 0 0 1-7-7V36a4 4 0 0 1 8 0v12h6z M28 46h6V28a4 4 0 0 1 8 0v18a7 7 0 0 1-7 7h-7z"></path></symbol>
+      <symbol id="biome-tuft" viewBox="0 0 20 12"><path d="M0 12 3 2 6 12 9 0 12 12 15 3 18 12z"></path></symbol>
+    </svg>
+    <div class="access-explorer">
+      <figure class="access-map-figure">
+        <figcaption>
+          <span id="access-map-heading">United States <span class="map-hint">click a state for its counties</span></span>
+          <button type="button" id="access-map-back" class="access-back" hidden>&larr; Back to US map</button>
+        </figcaption>
+        <svg id="access-map" role="img" aria-label="United States map of food access change by state. Select a state to see its counties."></svg>
+        <div class="access-legend" aria-label="Map color scale">
+          <div class="access-legend-labels"><span>decreased</span><span>no change</span><span>improved</span></div>
+          <i aria-hidden="true"></i>
+        </div>
+      </figure>
+      <aside class="access-people" aria-labelledby="access-people-place">
+        <div class="access-year-control">
+          <label for="access-year"><span>Change since 2015</span><strong id="access-year-value">2015</strong></label>
+          <input id="access-year" type="range" min="2015" max="2019" step="1" value="2015" aria-valuemin="2015" aria-valuemax="2019" aria-valuenow="2015">
+          <div class="access-year-endpoints" aria-hidden="true"><span>2015</span><span>2019</span></div>
+        </div>
+        <div><h4 id="access-people-place">United States</h4><p class="access-place-change" id="access-place-change"></p></div>
+        <div class="access-summary" id="access-summary" aria-live="polite"></div>
+        <div class="access-people-group gaining">
+          <div class="access-people-head"><strong id="access-gain-value">0</strong><span>people gained access</span></div>
+          <div class="access-people-icons" id="access-gain-icons" aria-hidden="true"></div>
+        </div>
+        <div class="access-people-group losing">
+          <div class="access-people-head"><strong id="access-lose-value">0</strong><span>people lost access</span></div>
+          <div class="access-people-icons" id="access-lose-icons" aria-hidden="true"></div>
+        </div>
+        <p class="access-people-key"><svg class="person" aria-hidden="true"><use href="#access-person-icon"></use></svg> = <span id="access-people-unit">—</span> people</p>
+      </aside>
     </div>
     <p class="source-note">Source: USDA Economic Research Service, Food Environment Atlas (2025), low access to store, 2015 and 2019.</p>
-    <div class="access-map-grid">
-      <figure><figcaption>By state</figcaption><svg id="state-access-map" role="img" aria-label="United States map of food access change by state"></svg><div class="access-summary" id="state-access-summary" aria-live="polite"></div></figure>
-      <figure><figcaption>By county <span class="map-hint">scroll or pinch to zoom</span></figcaption><svg id="county-access-map" role="img" aria-label="United States map of food access change by county. Use scroll or pinch to zoom."></svg><div class="access-summary" id="county-access-summary" aria-live="polite"></div></figure>
-    </div>
-    <div class="access-legend" aria-label="Map color scale">
-      <div class="access-legend-labels"><span>decreased</span><span>no change</span><span>improved</span></div>
-      <i aria-hidden="true"></i>
-    </div>
   </div>
 </section>
 
@@ -136,41 +165,71 @@
   .striker-value { fill: #f5ffe9; font: 700 27px system-ui, sans-serif; }
   .striker-source, .striker-motion-status { grid-column: 1 / -1; margin: 0; color: #c6dab8; font: .75rem/1.5 system-ui, sans-serif; }
   .striker-motion-status { color: #f5ffb0; }
-  .access-maps { margin-top: clamp(3rem, 8vw, 7rem); }
   .map-intro { max-width: 42rem; }
-  .access-map-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
-  .access-map-grid figure { margin: 0; padding: 1rem; background: linear-gradient(145deg, #3d4d18, #607829); border: 1px solid rgba(174,226,137,.3); border-radius: 1rem; box-shadow: 0 1rem 3rem rgba(7,45,29,.25); overflow: hidden; }
-  .access-map-grid figcaption { margin-bottom: .5rem; font-weight: 700; }
-  .map-hint { float: right; color: #c6dab8; font: .68rem/1.2 system-ui, sans-serif; font-weight: 400; }
-  .access-map-grid svg { display: block; width: 100%; height: auto; background: radial-gradient(circle at 50% 35%, #6e8a2f, #33420f 72%); border-radius: .6rem; cursor: grab; }
-  .access-map-grid svg:active { cursor: grabbing; }
-  #county-access-map { touch-action: none; }
-  .access-map-grid path { transition: fill .25s ease, opacity .25s ease, filter .25s ease; }
-  .access-map-grid path:hover { opacity: 1; filter: brightness(1.3) drop-shadow(0 0 5px #d9f99d); }
-  .access-map-grid path.is-selected { filter: brightness(1.35) drop-shadow(0 0 7px #f5ffb0); }
-  .access-summary { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .4rem; margin-top: .75rem; }
-  .access-summary-item { padding: .55rem .4rem; border-top: 2px solid currentColor; text-align: center; }
+  /* Full-bleed block so the biome reads as the page background while this viz is on screen. */
+  .access-maps { position: relative; isolation: isolate; overflow: hidden; box-sizing: border-box; min-height: 100vh; margin: clamp(3rem, 8vw, 7rem) calc(-1 * clamp(1.25rem, 5vw, 5rem)) calc(-1 * clamp(4rem, 9vw, 8rem)); padding: 1.5rem clamp(1.25rem, 5vw, 5rem) 2rem; }
+  .access-maps h3, .access-maps .map-intro, .access-maps .source-note { text-shadow: 0 1px 3px rgba(0,0,0,.6); }
+  .access-biome, .biome { position: absolute; inset: 0; }
+  .access-biome { z-index: -1; }
+  .biome { opacity: 0; transition: opacity .9s ease; }
+  .biome-plains { opacity: 1; background: linear-gradient(180deg, #263110 0%, #3d4d18 50%, #607829 100%); }
+  .biome-desert { background: linear-gradient(180deg, #3f1d10 0%, #7c3d1f 50%, #b86c36 100%); }
+  .biome-forest { background: linear-gradient(180deg, #06170d 0%, #0e2b1a 50%, #1a4529 100%); }
+  .biome-scene { position: absolute; left: 0; bottom: 0; width: 100%; height: 45%; }
+  .access-maps h3 { margin: 0 0 .35rem; }
+  .access-maps .map-intro { max-width: 60rem; margin: 0 0 .75rem; font-size: .85rem; line-height: 1.45; }
+  .access-maps .source-note { margin: .5rem 0 0; font-size: .7rem; }
+  .access-explorer { display: grid; grid-template-columns: minmax(0, 2.2fr) minmax(14rem, 1fr); gap: .75rem; align-items: stretch; }
+  .access-map-figure, .access-people { margin: 0; padding: .75rem; background: rgba(18, 24, 8, .72); backdrop-filter: blur(6px); border: 1px solid rgba(233,246,220,.25); border-radius: .85rem; box-shadow: 0 1rem 3rem rgba(7,45,29,.25); }
+  .access-map-figure { display: flex; flex-direction: column; min-width: 0; overflow: hidden; }
+  .access-map-figure figcaption { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .5rem; min-height: 1.75rem; margin-bottom: .4rem; font-size: .95rem; font-weight: 700; }
+  .map-hint { margin-left: .5rem; color: #c6dab8; font: .68rem/1.2 system-ui, sans-serif; font-weight: 400; }
+  .access-back { padding: .4rem .75rem; color: #263110; background: #f5ffb0; border: 0; border-radius: 999px; font: 700 .78rem/1 system-ui, sans-serif; cursor: pointer; }
+  .access-back:hover, .access-back:focus-visible { background: #fff; outline: 2px solid #f5ffb0; outline-offset: 2px; }
+  #access-map { display: block; width: 100%; height: auto; max-height: calc(100vh - 17rem); min-height: 14rem; background: radial-gradient(circle at 50% 35%, #6e8a2f, #33420f 72%); border-radius: .6rem; }
+  #access-map .map-layer { transition: opacity .3s ease; }
+  #access-map .map-layer.is-entering { opacity: 0; }
+  #access-map path.area { transition: fill .25s ease, filter .25s ease; }
+  #access-map path.area:hover, #access-map path.area:focus-visible { filter: brightness(1.3) drop-shadow(0 0 5px #d9f99d); outline: none; }
+  #access-map path.area { cursor: pointer; }
+  #access-map path.area.is-selected { stroke: #f5ffb0; stroke-width: 2.5px; filter: brightness(1.25) drop-shadow(0 0 6px #f5ffb0); }
+  .access-place-change { margin: .15rem 0 0; color: #e9f6dc; font: .72rem/1.3 system-ui, sans-serif; }
+  .access-people { display: flex; flex-direction: column; gap: .6rem; min-width: 0; }
+  .access-people h4 { margin: 0; color: #f5ffb0; font-size: 1rem; }
+  .access-summary { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .3rem; }
+  .access-summary-item { padding: .3rem .2rem; border-top: 2px solid currentColor; text-align: center; }
   .access-summary-item strong, .access-summary-item span { display: block; }
-  .access-summary-item strong { font-size: 1.1rem; font-variant-numeric: tabular-nums; }
-  .access-summary-item span { margin-top: .15rem; color: #c6dab8; font: .68rem/1.2 system-ui, sans-serif; }
-  .access-summary-item small { display: block; margin-top: .2rem; color: #c6dab8; font: .62rem/1.2 system-ui, sans-serif; }
-  .access-summary-item.improving { color: #75a660; }
+  .access-summary-item strong { font-size: 1rem; font-variant-numeric: tabular-nums; }
+  .access-summary-item span { color: #c6dab8; font: .62rem/1.2 system-ui, sans-serif; }
+  .access-summary-item.improving { color: #9fd17f; }
   .access-summary-item.stagnant { color: #d9b879; }
-  .access-summary-item.worsening { color: #c78350; }
+  .access-summary-item.worsening { color: #e0a070; }
+  .access-people-key { display: flex; align-items: center; gap: .3rem; margin: auto 0 0; color: #c6dab8; font: .7rem/1.2 system-ui, sans-serif; }
+  .access-people-key .person { width: .45rem; height: .9rem; fill: #e9f6dc; }
+  .access-people-group { padding-top: .4rem; border-top: 2px solid currentColor; }
+  .access-people-group.gaining { color: #9fd17f; }
+  .access-people-group.losing { color: #e0a070; }
+  .access-people-head { display: flex; align-items: baseline; flex-wrap: wrap; gap: .4rem; }
+  .access-people-head strong { font-size: 1.15rem; font-variant-numeric: tabular-nums; }
+  .access-people-head span { color: #e9f6dc; font: .72rem/1.2 system-ui, sans-serif; }
+  .access-people-icons { display: flex; flex-wrap: wrap; gap: 2px; min-height: 1rem; margin-top: .35rem; }
+  .access-people-icons .person { width: .42rem; height: .85rem; fill: currentColor; animation: person-in .3s ease both; }
+  @keyframes person-in { from { opacity: 0; transform: translateY(4px) scale(.6); } }
+  @media (prefers-reduced-motion: reduce) { .access-people-icons .person { animation: none; } #access-map .map-layer, #access-map path.area, .biome { transition: none; } }
   .map-tip { position: fixed; z-index: 10; pointer-events: none; padding: .6rem .75rem; color: #f5ffe9; background: #263110; border: 1px solid #a9d879; border-radius: .45rem; box-shadow: 0 .5rem 1.5rem #06201699; font: .78rem/1.35 system-ui, sans-serif; opacity: 0; transform: translateY(5px); transition: opacity .15s, transform .15s; }
   .map-tip.visible { opacity: 1; transform: translateY(0); }
-  .access-year-control { max-width: 42rem; margin: 1.5rem 0 1.25rem; padding: 1rem 1.1rem; background: rgba(25, 32, 8, .38); border: 1px solid rgba(174,226,137,.25); border-radius: .75rem; }
-  .access-year-control label { display: flex; justify-content: space-between; gap: 1rem; font-weight: 700; }
+  .access-year-control { padding: .5rem .65rem; background: rgba(25, 32, 8, .38); border: 1px solid rgba(174,226,137,.25); border-radius: .6rem; }
+  .access-year-control label { display: flex; justify-content: space-between; gap: 1rem; font-size: .8rem; font-weight: 700; }
   .access-year-control label strong { color: #f5ffb0; font-variant-numeric: tabular-nums; }
-  .access-year-control input { display: block; width: 100%; margin: .75rem 0 .25rem; accent-color: #b9d477; }
-  .access-year-endpoints { display: flex; justify-content: space-between; color: #c6dab8; font: .75rem/1.2 system-ui, sans-serif; }
-  .access-legend { width: min(100%, 30rem); margin: 1rem auto 0; font-size: .75rem; }
+  .access-year-control input { display: block; width: 100%; margin: .35rem 0 .1rem; accent-color: #b9d477; }
+  .access-year-endpoints { display: flex; justify-content: space-between; color: #c6dab8; font: .65rem/1.2 system-ui, sans-serif; }
+  .access-legend { width: min(100%, 24rem); margin: .5rem auto 0; font-size: .68rem; }
   .access-legend-labels { display: flex; justify-content: space-between; gap: 1rem; margin-bottom: .35rem; }
   .access-legend-labels span { flex: 1; }
   .access-legend-labels span:nth-child(2) { text-align: center; }
   .access-legend-labels span:last-child { text-align: right; }
-  .access-legend i { display: block; width: 100%; height: .8rem; background: linear-gradient(90deg,#c78350 0%,#d9b879 25%,#e0d39a 50%,#75a660 72%,#174b35 100%); border-radius: .25rem; box-shadow: inset 0 0 0 1px rgba(9,41,29,.35); }
-  @media (max-width: 700px) { .access-map-grid, #story .stat-row, .county-map-footer, .food-bank-striker { grid-template-columns: 1fr; } }
+  .access-legend i { display: block; width: 100%; height: .5rem; background: linear-gradient(90deg,#c78350 0%,#d9b879 25%,#e0d39a 50%,#75a660 72%,#174b35 100%); border-radius: .25rem; box-shadow: inset 0 0 0 1px rgba(9,41,29,.35); }
+  @media (max-width: 700px) { .access-explorer, #story .stat-row, .county-map-footer, .food-bank-striker { grid-template-columns: 1fr; } }
 </style>
 <!-- Needed only when this file is opened on its own; index.html already loads these. -->
 <script data-standalone-only src="https://cdn.jsdelivr.net/npm/d3@7"></script>
@@ -196,71 +255,152 @@
   };
   const startYear = 2015, endYear = 2019;
   const pctChange = (a, b) => a > 0 && isFinite(b) ? (b - a) / a * 100 : null;
-  const interpolatedValue = (row, year) => {
-    const start = +row.LACCESS_POP15, end = +row.LACCESS_POP19;
-    if (!isFinite(start) || !isFinite(end)) return null;
-    const progress = (year - startYear) / (endYear - startYear);
-    return pctChange(start, start + (end - start) * progress);
-  };
-  const countyRecords = (rows, year) => new Map(rows.map(r => [r.FIPS, { change: interpolatedValue(r, year), population: interpolatedPopulation(r, year) }]).filter(([, v]) => v.change !== null));
-  const stateRecords = (rows, year) => {
-    const sums = d3.rollup(rows.filter(r => r.LACCESS_POP15 !== '' && r.LACCESS_POP19 !== ''), g => [d3.sum(g, r => +r.LACCESS_POP15), d3.sum(g, r => +r.LACCESS_POP19)], r => r.FIPS.slice(0, 2));
+  const progressAt = year => (year - startYear) / (endYear - startYear);
+  // Low-access population per area (state or county) at the chosen year, as % change from 2015.
+  const areaRecords = (rows, year, byState) => {
+    const sums = d3.rollup(rows, g => [d3.sum(g, r => +r.LACCESS_POP15), d3.sum(g, r => +r.LACCESS_POP19)], r => byState ? r.FIPS.slice(0, 2) : r.FIPS);
     return new Map([...sums].map(([k, [a, b]]) => {
-      const progress = (year - startYear) / (endYear - startYear);
-      const population = a + (b - a) * progress;
+      const population = a + (b - a) * progressAt(year);
       return [k, { change: pctChange(a, population), population }];
     }).filter(([, v]) => v.change !== null));
   };
-  const interpolatedPopulation = (row, year) => {
-    const start = +row.LACCESS_POP15, end = +row.LACCESS_POP19;
-    if (!isFinite(start) || !isFinite(end)) return null;
-    return start + (end - start) * (year - startYear) / (endYear - startYear);
+  // People gaining access = drop in low-access population, summed over counties where it fell;
+  // people losing access = rise, summed over counties where it grew.
+  const flows = (rows, year) => {
+    let gain = 0, lose = 0;
+    rows.forEach(r => { const d = (+r.LACCESS_POP19 - +r.LACCESS_POP15) * progressAt(year); if (d < 0) gain -= d; else lose += d; });
+    return { gain, lose };
+  };
+  // Pick a round "people per icon" so the larger group reaches about 120 icons by 2019
+  // (50,000 per icon at the national level).
+  const niceUnit = max => {
+    if (!(max > 0)) return 1;
+    const raw = max / 120, p = 10 ** Math.floor(Math.log10(raw));
+    return [1, 2, 5, 10].map(m => m * p).find(s => s >= raw);
   };
   const category = change => change < -1 ? 'improving' : change > 1 ? 'worsening' : 'stagnant';
-  const summaryHtml = records => {
-    const summary = d3.rollup([...records.values()], group => ({
-      count: group.length,
-      population: d3.sum(group, d => d.population)
-    }), d => category(d.change));
-    return ['improving', 'stagnant', 'worsening'].map(type => {
-      const item = summary.get(type) || { count: 0, population: 0 };
-      return `<div class="access-summary-item ${type}"><strong>${item.count.toLocaleString()}</strong><span>${type}</span><small>${Math.round(item.population).toLocaleString()} people</small></div>`;
-    }).join('');
-  };
+  const renderIcons = (selector, n) => d3.select(selector).selectAll('svg.person').data(d3.range(n))
+    .join(enter => enter.append('svg').attr('class', 'person').call(s => s.append('use').attr('href', '#access-person-icon')));
   const tip = d3.select('body').append('div').attr('class','map-tip');
-  const draw = (id, features, records, county, stateBorders, stateNames) => {
-    const svg = d3.select('#' + id), figure = svg.node().parentNode;
-    const summary = d3.select('#' + id.replace('-map', '-summary'));
-    const layer = svg.selectAll('g.map-layer').data([null]).join('g').attr('class', 'map-layer');
-    const width = Math.max(280, figure.clientWidth - 32), height = width * .62;
-    const projection = d3.geoAlbersUsa().fitSize([width, height], {type:'FeatureCollection', features}), path = d3.geoPath(projection);
-    const key = d => String(d.id).padStart(county ? 5 : 2, '0');
-    const name = d => {
-      const base = d.properties?.name || d.properties?.NAME || (county ? `County ${d.id}` : `State ${d.id}`);
-      const state = county && stateNames?.get(key(d).slice(0, 2));
-      return state ? `${base}, ${state}` : base;
+
+  // Landscape scenery behind the viz: plains (little change), desert (access lost), forest (access gained).
+  const ridge = (svg, y, amp, freq, phase, fill) => {
+    const pts = d3.range(0, 1221, 20).map(x => [x, y + Math.sin(x / freq + phase) * amp + Math.sin(x / (freq * .43) + phase * 2) * amp * .35]);
+    svg.append('path').attr('fill', fill).attr('d', d3.line().curve(d3.curveBasis)(pts) + 'L1220,300L0,300Z');
+  };
+  const place = (svg, symbol, items) => svg.selectAll(null).data(items).join('use').attr('href', symbol)
+    .attr('x', d => d.x).attr('y', d => d.y - d.h).attr('width', d => d.w).attr('height', d => d.h).attr('fill', d => d.fill);
+  const jitter = (i, m) => (i * 53 % m) - m / 2;
+  (() => {
+    const desert = d3.select('#biome-desert');
+    desert.append('circle').attr('cx', 950).attr('cy', 95).attr('r', 48).attr('fill', '#f6c06a').attr('opacity', .55);
+    ridge(desert, 190, 18, 140, 0, '#94552a');
+    ridge(desert, 232, 14, 95, 1.7, '#b06c37');
+    place(desert, '#biome-cactus', [120, 360, 640, 900, 1110].map((x, i) => ({ x, y: 262 + jitter(i, 10), w: 26 + i % 3 * 6, h: 60 + i % 3 * 14, fill: '#4d4a22' })));
+    ridge(desert, 272, 9, 70, 3.1, '#7e4320');
+    const plains = d3.select('#biome-plains');
+    ridge(plains, 200, 16, 160, .5, '#55702a');
+    ridge(plains, 238, 12, 110, 2.2, '#47611f');
+    ridge(plains, 272, 8, 80, 4, '#3a521a');
+    place(plains, '#biome-tuft', d3.range(60).map(i => ({ x: i * 20 + jitter(i, 12), y: 284 + jitter(i * 7, 14), w: 18, h: 11 + i % 3 * 3, fill: '#76963a' })));
+    const forest = d3.select('#biome-forest');
+    [[45, 225, 85, '#1c4a2c'], [32, 262, 115, '#14391f'], [18, 300, 150, '#0b2414']].forEach(([n, base, h, fill], row) => {
+      place(forest, '#biome-pine', d3.range(n).map(i => ({ x: i * 1220 / n + jitter(i + row * 11, 30) - 20, y: base + jitter(i * 3 + row, 16), w: h * .42, h: h + jitter(i * 5 + row, 30), fill })));
+    });
+  })();
+  // Fade desert in as the low-access population rises, forest in as it falls; plains stay underneath.
+  const setBiome = change => {
+    const c = change ?? 0, strength = v => Math.min(1, Math.max(0, (v - 1) / 14));
+    d3.select('.biome-desert').style('opacity', strength(c));
+    d3.select('.biome-forest').style('opacity', strength(-c));
+  };
+  const totalChange = (rows, year) => {
+    const a = d3.sum(rows, r => +r.LACCESS_POP15), b = d3.sum(rows, r => +r.LACCESS_POP19);
+    return pctChange(a, a + (b - a) * progressAt(year));
+  };
+
+  const explorer = (states, counties, stateNames, rows) => {
+    const svg = d3.select('#access-map'), figure = svg.node().parentNode;
+    const heading = d3.select('#access-map-heading'), back = document.querySelector('#access-map-back');
+    let view = null, picked = null, year = startYear, areas = d3.select(null), records = new Map(), scopeRows = rows, panelRows = rows, unit = 1;
+    const key = d => String(d.id).padStart(view ? 5 : 2, '0');
+    const name = d => d.properties?.name || (view ? `County ${d.id}` : `State ${d.id}`);
+    const showTip = (event, d) => {
+      const v = records.get(key(d))?.change;
+      const label = view ? `${name(d)}, ${stateNames.get(view)}` : name(d);
+      tip.html(`<strong>${label}</strong><br>${v == null ? 'No data available' : `Low-access population, ${startYear}–${year}: ${v > 0 ? '+' : ''}${v.toFixed(1)}%`}`)
+        .classed('visible', true).style('left', `${event.clientX + 14}px`).style('top', `${event.clientY + 14}px`);
     };
-    svg.attr('viewBox', `0 0 ${width} ${height}`).attr('preserveAspectRatio','xMidYMid meet');
-    const areas = layer.selectAll('path.area').data(features).join('path').attr('class', 'area').attr('d', path).attr('stroke', county ? '#3d4d18' : '#c8efad').attr('stroke-width', county ? .35 : .8);
-    let activeRecords = records, activeYear = startYear;
-    const update = (nextRecords, year) => {
-      activeRecords = nextRecords;
-      activeYear = year;
-      areas.attr('fill', d => color(activeRecords.get(key(d))?.change ?? 0));
-      summary.html(summaryHtml(activeRecords));
+    const update = () => {
+      records = areaRecords(scopeRows, year, !view);
+      areas.attr('fill', d => color(records.get(key(d))?.change ?? 0));
+      const f = flows(panelRows, year), counts = d3.rollup([...records.values()], g => g.length, d => category(d.change));
+      const areaWord = view ? 'counties' : 'states';
+      const change = totalChange(panelRows, year);
+      setBiome(change);
+      d3.select('#access-place-change').text(change == null ? 'No data available'
+        : `Low-access population ${change > 0 ? '+' : ''}${change.toFixed(1)}% since ${startYear} · ${change > 1 ? (change > 15 ? 'desert' : 'drying out') : change < -1 ? (change < -15 ? 'forest' : 'greening') : 'grassland'}`);
+      d3.select('#access-people-unit').text(unit.toLocaleString());
+      d3.select('#access-gain-value').text(Math.round(f.gain).toLocaleString());
+      d3.select('#access-lose-value').text(Math.round(f.lose).toLocaleString());
+      d3.select('#access-summary').html(['improving', 'stagnant', 'worsening'].map(type =>
+        `<div class="access-summary-item ${type}"><strong>${(counts.get(type) || 0).toLocaleString()}</strong><span>${areaWord} ${type}</span></div>`).join(''));
+      renderIcons('#access-gain-icons', Math.round(f.gain / unit));
+      renderIcons('#access-lose-icons', Math.round(f.lose / unit));
     };
-    areas
-      .on('pointerenter', function(event, d) { const record = activeRecords.get(key(d)); const v = record?.change; d3.select(this).classed('is-selected', true); tip.html(`<strong>${name(d)}</strong><br>${v == null ? 'No data available' : `Low-access population, ${startYear}–${activeYear}: ${v > 0 ? '+' : ''}${v.toFixed(1)}%`}`).classed('visible', true).style('left', `${event.clientX + 14}px`).style('top', `${event.clientY + 14}px`); })
-      .on('pointermove', event => tip.style('left', `${event.clientX + 14}px`).style('top', `${event.clientY + 14}px`))
-      .on('pointerleave', function() { d3.select(this).classed('is-selected', false); tip.classed('visible', false); })
-      .on('click', function() { d3.select(this).classed('is-selected', !d3.select(this).classed('is-selected')); });
-    // State outlines drawn over the counties; they don't block hovering.
-    if (stateBorders) layer.selectAll('path.state-borders').data([stateBorders]).join('path').attr('class', 'state-borders').attr('d', path).attr('fill', 'none').attr('stroke', '#e9f6dc').attr('stroke-width', .9).attr('pointer-events', 'none');
-    if (county) {
-      svg.call(d3.zoom().scaleExtent([1, 8]).translateExtent([[0, 0], [width, height]]).on('zoom', event => layer.attr('transform', event.transform)));
-    }
-    update(records, startYear);
-    return update;
+    // The side panel and background follow the clicked county if there is one, otherwise the whole map.
+    const setPanelScope = () => {
+      panelRows = picked ? scopeRows.filter(r => r.FIPS === picked) : scopeRows;
+      const end = flows(panelRows, endYear);
+      unit = niceUnit(Math.max(end.gain, end.lose));
+      const county = picked && counties.find(d => String(d.id).padStart(5, '0') === picked);
+      d3.select('#access-people-place').text(county ? `${county.properties?.name || 'County'}, ${stateNames.get(view)}` : view ? stateNames.get(view) : 'United States');
+      areas.classed('is-selected', d => key(d) === picked).filter(d => key(d) === picked).raise();
+    };
+    const pick = fips => { picked = fips === picked ? null : fips; setPanelScope(); update(); };
+    const render = () => {
+      tip.classed('visible', false);
+      scopeRows = view ? rows.filter(r => r.FIPS.startsWith(view)) : rows;
+      picked = null;
+      const features = view ? counties.filter(d => key(d).startsWith(view)) : states;
+      const width = Math.max(280, figure.clientWidth - 32), height = Math.round(width * .62);
+      const path = d3.geoPath(d3.geoAlbersUsa().fitExtent([[12, 12], [width - 12, height - 12]], { type: 'FeatureCollection', features }));
+      svg.attr('viewBox', `0 0 ${width} ${height}`).attr('preserveAspectRatio', 'xMidYMid meet').classed('is-us', !view)
+        .attr('aria-label', view ? `${stateNames.get(view)} map of food access change by county.` : 'United States map of food access change by state. Select a state to see its counties.');
+      svg.selectAll('g.map-layer').remove();
+      const layer = svg.append('g').attr('class', 'map-layer is-entering');
+      areas = layer.selectAll('path.area').data(features).join('path').attr('class', 'area').attr('d', path)
+        .attr('stroke', view ? '#3d4d18' : '#c8efad').attr('stroke-width', view ? .5 : .8)
+        .on('pointerenter', showTip)
+        .on('pointermove', event => tip.style('left', `${event.clientX + 14}px`).style('top', `${event.clientY + 14}px`))
+        .on('pointerleave', () => tip.classed('visible', false));
+      const activate = d => view ? pick(key(d)) : select(key(d));
+      areas.attr('tabindex', 0).attr('role', 'button').attr('aria-label', d => view ? `${name(d)}: show county numbers` : `${name(d)}: show counties`)
+        .on('click', (event, d) => activate(d))
+        .on('keydown', (event, d) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); activate(d); } });
+      if (view) {
+        const outline = states.find(d => String(d.id).padStart(2, '0') === view);
+        if (outline) layer.append('path').datum(outline).attr('class', 'state-outline').attr('d', path).attr('fill', 'none').attr('stroke', '#e9f6dc').attr('stroke-width', 1.4).attr('pointer-events', 'none');
+      }
+      heading.text(view ? stateNames.get(view) : 'United States')
+        .append('span').attr('class', 'map-hint').text(view ? 'click a county for its numbers' : 'click a state for its counties');
+      setPanelScope();
+      back.hidden = !view;
+      layer.node().getBoundingClientRect();
+      layer.classed('is-entering', false);
+      update();
+    };
+    const select = fips => { view = fips; render(); back.focus(); };
+    // Clicking empty map space clears a county selection.
+    svg.on('click', event => { if (picked && event.target === svg.node()) pick(picked); });
+    back.addEventListener('click', () => {
+      const previous = view;
+      view = null;
+      render();
+      areas.filter(d => key(d) === previous).node()?.focus();
+    });
+    render();
+    return nextYear => { year = nextYear; update(); };
   };
   // Render the geography independently of the optional local CSV files. This
   // keeps the maps visible when this page is opened directly as file://.
@@ -284,22 +424,20 @@
       const counties = atlas.objects.counties
         ? topojson.feature(atlas, atlas.objects.counties).features
         : states;
-      const stateMap = draw('state-access-map', states, stateRecords(rows, startYear), false);
       const stateNames = new Map(states.map(d => [String(d.id).padStart(2, '0'), d.properties.name]));
-      const stateBorders = topojson.mesh(atlas, atlas.objects.states, (a, b) => a !== b);
-      const countyMap = draw('county-access-map', counties, countyRecords(rows, startYear), Boolean(atlas.objects.counties), stateBorders, stateNames);
+      const validRows = rows.filter(r => r.LACCESS_POP15 !== '' && r.LACCESS_POP19 !== '' && isFinite(+r.LACCESS_POP15) && isFinite(+r.LACCESS_POP19));
+      const setYear = explorer(states, counties, stateNames, validRows);
       const yearInput = document.querySelector('#access-year');
       const yearValue = document.querySelector('#access-year-value');
       yearInput.addEventListener('input', () => {
         const year = Number(yearInput.value);
         yearValue.textContent = year;
         yearInput.setAttribute('aria-valuenow', year);
-        stateMap(stateRecords(rows, year), year);
-        countyMap(countyRecords(rows, year), year);
+        setYear(year);
       });
     }))
     .catch(error => {
-      document.querySelectorAll('.access-map-grid figure').forEach(figure => {
+      document.querySelectorAll('.access-map-figure').forEach(figure => {
         figure.insertAdjacentHTML('beforeend', '<p role="status">Maps could not load. Open this page through a local web server to enable map data.</p>');
       });
       console.warn(error);
