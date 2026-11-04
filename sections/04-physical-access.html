@@ -31,6 +31,44 @@
     <p id="map-status" class="county-map-status" role="status" aria-live="polite">Loading county data and map boundaries…</p>
     <p class="source-note">Source: USDA Food Environment Atlas, 2019. Low income and low access is a USDA measure; it does not capture every dimension of food insecurity.</p>
   </div>
+  <div class="food-bank-striker" aria-labelledby="food-bank-striker-title">
+    <div class="striker-copy">
+      <h3 id="food-bank-striker-title">Can support reach the people who need it?</h3>
+      <p>Select a state on the map above. The bell marks its low-income, low-access population; the striker’s peak shows its reported food-bank count. The striker rises and falls to make the comparison visible.</p>
+    </div>
+    <div class="striker-visual">
+      <svg id="food-bank-striker" viewBox="0 0 520 340" role="img" aria-labelledby="striker-svg-title striker-svg-description">
+        <title id="striker-svg-title">State food-bank support high striker</title>
+        <desc id="striker-svg-description">Select a state on the map to compare its low-income, low-access population and food-bank count.</desc>
+        <defs>
+          <linearGradient id="striker-rail-gradient" x1="0" x2="1">
+            <stop offset="0" stop-color="#ff765c"></stop>
+            <stop offset="1" stop-color="#ffd166"></stop>
+          </linearGradient>
+        </defs>
+        <line x1="260" y1="42" x2="260" y2="276" class="striker-rail"></line>
+        <line id="striker-population-level" x1="220" y1="244" x2="300" y2="244" class="striker-base"></line>
+        <g class="striker-puck" id="striker-puck" aria-hidden="true">
+          <rect x="239" y="0" width="42" height="20" rx="8"></rect>
+          <line x1="260" y1="20" x2="260" y2="32"></line>
+        </g>
+        <g class="striker-bell" transform="translate(260 292)" aria-hidden="true">
+          <path d="M-19 0h38l-5-7v-8a14 14 0 0 0-28 0v8z"></path>
+          <path d="M-5 5a5 5 0 0 0 10 0"></path>
+        </g>
+        <text x="260" y="326" text-anchor="middle" class="striker-bell-label">PEOPLE IN LOW-INCOME, LOW-ACCESS AREAS</text>
+        <text x="306" y="54" class="striker-scale-label" id="striker-scale-max">FOOD BANKS</text>
+        <text x="306" y="244" class="striker-scale-label" id="striker-population-label">LOW-ACCESS LEVEL</text>
+        <text x="42" y="68" class="striker-state-label" id="striker-state">Select a state</text>
+        <text x="42" y="132" class="striker-value" id="striker-bank-value">—</text>
+        <text x="42" y="153" class="striker-scale-label">REPORTED FOOD BANKS (2021)</text>
+        <text x="42" y="215" class="striker-value" id="striker-people-value">—</text>
+        <text x="42" y="236" class="striker-scale-label">PEOPLE AFFECTED (2019)</text>
+      </svg>
+    </div>
+    <p class="striker-source">Food-bank counts are a measure of reported locations, not the amount of food or service capacity available. Source: USDA Food Environment Atlas, 2019 low-income/low-access population and 2021 food-bank counts.</p>
+    <p id="striker-motion-status" class="striker-motion-status" role="status" aria-live="polite">Choose a state on the map to see its comparison.</p>
+  </div>
   <div class="access-maps" aria-labelledby="access-maps-title">
     <h3 id="access-maps-title">How physical access changed, 2015–2019</h3>
     <p class="map-intro">Each area shows the percent change in its population with low access to a store. Desert means more people lost easy access; grassland means little change; forest means access improved. Compare the state map with the county map to see how a state's total can hide very different local stories. Hover over any area for its number.</p>
@@ -82,6 +120,22 @@
   .county-map-legend text { fill: #e9f6dc; font: 10px system-ui, sans-serif; }
   .county-map-status, .source-note { color: #c6dab8; font: .78rem/1.5 system-ui, sans-serif; }
   .county-map-status.is-error { color: #ffd166; }
+  .food-bank-striker { display: grid; grid-template-columns: minmax(0, .8fr) minmax(20rem, 1.2fr); align-items: center; gap: clamp(1.5rem, 5vw, 4rem); margin-top: 1.5rem; padding: clamp(1rem, 3vw, 2rem); background: rgba(25, 32, 8, .38); border: 1px solid rgba(174,226,137,.25); border-radius: 1rem; }
+  .striker-copy h3 { margin-bottom: .75rem; }
+  .striker-copy p { max-width: 32rem; color: #d7e7c4; line-height: 1.6; }
+  .striker-visual { min-width: 0; }
+  #food-bank-striker { display: block; width: 100%; max-height: 24rem; overflow: visible; }
+  .striker-rail { stroke: rgba(233,246,220,.45); stroke-width: 12; stroke-linecap: round; }
+  .striker-base { stroke: #ffd166; stroke-width: 5; stroke-linecap: round; }
+  .striker-puck rect { fill: url(#striker-rail-gradient); stroke: #f5f0e8; stroke-width: 2; }
+  .striker-puck line { stroke: #f5f0e8; stroke-width: 4; stroke-linecap: round; }
+  .striker-bell path:first-child { fill: #ffd166; stroke: #f5f0e8; stroke-width: 1.5; }
+  .striker-bell path:last-child { fill: none; stroke: #f5f0e8; stroke-width: 2; }
+  .striker-bell-label, .striker-scale-label { fill: #c6dab8; font: 9px system-ui, sans-serif; letter-spacing: .06em; }
+  .striker-state-label { fill: #f5ffb0; font: 700 18px system-ui, sans-serif; }
+  .striker-value { fill: #f5ffe9; font: 700 27px system-ui, sans-serif; }
+  .striker-source, .striker-motion-status { grid-column: 1 / -1; margin: 0; color: #c6dab8; font: .75rem/1.5 system-ui, sans-serif; }
+  .striker-motion-status { color: #f5ffb0; }
   .access-maps { margin-top: clamp(3rem, 8vw, 7rem); }
   .map-intro { max-width: 42rem; }
   .access-map-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
@@ -116,7 +170,7 @@
   .access-legend-labels span:nth-child(2) { text-align: center; }
   .access-legend-labels span:last-child { text-align: right; }
   .access-legend i { display: block; width: 100%; height: .8rem; background: linear-gradient(90deg,#c78350 0%,#d9b879 25%,#e0d39a 50%,#75a660 72%,#174b35 100%); border-radius: .25rem; box-shadow: inset 0 0 0 1px rgba(9,41,29,.35); }
-  @media (max-width: 700px) { .access-map-grid, #story .stat-row, .county-map-footer { grid-template-columns: 1fr; } }
+  @media (max-width: 700px) { .access-map-grid, #story .stat-row, .county-map-footer, .food-bank-striker { grid-template-columns: 1fr; } }
 </style>
 <!-- Needed only when this file is opened on its own; index.html already loads these. -->
 <script data-standalone-only src="https://cdn.jsdelivr.net/npm/d3@7"></script>

@@ -98,6 +98,11 @@ function drawCountyMap(rows, atlas) {
   const detailImpact = document.querySelector('#county-impact');
   const detailShare = document.querySelector('#county-share');
   const legend = d3.select('#map-legend');
+  const strikerPuck = d3.select('#striker-puck');
+  const strikerPopulationLevel = d3.select('#striker-population-level');
+  const strikerPopulationLabel = d3.select('#striker-population-label');
+  const strikerDescription = document.querySelector('#striker-svg-description');
+  const strikerStatus = document.querySelector('#striker-motion-status');
   const geoPath = d3.geoPath();
   const countyFeatures = topojson.feature(atlas, atlas.objects.counties).features;
   const stateFeatures = topojson.feature(atlas, atlas.objects.states).features;
@@ -130,6 +135,14 @@ function drawCountyMap(rows, atlas) {
     }),
     (county) => county.FIPS.slice(0, 2)
   );
+  const stateFoodBankTotals = d3.rollup(
+    rows,
+    (stateRows) => ({
+      affected: d3.sum(stateRows, (row) => Number.isFinite(row.affected) ? row.affected : 0),
+      foodBanks: d3.sum(stateRows, (row) => Number.isFinite(row.foodBanks) ? row.foodBanks : 0)
+    }),
+    (row) => row.FIPS.slice(0, 2)
+  );
   const maximumShare = d3.max([...stateAverages.values()], (state) => state.share);
   const stateColor = d3.scaleSequential()
     .domain([0, maximumShare || 1])
@@ -141,6 +154,73 @@ function drawCountyMap(rows, atlas) {
     feature
   ]));
   const fipsByState = new Map(counties.map((county) => [county.State, county.FIPS.slice(0, 2)]));
+  const maximumFoodBanks = d3.max([...stateFoodBankTotals.values()], (state) => state.foodBanks) || 1;
+  const strikerPeak = d3.scaleLinear().domain([0, maximumFoodBanks]).range([244, 58]);
+  const maximumAffectedPopulation = d3.max(
+    [...stateFoodBankTotals.values()],
+    (state) => state.affected
+  ) || 1;
+  const populationLevel = d3.scaleLinear()
+    .domain([0, maximumAffectedPopulation])
+    .range([244, 58]);
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const updateStriker = (stateCode) => {
+    strikerPuck.interrupt();
+    if (!stateCode || stateCode === 'all') {
+      strikerPuck.attr('transform', 'translate(0,244)');
+      strikerPopulationLevel.attr('y1', 244).attr('y2', 244);
+      strikerPopulationLabel.attr('y', 244);
+      document.querySelector('#striker-state').textContent = 'Select a state';
+      document.querySelector('#striker-bank-value').textContent = '—';
+      document.querySelector('#striker-people-value').textContent = '—';
+      strikerDescription.textContent =
+        'Select a state on the map to compare its low-income, low-access population and food-bank count.';
+      strikerStatus.textContent = 'Choose a state on the map to see its comparison.';
+      return;
+    }
+
+    const stateFips = fipsByState.get(stateCode);
+    const totals = stateFoodBankTotals.get(stateFips);
+    if (!totals) {
+      strikerStatus.textContent = `No food-bank comparison data is available for ${mapStateNames.get(stateCode) || stateCode}.`;
+      return;
+    }
+    const stateName = mapStateNames.get(stateCode) || stateCode;
+    const peak = strikerPeak(totals.foodBanks);
+    const populationY = populationLevel(totals.affected);
+    strikerPopulationLevel.attr('y1', populationY).attr('y2', populationY);
+    strikerPopulationLabel.attr('y', populationY + 3);
+    document.querySelector('#striker-state').textContent = stateName;
+    document.querySelector('#striker-bank-value').textContent = mapNumberFormat.format(totals.foodBanks);
+    document.querySelector('#striker-people-value').textContent = mapNumberFormat.format(totals.affected);
+    strikerDescription.textContent =
+      `${stateName} has ${mapNumberFormat.format(totals.affected)} people in low-income, low-access areas and ${mapNumberFormat.format(totals.foodBanks)} reported food banks. The yellow level line is positioned by affected population relative to the state maximum; the animated striker peaks according to food-bank count.`;
+
+    strikerPuck.attr('transform', 'translate(0,244)');
+    if (reducedMotion) {
+      strikerPuck.attr('transform', `translate(0,${peak})`);
+      strikerStatus.textContent =
+        `Showing ${stateName}. Animation is paused because reduced motion is enabled.`;
+      return;
+    }
+
+    strikerStatus.textContent =
+      `Showing ${stateName}: the striker rises to the level for ${mapNumberFormat.format(totals.foodBanks)} reported food banks, then returns to the affected-population bell.`;
+    const animate = () => {
+      strikerPuck
+        .transition()
+        .duration(850)
+        .ease(d3.easeCubicOut)
+        .attr('transform', `translate(0,${peak})`)
+        .transition()
+        .duration(850)
+        .ease(d3.easeCubicIn)
+        .attr('transform', 'translate(0,244)')
+        .on('end', animate);
+    };
+    animate();
+  };
 
   const svg = d3.select(mapFrame).append('svg')
     .attr('viewBox', `0 0 ${mapWidth} ${mapHeight}`)
@@ -233,6 +313,7 @@ function drawCountyMap(rows, atlas) {
       detailName.textContent = 'United States';
       detailImpact.textContent = 'Select a state to explore its counties.';
       detailShare.textContent = 'State colors show the unweighted average of county population shares.';
+      updateStriker('all');
       status.textContent = `Showing average county shares for ${stateAverages.size} states. Select a state on the map or in the menu.`;
       svg.transition().duration(500).call(zoom.transform, d3.zoomIdentity);
       return;
@@ -258,6 +339,7 @@ function drawCountyMap(rows, atlas) {
       ? `${stateAverage.share.toFixed(1)}% average county share across ${stateAverage.countyCount} counties.`
       : 'Average county share is not available.';
     detailShare.textContent = 'County bubbles are sized by the number of people in low-income, low-access areas.';
+    updateStriker(stateCode);
     status.textContent = `Showing county bubbles for ${stateName}. Choose “All states” to return to the state averages.`;
     const [[x0, y0], [x1, y1]] = geoPath.bounds(stateFeature);
     const scale = Math.min(8, 0.88 / Math.max((x1 - x0) / mapWidth, (y1 - y0) / mapHeight));
@@ -339,11 +421,13 @@ document.addEventListener('sections:loaded', () => {
       if (!row.FIPS) return null;
       const affectedValue = row['Low Income & Low Access Population 2019'];
       const shareValue = row['Pct Low Income & Low Access Population 2019'];
+      const foodBankValue = row['Food Banks 2021'];
       return {
         ...row,
         FIPS: row.FIPS.padStart(5, '0'),
         affected: affectedValue === '' ? Number.NaN : Number(affectedValue),
-        share: shareValue === '' ? Number.NaN : Number(shareValue)
+        share: shareValue === '' ? Number.NaN : Number(shareValue),
+        foodBanks: foodBankValue === '' ? Number.NaN : Number(foodBankValue)
       };
     }),
     d3.json('https://cdn.jsdelivr.net/npm/us-atlas@3.0.1/counties-10m.json')
