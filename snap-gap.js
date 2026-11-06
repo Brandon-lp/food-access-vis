@@ -13,7 +13,7 @@ const SG_INK = '#1c2147';
 const SG_DURATION = 2200;
 
 const SG_SIZES = {
-  wide: { width: 720, height: 380, top: 24, right: 150, bottom: 36, left: 56, everyYear: 1 },
+  wide: { width: 900, height: 380, top: 24, right: 150, bottom: 36, left: 56, everyYear: 1 },
   compact: { width: 360, height: 320, top: 20, right: 96, bottom: 32, left: 46, everyYear: 2 }
 };
 
@@ -47,7 +47,8 @@ function sgPrepare(snapRows, foodRows) {
 
 function sgDraw(data) {
   const box = document.querySelector('#sg-chart');
-  const size = box.clientWidth < 520 ? SG_SIZES.compact : SG_SIZES.wide;
+  // Phones get the compact frame. (The chart box can also be narrow on short laptop screens, so check the window instead.)
+  const size = window.innerWidth < 700 ? SG_SIZES.compact : SG_SIZES.wide;
   const { width, height, top, right, bottom, left } = size;
   const first = data[0];
   const last = data[data.length - 1];
