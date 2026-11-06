@@ -19,12 +19,12 @@ const STICKER_SPOTS = [
       { name: 'local', bottom: '8%', left: '29%', rotate: 8, phone: false }
     ]
   },
-  {
+    {
     section: '#solution',
     stickers: [
-      { name: 'speak', bottom: '13%', left: '6%', rotate: -9, phone: false },
-      { name: 'your', bottom: '5%', left: '17%', rotate: 7, phone: false },
-      { name: 'mind', bottom: '12%', left: '28%', rotate: -5, phone: false }
+      { name: 'speak', bottom: '70px', left: '6%', rotate: -9, phone: false },
+      { name: 'your', bottom: '24px', left: '17%', rotate: 7, phone: false },
+      { name: 'mind', bottom: '64px', left: '28%', rotate: -5, phone: false }
     ]
   }
 ];
