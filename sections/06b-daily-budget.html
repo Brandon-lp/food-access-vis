@@ -5,7 +5,7 @@
       <h2 id="daily-budget-title">What can <span class="db-num" id="db-h2-num" tabindex="0" aria-describedby="db-math">$1.41</span> of food benefits<br><em>buy in a day?</em></h2>
       <div class="db-tip" id="db-math" role="tooltip">
         <p class="db-tip-title">Where this number comes from</p>
-        <p>Each month, the program spends a set amount on food for every person it helps. We split that amount across the days of the month, using 30.4, the average number of days in a month, to see what is spent on one person in one day.</p>
+        <p>Each month, the program spends a set amount on food for each person it helps. We divide that by 30.4, the average number of days in a month, to get the amount for one day.</p>
         <p class="db-tip-math" id="db-math-line"></p>
       </div>
     </div>
@@ -57,11 +57,11 @@
   #daily-budget .db-num::after { content: "?"; margin-left: .22em; font-family: var(--mono); font-size: .3em; font-weight: 600; vertical-align: top; opacity: .75; }
   #daily-budget .db-num:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
   #daily-budget .db-titlebox { position: relative; }
-  #daily-budget .db-tip { position: absolute; z-index: 5; left: 0; top: 100%; width: min(390px, 100%); margin-top: 4px; padding: 16px 18px; color: var(--paper); background: var(--ink); box-shadow: 0 14px 30px rgba(28, 33, 71, .28); font-size: 14px; line-height: 1.55; visibility: hidden; opacity: 0; transform: translateY(6px); transition: opacity .15s, transform .15s, visibility .15s; }
+  #daily-budget .db-tip { position: absolute; z-index: 5; left: 0; top: calc(100% + 4px); width: min(300px, 100%); max-height: 220px; overflow-y: auto; margin: 0; padding: 12px 14px; color: var(--paper); background: var(--ink); box-shadow: 0 14px 30px rgba(28, 33, 71, .28); font-size: 13px; line-height: 1.5; visibility: hidden; opacity: 0; transform: translateY(6px); transition: opacity .15s, transform .15s, visibility .15s; }
   #daily-budget .db-titlebox.is-open .db-tip { visibility: visible; opacity: 1; transform: none; }
-  #daily-budget .db-tip p { margin: 0 0 10px; }
-  #daily-budget .db-tip-title { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; opacity: .7; }
-  #daily-budget .db-tip-math { margin: 12px 0 0 !important; padding-top: 12px; border-top: 1px solid rgba(245, 240, 232, .3); font-family: var(--mono); font-size: 13px; }
+  #daily-budget .db-tip p { margin: 0 0 8px; }
+  #daily-budget .db-tip-title { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; opacity: .7; }
+  #daily-budget .db-tip-math { margin: 8px 0 0 !important; padding-top: 8px; border-top: 1px solid rgba(245, 240, 232, .3); font-family: var(--mono); font-size: 12px; }
   #daily-budget .db-prompt { display: block; margin: 22px 0 0; font-size: 20px; font-weight: 600; letter-spacing: -.03em; }
   #daily-budget .db-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   #daily-budget .db-shell { container: db / inline-size; margin-top: clamp(40px, 6vw, 70px); border-top: 1px solid var(--line); }
@@ -252,7 +252,18 @@
     // The highlighted number opens a short explanation on hover, keyboard focus or tap.
     const box = root.querySelector('.db-titlebox'), num = $('#db-h2-num'), tip = $('#db-math');
     let timer;
-    const open = () => { clearTimeout(timer); box.classList.add('is-open'); };
+    // Put the card to the upper right of the number. If there is no room, it uses the default spot under the title.
+    const place = () => {
+      const b = box.getBoundingClientRect(), n = num.getBoundingClientRect();
+      const w = tip.offsetWidth, h = tip.offsetHeight, gap = 8;
+      let left = '', top = '';
+      if (window.innerWidth - n.right - 16 >= w) {
+        left = (n.right - b.left + gap) + 'px';
+        top = (n.top - h - gap >= 8 ? n.top - b.top - h - gap : n.top - b.top) + 'px';
+      }
+      tip.style.left = left; tip.style.top = top;
+    };
+    const open = () => { clearTimeout(timer); place(); box.classList.add('is-open'); };
     const close = () => { timer = setTimeout(() => box.classList.remove('is-open'), 150); };
     [num, tip].forEach((el) => { el.addEventListener('mouseenter', open); el.addEventListener('mouseleave', close); });
     num.addEventListener('focus', open);
