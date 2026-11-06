@@ -16,6 +16,7 @@ The main page follows the storyboard and is split into independently editable fi
 - `sections/04-physical-access.html`: Part 2, physical access maps
 - `sections/05-race.html`: Part 3, low access by demographic
 - `sections/06-economic-access.html`: Part 4, food sales and income
+- `sections/06b-daily-budget.html`: Part 4b, daily food budget (what a state's average daily food-benefit amount per person buys)
 - `sections/07-main-message.html`: Part 5, who receives SNAP
 - `sections/08-solution.html`: Solution, taking action and project link (placeholder copy)
 - `sections/09-footer.html`: footer content
