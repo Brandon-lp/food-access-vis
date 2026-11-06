@@ -1,12 +1,12 @@
 <section class="about-section" id="solution" aria-labelledby="solution-title">
   <div class="section-index">07 <span>Take action</span></div>
-  <div class="about-grid">
+    <div class="about-grid sol-head">
     <h2 id="solution-title">You can<br><em>take action.</em></h2>
-    <div class="sol-body">
-  <p>Food access is not one problem, so there is no single fix. Across this story, three things stood out. Each one points to something you can do.</p>
-  <p>Good visualization starts with a specific question. Who is missing from the average? What changes when distance is measured by transit instead of miles? Which places become visible when you look at race, age, or income?</p>
-  <a class="text-link" href="https://github.com/Brandon-lp/food-access-vis" target="_blank" rel="noreferrer">View the project on GitHub <span aria-hidden="true">&#8599;</span></a>
-</div>
+    <p class="sol-lead">Food access is not one problem, so there is no single fix. Across this story, three things stood out. Each one points to something you can do.</p>
+    <div class="sol-ask">
+      <p>Good visualization starts with a specific question. Who is missing from the average? What changes when distance is measured by transit instead of miles? Which places become visible when you look at race, age, or income?</p>
+      <a class="text-link" href="https://github.com/Brandon-lp/food-access-vis" target="_blank" rel="noreferrer">View the project on GitHub <span aria-hidden="true">&#8599;</span></a>
+    </div>
   </div>
 
   <ol class="sol-list">
@@ -64,6 +64,13 @@
 
 <style>
   /* Scoped to #solution so these rules don't affect other sections. */
+  #solution .sol-head { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 40px; align-items: start; }
+  #solution .sol-head p { margin: 0 0 20px; font-size: clamp(16px, 1.4vw, 20px); line-height: 1.5; }
+  #solution .sol-head .sol-lead { margin: 0; padding-top: 12px; }
+  #solution .sol-ask { padding-top: 12px; }
+  @media (max-width: 900px) {
+    #solution .sol-head { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  }
   #solution .sol-list { list-style: none; margin: 32px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
   #solution .sol-item { display: flex; flex-direction: column; padding: 20px 0 0; border-top: 1px solid var(--line); }
   #solution .sol-pic { color: var(--ink); width: 72px; height: 72px; padding: 8px; margin-bottom: 14px; background: rgba(28, 33, 71, .05); }
