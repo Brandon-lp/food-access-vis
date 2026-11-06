@@ -51,7 +51,7 @@
 .demographics-section { padding-top: 70px; padding-bottom: 70px; }
 .demographics-section .section-index { margin-bottom: 36px; }
 .demographics-section h2 { margin-bottom: 0; font-size: clamp(40px, 4.2vw, 64px); }
-.demographics-section .sg-intro { max-width: 640px; margin-top: 6px; font-size: 17px; line-height: 1.5; }
+.demographics-section .sg-intro { max-width: 640px; margin-top: 6px; font-size: var(--body-size); line-height: var(--body-leading); }
 .demographics-section .sg-intro p { margin: 0; }
 .sg-layout { position: relative; display: grid; grid-template-columns: 1fr 1.8fr; gap: 40px clamp(32px, 5vw, 90px); align-items: start; }
 /* Stickers: one beside the title, one in the open space under the stats. */
