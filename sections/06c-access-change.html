@@ -6,15 +6,14 @@
   </div>
   <div class="section-index">05c <span>Access over time</span></div>
   <div class="story-grid">
-    <div><h2 id="access-change-title">Access shifted,<br><em>place by place.</em></h2></div>
+    <div><h2 id="access-change-title">How access<br><em>has changed.</em></h2></div>
     <div class="story-text">
-      <p>Between 2015 and 2019, the number of people with low access to a store fell by only about <strong>1%</strong> nationwide. Underneath that flat total, places moved in opposite directions. Access improved in 32 states and worsened in 19. Across counties the split was almost even, and more than 1,200 counties shifted by over 10% one way or the other.</p>
-    </div>
+      <p>From 2015 to 2019, the number of people with low access to a store fell only about <strong>1%</strong> nationwide. That flat total hides opposite moves: low access fell in 32 states and rose in 19, and more than 1,200 counties shifted by over 10%.</p>    </div>
   </div>
   <div class="access-stats" aria-label="Key statistics">
     <div class="access-stat"><strong>68.6M</strong><span>people with low access to a store in 2019</span></div>
     <div class="access-stat is-improving"><strong>&minus;1%</strong><span>national change since 2015</span></div>
-    <div class="access-stat is-worsening"><strong>1,398</strong><span>counties where low access grew</span></div>
+    <div class="access-stat is-worsening"><strong>1,398</strong><span>counties where the low-access population rose at all, 2015&ndash;2019</span></div>
   </div>
   <div class="access-maps" aria-labelledby="access-maps-title">
     <h3 id="access-maps-title">How physical access changed across time</h3>
@@ -25,6 +24,7 @@
       <symbol id="biome-pine" viewBox="0 0 40 100"><polygon points="20,0 33,28 26,28 37,52 29,52 40,80 22,80 22,100 18,100 18,80 0,80 11,52 3,52 14,28 7,28"></polygon></symbol>
       <symbol id="biome-cactus" viewBox="0 0 44 100"><path d="M16 100V18a6 6 0 0 1 12 0v82z M16 58H9a7 7 0 0 1-7-7V36a4 4 0 0 1 8 0v12h6z M28 46h6V28a4 4 0 0 1 8 0v18a7 7 0 0 1-7 7h-7z"></path></symbol>
       <symbol id="biome-tuft" viewBox="0 0 20 12"><path d="M0 12 3 2 6 12 9 0 12 12 15 3 18 12z"></path></symbol>
+      <pattern id="access-nodata" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#4b4c3c"></rect><line x1="0" y1="0" x2="0" y2="6" stroke="#9a9a82" stroke-width="2"></line></pattern>
     </svg>
     <div class="access-explorer">
       <figure class="access-map-figure">
@@ -34,8 +34,9 @@
         </figcaption>
         <svg id="access-map" role="img" aria-label="United States map of food access change by state. Select a state to see its counties."></svg>
         <div class="access-legend" aria-label="Map color scale">
-          <div class="access-legend-labels"><span>decreased</span><span>no change</span><span>improved</span></div>
+          <div class="access-legend-labels"><span>access decreased<br>(+25% or more)</span><span>no change</span><span>access improved<br>(&minus;25% or more)</span></div>
           <i aria-hidden="true"></i>
+          <div class="access-legend-nodata"><svg aria-hidden="true"><rect width="100%" height="100%" fill="url(#access-nodata)"></rect></svg>% change undefined (2015 baseline of 0) or no data</div>
         </div>
       </figure>
       <aside class="access-people" aria-labelledby="access-people-place">
@@ -45,7 +46,10 @@
           <div class="access-year-endpoints" aria-hidden="true"><span>2015</span><span>2019</span></div>
         </div>
         <div><h4 id="access-people-place">United States</h4><p class="access-place-change" id="access-place-change"></p></div>
-        <div class="access-summary" id="access-summary" aria-live="polite"></div>
+        <div>
+          <div class="access-summary" id="access-summary" aria-live="polite"></div>
+          <p class="access-note access-excluded" id="access-excluded" hidden></p>
+        </div>
         <div class="access-people-group gaining">
           <div class="access-people-head"><strong id="access-gain-value">0</strong><span>people gained access</span></div>
           <div class="access-people-icons" id="access-gain-icons" aria-hidden="true"></div>
@@ -119,6 +123,11 @@
   .access-summary-item strong, .access-summary-item span { display: block; }
   .access-summary-item strong { font-size: 1rem; font-variant-numeric: tabular-nums; }
   .access-summary-item span { color: #c6dab8; font: .62rem/1.2 system-ui, sans-serif; }
+  .access-summary-item small { display: block; margin-top: .1rem; color: #c6dab8; font: .58rem/1.2 system-ui, sans-serif; opacity: .85; }
+  .access-note { margin: .35rem 0 0; color: #c6dab8; font: .64rem/1.35 system-ui, sans-serif; }
+  .access-excluded { color: #e9e3c8; }
+  .access-legend-nodata { display: flex; align-items: center; gap: .4rem; margin-top: .35rem; color: #c6dab8; }
+  .access-legend-nodata svg { width: 1.4rem; height: .7rem; border-radius: .15rem; }
   .access-summary-item.improving { color: #9fd17f; }
   .access-summary-item.stagnant { color: #d9b879; }
   .access-summary-item.worsening { color: #e0a070; }
@@ -179,9 +188,12 @@
     const sums = d3.rollup(rows, g => [d3.sum(g, r => +r.LACCESS_POP15), d3.sum(g, r => +r.LACCESS_POP19)], r => byState ? r.FIPS.slice(0, 2) : r.FIPS);
     return new Map([...sums].map(([k, [a, b]]) => {
       const population = a + (b - a) * progressAt(year);
-      return [k, { change: pctChange(a, population), population }];
+      return [k, { change: pctChange(a, population), population, start: a }];
     }).filter(([, v]) => v.change !== null));
   };
+  // Only 2015 and 2019 are measured; years in between are straight-line estimates.
+  const yearLabel = year => year > startYear && year < endYear ? `${year} (estimated)` : String(year);
+  const fmt = n => Math.round(n).toLocaleString();
   // People gaining access = drop in low-access population, summed over counties where it fell;
   // people losing access = rise, summed over counties where it grew.
   const flows = (rows, year) => {
@@ -268,27 +280,42 @@
     let view = null, picked = null, year = startYear, areas = d3.select(null), records = new Map(), scopeRows = rows, panelRows = rows, unit = 1;
     const key = d => String(d.id).padStart(view ? 5 : 2, '0');
     const name = d => d.properties?.name || (view ? `County ${d.id}` : `State ${d.id}`);
+    const byFips = new Map(rows.map(r => [r.FIPS, r]));
+    const interpolated = r => +r.LACCESS_POP15 + (+r.LACCESS_POP19 - +r.LACCESS_POP15) * progressAt(year);
+    // Why an area has no % change: a zero 2015 baseline (county has data) or no usable data at all.
+    const isZeroBaseline = fips => view && byFips.has(fips);
+    const noChangeText = fips => isZeroBaseline(fips)
+      ? `0 people with low access in 2015, so % change can't be calculated (${fmt(interpolated(byFips.get(fips)))} in ${yearLabel(year)})`
+      : 'No usable USDA data for this area';
+    const thresholds = { improving: 'fell more than 1%', stagnant: 'changed 1% or less', worsening: 'rose more than 1%' };
     const showTip = (event, d) => {
-      const v = records.get(key(d))?.change;
+      const r = records.get(key(d)), v = r?.change;
       const label = view ? `${name(d)}, ${stateNames.get(view)}` : name(d);
-      tip.html(`<strong>${label}</strong><br>${v == null ? 'No data available' : `Low-access population, ${startYear}–${year}: ${v > 0 ? '+' : ''}${v.toFixed(1)}%`}`)
+      tip.html(`<strong>${label}</strong><br>${v == null ? noChangeText(key(d))
+        : `Low-access population: ${fmt(r.start)} in ${startYear} &rarr; ${fmt(r.population)} in ${yearLabel(year)}<br>Change: ${v > 0 ? '+' : ''}${v.toFixed(1)}% &middot; ${category(v)} (${thresholds[category(v)]})`}`)
         .classed('visible', true).style('left', `${event.clientX + 14}px`).style('top', `${event.clientY + 14}px`);
     };
     const update = () => {
       records = areaRecords(scopeRows, year, !view);
-      areas.attr('fill', d => color(records.get(key(d))?.change ?? 0));
+      areas.attr('fill', d => records.has(key(d)) ? color(records.get(key(d)).change) : 'url(#access-nodata)');
       const f = flows(panelRows, year), counts = d3.rollup([...records.values()], g => g.length, d => category(d.change));
       const areaWord = view ? 'counties' : 'states';
       const change = totalChange(panelRows, year);
       setBiome(change);
       setFruit(change);
-      d3.select('#access-place-change').text(change == null ? 'No data available'
-        : `Low-access population ${change > 0 ? '+' : ''}${change.toFixed(1)}% since ${startYear} · ${change > 1 ? (change > 15 ? 'desert' : 'drying out') : change < -1 ? (change < -15 ? 'forest' : 'greening') : 'grassland'}`);
+      d3.select('#access-place-change').html(change == null ? (picked ? noChangeText(picked) : 'No usable data')
+        : `Low-access population ${change > 0 ? '+' : ''}${change.toFixed(1)}% from ${startYear} to ${yearLabel(year)} &middot; ${change > 1 ? (change > 15 ? 'desert' : 'drying out') : change < -1 ? (change < -15 ? 'forest' : 'greening') : 'grassland'}`);
       d3.select('#access-people-unit').text(unit.toLocaleString());
-      d3.select('#access-gain-value').text(Math.round(f.gain).toLocaleString());
-      d3.select('#access-lose-value').text(Math.round(f.lose).toLocaleString());
+      d3.select('#access-gain-value').text(fmt(f.gain));
+      d3.select('#access-lose-value').text(fmt(f.lose));
       d3.select('#access-summary').html(['improving', 'stagnant', 'worsening'].map(type =>
-        `<div class="access-summary-item ${type}"><strong>${(counts.get(type) || 0).toLocaleString()}</strong><span>${areaWord} ${type}</span></div>`).join(''));
+        `<div class="access-summary-item ${type}"><strong>${(counts.get(type) || 0).toLocaleString()}</strong><span>${areaWord} ${type}</span><small>${thresholds[type]}</small></div>`).join(''));
+      // Say exactly which areas on the map the tiles leave out, and why.
+      const shown = areas.data(), left = shown.filter(d => !records.has(key(d)));
+      const zero = left.filter(d => isZeroBaseline(key(d))).length, missing = left.length - zero;
+      const parts = [zero && `${zero} with 0 people with low access in 2015 (% change undefined)`, missing && `${missing} with no usable data`].filter(Boolean);
+      d3.select('#access-excluded').property('hidden', !parts.length)
+        .text(`Tiles cover ${(shown.length - left.length).toLocaleString()} of ${shown.length.toLocaleString()} ${areaWord}. Left out: ${parts.join('; ')}. These are hatched on the map.`);
       renderIcons('#access-gain-icons', Math.round(f.gain / unit));
       renderIcons('#access-lose-icons', Math.round(f.lose / unit));
     };
@@ -364,18 +391,22 @@
   loadAtlas()
     .then(atlas => load().then(rows => {
       if (!atlas.objects || !atlas.objects.states) throw new Error('State geography unavailable');
-      const states = topojson.feature(atlas, atlas.objects.states).features;
+      // The atlas includes territories (FIPS above 56) that the USDA data doesn't cover; keep the 50 states and D.C.
+      const inStates = d => +String(d.id).padStart(2, '0').slice(0, 2) <= 56;
+      const states = topojson.feature(atlas, atlas.objects.states).features.filter(inStates);
       const counties = atlas.objects.counties
-        ? topojson.feature(atlas, atlas.objects.counties).features
+        ? topojson.feature(atlas, atlas.objects.counties).features.filter(inStates)
         : states;
       const stateNames = new Map(states.map(d => [String(d.id).padStart(2, '0'), d.properties.name]));
-      const validRows = rows.filter(r => r.LACCESS_POP15 !== '' && r.LACCESS_POP19 !== '' && isFinite(+r.LACCESS_POP15) && isFinite(+r.LACCESS_POP19));
+      // USDA marks missing values with negative codes (-8888, -9999); drop those rows along with blanks.
+      const usable = v => v !== '' && isFinite(+v) && +v >= 0;
+      const validRows = rows.filter(r => usable(r.LACCESS_POP15) && usable(r.LACCESS_POP19));
       const setYear = explorer(states, counties, stateNames, validRows);
       const yearInput = document.querySelector('#access-year');
       const yearValue = document.querySelector('#access-year-value');
       yearInput.addEventListener('input', () => {
         const year = Number(yearInput.value);
-        yearValue.textContent = year;
+        yearValue.textContent = yearLabel(year);
         yearInput.setAttribute('aria-valuenow', year);
         setYear(year);
       });
