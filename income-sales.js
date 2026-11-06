@@ -4,13 +4,15 @@
 const IS_MAP_URL = 'https://cdn.jsdelivr.net/npm/us-atlas@3.0.1/states-albers-10m.json';
 const IS_FOOD_FILE = 'data/state-food-sales.csv';
 const IS_INCOME_FILE = 'data/state-income.csv';
-const IS_DEFAULT_STATE = 'Texas';
+// The chart opens on the U.S. average; this is its value in the State menu.
+const IS_NATIONAL = 'U.S. average';
 
 // Line colors from the produce-stand palette: Orange and Tomato Red (checked for colorblind safety on the cream background).
 const IS_FOOD_COLOR = '#ee7302';
 const IS_INCOME_COLOR = '#b81817';
 const IS_INK = '#1c2147';
-const IS_MAP_RAMP = ['#dde0f2', '#293379'];
+// Map ramp: light to dark Green Beans, so it doesn't compete with the orange and red lines.
+const IS_MAP_RAMP = ['#eef0d2', '#4a5e1c'];
 const IS_NO_DATA = '#dcd7cf';
 
 // Chart size in SVG units; the SVG stretches to fit the page. Phones get a narrower frame so the text stays readable.
@@ -20,31 +22,30 @@ const IS_SIZES = {
 };
 // How long the lines take to draw, in milliseconds (4000 = 4 seconds).
 const IS_DURATION = 4000;
+// Map zoom: how long it takes (milliseconds) and the closest it gets, so tiny places like D.C. don't fill the whole map.
+const IS_ZOOM_DURATION = 750;
+const IS_MAX_ZOOM = 8;
+const IS_MAP_FRAME = { x: -60, y: 0, width: 1035, height: 610 };
 
-// The two views. Each series is one line, read from a column worked out in isPrepare().
-const IS_VIEWS = {
-  growth: {
-    title: (state) => `${state}: change per person since 1997`,
-    axis: (value) => `${value > 0 ? '+' : ''}${value}%`,
-    series: [
-      { key: 'foodGrowth', name: 'Food sales', color: IS_FOOD_COLOR },
-      { key: 'incomeGrowth', name: 'Income', color: IS_INCOME_COLOR }
-    ]
-  },
-  share: {
-    title: (state) => `${state}: food sales as a share of income`,
-    axis: (value) => `${value}%`,
-    series: [{ key: 'share', name: 'Food sales', color: IS_FOOD_COLOR }]
-  }
+// The chart's two lines, read from columns worked out in isPrepare().
+const IS_VIEW = {
+  title: (state) => `${state}: change per person since 1997`,
+  axis: (value) => `${value > 0 ? '+' : ''}${value}%`,
+  series: [
+    { key: 'foodGrowth', name: 'Food sales', color: IS_FOOD_COLOR },
+    { key: 'incomeGrowth', name: 'Income', color: IS_INCOME_COLOR }
+  ]
 };
 
-const isState = { view: 'growth', selected: IS_DEFAULT_STATE, states: {}, domains: {}, chart: {} };
+const isState = { selected: IS_NATIONAL, states: {}, national: null, domain: [], chart: {} };
+
+// The place shown in the chart: the U.S. average or one state.
+const isCurrent = () => (isState.selected === IS_NATIONAL ? isState.national : isState.states[isState.selected]);
 
 const isNumber = (text) => Number(String(text).replace(/[$,\s]/g, ''));
 const isMoney = (value) => `$${Math.round(value).toLocaleString('en-US')}`;
 const isSigned = (value) => `${value >= 0 ? '+' : ''}${Math.round(value)}%`;
 const isPercent = (value) => `${value.toFixed(1)}%`;
-const isFormat = (key, value) => (key === 'share' ? isPercent(value) : isSigned(value));
 const isReduceMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // Joins the two files into { stateName: { name, fips, years: [ { year, food, income, foodGrowth, incomeGrowth, share } ] } }.
@@ -62,7 +63,14 @@ function isPrepare(foodRows, incomeRows) {
       const state = isState.states[row.State] = isState.states[row.State] || { name: row.State, fips: match.fips, years: [] };
       state.years.push({ year: Number(row.Year), food: isNumber(row['Per Capita Sales']), income: match.value });
     });
-  Object.values(isState.states).forEach((state) => {
+  // U.S. average: for each year, the plain average of every state's food sales and income per person.
+  const byYear = d3.group(Object.values(isState.states).flatMap((state) => state.years), (d) => d.year);
+  isState.national = {
+    name: IS_NATIONAL,
+    fips: null,
+    years: [...byYear].map(([year, rows]) => ({ year, food: d3.mean(rows, (d) => d.food), income: d3.mean(rows, (d) => d.income) }))
+  };
+  [...Object.values(isState.states), isState.national].forEach((state) => {
     state.years.sort((a, b) => a.year - b.year);
     const first = state.years[0];
     state.years.forEach((d) => {
@@ -71,12 +79,11 @@ function isPrepare(foodRows, incomeRows) {
       d.share = (d.food / d.income) * 100;
     });
   });
-  // One fixed scale per view for every state, so switching states shows real differences.
+  // One fixed scale for every state, so switching states shows real differences.
   const allYears = Object.values(isState.states).flatMap((state) => state.years);
   const growthMax = d3.max(allYears, (d) => Math.max(d.foodGrowth, d.incomeGrowth));
   const growthMin = d3.min(allYears, (d) => Math.min(d.foodGrowth, d.incomeGrowth));
-  isState.domains.growth = [Math.min(0, Math.floor(growthMin / 10) * 10), Math.ceil(growthMax / 50) * 50];
-  isState.domains.share = [Math.floor(d3.min(allYears, (d) => d.share)), Math.ceil(d3.max(allYears, (d) => d.share))];
+  isState.domain = [Math.min(0, Math.floor(growthMin / 10) * 10), Math.ceil(growthMax / 50) * 50];
 }
 
 function isDrawMap(us) {
@@ -85,7 +92,9 @@ function isDrawMap(us) {
     .attr('id', 'is-map')
     .attr('role', 'img')
     .attr('aria-label', 'Map of U.S. states shaded by food sales as a share of income. Use the State menu to choose a state.')
-    .attr('viewBox', '-60 0 1035 610');
+    .attr('viewBox', `${IS_MAP_FRAME.x} ${IS_MAP_FRAME.y} ${IS_MAP_FRAME.width} ${IS_MAP_FRAME.height}`);
+  // Everything drawn on the map goes in this group, so the whole map can zoom in on a state.
+  const zoomLayer = svg.append('g');
   const path = d3.geoPath();
   const features = topojson.feature(us, us.objects.states).features;
   const byFips = {};
@@ -95,7 +104,7 @@ function isDrawMap(us) {
   const color = d3.scaleSequential(d3.interpolateRgb(...IS_MAP_RAMP)).domain(d3.extent(shares));
   const lastYear = d3.max(Object.values(isState.states), (state) => state.years[state.years.length - 1].year);
 
-  svg.append('g')
+  zoomLayer.append('g')
     .selectAll('path')
     .data(features)
     .join('path')
@@ -119,11 +128,12 @@ function isDrawMap(us) {
       tip.hidden = true;
       hoverOutline.attr('d', null);
     });
-  svg.append('path')
+  zoomLayer.append('path')
     .attr('class', 'is-borders')
     .attr('d', path(topojson.mesh(us, us.objects.states, (a, b) => a !== b)));
-  const hoverOutline = svg.append('path').attr('class', 'is-hover-outline');
-  isState.chart.outline = svg.append('path').attr('class', 'is-outline');
+  const hoverOutline = zoomLayer.append('path').attr('class', 'is-hover-outline');
+  isState.chart.outline = zoomLayer.append('path').attr('class', 'is-outline');
+  isState.chart.zoomLayer = zoomLayer;
 
   // Hover label showing the state's name.
   const box = document.querySelector('#is-map-box');
@@ -131,6 +141,16 @@ function isDrawMap(us) {
   tip.className = 'is-map-tip';
   tip.hidden = true;
   box.appendChild(tip);
+
+  // When zoomed in, this button goes back to the whole country (and the U.S. average).
+  const reset = document.createElement('button');
+  reset.type = 'button';
+  reset.className = 'is-map-reset';
+  reset.textContent = 'Back to U.S. map';
+  reset.hidden = true;
+  reset.addEventListener('click', () => isSelect(IS_NATIONAL));
+  box.appendChild(reset);
+  isState.chart.mapReset = reset;
   isState.chart.features = features;
   isState.chart.mapPath = path;
 
@@ -168,15 +188,15 @@ function isSetupChart() {
 }
 
 function isDrawChart() {
-  const view = IS_VIEWS[isState.view];
-  const state = isState.states[isState.selected];
+  const view = IS_VIEW;
+  const state = isCurrent();
   const data = state.years;
   const chart = isState.chart;
   const { width, top, right, left, xTicks } = isState.size;
   const { x, y } = chart;
   const duration = isReduceMotion() ? 0 : IS_DURATION;
   x.domain(d3.extent(data, (d) => d.year));
-  y.domain(isState.domains[isState.view]);
+  y.domain(isState.domain);
 
   chart.xAxisGroup.call(d3.axisBottom(x).ticks(xTicks).tickFormat(d3.format('d')).tickSizeOuter(0));
   chart.gridGroup.call(d3.axisLeft(y).ticks(6).tickSize(-(width - left - right)).tickFormat(view.axis))
@@ -229,23 +249,22 @@ function isDrawChart() {
     .style('opacity', 0);
   texts.selectAll('tspan').remove();
   texts.append('tspan').attr('class', 'is-end-name').attr('x', width - right + 12).text((series) => series.name);
-  texts.append('tspan').attr('class', 'is-end-value').attr('x', width - right + 12).attr('dy', 16).attr('fill', (series) => series.color).text((series) => isFormat(series.key, last[series.key]));
+  texts.append('tspan').attr('class', 'is-end-value').attr('x', width - right + 12).attr('dy', 16).attr('fill', (series) => series.color).text((series) => isSigned(last[series.key]));
   texts.transition().delay(duration).duration(300).style('opacity', 1);
 
   chart.focusGroup.selectAll('circle').data(view.series, (series) => series.key)
     .join('circle').attr('r', 4).attr('fill', (series) => series.color);
 
   document.querySelector('#is-chart-title').textContent = view.title(state.name);
-  document.querySelector('#is-legend').innerHTML = view.series.length > 1
-    ? view.series.map((series) => `<span class="is-legend-item"><span class="is-swatch" style="background:${series.color}"></span>${series.name} per person</span>`).join('')
-    : '';
+  document.querySelector('#is-legend').innerHTML = view.series
+    .map((series) => `<span class="is-legend-item"><span class="is-swatch" style="background:${series.color}"></span>${series.name} per person</span>`).join('');
   d3.select('#is-chart').attr('aria-label', `Line chart: ${view.title(state.name)}, ${data[0].year} to ${last.year}. Numbers are in the table below.`);
 }
 
 // Crosshair and tooltip for the year under the pointer.
 function isHover(event) {
   const chart = isState.chart;
-  const data = isState.states[isState.selected].years;
+  const data = isCurrent().years;
   const [pointerX] = d3.pointer(event);
   const year = Math.round(chart.x.invert(pointerX));
   const d = data.find((item) => item.year === year);
@@ -256,9 +275,7 @@ function isHover(event) {
   chart.focusGroup.selectAll('circle').attr('cx', x).attr('cy', (series) => chart.y(d[series.key]));
 
   const tooltip = document.querySelector('#is-tooltip');
-  tooltip.innerHTML = isState.view === 'growth'
-    ? `<strong>${year}</strong>Food sales ${isMoney(d.food)} <span>(${isSigned(d.foodGrowth)})</span><br>Income ${isMoney(d.income)} <span>(${isSigned(d.incomeGrowth)})</span>`
-    : `<strong>${year}</strong>Food sales ${isMoney(d.food)}<br>Income ${isMoney(d.income)}<br>Food = <span>${isPercent(d.share)}</span> of income`;
+  tooltip.innerHTML = `<strong>${year}</strong>Food sales ${isMoney(d.food)} <span>(${isSigned(d.foodGrowth)})</span><br>Income ${isMoney(d.income)} <span>(${isSigned(d.incomeGrowth)})</span>`;
   tooltip.hidden = false;
   const box = document.querySelector('.is-chart');
   const scale = box.clientWidth / isState.size.width;
@@ -269,32 +286,45 @@ function isHover(event) {
   tooltip.style.top = `${isState.size.top * scale}px`;
 }
 
-function isDescribe() {
-  const state = isState.states[isState.selected];
-  const first = state.years[0];
-  const last = state.years[state.years.length - 1];
-  const faster = last.foodGrowth > last.incomeGrowth ? 'faster' : 'more slowly';
-  document.querySelector('#is-summary').innerHTML =
-    `<div><p class="is-summary-label">${state.name}, ${first.year}&ndash;${last.year}</p>` +
-    `<p>Food sales per person grew <strong>${isSigned(last.foodGrowth)}</strong> (${isMoney(first.food)} &rarr; ${isMoney(last.food)}), ${faster} than income per person, which grew <strong>${isSigned(last.incomeGrowth)}</strong> (${isMoney(first.income)} &rarr; ${isMoney(last.income)}).</p></div>` +
-    `<div><p class="is-summary-label">Food sales as a share of income</p>` +
-    `<p><strong>${isPercent(first.share)}</strong> in ${first.year} &rarr; <strong>${isPercent(last.share)}</strong> in ${last.year}</p></div>`;
-}
-
 function isRenderTable() {
-  const state = isState.states[isState.selected];
+  const state = isCurrent();
   const rows = state.years.map((d) => `<tr><th scope="row">${d.year}</th><td>${isMoney(d.food)}</td><td>${isSigned(d.foodGrowth)}</td><td>${isMoney(d.income)}</td><td>${isSigned(d.incomeGrowth)}</td><td>${isPercent(d.share)}</td></tr>`).join('');
   document.querySelector('#is-table').innerHTML =
     `<table><caption>${state.name}, per person</caption><thead><tr><th scope="col">Year</th><th scope="col">Food sales</th><th scope="col">Since 1997</th><th scope="col">Income</th><th scope="col">Since 1997</th><th scope="col">Food as % of income</th></tr></thead><tbody>${rows}</tbody></table>`;
 }
 
+// Zooms the map to fit one state with some room around it, or back out to the whole country when feature is empty.
+function isZoomMap(feature) {
+  let transform = 'translate(0,0) scale(1)';
+  if (feature) {
+    // Fit the state's main land, skipping tiny far-off islands (Alaska's Aleutians would otherwise stretch the box across the map).
+    let shape = feature;
+    if (feature.geometry.type === 'MultiPolygon') {
+      const parts = feature.geometry.coordinates.map((coordinates) => ({ type: 'Polygon', coordinates }));
+      const biggest = d3.max(parts, (part) => isState.chart.mapPath.area(part));
+      shape = { type: 'MultiPolygon', coordinates: parts.filter((part) => isState.chart.mapPath.area(part) > biggest * 0.02).map((part) => part.coordinates) };
+    }
+    const [[x0, y0], [x1, y1]] = isState.chart.mapPath.bounds(shape);
+    const scale = Math.min(IS_MAX_ZOOM, 0.7 / Math.max((x1 - x0) / IS_MAP_FRAME.width, (y1 - y0) / IS_MAP_FRAME.height));
+    const centerX = IS_MAP_FRAME.x + IS_MAP_FRAME.width / 2;
+    const centerY = IS_MAP_FRAME.y + IS_MAP_FRAME.height / 2;
+    transform = `translate(${centerX - scale * (x0 + x1) / 2},${centerY - scale * (y0 + y1) / 2}) scale(${scale})`;
+  }
+  isState.chart.zoomLayer.interrupt().transition()
+    .duration(isReduceMotion() ? 0 : IS_ZOOM_DURATION)
+    .ease(d3.easeCubicInOut)
+    .attr('transform', transform);
+  isState.chart.mapReset.hidden = !feature;
+}
+
 function isSelect(name) {
   isState.selected = name;
   document.querySelector('#is-state-select').value = name;
-  const feature = isState.chart.features.find((item) => item.id === isState.states[name].fips);
+  // The U.S. average has no state to outline on the map.
+  const feature = isState.chart.features.find((item) => item.id === isCurrent().fips);
   isState.chart.outline.attr('d', feature ? isState.chart.mapPath(feature) : null);
+  isZoomMap(feature);
   isDrawChart();
-  isDescribe();
   isRenderTable();
 }
 
@@ -315,18 +345,11 @@ function isInit() {
       isSetupChart();
 
       const select = document.querySelector('#is-state-select');
-      select.innerHTML = Object.keys(isState.states).sort().map((name) => `<option value="${name}">${name}</option>`).join('');
+      select.innerHTML = [IS_NATIONAL, ...Object.keys(isState.states).sort()].map((name) => `<option value="${name}">${name}</option>`).join('');
       select.addEventListener('change', () => isSelect(select.value));
-      document.querySelectorAll('#income-sales .is-button[data-view]').forEach((button) => {
-        button.addEventListener('click', () => {
-          isState.view = button.dataset.view;
-          document.querySelectorAll('#income-sales .is-button[data-view]').forEach((other) => other.setAttribute('aria-pressed', String(other === button)));
-          isDrawChart();
-        });
-      });
       document.querySelector('#is-replay').addEventListener('click', isDrawChart);
 
-      isSelect(isState.states[IS_DEFAULT_STATE] ? IS_DEFAULT_STATE : Object.keys(isState.states)[0]);
+      isSelect(IS_NATIONAL);
     })
     .catch((error) => {
       console.error(error);

@@ -17,10 +17,15 @@
 .is-state { stroke: none; cursor: pointer; transition: opacity .15s; }
 .is-state:hover { opacity: .75; }
 .is-no-data { cursor: default; }
-.is-borders { fill: none; stroke: var(--paper); stroke-width: 1; stroke-linejoin: round; pointer-events: none; }
-.is-outline { fill: none; stroke: var(--ink); stroke-width: 3; stroke-linejoin: round; pointer-events: none; }
-.is-hover-outline { fill: none; stroke: var(--ink); stroke-width: 1.5; stroke-linejoin: round; pointer-events: none; }
-#is-map-box { position: relative; }
+.is-borders { fill: none; stroke: var(--paper); stroke-width: 1; vector-effect: non-scaling-stroke; stroke-linejoin: round; pointer-events: none; }
+.is-outline { fill: none; stroke: var(--ink); stroke-width: 3; vector-effect: non-scaling-stroke; stroke-linejoin: round; pointer-events: none; }
+.is-hover-outline { fill: none; stroke: var(--ink); stroke-width: 1.5; vector-effect: non-scaling-stroke; stroke-linejoin: round; pointer-events: none; }
+/* overflow: hidden keeps the zoomed-in map inside its box. */
+#is-map-box { position: relative; overflow: hidden; }
+#is-map-box svg { display: block; }
+.is-map-reset { position: absolute; top: 8px; right: 8px; border: 1px solid var(--ink); padding: 6px 10px; color: var(--ink); background: var(--paper); font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .06em; cursor: pointer; }
+.is-map-reset:hover { color: var(--paper); background: var(--ink); }
+.is-map-reset[hidden] { display: none; }
 .is-map-tip { position: absolute; z-index: 1; padding: 8px 10px; color: var(--paper); background: var(--ink); font-family: var(--mono); font-size: 11px; line-height: 1.6; white-space: nowrap; pointer-events: none; }
 .is-map-tip[hidden] { display: none; }
 .is-map-tip strong { display: block; font-family: var(--display); font-size: 15px; }
@@ -42,9 +47,6 @@
 .is-tooltip[hidden] { display: none; }
 .is-tooltip strong { display: block; font-family: var(--display); font-size: 15px; }
 .is-tooltip span { color: var(--acid); }
-.is-summary { display: grid; grid-template-columns: 1.4fr 1fr; gap: 5vw; margin-top: 50px; border-top: 1px solid var(--line); padding-top: 25px; }
-.is-summary p { max-width: 520px; margin: 0; font-size: 17px; line-height: 1.5; }
-.is-summary .is-summary-label { margin-bottom: 10px; font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .1em; opacity: .6; }
 .is-table { margin-top: 40px; font-family: var(--mono); font-size: 12px; }
 .is-table summary { cursor: pointer; text-transform: uppercase; letter-spacing: .1em; font-size: 11px; }
 .is-table div { overflow-x: auto; }
@@ -54,5 +56,7 @@
 .is-table th:first-child { text-align: left; }
 .income-section .source-note { margin-top: 40px; }
 @media (max-width: 700px) {
-  .is-layout, .is-summary { grid-template-columns: 1fr; gap: 36px; }
+  .is-layout { grid-template-columns: 1fr; gap: 36px; }
 }
+/* "How to use it" line under the intro, set apart so readers notice they can click. */
+.income-section .is-instructions { padding-left: 14px; border-left: 3px solid var(--orange); font-family: var(--mono); font-size: 13px; line-height: 1.6; text-transform: uppercase; letter-spacing: .06em; }

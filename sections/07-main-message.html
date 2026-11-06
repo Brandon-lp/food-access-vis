@@ -1,23 +1,27 @@
 <section class="story-section demographics-section" id="demographics" aria-labelledby="demographics-title">
   <div class="section-index">06 <span>Main message</span></div>
-  <div class="story-grid">
-    <div><h2 id="demographics-title">SNAP helps.<br><em>It isn't enough.</em></h2></div>
-    <div class="story-text">
-      <p>The U.S. is trying to help: in 2024, about <strong>1 in 8 U.S. households</strong> (11.8%) received SNAP food benefits.</p>
-      <p>But the help has not kept up. Between 2011 and 2019, what an average American spends on food each month rose by about a third, while the average SNAP benefit went down. By 2019 it covered <strong>less than a third</strong> of a month's food.</p>
+  <!-- One grid for the whole section: title and stats on the left, paragraph and chart on the right, so the chart lines up with the text above it. -->
+  <div class="sg-layout">
+    <h2 id="demographics-title">SNAP helps.<br><em>It isn't enough.</em></h2>
+    <span class="sticker sg-sticker-title" data-sticker="on-sale" style="--rotate: 10deg"></span>
+    <div class="story-text sg-intro">
+      <p>The help has not kept up. Between 2011 and 2019, what an average American spends on food each month rose by about a third, while the average SNAP benefit went down. By 2019 it covered <strong>less than a third</strong> of a month's food.</p>
     </div>
-  </div>
 
   <!-- Line chart: SNAP benefits vs. food spending per person. snap-gap.js draws it into #sg-chart. -->
-  <figure class="sg-shell">
+    <div class="sg-stats-col">
+      <div class="sg-stats" id="sg-stats"></div>
+      <span class="sticker sticker-wide-only sg-sticker-stats" data-sticker="farm-fresh" style="--rotate: -8deg"></span>
+    </div>
+    <figure class="sg-shell">
     <figcaption class="sg-title">Monthly SNAP benefits compared with U.S. food expenses per person</figcaption>
     <div class="sg-legend" id="sg-legend"></div>
     <div class="sg-chart" id="sg-chart"><div class="sg-tooltip" id="sg-tooltip" hidden></div></div>
-    <div class="sg-stats" id="sg-stats"></div>
     <details class="snap-table">
       <summary>Show the numbers as a table</summary>
       <div id="sg-table"></div>
     </details>
     <p class="source-note" id="sg-note">SNAP: USDA Food and Nutrition Service, average monthly benefit per person, fiscal years 2011&ndash;2019 (50 states and D.C., weighted by participants; North Carolina is missing for 2018 and 2019). Food spending: USDA Economic Research Service, total U.S. food expenses divided by U.S. population, calendar years, including food eaten at home and away. Both in dollars of each year. SNAP is meant to add to a household's food budget, not cover all of it.</p>
-  </figure>
+    </figure>
+  </div>
 </section>

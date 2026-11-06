@@ -129,7 +129,11 @@ const STICKERS = {
   crisp: () => `<ellipse cx="100" cy="100" rx="90" ry="76" fill="${C.crate}"/>` +
     stickerText('CRISP', { y: 66, size: 46, width: 126, fill: C.cream, rotate: -6 }) + grapes(100, 128, 0.82),
   'u-pick': () => `<rect x="18" y="18" width="164" height="164" rx="40" fill="${C.lettuce}"/>` +
-    stickerText('U-PICK', { y: 58, size: 40, width: 128, fill: C.beans, outline: C.cream }) + cherries(100, 118, 1)
+    stickerText('U-PICK', { y: 58, size: 40, width: 128, fill: C.beans, outline: C.cream }) + cherries(100, 118, 1),
+  'on-sale': () => `<circle cx="100" cy="100" r="86" fill="${C.tomato}"/>${coin(100, 70, 26)}` +
+    stickerText('ON SALE!', { y: 132, size: 36, width: 140, fill: C.citrus, outline: C.crate, rotate: -6 }),
+  'farm-fresh': () => `<ellipse cx="100" cy="100" rx="90" ry="74" fill="${C.lettuce}"/>${apple(100, 70, 0.95)}` +
+    stickerText('FARM FRESH', { y: 134, size: 28, width: 146, fill: C.cream, outline: C.beans })
 };
 
 function stickerSvg(name) {

@@ -46,33 +46,57 @@
 }
 
 /* Main message line chart: SNAP benefits vs. food spending per person (drawn by snap-gap.js) */
-.sg-shell { margin: 80px 0 0; padding-top: 30px; border-top: 1px solid var(--line); }
+/* Main message section: stat cards stacked on the left, chart on the right. Both use the section's own background. */
+/* Sized so the title, text, stats and chart fit on one laptop screen together. */
+.demographics-section { padding-top: 70px; padding-bottom: 70px; }
+.demographics-section .section-index { margin-bottom: 36px; }
+.demographics-section h2 { margin-bottom: 0; font-size: clamp(40px, 4.2vw, 64px); }
+.demographics-section .sg-intro { max-width: 640px; margin-top: 6px; font-size: 17px; line-height: 1.5; }
+.demographics-section .sg-intro p { margin: 0; }
+.sg-layout { position: relative; display: grid; grid-template-columns: 1fr 1.8fr; gap: 40px clamp(32px, 5vw, 90px); align-items: start; }
+/* Stickers: one beside the title, one in the open space under the stats. */
+.sg-sticker-title { left: calc(26% + 10px); top: -40px; }
+.sg-stats-col { position: relative; }
+.sg-sticker-stats { left: 30%; bottom: -170px; }
+.sg-shell { margin: 0; }
 .sg-title { margin-bottom: 14px; font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .1em; }
 .sg-legend { display: flex; flex-wrap: wrap; gap: 4px 22px; margin-bottom: 10px; font-size: 14px; }
 .sg-legend-item { display: inline-flex; gap: 8px; align-items: center; }
 .sg-swatch { width: 18px; height: 3px; border-radius: 2px; }
-.sg-chart { position: relative; max-width: 980px; }
+/* The chart is never taller than the space left on screen (its shape is about 2.4 wide for every 1 tall). */
+.sg-chart { position: relative; max-width: min(1100px, max(520px, calc((100vh - 430px) * 2.37))); }
 .sg-chart svg { display: block; width: 100%; height: auto; overflow: visible; }
 .sg-grid .tick line { stroke: rgba(28, 33, 71, .12); }
-.sg-grid .tick text, .sg-axis .tick text { fill: var(--ink); font-family: var(--mono); font-size: 11px; }
+.sg-grid .tick text, .sg-axis .tick text { fill: var(--ink); font-family: var(--mono); font-size: 13px; }
 .sg-axis .domain, .sg-axis .tick line { stroke: rgba(28, 33, 71, .4); }
 .sg-line { fill: none; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
 .sg-dot { stroke: var(--paper); stroke-width: 2; }
 .sg-gap { fill: var(--tomato); fill-opacity: .12; }
-.sg-gap-label { fill: var(--tomato); font-family: var(--display); font-size: 15px; font-weight: 600; }
-.sg-end-label { fill: var(--ink); font-family: var(--mono); font-size: 11px; }
-.sg-end-value { font-family: var(--display); font-size: 17px; font-weight: 600; }
+.sg-gap-label { fill: var(--tomato); font-family: var(--display); font-size: 18px; font-weight: 600; }
+.sg-end-label { fill: var(--ink); font-family: var(--mono); font-size: 13px; }
+.sg-end-value { font-family: var(--display); font-size: 20px; font-weight: 600; }
 .sg-focus line { stroke: var(--ink); stroke-width: 1; opacity: .5; }
 .sg-tooltip { position: absolute; z-index: 1; min-width: 170px; padding: 10px 12px; color: var(--paper); background: var(--ink); font-family: var(--mono); font-size: 11px; line-height: 1.7; pointer-events: none; }
 .sg-tooltip[hidden] { display: none; }
 .sg-tooltip strong { display: block; font-family: var(--display); font-size: 15px; }
 .sg-tooltip span { color: var(--citrus); }
-.sg-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 30px; }
-.sg-stats .stat strong { display: block; font-size: clamp(28px, 3.4vw, 46px); letter-spacing: -.06em; }
-.sg-stats .stat span { display: block; margin-top: 9px; font-family: var(--mono); font-size: 11px; text-transform: uppercase; opacity: .6; }
+/* margin-top lines the stats up with the chart area, below its title and legend. */
+.sg-stats { display: flex; flex-direction: column; align-items: flex-start; gap: clamp(18px, 3vh, 36px); margin-top: 80px; }
+/* Each stat is a cream card as wide as its number. */
+.sg-stats .stat { width: fit-content; max-width: 100%; }
+.sg-stats .stat strong { display: block; font-size: clamp(28px, 3vw, 42px); letter-spacing: -.06em; }
+.sg-stats .stat span { display: block; max-width: 30ch; margin-top: 9px; font-family: var(--mono); font-size: 11px; text-transform: uppercase; opacity: .7; }
 .sg-shell .source-note { max-width: 900px; }
 .snap-subhead { margin: 0; font-size: clamp(32px, 4vw, 56px); letter-spacing: -.05em; }
+/* Narrower screens: stat cards in a row above the chart. */
+@media (max-width: 1000px) {
+  .sg-layout { grid-template-columns: 1fr; }
+  .sg-sticker-title { left: auto; right: 0; top: -40px; }
+  #demographics .sg-sticker-stats { display: none; }
+  .sg-stats { margin-top: 0; }
+  .sg-stats { flex-direction: row; flex-wrap: wrap; gap: 20px; }
+}
 @media (max-width: 700px) {
-  .sg-stats { grid-template-columns: 1fr; }
+  .sg-stats { flex-direction: row; flex-wrap: wrap; gap: 14px; }
   .snap-panel { margin-top: 60px; }
 }
