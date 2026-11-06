@@ -1,19 +1,26 @@
 <section class="story-section daily-budget-section" id="daily-budget" aria-labelledby="daily-budget-title">
   <div class="section-index">05b <span>Daily budget</span></div>
   <div class="story-grid">
-    <div><h2 id="daily-budget-title"><span class="db-num" id="db-h2-num">$1.41</span> a day,<br><em>what does it buy?</em></h2></div>
+    <div class="db-titlebox">
+      <h2 id="daily-budget-title">What can <span class="db-num" id="db-h2-num" tabindex="0" aria-describedby="db-math">$1.41</span> of food benefits<br><em>buy in a day?</em></h2>
+      <div class="db-tip" id="db-math" role="tooltip">
+        <p class="db-tip-title">Where this number comes from</p>
+        <p>Each month, the program spends a set amount on food for every person it helps. We split that amount across the days of the month, using 30.4, the average number of days in a month, to see what is spent on one person in one day.</p>
+        <p class="db-tip-math" id="db-math-line"></p>
+      </div>
+    </div>
     <div class="story-text">
-      <p>Divide what an agency spends per participant each month by the days in the month and you get one daily coin. Across <strong id="db-agencies">90</strong> state, territory and tribal agencies, the average is <strong id="db-national">$1.41</strong> per participant per day.</p>
-      <p>Pick a place, then set its coin next to the price of everyday items. A part-filled picture means the coin covers only part of one.</p>
+      <p>Food assistance programs help families put meals on the table. Across the U.S., they spend an average of <strong id="db-national">$1.41</strong> on food per participant per day.</p>
+      <p>Pick a state, then set its coin next to the price of everyday items. Hover over (or tap) the highlighted number to see how it is worked out.</p>
     </div>
   </div>
 
   <!-- daily-budget script (bottom of this file) finds each element below by its id and fills it in. -->
   <div class="db-shell">
+    <label class="db-prompt" for="db-place">Find out what happens in your state</label>
     <div class="db-toolbar">
       <div class="db-pick">
         <button type="button" class="db-btn" id="db-prev" aria-label="Previous place">&larr;</button>
-        <label class="db-sr" for="db-place">Choose a place</label>
         <select id="db-place"></select>
         <button type="button" class="db-btn" id="db-next" aria-label="Next place">&rarr;</button>
       </div>
@@ -26,7 +33,6 @@
         <div class="db-coin-wrap" id="db-coin-wrap"></div>
         <p class="db-place-name" id="db-place-name"></p>
         <p class="db-place-sub" id="db-place-sub"></p>
-        <p class="db-hook" id="db-hook" aria-live="polite"></p>
       </aside>
       <div class="db-shelf">
         <div class="db-cards" id="db-cards"></div>
@@ -37,8 +43,8 @@
         </ul>
       </div>
     </div>
+    <p class="db-hook" id="db-hook" aria-live="polite"></p>
     <p class="db-error source-note" id="db-error" hidden>The daily budget data could not be loaded. Use a local server such as VS Code Live Server to run this project.</p>
-    <p class="source-note">Sources: program spending and participants by agency, October 2015 to September 2016, from the project's three data files; per day = per month divided by 30.4. Item prices are national averages from the U.S. Bureau of Labor Statistics (Average Retail Food Prices, same 12 months). The transit ride is the 2014 national average from the Bureau of Transportation Statistics, so it is not from the same period. Prices are not what any program pays, and the comparison shows scale, not what is enough.</p>
   </div>
 </section>
 
@@ -47,12 +53,21 @@
      Sizing: .db-shell is a "container". The layout, the coin and the item pictures all size themselves from the width of
      that container (cqw units and @container rules), so they adapt to any phone, tablet or window width. */
   #daily-budget { border-top: 1px solid var(--line); --db-card: #fffdf8; --db-tile: #efe8d8; --db-gold-hi: #fbe28a; --db-gold: #e8b931; --db-gold-lo: #b8860b; --db-gold-ink: #5e4200; }
-  #daily-budget .db-num { background: var(--acid); padding: 0 .1em; }
+  #daily-budget .db-num { background: var(--acid); padding: 0 .1em; cursor: help; }
+  #daily-budget .db-num::after { content: "?"; margin-left: .22em; font-family: var(--mono); font-size: .3em; font-weight: 600; vertical-align: top; opacity: .75; }
+  #daily-budget .db-num:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+  #daily-budget .db-titlebox { position: relative; }
+  #daily-budget .db-tip { position: absolute; z-index: 5; left: 0; top: 100%; width: min(390px, 100%); margin-top: 4px; padding: 16px 18px; color: var(--paper); background: var(--ink); box-shadow: 0 14px 30px rgba(28, 33, 71, .28); font-size: 14px; line-height: 1.55; visibility: hidden; opacity: 0; transform: translateY(6px); transition: opacity .15s, transform .15s, visibility .15s; }
+  #daily-budget .db-titlebox.is-open .db-tip { visibility: visible; opacity: 1; transform: none; }
+  #daily-budget .db-tip p { margin: 0 0 10px; }
+  #daily-budget .db-tip-title { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; opacity: .7; }
+  #daily-budget .db-tip-math { margin: 12px 0 0 !important; padding-top: 12px; border-top: 1px solid rgba(245, 240, 232, .3); font-family: var(--mono); font-size: 13px; }
+  #daily-budget .db-prompt { display: block; margin: 22px 0 0; font-size: 20px; font-weight: 600; letter-spacing: -.03em; }
   #daily-budget .db-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   #daily-budget .db-shell { container: db / inline-size; margin-top: clamp(40px, 6vw, 70px); border-top: 1px solid var(--line); }
 
   /* toolbar */
-  #daily-budget .db-toolbar { display: flex; flex-wrap: wrap; gap: 10px 12px; align-items: flex-end; padding: 22px 0 28px; }
+  #daily-budget .db-toolbar { display: flex; flex-wrap: wrap; gap: 10px 12px; align-items: flex-end; padding: 12px 0 28px; }
   #daily-budget .db-pick { display: flex; flex: 1 1 320px; gap: 6px; min-width: 0; max-width: 560px; }
   #daily-budget .db-btn { border: 1px solid var(--ink); border-radius: 0; min-height: 40px; min-width: 40px; padding: 8px 12px; color: var(--ink); background: transparent; font-family: var(--mono); font-size: 12px; cursor: pointer; }
   #daily-budget .db-btn:hover { background: rgba(28, 33, 71, .08); }
@@ -81,14 +96,13 @@
   @keyframes db-flip { from { transform: rotateY(0); } to { transform: rotateY(360deg); } }
   #daily-budget .db-place-name { margin: 16px 0 4px; font-size: 24px; font-weight: 600; letter-spacing: -.04em; overflow-wrap: anywhere; }
   #daily-budget .db-place-sub { margin: 0 0 16px; font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; opacity: .65; line-height: 1.6; }
-  #daily-budget .db-hook { margin: 0; padding-top: 16px; border-top: 1px solid var(--line); font-size: 16px; line-height: 1.5; text-align: left; }
-  #daily-budget .db-hook b { background: var(--acid); padding: 0 5px; font-weight: 600; }
+  #daily-budget .db-hook { margin: clamp(24px, 4vw, 40px) 0 0; padding-top: 20px; border-top: 1px solid var(--line); max-width: 58ch; font-size: 20px; line-height: 1.45; letter-spacing: -.01em; }
+  #daily-budget .db-hook b { font-weight: 700; }
 
   /* item cards: as many columns as fit; each card is also a container, so its pictures scale with the card */
   #daily-budget .db-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 160px), 1fr)); gap: 12px; }
   #daily-budget .db-card { container: dbcard / inline-size; display: flex; flex-direction: column; justify-content: space-between; gap: 12px; min-height: 180px; padding: 12px; background: var(--db-card); border: 1px solid var(--line); transition: transform .18s, box-shadow .18s, border-color .18s; outline: none; }
   #daily-budget .db-card:hover, #daily-budget .db-card:focus-visible { transform: translateY(-3px); box-shadow: 0 10px 22px rgba(28, 33, 71, .1); border-color: rgba(28, 33, 71, .4); }
-  #daily-budget .db-card.is-covered { border-color: rgba(28, 33, 71, .35); }
   #daily-budget .db-icons { --ico: 38px; display: flex; flex-wrap: wrap; gap: 4px; align-content: flex-start; min-height: calc(var(--ico) + 20px); padding: 10px; background: var(--db-tile); }
   #daily-budget .db-ico { position: relative; display: block; width: var(--ico); height: var(--ico); flex: none; }
   #daily-budget .db-ico svg { position: absolute; inset: 0; width: 100%; height: 100%; }
@@ -98,8 +112,6 @@
   #daily-budget .db-more { align-self: center; font-family: var(--mono); font-size: 12px; opacity: .6; }
   #daily-budget .db-meta { display: grid; gap: 2px; min-width: 0; }
   #daily-budget .db-big { display: block; font-size: 28px; font-weight: 600; letter-spacing: -.05em; line-height: 1; font-variant-numeric: tabular-nums; }
-  #daily-budget .db-big small { font-size: 12px; font-weight: 500; letter-spacing: 0; margin-left: 6px; opacity: .6; }
-  #daily-budget .db-card.is-covered .db-big { background: linear-gradient(transparent 58%, var(--acid) 58%); width: fit-content; }
   #daily-budget .db-what { font-size: 14px; font-weight: 500; margin-top: 4px; overflow-wrap: anywhere; }
   #daily-budget .db-price { font-family: var(--mono); font-size: 11px; letter-spacing: .05em; text-transform: uppercase; opacity: .62; overflow-wrap: anywhere; }
   #daily-budget .db-readout { min-height: 1.7em; margin: 16px 0 6px; font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; opacity: .75; }
@@ -128,9 +140,8 @@
   @container db (min-width: 560px) and (max-width: 879px) {
     /* tablet: coin on the left, its text on the right */
     #daily-budget .db-coin-panel { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 28px; align-items: center; text-align: left; }
-    #daily-budget .db-coin-wrap { grid-row: 1 / span 3; }
+    #daily-budget .db-coin-wrap { grid-row: 1 / span 2; }
     #daily-budget .db-place-name { margin-top: 0; }
-    #daily-budget .db-hook { grid-column: 2; }
     #daily-budget .db-coin-panel { --db-d: clamp(150px, 26cqw, 210px); }
     #daily-budget .db-cards { grid-template-columns: repeat(auto-fill, minmax(min(100%, 190px), 1fr)); gap: 14px; }
   }
@@ -140,10 +151,12 @@
     #daily-budget .db-coin-panel { position: sticky; top: 20px; --db-d: clamp(170px, 17cqw, 240px); padding: 30px 22px 26px; }
     #daily-budget .db-cards { grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); gap: 16px; }
     #daily-budget .db-card { padding: 14px; gap: 14px; }
+    #daily-budget .db-hook { font-size: 24px; }
+    #daily-budget .db-prompt { font-size: 24px; }
   }
   @media (prefers-reduced-motion: reduce) {
     #daily-budget .db-coin.is-flipping, #daily-budget .db-ico.is-new { animation: none; }
-    #daily-budget .db-card { transition: none; }
+    #daily-budget .db-card, #daily-budget .db-tip { transition: none; }
   }
 </style>
 <script>
@@ -192,7 +205,6 @@
     S.data = data;
     S.items = prices.items.slice().sort((a, b) => a.yearAvg - b.yearAvg);
     S.byName = new Map(data.agencies.map((a) => [a.name, a]));
-    $('#db-agencies').textContent = data.meta.agencyCount;
     $('#db-national').textContent = money(data.national.perDay);
     populatePlaces(); populatePeriods(); wire(); render(false);
   }
@@ -207,18 +219,14 @@
   }
   const priceFor = (item, period) => (period === 'year' || !item.monthly ? item.yearAvg : item.monthly[period]);
   const periodWord = (period) => (period === 'year' ? 'year average' : S.data.meta.months[period]);
-  const placeLabel = (place) => (place === 'ALL' ? 'All agencies (national average)' : place);
+  const placeLabel = (place) => (place === 'ALL' ? 'United States (average)' : place);
 
   function populatePlaces() {
-    const groups = [['State', 'States and DC'], ['Territory', 'Territories'], ['Tribal', 'Tribal organizations']];
-    S.order = ['ALL'];
-    let html = '<option value="ALL">National average (all agencies)</option>';
-    groups.forEach(([t, label]) => {
-      const list = S.data.agencies.filter((a) => a.type === t).sort((x, y) => x.name.localeCompare(y.name));
-      list.forEach((a) => S.order.push(a.name));
-      html += '<optgroup label="' + label + '">' + list.map((a) => '<option value="' + esc(a.name) + '">' + esc(a.name) + '</option>').join('') + '</optgroup>';
-    });
-    $('#db-place').innerHTML = html;
+    // Only the 50 states and D.C. are listed. (To leave out D.C., add: && a.name !== 'District of Columbia')
+    const states = S.data.agencies.filter((a) => a.type === 'State').sort((x, y) => x.name.localeCompare(y.name));
+    S.order = ['ALL'].concat(states.map((a) => a.name));
+    $('#db-place').innerHTML = '<option value="ALL">United States (national average)</option>' +
+      states.map((a) => '<option value="' + esc(a.name) + '">' + esc(a.name) + '</option>').join('');
   }
   function populatePeriods() {
     $('#db-period').innerHTML = '<option value="year">Year average</option>' +
@@ -240,10 +248,22 @@
     cards.addEventListener('mouseover', show);
     cards.addEventListener('focusin', show);
     cards.addEventListener('mouseleave', () => { $('#db-readout').textContent = defaultReadout; });
+
+    // The highlighted number opens a short explanation on hover, keyboard focus or tap.
+    const box = root.querySelector('.db-titlebox'), num = $('#db-h2-num'), tip = $('#db-math');
+    let timer;
+    const open = () => { clearTimeout(timer); box.classList.add('is-open'); };
+    const close = () => { timer = setTimeout(() => box.classList.remove('is-open'), 150); };
+    [num, tip].forEach((el) => { el.addEventListener('mouseenter', open); el.addEventListener('mouseleave', close); });
+    num.addEventListener('focus', open);
+    num.addEventListener('blur', close);
+    num.addEventListener('click', open);
+    document.addEventListener('click', (e) => { if (!box.contains(e.target)) box.classList.remove('is-open'); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') box.classList.remove('is-open'); });
   }
 
   function coinHTML(value) {
-        return '<div class="db-coin" role="img" aria-label="' + esc(money(value) + ' per participant per day') + '">' +
+    return '<div class="db-coin" role="img" aria-label="' + esc(money(value) + ' per participant per day') + '">' +
       '<div class="db-coin-face"><span class="db-coin-top">per day</span><span class="db-coin-num">' + money(value) + '</span></div></div>';
   }
   function icon(id, partial, idx) {
@@ -278,18 +298,20 @@
       $('#db-h2-num').textContent = 'n/a';
       $('#db-place-sub').textContent = periodWord(S.period);
       $('#db-hook').textContent = '';
+      $('#db-math-line').textContent = 'No usable value for this month.';
       cards.innerHTML = '<p class="db-msg">There is no usable program value for ' + esc(placeLabel(S.place)) + ' in ' + esc(periodWord(S.period)) + ' (the source cell is negative or empty), so nothing can be compared. Choose another month or the year average.</p>';
       readout.textContent = ''; defaultReadout = '';
       return;
     }
 
     $('#db-h2-num').textContent = money(coin);
+    $('#db-math-line').textContent = money(coin * S.data.meta.daysPerMonth) + ' a month \u00F7 ' + S.data.meta.daysPerMonth + ' days = ' + money(coin) + ' a day';
     wrap.innerHTML = coinHTML(coin);
     if (doFlip && !reduceMotion) { const c = wrap.querySelector('.db-coin'); if (c) c.classList.add('is-flipping'); }
 
     let sub = periodWord(S.period);
     if (S.place === 'ALL') {
-      sub += ' · ' + S.data.meta.agencyCount + ' agencies · ' + int(S.data.national.avgParticipants) + ' participants a month';
+      sub += ' · ' + int(S.data.national.avgParticipants) + ' participants a month';
     } else {
       const nat = coinFor('ALL', S.period), vsNat = (coin / nat - 1) * 100;
       sub += ' · ' + money(coin * S.data.meta.daysPerMonth) + ' a month · ' + Math.abs(vsNat).toFixed(0) + '% ' + (vsNat >= 0 ? 'above' : 'below') + ' national';
@@ -298,15 +320,14 @@
 
     const rows = S.items.map((it) => ({ it, price: priceFor(it, S.period) })).filter((r) => r.price > 0).sort((x, y) => x.price - y.price);
     cards.innerHTML = rows.map((r) => {
-      const k = coin / r.price, covered = k >= 1;
-      const big = covered ? k.toFixed(1) + '×' : Math.round(k * 100) + '%';
+      const k = coin / r.price;
       const note = r.it.samePeriod ? '' : ' (' + r.it.periodLabel + ')';
       const detail = r.it.name + ' (' + r.it.unit + '): ' + money(r.price) + ', ' +
         (r.it.samePeriod ? periodWord(S.period) : r.it.periodLabel + ' national average') + '. ' +
-        (covered ? 'The coin buys ' + k.toFixed(1) + ' times that amount.' : 'The coin covers ' + Math.round(k * 100) + '% of one.');
-      return '<article class="db-card' + (covered ? ' is-covered' : '') + '" tabindex="0" data-detail="' + esc(detail) + '" aria-label="' + esc(detail) + '">' +
+        'The daily coin buys ' + k.toFixed(2) + ' of them (daily coin \u00F7 price).';
+      return '<article class="db-card" tabindex="0" data-detail="' + esc(detail) + '" aria-label="' + esc(detail) + '">' +
         '<div class="db-icons">' + iconsFor(r.it.id, k) + '</div>' +
-        '<div class="db-meta"><span class="db-big">' + big + (covered ? '' : '<small>of one</small>') + '</span>' +
+        '<div class="db-meta"><span class="db-big">' + k.toFixed(2) + '</span>' +
         '<span class="db-what">' + esc(r.it.name) + '</span>' +
         '<span class="db-price">' + esc(r.it.unit) + ' · ' + money(r.price) + esc(note) + '</span></div></article>';
     }).join('');
@@ -314,9 +335,8 @@
     const cheap = rows[0], dear = rows[rows.length - 1];
     const kc = coin / cheap.price, kd = coin / dear.price;
     const unit = (it) => esc(it.unit.replace(/^1 /, ''));
-    const cheapTxt = (kc >= 1 ? '<b>' + kc.toFixed(1) + '</b> ' : '<b>' + Math.round(kc * 100) + '%</b> of ') + unit(cheap.it) + ' of ' + esc(cheap.it.name.toLowerCase());
-    const dearTxt = (kd >= 1 ? '<b>' + kd.toFixed(1) + '</b> ' : '<b>' + Math.round(kd * 100) + '%</b> of a ') + unit(dear.it) + ' of ' + esc(dear.it.name.toLowerCase());
-    $('#db-hook').innerHTML = 'This coin buys ' + cheapTxt + ', or ' + dearTxt + '.';
+    const part = (k, r) => '<b>' + k.toFixed(2) + '</b> ' + unit(r.it) + ' of ' + esc(r.it.name.toLowerCase());
+    $('#db-hook').innerHTML = 'This coin buys ' + part(kc, cheap) + ', or ' + part(kd, dear) + '.';
 
     defaultReadout = 'Hover or focus a card for its price and source.';
     readout.textContent = defaultReadout;
