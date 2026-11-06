@@ -1,0 +1,2 @@
+id,name,unit,period,value,source,source_url
+transit,Transit ride,1 boarding,2014,1.43,"U.S. Bureau of Transportation Statistics, Table 3-18 Average Passenger Fares (transit, all modes, unlinked trips)",https://www.bts.gov/archive/publications/national_transportation_statistics/table_03_18

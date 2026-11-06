@@ -1,0 +1,162 @@
+<section class="story-section" id="dimensions" aria-labelledby="dimensions-title">
+  <div class="section-index">02 <span>Dimensions</span></div>
+  <div class="dim-header">
+    <h2 id="dimensions-title">Access is affected by <em>different dimensions.</em></h2>
+    <p class="dim-intro">Click on each one to explore them.</p>
+    <span class="sticker dim-sticker-a" data-sticker="in-season" style="--rotate: 10deg"></span>
+    <span class="sticker dim-sticker-b" data-sticker="just-picked" style="--rotate: -8deg"></span>
+  </div>
+
+  <div class="dim-grid">
+    <article class="dim-card" data-tone="beans">
+      <div class="dim-inner">
+        <button type="button" class="dim-face dim-front" aria-expanded="false" aria-controls="dim-back-physical">
+          <span class="dim-visual dim-map" aria-hidden="true">
+            <span class="map-grid"></span>
+            <span class="dim-route dim-route-a"></span>
+            <span class="dim-route dim-route-b"></span>
+            <span class="dim-pin dim-home">Home</span>
+            <span class="dim-pin dim-store">Grocery</span>
+            <span class="dim-distance">1.4 mi walk</span>
+          </span>
+          <span class="dim-label">Physical access</span>
+          <span class="dim-hint">Click to flip</span>
+        </button>
+        <div class="dim-face dim-back" id="dim-back-physical" tabindex="0" aria-label="Card back. Press Enter to flip back." inert>
+          <h3>Physical access</h3>
+          <p class="dim-def">The USDA calls it <strong>low access</strong> when the nearest supermarket is more than 1 mile away in a city, or 10 miles in the countryside.</p>
+          <p class="dim-big"><strong>68.6M</strong><span>people had low access in 2019</span></p>
+          <a class="dim-link" href="#story">Explore physical access &rarr;</a>
+          <span class="dim-hint dim-hint-back" aria-hidden="true">Click to flip back</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="dim-card" data-tone="crate">
+      <div class="dim-inner">
+        <button type="button" class="dim-face dim-front" aria-expanded="false" aria-controls="dim-back-race">
+          <img class="dim-visual" src="images/dimension-race-market.jpg" width="1280" height="848" loading="lazy" alt="Shoppers of many backgrounds at a busy outdoor farmers market under a highway overpass in Baltimore.">
+          <span class="dim-label">Racial access</span>
+          <span class="dim-hint">Click to flip</span>
+        </button>
+        <div class="dim-face dim-back" id="dim-back-race" tabindex="0" aria-label="Card back. Press Enter to flip back." inert>
+          <h3>Racial access</h3>
+          <p class="dim-def">Food hardship is not spread evenly across racial groups.</p>
+          <p class="dim-big"><strong>23.6%</strong><span>of Black households received SNAP in 2024, vs. 8.3% of White households</span></p>
+          <a class="dim-link" href="#explore">Explore racial access &rarr;</a>
+          <span class="dim-hint dim-hint-back" aria-hidden="true">Click to flip back</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="dim-card" data-tone="tomato">
+      <div class="dim-inner">
+        <button type="button" class="dim-face dim-front" aria-expanded="false" aria-controls="dim-back-economic">
+          <img class="dim-visual" src="images/dimension-economic-card-reader.jpg" width="1280" height="855" loading="lazy" alt="A shopper's food benefits card being swiped in a card reader at a farmers market stand, with a receipt in hand.">
+          <span class="dim-label">Economic access</span>
+          <span class="dim-hint">Click to flip</span>
+        </button>
+        <div class="dim-face dim-back" id="dim-back-economic" tabindex="0" aria-label="Card back. Press Enter to flip back." inert>
+          <h3>Economic access</h3>
+          <p class="dim-def">Even when a store is close, food has to fit the budget.</p>
+          <p class="dim-big"><strong>~1/3</strong><span>SNAP households&rsquo; median income vs. other households&rsquo; ($31,207 vs. $89,487, 2024)</span></p>
+          <a class="dim-link" href="#income-sales">Explore economic access &rarr;</a>
+          <span class="dim-hint dim-hint-back" aria-hidden="true">Click to flip back</span>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <p class="dim-credit">
+    Photos: U.S. Department of Agriculture, public domain, via <a href="https://commons.wikimedia.org/wiki/File:Deputy_Secretary_Kathleen_Merrigan_helps_launch_Wireless_EBT_at_Baltimore_Farmers%27_Market_and_Bazaar_(20120708-OSEC-LSC-0005).jpg" target="_blank" rel="noreferrer">Wikimedia Commons</a>
+    (<a href="https://commons.wikimedia.org/wiki/File:Deputy_Secretary_Kathleen_Merrigan_helps_launch_Wireless_EBT_at_Baltimore_Farmers%27_Market_and_Bazaar_(20120708-OSEC-LSC-0435).jpg" target="_blank" rel="noreferrer">2</a>).
+    Data: USDA Economic Research Service (low access, 2019); U.S. Census Bureau, ACS 2024, Table S2201.
+  </p>
+</section>
+
+<style>
+  #dimensions .dim-header { position: relative; }
+  #dimensions h2 { max-width: 1100px; margin-bottom: 18px; font-size: clamp(44px, 5.6vw, 88px); }
+  #dimensions .dim-intro { margin: 0; font-size: var(--body-size); line-height: var(--body-leading); }
+  .dim-sticker-a { right: 2%; bottom: -30px; }
+  .dim-sticker-b { right: 15%; bottom: -46px; }
+
+  .dim-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(24px, 5vw, 80px); margin-top: 90px; }
+  .dim-card { border-radius: 20px; perspective: 1400px; transition: transform .25s, outline-color .2s; outline: 4px solid transparent; outline-offset: 8px; }
+  /* Hover (or keyboard focus) draws a stroke around the card and lifts it a little. */
+  .dim-card:hover, .dim-card:focus-within { outline-color: var(--ink); transform: translateY(-6px); }
+  .dim-inner { position: relative; aspect-ratio: 4 / 5; transform-style: preserve-3d; transition: transform .7s cubic-bezier(.3, .7, .2, 1); }
+  .dim-card.is-flipped .dim-inner { transform: rotateY(180deg); }
+  .dim-face { position: absolute; inset: 0; overflow: hidden; border-radius: 20px; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+
+  .dim-front { display: block; width: 100%; padding: 0; border: 0; color: var(--paper); background: var(--ink); font: inherit; text-align: left; cursor: pointer; }
+  .dim-front:focus-visible { outline: none; }
+  .dim-visual { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; }
+  .dim-front::after { content: ""; position: absolute; inset: 45% 0 0; background: linear-gradient(transparent, rgba(28, 33, 71, .85)); }
+  .dim-label { position: absolute; z-index: 1; left: 24px; right: 24px; bottom: 50px; font-size: clamp(24px, 2.4vw, 34px); font-weight: 600; letter-spacing: -.04em; line-height: 1; }
+  .dim-hint { position: absolute; z-index: 1; left: 24px; bottom: 22px; font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; opacity: .8; }
+
+  /* Drawn map for the physical access card, in the style of the opening map. */
+  .dim-map { background: #f6e7bf; }
+  .dim-map .map-grid { opacity: .35; }
+  .dim-route { position: absolute; border: 0 dashed var(--tomato); }
+  .dim-route-a { left: 20%; top: 22%; width: 56%; border-top-width: 4px; }
+  .dim-route-b { left: 76%; top: 22%; height: 34%; border-left-width: 4px; }
+  .dim-pin { position: absolute; transform: translate(-50%, -50%); padding: 6px 10px; border: 3px solid var(--ink); border-radius: 999px; color: var(--ink); background: var(--citrus); font-family: var(--mono); font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: .06em; }
+  .dim-home { left: 20%; top: 22%; background: var(--paper); }
+  .dim-store { left: 76%; top: 56%; }
+  .dim-distance { position: absolute; left: 30%; top: 26%; color: var(--tomato); font-family: var(--mono); font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: .08em; }
+
+  .dim-back { display: flex; flex-direction: column; gap: 14px; padding: clamp(22px, 2.4vw, 34px); color: var(--paper); transform: rotateY(180deg); }
+  .dim-card[data-tone="beans"] .dim-back { background: var(--beans); }
+  .dim-card[data-tone="crate"] .dim-back { background: var(--crate); }
+  .dim-card[data-tone="tomato"] .dim-back { background: var(--tomato); }
+  .dim-back h3 { margin: 0; font-size: clamp(24px, 2.4vw, 34px); letter-spacing: -.04em; }
+  .dim-back p { margin: 0; font-size: clamp(15px, 1.25vw, 18px); line-height: 1.4; }
+  /* The intro text gets the same height on every card, so the big numbers line up across cards. */
+  .dim-back .dim-def { min-height: 5.6em; }
+  /* One big number per card, with a short label under it. */
+  .dim-big strong { display: block; font-size: clamp(48px, 5vw, 80px); font-weight: 600; letter-spacing: -.06em; line-height: 1; }
+  .dim-big span { display: block; margin-top: 8px; font-family: var(--mono); font-size: 12px; line-height: 1.45; text-transform: uppercase; letter-spacing: .06em; }
+  .dim-back:focus { outline: none; }
+  .dim-back:focus-visible { outline: 3px solid var(--paper); outline-offset: -10px; }
+  .dim-link { margin-top: auto; font-family: var(--mono); font-size: 15px; text-transform: uppercase; letter-spacing: .08em; }
+  .dim-back { cursor: pointer; }
+  .dim-back .dim-hint-back { position: static; }
+  .dim-link:focus-visible { outline: 2px solid var(--paper); outline-offset: 3px; }
+
+  #dimensions .dim-credit { margin: 50px 0 0; font-family: var(--mono); font-size: 10px; line-height: 1.6; text-transform: uppercase; letter-spacing: .08em; opacity: .7; }
+
+  @media (prefers-reduced-motion: reduce) { .dim-card, .dim-inner { transition: none; } }
+  /* Medium screens: the three cards get narrow, so make them taller to fit the back text. */
+  @media (min-width: 901px) and (max-width: 1200px) { .dim-inner { aspect-ratio: 4 / 7; } .dim-big strong { font-size: 44px; } .dim-back { gap: 10px; } .dim-back .dim-def { min-height: 7em; } .dim-big span { font-size: 11px; } }
+  @media (max-width: 900px) {
+    .dim-back .dim-def { min-height: 0; }
+    .dim-grid { grid-template-columns: 1fr; max-width: 420px; }
+    .dim-sticker-b { display: none; }
+  }
+</style>
+
+<script>
+  // Flip cards: clicking a card turns it over, and clicking it again turns it back.
+  (function () {
+    document.querySelectorAll('#dimensions .dim-card').forEach((card) => {
+      const front = card.querySelector('.dim-front');
+      const back = card.querySelector('.dim-back');
+      const flip = (flipped) => {
+        card.classList.toggle('is-flipped', flipped);
+        front.setAttribute('aria-expanded', String(flipped));
+        // Only the visible side can be reached with the keyboard or a screen reader.
+        back.inert = !flipped;
+        front.inert = flipped;
+        (flipped ? back : front).focus({ preventScroll: true });
+      };
+      front.addEventListener('click', () => flip(true));
+      // Clicking anywhere on the back flips it, except the "Explore" link, which jumps to its section.
+      back.addEventListener('click', (event) => { if (!event.target.closest('a')) flip(false); });
+      back.addEventListener('keydown', (event) => {
+        if (event.target === back && (event.key === 'Enter' || event.key === ' ')) { event.preventDefault(); flip(false); }
+      });
+    });
+  })();
+</script>

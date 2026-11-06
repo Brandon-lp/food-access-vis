@@ -1,0 +1,40 @@
+<section class="story-section income-section" id="income-sales" aria-labelledby="income-sales-title">
+  <div class="section-index">05 <span>Economic access</span></div>
+  <div class="story-grid">
+    <div><h2 id="income-sales-title">Paychecks vs<br><em>food bills.</em></h2></div>
+    <div class="story-text">
+      <p>Since 1997, both income and food sales per person have risen in every state.</p>
+      <p class="is-instructions">Select your state on the map or from the menu to see how income and food sales grew. The chart starts with the U.S. average.</p>
+    </div>
+  </div>
+  <!-- income-sales.js finds each element below by its id and fills it in. -->
+  <div class="is-shell">
+    <div class="is-toolbar">
+      <div class="is-control">
+        <label class="is-control-label" for="is-state-select">State</label>
+        <select id="is-state-select"></select>
+      </div>
+      <button type="button" class="is-button" id="is-replay">Replay animation</button>
+    </div>
+    <div class="is-layout">
+      <figure class="is-figure">
+        <figcaption>Click your state</figcaption>
+        <!-- The map and chart drawings are added by income-sales.js. Writing an SVG drawing tag directly in this file breaks VS Code Live Server, which inserts its own code there. -->
+        <div id="is-map-box"></div>
+        <div class="is-map-legend" id="is-map-legend"></div>
+      </figure>
+      <figure class="is-figure">
+        <figcaption id="is-chart-title">Loading data&hellip;</figcaption>
+        <div class="is-legend" id="is-legend"></div>
+        <div class="is-chart">
+          <div class="is-tooltip" id="is-tooltip" hidden></div>
+        </div>
+      </figure>
+    </div>
+    <details class="is-table">
+      <summary>Show the numbers as a table</summary>
+      <div id="is-table"></div>
+    </details>
+    <p class="source-note">Sources: U.S. Department of Agriculture (USDA) Economic Research Service (ERS), per capita food sales by state (total food); U.S. Bureau of Economic Analysis (BEA), Annual Personal Income by State. 1997&ndash;2025, in nominal dollars (not adjusted for inflation). The U.S. average is the simple average of the 50 states and D.C., not weighted by population. Food sales count food sold in a state divided by its residents, so places with many visitors or commuters, such as D.C., Nevada and Hawaii, can look higher than what residents spend.</p>
+  </div>
+</section>
