@@ -1,6 +1,6 @@
 <section class="about-section" id="solution" aria-labelledby="solution-title">
   <div class="section-index">07 <span>Take action</span></div>
-    <div class="about-grid sol-head">
+  <div class="about-grid sol-head">
     <h2 id="solution-title">You can<br><em>take action.</em></h2>
     <p class="sol-lead">Food access is not one problem, so there is no single fix. Across this story, three things stood out. Each one points to something you can do.</p>
     <div class="sol-ask">
@@ -11,16 +11,9 @@
 
   <ol class="sol-list">
     <li class="sol-item">
-      <div class="sol-pic" aria-hidden="true">
-        <svg viewBox="0 0 64 64" focusable="false">
-          <circle cx="32" cy="34" r="26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 4" opacity=".45"/>
-          <circle cx="32" cy="34" r="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 4" opacity=".45"/>
-          <path d="M32 40 C24 30 24 20 32 14 C40 20 40 30 32 40 Z" fill="var(--acid)" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-          <circle cx="32" cy="25" r="3.2" fill="currentColor"/>
-          <rect x="50" y="48" width="9" height="8" fill="var(--blue)"/>
-          <path d="M49 48 L54.5 43 L60 48 Z" fill="var(--blue)"/>
-        </svg>
-      </div>
+      <figure class="sol-photo">
+        <img src="images/solution-distance.jpg" alt="A bus stop on a long road with no stores in sight" loading="lazy">
+      </figure>
       <span class="sol-num">01</span>
       <h3>Distance is only part of access.</h3>
       <p>A store can be close on the map and still out of reach without a car, a bus line, or time to spare. The physical access maps show that low access clusters in particular places.</p>
@@ -28,16 +21,9 @@
     </li>
 
     <li class="sol-item">
-      <div class="sol-pic" aria-hidden="true">
-        <svg viewBox="0 0 64 64" focusable="false">
-          <path d="M8 56 H58" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          <rect x="12" y="30" width="9" height="26" fill="var(--blue)"/>
-          <rect x="25" y="16" width="9" height="40" fill="var(--acid)" stroke="currentColor" stroke-width="1.5"/>
-          <rect x="38" y="38" width="9" height="18" fill="var(--blue)"/>
-          <rect x="51" y="24" width="9" height="32" fill="var(--blue)" opacity=".55"/>
-          <path d="M8 34 H58" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3"/>
-        </svg>
-      </div>
+      <figure class="sol-photo">
+        <img src="images/solution-average.jpg" alt="Neighbors shopping at a community market" loading="lazy">
+      </figure>
       <span class="sol-num">02</span>
       <h3>The average hides who is left out.</h3>
       <p>When the data is split by race and by income, some groups face low access far more often than the national picture suggests. A single average can look fine while whole communities are not.</p>
@@ -45,15 +31,9 @@
     </li>
 
     <li class="sol-item">
-      <div class="sol-pic" aria-hidden="true">
-        <svg viewBox="0 0 64 64" focusable="false">
-          <circle cx="24" cy="30" r="17" fill="var(--acid)" stroke="currentColor" stroke-width="2"/>
-          <circle cx="24" cy="30" r="12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2 3" opacity=".6"/>
-          <text x="24" y="34" text-anchor="middle" font-family="var(--mono)" font-size="10" font-weight="700" fill="currentColor">$1.41</text>
-          <path d="M38 36 H60 L57 58 H41 Z" fill="var(--blue)" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-          <path d="M44 36 C44 28 54 28 54 36" fill="none" stroke="currentColor" stroke-width="2"/>
-        </svg>
-      </div>
+      <figure class="sol-photo">
+        <img src="images/solution-budget.jpg" alt="A shopper checking the price of groceries" loading="lazy">
+      </figure>
       <span class="sol-num">03</span>
       <h3>A nearby store doesn't help if the budget can't stretch.</h3>
       <p>Food benefits average about $1.41 per person per day. Food banks help, but the data counts their locations, not how much food they can give out. Access means being able to afford food, too.</p>
@@ -68,19 +48,20 @@
   #solution .sol-head p { margin: 0 0 20px; font-size: clamp(16px, 1.4vw, 20px); line-height: 1.5; }
   #solution .sol-head .sol-lead { margin: 0; padding-top: 12px; }
   #solution .sol-ask { padding-top: 12px; }
-  @media (max-width: 900px) {
-    #solution .sol-head { grid-template-columns: minmax(0, 1fr); gap: 20px; }
-  }
-  #solution .sol-list { list-style: none; margin: 32px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
-  #solution .sol-item { display: flex; flex-direction: column; padding: 20px 0 0; border-top: 1px solid var(--line); }
-  #solution .sol-pic { color: var(--ink); width: 72px; height: 72px; padding: 8px; margin-bottom: 14px; background: rgba(28, 33, 71, .05); }
-  #solution .sol-pic svg { display: block; width: 100%; height: 100%; }
+
+  #solution .sol-list { list-style: none; margin: 40px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+  #solution .sol-item { display: flex; flex-direction: column; min-width: 0; }
+  #solution .sol-photo { margin: 0 0 18px; aspect-ratio: 4 / 3; background: rgba(28, 33, 71, .12); overflow: hidden; }
+  #solution .sol-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
   #solution .sol-num { display: block; margin-bottom: 6px; font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; opacity: .6; }
-  #solution .sol-item h3 { margin: 0 0 8px; font-size: 20px; font-weight: 600; letter-spacing: -.03em; line-height: 1.2; }
+  #solution .sol-item h3 { margin: 0 0 8px; font-size: 22px; font-weight: 600; letter-spacing: -.03em; line-height: 1.2; }
   #solution .sol-item p { margin: 0 0 10px; }
   #solution .sol-act { margin-top: auto !important; padding: 10px 12px; background: var(--acid); font-size: .95em; }
-  #solution { padding-bottom: 220px; }
+
+  #solution { padding-bottom: 220px; } /* empty space for the stickers */
+
   @media (max-width: 900px) {
-    #solution .sol-list { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+    #solution .sol-head { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+    #solution .sol-list { grid-template-columns: minmax(0, 1fr); gap: 36px; }
   }
 </style>
