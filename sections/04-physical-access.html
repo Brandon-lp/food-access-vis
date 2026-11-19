@@ -88,41 +88,41 @@
   .striker-copy h3 { margin-bottom: .9rem; }
   .striker-copy p { max-width: 32rem; color: #d7e7c4; line-height: 1.6; }
   /* Key: (icon) = (number). */
-  .fb-key { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; align-items: center; color: #e9f6dc; font: 1rem/1.35 system-ui, sans-serif; }
+  .fb-key { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; align-items: center; color: #e9f6dc; font: 1.15rem/1.35 system-ui, sans-serif; }
   .fb-key-item { display: inline-flex; align-items: center; gap: .4rem; }
-  .fb-key .fb-building { width: 30px; height: 28px; }
-  .fb-key .fb-person { width: 14px; height: 20px; }
+  .fb-key .fb-building { width: 34px; height: 31px; }
+  .fb-key .fb-person { width: 16px; height: 23px; }
   .fb-key-swatch { width: 10px; height: 10px; border-radius: 50%; }
   /* Pictogram rows: a building, then the people that one food bank would cover. */
   .fb-picto { display: grid; gap: 1.25rem; }
-  .fb-row-label { margin: 0 0 .5rem; color: #f5ffb0; font: 700 1.2rem/1.2 system-ui, sans-serif; }
+  .fb-row-label { margin: 0 0 .5rem; color: #f5ffb0; font: 700 1.45rem/1.2 system-ui, sans-serif; }
   .fb-row-icons { display: flex; align-items: flex-end; gap: .6rem; }
   .fb-people { display: flex; flex-wrap: wrap; gap: 3px; align-content: flex-end; }
   /* People colors: cream for the national median, red when a state has more people per food bank than the median, green when it meets it. */
-  .fb-person { width: 14px; height: 20px; fill: #f5f0e8; }
+  .fb-person { width: 16px; height: 23px; fill: #f5f0e8; }
   .fb-row.tone-over .fb-person { fill: #ff5a4a; }
   .fb-row.tone-meets .fb-person { fill: #a6d96a; }
   .fb-key-swatch.tone-over { background: #ff5a4a; }
   .fb-key-swatch.tone-meets { background: #a6d96a; }
-  .fb-building { flex: none; width: 44px; height: 40px; fill: #ffd166; stroke: #f5f0e8; stroke-width: 1.5; }
+  .fb-building { flex: none; width: 50px; height: 46px; fill: #ffd166; stroke: #f5f0e8; stroke-width: 1.5; }
   .fb-building .fb-door { fill: #3d4d18; stroke: none; }
   .fb-building.is-empty { fill: none; stroke: #ffd166; stroke-dasharray: 4 3; }
   .fb-building.is-empty .fb-door { display: none; }
-  .fb-row-number { margin: .5rem 0 0; color: #e9f6dc; font: 1rem/1.4 system-ui, sans-serif; }
-  .fb-row-number strong { color: #fff; font-size: 1.5rem; }
-  .fb-row-missing { margin: 0; padding: .75rem .9rem; border: 1px dashed rgba(174,226,137,.35); border-radius: .55rem; color: #e9f6dc; font: 1rem/1.45 system-ui, sans-serif; }
+  .fb-row-number { margin: .5rem 0 0; color: #e9f6dc; font: 1.2rem/1.4 system-ui, sans-serif; }
+  .fb-row-number strong { color: #fff; font-size: 1.9rem; }
+  .fb-row-missing { margin: 0; padding: .75rem .9rem; border: 1px dashed rgba(174,226,137,.35); border-radius: .55rem; color: #e9f6dc; font: 1.15rem/1.45 system-ui, sans-serif; }
   .fb-row.is-typical.is-dimmed { padding-top: 1rem; border-top: 1px dashed rgba(174,226,137,.3); opacity: .55; }
   .fb-person.is-popping { animation: fb-pop .35s backwards cubic-bezier(.3, 1.6, .5, 1); }
   @keyframes fb-pop { from { transform: scale(0); opacity: 0; } }
   @media (prefers-reduced-motion: reduce) { .fb-person.is-popping { animation: none; } }
   #story .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   /* Side by side when there is room; stacked when the panel is narrow, so big numbers never break mid-number. */
-  .striker-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); gap: .65rem; }
+  .striker-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr)); gap: .65rem; }
   .striker-stat { min-width: 0; padding: .7rem; border: 1px solid rgba(174,226,137,.2); border-radius: .55rem; background: rgba(25, 32, 8, .3); }
-  .striker-stat span { display: block; color: #c6dab8; font: .8rem/1.35 system-ui, sans-serif; }
-  .striker-stat strong { display: block; margin-top: .25rem; color: #f5ffe9; font: 700 clamp(1.3rem, 2.2vw, 1.7rem)/1.15 system-ui, sans-serif; white-space: nowrap; }
-  .striker-interpretation, .striker-source, .striker-motion-status { margin: 0; color: #c6dab8; font: .85rem/1.5 system-ui, sans-serif; }
-  .striker-interpretation { color: #f5ffb0; font-size: 1.05rem; }
+  .striker-stat span { display: block; color: #c6dab8; font: .95rem/1.35 system-ui, sans-serif; }
+  .striker-stat strong { display: block; margin-top: .25rem; color: #f5ffe9; font: 700 clamp(1.4rem, 2.2vw, 1.8rem)/1.15 system-ui, sans-serif; white-space: nowrap; }
+  .striker-interpretation, .striker-source, .striker-motion-status { margin: 0; color: #c6dab8; font: .95rem/1.5 system-ui, sans-serif; }
+  .striker-interpretation { color: #f5ffb0; font-size: 1.25rem; line-height: 1.45; }
   .striker-motion-status { font-family: var(--mono); font-size: .65rem; }
   .map-intro { max-width: 42rem; }
   @media (max-width: 900px) { .physical-access-panels { grid-template-columns: minmax(0, 1fr); } }

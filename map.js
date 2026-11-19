@@ -197,7 +197,7 @@ function drawCountyMap(rows, atlas) {
   // Key above the pictogram.
   document.querySelector('#fb-key').innerHTML =
     `<span class="fb-key-item">${buildingIcon(false)} = 1 food bank</span>` +
-    `<span class="fb-key-item">${personIcon} = 10,000 low-income, low-access residents</span>` +
+    `<span class="fb-key-item">${personIcon} = 10,000 residents</span>` +
     '<span class="fb-key-item"><span class="fb-key-swatch tone-over"></span>More than the national median</span>' +
     '<span class="fb-key-item"><span class="fb-key-swatch tone-meets"></span>At or below the median</span>';
   const pictogramRow = (label, people, banks, extraClass) => {
