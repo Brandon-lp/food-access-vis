@@ -27,46 +27,21 @@
       <br>
       <p class="source-note">Source: USDA Food Environment Atlas, 2019. Low income and low access is a USDA measure.</p>
     </div>
+    <!-- Food banks pictogram: map.js draws the icons into #fb-picto. -->
     <div class="food-bank-striker" aria-labelledby="food-bank-striker-title">
       <div class="striker-copy">
-        <h3 id="food-bank-striker-title">Low Access and Food-Bank Locations</h3>
-        <p>The striker moves toward the bell based on food-bank locations per 100,000 low-access residents, relative to the national median — <strong id="striker-copy-median">—</strong>.</p>
+        <h3 id="food-bank-striker-title">How many people do food banks serve?</h3>
+        <!-- Icon key: map.js fills in the icons. -->
+        <div class="fb-key" id="fb-key"></div>
       </div>
-      <div class="striker-visual">
-        <svg id="food-bank-striker" viewBox="0 0 400 340" role="img" aria-labelledby="striker-svg-title striker-svg-description">
-          <title id="striker-svg-title">State food-bank availability relative to the national median</title>
-          <desc id="striker-svg-description">Select a state on the map to explore how its reported food-bank availability compares to its low-access population. The striker moves toward the bell based on the number of food-bank locations per 100,000 low-access residents, relative to the national median. When the striker reaches the bell, the state meets or exceeds this reference. A striker that stops short indicates lower relative availability.</desc>
-          <defs>
-            <linearGradient id="striker-rail-gradient" x1="0" x2="1">
-              <stop offset="0" stop-color="#ff765c"></stop>
-              <stop offset="1" stop-color="#ffd166"></stop>
-            </linearGradient>
-          </defs>
-          <g transform="translate(-60 0)">
-          <line x1="260" y1="42" x2="260" y2="276" class="striker-rail"></line>
-          <line x1="220" y1="100.5" x2="300" y2="100.5" class="striker-base"></line>
-          <g class="striker-puck" id="striker-puck" aria-hidden="true">
-            <rect x="239" y="0" width="42" height="20" rx="8"></rect>
-            <line x1="260" y1="20" x2="260" y2="32"></line>
-          </g>
-          <g class="striker-bell" transform="translate(260 292)" aria-hidden="true">
-            <path d="M-19 0h38l-5-7v-8a14 14 0 0 0-28 0v8z"></path>
-            <path d="M-5 5a5 5 0 0 0 10 0"></path>
-          </g>
-          <text x="260" y="326" text-anchor="middle" class="striker-bell-label">FOOD BANKS PER 100,000 LOW-ACCESS RESIDENTS</text>
-          <text x="210" y="104" text-anchor="end" class="striker-target-label">NATIONAL MEDIAN</text>
-          <text x="210" y="123" text-anchor="end" class="striker-target-value" id="striker-target-value">—</text>
-          <text x="302" y="78" dominant-baseline="middle" class="striker-state-rate-label" id="striker-state-rate-label" aria-hidden="true">—</text>
-          <text x="70" y="68" class="striker-state-label" id="striker-state">Select a state</text>
-          </g>
-        </svg>
-      </div>
-      <div class="striker-stats" aria-label="Selected state food-bank availability statistics">
+      <div class="striker-stats" aria-label="Selected state food-bank statistics">
         <div class="striker-stat"><span>Low-income, low-access residents</span><strong id="striker-low-access-population">—</strong></div>
-        <div class="striker-stat"><span>Reported food-bank locations</span><strong id="striker-bank-count">—</strong></div>
+        <div class="striker-stat"><span>Reported food banks</span><strong id="striker-bank-count">—</strong></div>
       </div>
-      <p id="striker-interpretation" class="striker-interpretation">Choose a state to see how its food-bank availability compares with the national median.</p>
-      <p id="striker-motion-status" class="striker-motion-status" aria-live="polite">Choose a state on the map to compare its food-bank availability with the national median.</p>
+      <div class="fb-picto" id="fb-picto" aria-describedby="striker-interpretation"></div>
+      <p id="striker-interpretation" class="striker-interpretation">Select a state on the map to compare it with the national median.</p>
+      <p class="striker-source">Food banks are large regional warehouses (USDA Food Environment Atlas, 2021). Each one supplies many smaller food pantries, so this shows how far each food bank's reach must stretch, not how many people walk into one building.</p>
+      <p id="striker-motion-status" class="striker-motion-status visually-hidden" aria-live="polite"></p>
     </div>
   </div>
 </section>
@@ -82,7 +57,12 @@
   .county-map-controls { display: flex; align-items: center; flex-wrap: wrap; gap: .75rem; margin: 1.25rem 0; }
   .county-map-controls label { font-weight: 700; }
   .county-map-controls select { max-width: 100%; padding: .55rem .75rem; color: #f5ffe9; background: #263110; border: 1px solid rgba(174,226,137,.5); border-radius: .45rem; font: inherit; }
-  .county-map-frame { overflow: hidden; border-radius: .75rem; background: radial-gradient(circle at 50% 35%, #6e8a2f, #263110 72%); }
+  .county-map-frame { position: relative; overflow: hidden; border-radius: .75rem; background: radial-gradient(circle at 50% 35%, #6e8a2f, #263110 72%); }
+  /* "Back to U.S. map" button, shown in the map's top-right corner while a state is open. */
+  .county-map-frame .county-map-reset { position: absolute; z-index: 1; top: 10px; right: 10px; border: 1px solid var(--ink); border-radius: 0; padding: 6px 10px; color: var(--ink); background: var(--paper); font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .06em; cursor: pointer; }
+  .county-map-frame .county-map-reset:hover { color: var(--paper); background: var(--ink); }
+  .county-map-frame .county-map-reset:focus-visible { outline: 2px solid var(--paper); outline-offset: 2px; }
+  .county-map-frame .county-map-reset[hidden] { display: none; }
   .county-map-frame svg { display: block; width: 100%; height: auto; touch-action: none; }
   .county-map-frame .county-shape { fill: #40521e; stroke: #8ca65f; stroke-width: .45px; }
   .county-map-frame .county-shape.is-hidden { display: none; }
@@ -97,32 +77,52 @@
   .county-map-legend:not(.is-state-view)::before { content: "PEOPLE AFFECTED"; }
   .county-map-legend svg { display: block; max-width: 100%; overflow: visible; }
   .county-map-legend text { fill: #e9f6dc; font: 10px system-ui, sans-serif; }
-  .county-map-status, .source-note { color: #c6dab8; font: .78rem/1.5 system-ui, sans-serif; }
-  .county-map-status { margin-bottom: 0; }
-  .source-note { margin-top: 0; }
+  /* Scoped to this section (#story) so the light green source text doesn't spread to the cream sections. */
+  #story .county-map-status, #story .source-note { color: #c6dab8; font: .78rem/1.5 system-ui, sans-serif; }
+  #story .county-map-status { margin-bottom: 0; }
+  #story .source-note { margin-top: 0; }
   .county-map-status.is-error { color: #ffd166; }
-  .physical-access-panels .food-bank-striker { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(16rem, 1fr) auto auto; align-items: start; gap: 1rem; min-width: 0; margin-top: 0; padding: clamp(1rem, 3vw, 2rem); background: rgba(25, 32, 8, .38); border: 1px solid rgba(174,226,137,.25); border-radius: 1rem; }
-  .striker-copy h3 { margin-bottom: .75rem; }
+  .physical-access-panels .food-bank-striker { display: grid; grid-template-columns: minmax(0, 1fr); align-content: start; gap: 1rem; min-width: 0; padding: clamp(1rem, 3vw, 2rem); background: rgba(25, 32, 8, .38); border: 1px solid rgba(174,226,137,.25); border-radius: 1rem; }
+  /* Panel titles: bigger than the body text so headings stand out. */
+  .physical-access-panels h3 { font-size: clamp(1.4rem, 1.9vw, 1.75rem); line-height: 1.2; letter-spacing: -.02em; }
+  .striker-copy h3 { margin-bottom: .9rem; }
   .striker-copy p { max-width: 32rem; color: #d7e7c4; line-height: 1.6; }
-  .striker-visual { display: grid; place-items: center; min-width: 0; min-height: 0; }
-  #food-bank-striker { display: block; width: 100%; height: 100%; max-width: 26rem; max-height: 22rem; margin-inline: auto; overflow: visible; }
-  .striker-rail { stroke: rgba(233,246,220,.45); stroke-width: 12; stroke-linecap: round; }
-  .striker-base { stroke: #ffd166; stroke-width: 8; stroke-linecap: round; }
-  .striker-puck rect { fill: url(#striker-rail-gradient); stroke: #f5f0e8; stroke-width: 2; }
-  .striker-puck line { stroke: #f5f0e8; stroke-width: 4; stroke-linecap: round; }
-  .striker-bell path:first-child { fill: #ffd166; stroke: #f5f0e8; stroke-width: 1.5; }
-  .striker-bell path:last-child { fill: none; stroke: #f5f0e8; stroke-width: 2; }
-  .striker-bell-label, .striker-scale-label { fill: #c6dab8; font: 9px system-ui, sans-serif; letter-spacing: .06em; }
-  .striker-target-label { fill: #ffd166; font: 700 10px system-ui, sans-serif; letter-spacing: .06em; }
-  .striker-target-value { fill: #fff3bd; font: 700 16px system-ui, sans-serif; }
-  .striker-state-rate-label { fill: #f5ffb0; font: 700 16px system-ui, sans-serif; }
-  .striker-state-label { fill: #f5ffb0; font: 700 18px system-ui, sans-serif; }
-  .striker-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; }
+  /* Key: (icon) = (number). */
+  .fb-key { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; align-items: center; color: #e9f6dc; font: 1rem/1.35 system-ui, sans-serif; }
+  .fb-key-item { display: inline-flex; align-items: center; gap: .4rem; }
+  .fb-key .fb-building { width: 30px; height: 28px; }
+  .fb-key .fb-person { width: 14px; height: 20px; }
+  .fb-key-swatch { width: 10px; height: 10px; border-radius: 50%; }
+  /* Pictogram rows: a building, then the people that one food bank would cover. */
+  .fb-picto { display: grid; gap: 1.25rem; }
+  .fb-row-label { margin: 0 0 .5rem; color: #f5ffb0; font: 700 1.2rem/1.2 system-ui, sans-serif; }
+  .fb-row-icons { display: flex; align-items: flex-end; gap: .6rem; }
+  .fb-people { display: flex; flex-wrap: wrap; gap: 3px; align-content: flex-end; }
+  /* People colors: cream for the national median, red when a state has more people per food bank than the median, green when it meets it. */
+  .fb-person { width: 14px; height: 20px; fill: #f5f0e8; }
+  .fb-row.tone-over .fb-person { fill: #ff5a4a; }
+  .fb-row.tone-meets .fb-person { fill: #a6d96a; }
+  .fb-key-swatch.tone-over { background: #ff5a4a; }
+  .fb-key-swatch.tone-meets { background: #a6d96a; }
+  .fb-building { flex: none; width: 44px; height: 40px; fill: #ffd166; stroke: #f5f0e8; stroke-width: 1.5; }
+  .fb-building .fb-door { fill: #3d4d18; stroke: none; }
+  .fb-building.is-empty { fill: none; stroke: #ffd166; stroke-dasharray: 4 3; }
+  .fb-building.is-empty .fb-door { display: none; }
+  .fb-row-number { margin: .5rem 0 0; color: #e9f6dc; font: 1rem/1.4 system-ui, sans-serif; }
+  .fb-row-number strong { color: #fff; font-size: 1.5rem; }
+  .fb-row-missing { margin: 0; padding: .75rem .9rem; border: 1px dashed rgba(174,226,137,.35); border-radius: .55rem; color: #e9f6dc; font: 1rem/1.45 system-ui, sans-serif; }
+  .fb-row.is-typical.is-dimmed { padding-top: 1rem; border-top: 1px dashed rgba(174,226,137,.3); opacity: .55; }
+  .fb-person.is-popping { animation: fb-pop .35s backwards cubic-bezier(.3, 1.6, .5, 1); }
+  @keyframes fb-pop { from { transform: scale(0); opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .fb-person.is-popping { animation: none; } }
+  #story .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  /* Side by side when there is room; stacked when the panel is narrow, so big numbers never break mid-number. */
+  .striker-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); gap: .65rem; }
   .striker-stat { min-width: 0; padding: .7rem; border: 1px solid rgba(174,226,137,.2); border-radius: .55rem; background: rgba(25, 32, 8, .3); }
-  .striker-stat span { display: block; color: #c6dab8; font: .65rem/1.35 system-ui, sans-serif; }
-  .striker-stat strong { display: block; margin-top: .25rem; color: #f5ffe9; font: 700 clamp(1rem, 2vw, 1.35rem)/1.15 system-ui, sans-serif; overflow-wrap: anywhere; }
-  .striker-interpretation, .striker-source, .striker-motion-status { margin: 0; color: #c6dab8; font: .75rem/1.5 system-ui, sans-serif; }
-  .striker-interpretation { color: #f5ffb0; font-size: .85rem; }
+  .striker-stat span { display: block; color: #c6dab8; font: .8rem/1.35 system-ui, sans-serif; }
+  .striker-stat strong { display: block; margin-top: .25rem; color: #f5ffe9; font: 700 clamp(1.3rem, 2.2vw, 1.7rem)/1.15 system-ui, sans-serif; white-space: nowrap; }
+  .striker-interpretation, .striker-source, .striker-motion-status { margin: 0; color: #c6dab8; font: .85rem/1.5 system-ui, sans-serif; }
+  .striker-interpretation { color: #f5ffb0; font-size: 1.05rem; }
   .striker-motion-status { font-family: var(--mono); font-size: .65rem; }
   .map-intro { max-width: 42rem; }
   @media (max-width: 900px) { .physical-access-panels { grid-template-columns: minmax(0, 1fr); } }

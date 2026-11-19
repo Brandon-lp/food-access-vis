@@ -98,9 +98,7 @@ function drawCountyMap(rows, atlas) {
   const detailImpact = document.querySelector('#county-impact');
   const detailShare = document.querySelector('#county-share');
   const legend = d3.select('#map-legend');
-  const strikerPuck = d3.select('#striker-puck');
-  const strikerBell = d3.select('.striker-bell');
-  const strikerDescription = document.querySelector('#striker-svg-description');
+  const pictogram = document.querySelector('#fb-picto');
   const strikerStatus = document.querySelector('#striker-motion-status');
   const strikerInterpretation = document.querySelector('#striker-interpretation');
   const geoPath = d3.geoPath();
@@ -167,19 +165,16 @@ function drawCountyMap(rows, atlas) {
     },
     (row) => row.FIPS.slice(0, 2)
   );
-  const nationalMedianBanksPer100k = d3.median(
-    [...stateFoodBankTotals.values()]
-      .map((state) => state.banksPer100k)
-      .filter((rate) => Number.isFinite(rate) && rate >= 0)
-  );
+  // People per food bank: low-income, low-access residents divided by reported food banks.
   stateFoodBankTotals.forEach((state) => {
-    const relativeAvailability = state.banksPer100k / nationalMedianBanksPer100k;
-    state.availabilityScore = Number.isFinite(relativeAvailability) &&
-      Number.isFinite(nationalMedianBanksPer100k) &&
-      nationalMedianBanksPer100k > 0
-      ? Math.min(1, Math.max(0, relativeAvailability))
+    state.peoplePerBank = state.foodBankCount > 0 && Number.isFinite(state.lowAccessPopulation)
+      ? state.lowAccessPopulation / state.foodBankCount
       : Number.NaN;
   });
+  // The typical (median) state, among states with at least one food bank.
+  const medianPeoplePerBank = d3.median(
+    [...stateFoodBankTotals.values()].map((state) => state.peoplePerBank).filter(Number.isFinite)
+  );
   const maximumShare = d3.max([...stateAverages.values()], (state) => state.share);
   const stateColor = d3.scaleSequential()
     .domain([0, maximumShare || 1])
@@ -191,145 +186,85 @@ function drawCountyMap(rows, atlas) {
     feature
   ]));
   const fipsByState = new Map(counties.map((county) => [county.State, county.FIPS.slice(0, 2)]));
-  const strikerPosition = d3.scaleLinear()
-    .domain([0, 1, 2])
-    .range([244, 100.5, 42])
-    .clamp(true);
   const bankCountFormat = new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 });
-  const rateFormat = new Intl.NumberFormat('en-US', {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
-  });
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // Pictogram: one building for a food bank, and one person icon for every 10,000 low-income, low-access residents it would cover.
+  const PEOPLE_PER_ICON = 10000;
+  const roundPeople = (value) => Math.round(value / 100) * 100;
+  const personIcon = '<svg class="fb-person" viewBox="0 0 20 28" aria-hidden="true"><circle cx="10" cy="6" r="5"/><path d="M2 27v-9a8 8 0 0 1 16 0v9z"/></svg>';
+  const buildingIcon = (empty) => `<svg class="fb-building${empty ? ' is-empty' : ''}" viewBox="0 0 48 44" aria-hidden="true"><path d="M3 18 24 3l21 15v24H3z"/><path class="fb-door" d="M19 42V29h10v13"/></svg>`;
+  // Key above the pictogram.
+  document.querySelector('#fb-key').innerHTML =
+    `<span class="fb-key-item">${buildingIcon(false)} = 1 food bank</span>` +
+    `<span class="fb-key-item">${personIcon} = 10,000 low-income, low-access residents</span>` +
+    '<span class="fb-key-item"><span class="fb-key-swatch tone-over"></span>More than the national median</span>' +
+    '<span class="fb-key-item"><span class="fb-key-swatch tone-meets"></span>At or below the median</span>';
+  const pictogramRow = (label, people, banks, extraClass) => {
+    const perBank = banks > 0 ? people / banks : people;
+    const icons = Math.max(1, Math.round(perBank / PEOPLE_PER_ICON));
+    const number = banks > 0
+      ? `<strong>${mapNumberFormat.format(roundPeople(perBank))}</strong> people for every food bank`
+      : `<strong>No food banks</strong> reported for ${mapNumberFormat.format(roundPeople(people))} people`;
+    return `<div class="fb-row ${extraClass}">` +
+      `<p class="fb-row-label">${label}</p>` +
+      `<div class="fb-row-icons">${buildingIcon(banks === 0)}<span class="fb-people">${personIcon.repeat(icons)}</span></div>` +
+      `<p class="fb-row-number">${number}</p></div>`;
+  };
+
   const updateStriker = (stateCode) => {
-    strikerPuck.interrupt();
-    strikerBell.interrupt().attr('transform', 'translate(260,292)');
-    document.querySelector('#striker-copy-median').textContent =
-      Number.isFinite(nationalMedianBanksPer100k)
-        ? rateFormat.format(nationalMedianBanksPer100k)
-        : '—';
+    // The national median row is full strength on the U.S. view and fades once a state is selected.
+    const typicalRow = (dimmed) => Number.isFinite(medianPeoplePerBank)
+      ? pictogramRow('National median', medianPeoplePerBank, 1, `is-typical${dimmed ? ' is-dimmed' : ''}`)
+      : '';
     if (!stateCode || stateCode === 'all') {
-      strikerPuck.attr('transform', 'translate(0,68)');
-      document.querySelector('#striker-state').textContent = 'Select a state';
+      pictogram.innerHTML = typicalRow(false);
       document.querySelector('#striker-low-access-population').textContent = '—';
       document.querySelector('#striker-bank-count').textContent = '—';
-      document.querySelector('#striker-state-rate-label').textContent = '—';
-      document.querySelector('#striker-state-rate-label').setAttribute('y', '78');
-      document.querySelector('#striker-target-value').textContent =
-        Number.isFinite(nationalMedianBanksPer100k)
-          ? rateFormat.format(nationalMedianBanksPer100k)
-          : '—';
-      strikerDescription.textContent =
-        'Select a state on the map to explore how its reported food-bank availability compares to its low-access population. The striker moves toward the bell based on the number of food-bank locations per 100,000 low-access residents, relative to the national median. When the striker reaches the bell, the state meets or exceeds this reference. A striker that stops short indicates lower relative availability.';
-      strikerInterpretation.textContent =
-        'Choose a state to see how its food-bank availability compares with the national median.';
-      strikerStatus.textContent =
-        'Select a state to view its availability score.';
+      strikerInterpretation.textContent = 'Select a state on the map to compare it with the national median.';
+      strikerStatus.textContent = '';
       return;
     }
 
-    const stateFips = fipsByState.get(stateCode);
-    const totals = stateFoodBankTotals.get(stateFips);
-    if (!totals) {
-      strikerStatus.textContent = `No food-bank comparison data is available for ${mapStateNames.get(stateCode) || stateCode}.`;
-      return;
-    }
     const stateName = mapStateNames.get(stateCode) || stateCode;
-    const hasAvailability = Number.isFinite(totals.availabilityScore);
-    const availabilityRatio = hasAvailability && nationalMedianBanksPer100k > 0
-      ? totals.banksPer100k / nationalMedianBanksPer100k
-      : Number.NaN;
-    const meetsReference = hasAvailability && totals.availabilityScore >= 1;
-    const targetY = !hasAvailability
-      ? 68
-      : strikerPosition(availabilityRatio);
-    document.querySelector('#striker-state').textContent = stateName;
-    document.querySelector('#striker-low-access-population').textContent =
-      Number.isFinite(totals.lowAccessPopulation)
-        ? mapNumberFormat.format(totals.lowAccessPopulation)
-        : '—';
-    document.querySelector('#striker-bank-count').textContent =
-      Number.isFinite(totals.foodBankCount)
-        ? bankCountFormat.format(totals.foodBankCount)
-        : '—';
-    const stateRateLabel = document.querySelector('#striker-state-rate-label');
-    stateRateLabel.textContent =
-      Number.isFinite(totals.banksPer100k)
-        ? rateFormat.format(totals.banksPer100k)
-        : '—';
-    document.querySelector('#striker-target-value').textContent =
-      Number.isFinite(nationalMedianBanksPer100k)
-        ? rateFormat.format(nationalMedianBanksPer100k)
-        : '—';
-    strikerDescription.textContent = hasAvailability
-      ? `${stateName} has ${mapNumberFormat.format(totals.lowAccessPopulation)} low-income, low-access residents and ${bankCountFormat.format(totals.foodBankCount)} reported food-bank locations. The striker shows ${Math.round(totals.availabilityScore * 100)} percent of the national median rate of ${rateFormat.format(nationalMedianBanksPer100k)} locations per 100,000 low-access residents.`
-      : `${stateName}: food-bank availability cannot be compared with the national median because population or food-bank data is missing or invalid.`;
-
-    if (!hasAvailability) {
-      strikerPuck.attr('transform', 'translate(0,68)');
-      document.querySelector('#striker-state-rate-label').textContent = '—';
-      document.querySelector('#striker-state-rate-label').setAttribute('y', '78');
-      strikerInterpretation.textContent =
-        `${stateName}'s relative food-bank availability cannot be calculated from the available population and food-bank data.`;
-      strikerStatus.textContent = `${stateName}: availability comparison unavailable because population or food-bank data is missing or invalid.`;
+    const totals = stateFoodBankTotals.get(fipsByState.get(stateCode));
+    if (!totals || !Number.isFinite(totals.lowAccessPopulation) || !Number.isFinite(totals.foodBankCount)) {
+      // No data: keep the state's title, and show a sentence where the icons would be.
+      document.querySelector('#striker-low-access-population').textContent = '—';
+      document.querySelector('#striker-bank-count').textContent = '—';
+      pictogram.innerHTML = `<div class="fb-row is-selected is-missing"><p class="fb-row-label">${stateName}</p>` +
+        `<p class="fb-row-missing">No reported data. ${stateName} is missing population or food-bank counts for some counties, so it can't be compared.</p></div>` +
+        typicalRow(true);
+      strikerInterpretation.textContent = '';
+      strikerStatus.textContent = `${stateName}: no reported data.`;
       return;
     }
 
-    strikerStatus.textContent =
-      `${stateName}: ${Math.round(totals.availabilityScore * 100)}% of the national median.`;
+    document.querySelector('#striker-low-access-population').textContent = mapNumberFormat.format(totals.lowAccessPopulation);
+    document.querySelector('#striker-bank-count').textContent = bankCountFormat.format(totals.foodBankCount);
+    // Red when each food bank covers more people than the national median (or there are none), green when it meets the median.
+    const tone = totals.foodBankCount === 0 || totals.peoplePerBank > medianPeoplePerBank ? 'tone-over' : 'tone-meets';
+    pictogram.innerHTML = pictogramRow(stateName, totals.lowAccessPopulation, totals.foodBankCount, `is-selected ${tone}`) + typicalRow(true);
 
-    if (reducedMotion) {
-      strikerPuck.attr('transform', `translate(0,${targetY})`);
-      stateRateLabel.setAttribute('y', `${targetY + 10}`);
-      return;
-    }
+    const times = totals.peoplePerBank / medianPeoplePerBank;
+    strikerInterpretation.textContent = totals.foodBankCount === 0
+      ? `${stateName} has about ${mapNumberFormat.format(roundPeople(totals.lowAccessPopulation))} low-income, low-access residents and no reported food banks.`
+      : times >= 1.15
+        ? `Each food bank in ${stateName} covers about ${times.toFixed(1)}× as many people as the national median.`
+        : times > 1
+          ? `Each food bank in ${stateName} covers slightly more people than the national median.`
+          : times <= 0.87
+            ? `Each food bank in ${stateName} covers fewer people than the national median.`
+            : `${stateName} is close to the national median.`;
+    strikerStatus.textContent = `${stateName}: ${strikerInterpretation.textContent}`;
 
-    const currentTransform = strikerPuck.attr('transform') || '';
-    const currentY = Number(currentTransform.match(/translate\(0,([-\d.]+)/)?.[1] || 68);
-    const interpolateY = d3.interpolateNumber(currentY, targetY);
-    strikerPuck.transition()
-      .duration(800)
-      .ease(d3.easeCubicOut)
-      .attr('transform', `translate(0,${targetY})`)
-      .tween('rate-label', () => (progress) =>
-        stateRateLabel.setAttribute('y', `${interpolateY(progress) + 10}`)
-      )
-      .on('end', () => {
-        if (!strikerPuck.node().isConnected) return;
-        if (meetsReference) {
-          strikerBell
-            .transition()
-            .duration(80)
-            .attr('transform', 'translate(260,292) rotate(8)')
-            .transition()
-            .duration(80)
-            .attr('transform', 'translate(260,292) rotate(-8)')
-            .transition()
-            .duration(80)
-            .attr('transform', 'translate(260,292) rotate(6)')
-            .transition()
-            .duration(80)
-            .attr('transform', 'translate(260,292) rotate(-6)')
-            .transition()
-            .duration(100)
-            .attr('transform', 'translate(260,292)');
-        }
-
-        const animateBounce = (position, direction) => {
-          const nextY = Math.max(42, Math.min(244, targetY + direction * 4));
-          const interpolateY = d3.interpolateNumber(position, nextY);
-          strikerPuck.transition()
-            .duration(650)
-            .ease(d3.easeSineInOut)
-            .attr('transform', `translate(0,${nextY})`)
-            .tween('rate-label', () => (progress) =>
-              stateRateLabel.setAttribute('y', `${interpolateY(progress) + 10}`)
-            )
-            .on('end', () => animateBounce(nextY, -direction));
-        };
-        animateBounce(targetY, -1);
+    // The selected state's people icons appear one by one.
+    if (!reducedMotion) {
+      pictogram.querySelectorAll('.is-selected .fb-person').forEach((icon, index) => {
+        icon.style.animationDelay = `${Math.min(index * 30, 1200)}ms`;
+        icon.classList.add('is-popping');
       });
+    }
   };
 
   const svg = d3.select(mapFrame).append('svg')
@@ -412,8 +347,21 @@ function drawCountyMap(rows, atlas) {
     .on('zoom', (event) => zoomLayer.attr('transform', event.transform));
   svg.call(zoom);
 
+  // When a state is open, this button goes back to the whole U.S. map.
+  const resetButton = document.createElement('button');
+  resetButton.type = 'button';
+  resetButton.className = 'county-map-reset';
+  resetButton.textContent = 'Back to U.S. map';
+  resetButton.hidden = true;
+  resetButton.addEventListener('click', () => {
+    stateFilter.value = 'all';
+    showState('all');
+  });
+  mapFrame.appendChild(resetButton);
+
   const showState = (stateCode) => {
     selectedMapCounty = null;
+    resetButton.hidden = stateCode === 'all';
     bubbles.classed('is-selected', false);
     if (stateCode === 'all') {
       stateShapes.attr('display', null).classed('is-selected', false);
