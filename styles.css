@@ -24,7 +24,7 @@
 html { scroll-behavior: smooth; }
 body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--display); }
 a { color: inherit; }
-.masthead { position: absolute; z-index: 2; top: 0; left: 0; right: 0; display: flex; justify-content: space-between; align-items: center; padding: 28px 5vw; font-family: var(--mono); font-size: 11px; letter-spacing: .08em; }
+.masthead { position: absolute; z-index: 2; top: 0; left: 0; right: 0; display: flex; justify-content: flex-end; align-items: center; padding: 28px 5vw; font-family: var(--mono); font-size: 11px; letter-spacing: .08em; }
 .wordmark { text-decoration: none; font-weight: 500; }
 .wordmark span, .masthead nav a { opacity: .55; }
 .masthead nav { display: flex; gap: 28px; }

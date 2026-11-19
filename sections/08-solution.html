@@ -2,40 +2,45 @@
   <div class="section-index">07 <span>Take action</span></div>
   <div class="about-grid sol-head">
     <h2 id="solution-title">You can<br><em>take action.</em></h2>
-    <p class="sol-lead">Food access is not one problem, so there is no single fix. Across this story, three things stood out. Each one points to something you can do.</p>
+    <p class="sol-lead">Food access is not one problem, so there is no single fix. These three organizations each work on a different part of it, and each one gives you a way to help.</p>
   </div>
 
+  <!-- Three organizations to spotlight. Photos are public domain (credits below the list). -->
   <ol class="sol-list">
     <li class="sol-item">
       <figure class="sol-photo">
-        <img src="images/solution-distance.jpg" alt="A bus stop on a long road with no stores in sight" loading="lazy">
+        <img src="images/solution-feeding-america.jpg" alt="Volunteers sorting donated canned food and bottled water on tables at the Food Bank of Delaware." loading="lazy">
       </figure>
-      <span class="sol-num">01</span>
-      <h3>Distance is only part of access.</h3>
-      <p>A store can be close on the map and still out of reach without a car, a bus line, or time to spare. The physical access maps show that low access clusters in particular places.</p>
-      <p class="sol-act"><b>Take action:</b> Look up your own state and county in the map above, then ask local planners how they measure access to groceries and whether transit is counted.</p>
+      <span class="sol-num">01 &middot; Food banks</span>
+      <h3>Feeding America</h3>
+      <p>The largest hunger-relief network in the U.S., made up of about 200 food banks. Those food banks supply tens of thousands of local pantries and meal programs, the reach our food bank chart shows stretched thin in many states.</p>
+      <p class="sol-act"><b>Take action:</b> Find your local food bank, then volunteer, donate, or share it with someone who needs it.
+        <a class="sol-link" href="https://www.feedingamerica.org/find-your-local-foodbank" target="_blank" rel="noreferrer">Find a food bank <span aria-hidden="true">&#8599;</span></a></p>
     </li>
 
     <li class="sol-item">
       <figure class="sol-photo">
-        <img src="images/solution-average.jpg" alt="Neighbors shopping at a community market" loading="lazy">
+        <img src="images/solution-frac.jpg" alt="A smiling student at a school cafeteria table holding a cup of fruit, with a lunch tray in front of him." loading="lazy">
       </figure>
-      <span class="sol-num">02</span>
-      <h3>The average hides who is left out.</h3>
-      <p>When the data is split by race and by income, some groups face low access far more often than the national picture suggests. A single average can look fine while whole communities are not.</p>
-      <p class="sol-act"><b>Take action:</b> Ask for local food-access numbers broken down by group, not just totals, and support organizations serving the neighborhoods the averages miss.</p>
+      <span class="sol-num">02 &middot; Research and policy</span>
+      <h3>Food Research &amp; Action Center</h3>
+      <p>A national nonprofit that researches hunger and pushes for stronger programs like SNAP, school meals and WIC. As our SNAP chart shows, benefits haven't kept up with food costs, and policy is where that changes.</p>
+      <p class="sol-act"><b>Take action:</b> Sign up for FRAC's updates and tell your representatives to protect and strengthen SNAP and school meals.
+        <a class="sol-link" href="https://frac.org" target="_blank" rel="noreferrer">Visit FRAC <span aria-hidden="true">&#8599;</span></a></p>
     </li>
 
     <li class="sol-item">
       <figure class="sol-photo">
-        <img src="images/solution-budget.jpg" alt="A shopper checking the price of groceries" loading="lazy">
+        <img src="images/solution-salvation-army.jpg" alt="A Salvation Army worker giving a thumbs-up from the window of a food truck while handing out a hot meal." loading="lazy">
       </figure>
-      <span class="sol-num">03</span>
-      <h3>A nearby store doesn't help if the budget can't stretch.</h3>
-      <p>Food benefits average about $1.41 per person per day. Food banks help, but the data counts their locations, not how much food they can give out. Access means being able to afford food, too.</p>
-      <p class="sol-act"><b>Take action:</b> Tell your representatives you support food assistance, help eligible neighbors enroll, and give time or money to a local food bank.</p>
+      <span class="sol-num">03 &middot; Meals and pantries</span>
+      <h3>The Salvation Army</h3>
+      <p>Runs food pantries and community meals in neighborhoods across the country, and brings hot food to people after disasters. It reaches people close to home, where store distance and tight budgets hit hardest.</p>
+      <p class="sol-act"><b>Take action:</b> Volunteer or donate at your local Salvation Army, or help someone find the food pantry nearest them.
+        <a class="sol-link" href="https://www.salvationarmyusa.org" target="_blank" rel="noreferrer">Find your local Salvation Army <span aria-hidden="true">&#8599;</span></a></p>
     </li>
   </ol>
+  <p class="sol-credit">Photos, all public domain via Wikimedia Commons: U.S. Environmental Protection Agency (Food Bank of Delaware, a Feeding America member); U.S. Department of Agriculture (school lunch); Patsy Lynch, FEMA (Salvation Army meal).</p>
 </section>
 
 <style>
@@ -46,12 +51,21 @@
 
   #solution .sol-list { list-style: none; margin: 40px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
   #solution .sol-item { display: flex; flex-direction: column; min-width: 0; }
+  /* Wide screens: the three cards share rows (photo, label, name, text, yellow box), so the yellow boxes line up and match in height. */
+  @media (min-width: 901px) {
+    #solution .sol-list { grid-template-rows: repeat(5, auto); row-gap: 0; }
+    #solution .sol-item { display: grid; grid-row: span 5; grid-template-rows: subgrid; }
+    #solution .sol-item .sol-act { margin-top: 0 !important; }
+  }
   #solution .sol-photo { margin: 0 0 18px; aspect-ratio: 4 / 3; background: rgba(28, 33, 71, .12); overflow: hidden; border-radius: 18px; }
   #solution .sol-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
   #solution .sol-num { display: block; margin-bottom: 6px; font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; opacity: .6; }
   #solution .sol-item h3 { margin: 0 0 8px; font-size: 22px; font-weight: 600; letter-spacing: -.03em; line-height: 1.2; }
   #solution .sol-item p { margin: 0 0 10px; }
   #solution .sol-act { margin-top: auto !important; padding: 10px 12px; background: var(--acid); font-size: .95em; }
+  #solution .sol-link { display: inline-block; margin-top: 8px; font-family: var(--mono); font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: .06em; text-decoration: none; border-bottom: 1px solid currentColor; }
+  #solution .sol-link:hover, #solution .sol-link:focus-visible { opacity: .7; }
+  #solution .sol-credit { margin: 28px 0 0; font-family: var(--mono); font-size: 10px; line-height: 1.6; text-transform: uppercase; letter-spacing: .08em; opacity: .75; }
 
   #solution { padding-bottom: 220px; } /* empty space for the stickers */
 

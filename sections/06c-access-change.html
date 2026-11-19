@@ -44,6 +44,8 @@
           <label for="access-year"><span>Change since 2015</span><strong id="access-year-value">2015</strong></label>
           <input id="access-year" type="range" min="2015" max="2019" step="1" value="2015" aria-valuemin="2015" aria-valuemax="2019" aria-valuenow="2015">
           <div class="access-year-endpoints" aria-hidden="true"><span>2015</span><span>2019</span></div>
+          <!-- Hint shown until the reader moves the slider for the first time. -->
+          <p class="access-year-hint" id="access-year-hint"><span class="access-year-hint-arrow" aria-hidden="true">&#8596;</span> Drag the dot along the bar to see how access changed each year</p>
         </div>
         <div><h4 id="access-people-place">United States</h4><p class="access-place-change" id="access-place-change"></p></div>
         <div>
@@ -115,15 +117,15 @@
   #access-map path.area:hover, #access-map path.area:focus-visible { filter: brightness(1.3) drop-shadow(0 0 5px #d9f99d); outline: none; }
   #access-map path.area { cursor: pointer; }
   #access-map path.area.is-selected { stroke: #f5ffb0; stroke-width: 2.5px; filter: brightness(1.25) drop-shadow(0 0 6px #f5ffb0); }
-  .access-place-change { margin: .15rem 0 0; color: #e9f6dc; font: .72rem/1.3 system-ui, sans-serif; }
+  .access-place-change { margin: .2rem 0 0; color: #e9f6dc; font: .95rem/1.35 system-ui, sans-serif; }
   .access-people { display: flex; flex-direction: column; gap: .6rem; min-width: 0; }
-  .access-people h4 { margin: 0; color: #f5ffb0; font-size: 1rem; }
+  .access-people h4 { margin: 0; color: #f5ffb0; font-size: 1.35rem; }
   .access-summary { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .3rem; }
   .access-summary-item { padding: .3rem .2rem; border-top: 2px solid currentColor; text-align: center; }
   .access-summary-item strong, .access-summary-item span { display: block; }
-  .access-summary-item strong { font-size: 1rem; font-variant-numeric: tabular-nums; }
-  .access-summary-item span { color: #c6dab8; font: .62rem/1.2 system-ui, sans-serif; }
-  .access-summary-item small { display: block; margin-top: .1rem; color: #c6dab8; font: .58rem/1.2 system-ui, sans-serif; opacity: .85; }
+  .access-summary-item strong { font-size: 1.5rem; font-variant-numeric: tabular-nums; }
+  .access-summary-item span { color: #c6dab8; font: .85rem/1.25 system-ui, sans-serif; }
+  .access-summary-item small { display: block; margin-top: .15rem; color: #c6dab8; font: .75rem/1.25 system-ui, sans-serif; opacity: .85; }
   .access-note { margin: .35rem 0 0; color: #c6dab8; font: .64rem/1.35 system-ui, sans-serif; }
   .access-excluded { color: #e9e3c8; }
   .access-legend-nodata { display: flex; align-items: center; gap: .4rem; margin-top: .35rem; color: #c6dab8; }
@@ -131,14 +133,14 @@
   .access-summary-item.improving { color: #9fd17f; }
   .access-summary-item.stagnant { color: #d9b879; }
   .access-summary-item.worsening { color: #e0a070; }
-  .access-people-key { display: flex; align-items: center; gap: .3rem; margin: auto 0 0; color: #c6dab8; font: .7rem/1.2 system-ui, sans-serif; }
+  .access-people-key { display: flex; align-items: center; gap: .3rem; margin: auto 0 0; color: #c6dab8; font: .85rem/1.2 system-ui, sans-serif; }
   .access-people-key .person { width: .45rem; height: .9rem; fill: #e9f6dc; }
   .access-people-group { padding-top: .4rem; border-top: 2px solid currentColor; }
   .access-people-group.gaining { color: #9fd17f; }
   .access-people-group.losing { color: #e0a070; }
   .access-people-head { display: flex; align-items: baseline; flex-wrap: wrap; gap: .4rem; }
-  .access-people-head strong { font-size: 1.15rem; font-variant-numeric: tabular-nums; }
-  .access-people-head span { color: #e9f6dc; font: .72rem/1.2 system-ui, sans-serif; }
+  .access-people-head strong { font-size: 1.6rem; font-variant-numeric: tabular-nums; }
+  .access-people-head span { color: #e9f6dc; font: .95rem/1.25 system-ui, sans-serif; }
   .access-people-icons { display: flex; flex-wrap: wrap; gap: 2px; min-height: 1rem; margin-top: .35rem; }
   .access-people-icons .person { width: .42rem; height: .85rem; fill: currentColor; animation: person-in .3s ease both; }
   @keyframes person-in { from { opacity: 0; transform: translateY(4px) scale(.6); } }
@@ -146,10 +148,19 @@
   .map-tip { position: fixed; z-index: 10; pointer-events: none; padding: .6rem .75rem; color: #f5ffe9; background: #263110; border: 1px solid #a9d879; border-radius: .45rem; box-shadow: 0 .5rem 1.5rem #06201699; font: .78rem/1.35 system-ui, sans-serif; opacity: 0; transform: translateY(5px); transition: opacity .15s, transform .15s; }
   .map-tip.visible { opacity: 1; transform: translateY(0); }
   .access-year-control { padding: .5rem .65rem; background: rgba(25, 32, 8, .38); border: 1px solid rgba(174,226,137,.25); border-radius: .6rem; }
-  .access-year-control label { display: flex; justify-content: space-between; gap: 1rem; font-size: .8rem; font-weight: 700; }
+  .access-year-control label { display: flex; justify-content: space-between; gap: 1rem; font-size: 1rem; font-weight: 700; }
   .access-year-control label strong { color: #f5ffb0; font-variant-numeric: tabular-nums; }
   .access-year-control input { display: block; width: 100%; margin: .35rem 0 .1rem; accent-color: #b9d477; }
-  .access-year-endpoints { display: flex; justify-content: space-between; color: #c6dab8; font: .65rem/1.2 system-ui, sans-serif; }
+  .access-year-endpoints { display: flex; justify-content: space-between; color: #c6dab8; font: .8rem/1.2 system-ui, sans-serif; }
+  .access-year-control input { cursor: grab; }
+  /* Until the slider is used: a glowing outline around the control and a swaying arrow in the hint. */
+  .access-year-control:not(.is-used) { animation: access-year-glow 2s ease-in-out infinite; }
+  @keyframes access-year-glow { 0%, 100% { box-shadow: 0 0 0 0 rgba(185, 212, 119, 0); } 50% { box-shadow: 0 0 0 4px rgba(185, 212, 119, .45); } }
+  .access-year-hint { display: flex; align-items: center; gap: .45rem; margin: .5rem 0 0; color: #f5ffb0; font: .9rem/1.35 system-ui, sans-serif; }
+  .access-year-hint-arrow { display: inline-block; font-size: 1.2rem; animation: access-year-sway 1.4s ease-in-out infinite; }
+  @keyframes access-year-sway { 0%, 100% { transform: translateX(-4px); } 50% { transform: translateX(4px); } }
+  .access-year-control.is-used .access-year-hint { display: none; }
+  @media (prefers-reduced-motion: reduce) { .access-year-control:not(.is-used), .access-year-hint-arrow { animation: none; } }
   .access-legend { width: min(100%, 24rem); margin: .5rem auto 0; font-size: .68rem; }
   .access-legend-labels { display: flex; justify-content: space-between; gap: 1rem; margin-bottom: .35rem; }
   .access-legend-labels span { flex: 1; }
@@ -404,6 +415,8 @@
       const setYear = explorer(states, counties, stateNames, validRows);
       const yearInput = document.querySelector('#access-year');
       const yearValue = document.querySelector('#access-year-value');
+      // The first time the slider moves, hide the "drag the dot" hint and stop the glow.
+      yearInput.addEventListener('input', () => yearInput.closest('.access-year-control').classList.add('is-used'), { once: true });
       yearInput.addEventListener('input', () => {
         const year = Number(yearInput.value);
         yearValue.textContent = yearLabel(year);
