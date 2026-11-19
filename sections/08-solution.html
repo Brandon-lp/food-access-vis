@@ -3,10 +3,6 @@
   <div class="about-grid sol-head">
     <h2 id="solution-title">You can<br><em>take action.</em></h2>
     <p class="sol-lead">Food access is not one problem, so there is no single fix. Across this story, three things stood out. Each one points to something you can do.</p>
-    <div class="sol-ask">
-      <p>Good visualization starts with a specific question. Who is missing from the average? What changes when distance is measured by transit instead of miles? Which places become visible when you look at race, age, or income?</p>
-      <a class="text-link" href="https://github.com/Brandon-lp/food-access-vis" target="_blank" rel="noreferrer">View the project on GitHub <span aria-hidden="true">&#8599;</span></a>
-    </div>
   </div>
 
   <ol class="sol-list">
@@ -44,14 +40,13 @@
 
 <style>
   /* Scoped to #solution so these rules don't affect other sections. */
-  #solution .sol-head { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 40px; align-items: start; }
+  #solution .sol-head { display: grid; grid-template-columns: 1.3fr 2fr; gap: 40px; align-items: start; }
   #solution .sol-head p { margin: 0 0 20px; font-size: clamp(16px, 1.4vw, 20px); line-height: 1.5; }
   #solution .sol-head .sol-lead { margin: 0; padding-top: 12px; }
-  #solution .sol-ask { padding-top: 12px; }
 
   #solution .sol-list { list-style: none; margin: 40px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
   #solution .sol-item { display: flex; flex-direction: column; min-width: 0; }
-  #solution .sol-photo { margin: 0 0 18px; aspect-ratio: 4 / 3; background: rgba(28, 33, 71, .12); overflow: hidden; }
+  #solution .sol-photo { margin: 0 0 18px; aspect-ratio: 4 / 3; background: rgba(28, 33, 71, .12); overflow: hidden; border-radius: 18px; }
   #solution .sol-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
   #solution .sol-num { display: block; margin-bottom: 6px; font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; opacity: .6; }
   #solution .sol-item h3 { margin: 0 0 8px; font-size: 22px; font-weight: 600; letter-spacing: -.03em; line-height: 1.2; }
